@@ -1,0 +1,1264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dr. Lofi Dewanto — Career Timeline (1995–2026)</title>
+<style>
+  :root {
+    --ivory: #F7F4EE;
+    --ivory-deep: #F0EBE1;
+    --paper: #FCFAF6;
+    --ink: #1A1915;
+    --ink-soft: #3D3A33;
+    --muted: #6B655A;
+    --clay: #CC785C;
+    --clay-deep: #B85C42;
+    --clay-soft: #E8D4C9;
+    --line: #E3DCD0;
+    --sky: #6A8CAF;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+  :target, #phases, #timeline, #talks, #writing, #opensource, #domains, #summary, #connect { scroll-margin-top: 72px; }
+
+  body {
+    font-family: "Georgia", "Tiempos", "Times New Roman", serif;
+    background: var(--ivory);
+    color: var(--ink);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .sans {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+  }
+
+  /* ---------- Layout ---------- */
+  .wrap {
+    max-width: 880px;
+    margin: 0 auto;
+    padding: 0 28px;
+  }
+
+  /* ---------- Sticky nav ---------- */
+  nav.topbar {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background: rgba(247, 244, 238, 0.82);
+    backdrop-filter: saturate(180%) blur(12px);
+    -webkit-backdrop-filter: saturate(180%) blur(12px);
+    border-bottom: 1px solid var(--line);
+  }
+  nav.topbar .nav-inner {
+    max-width: 880px;
+    margin: 0 auto;
+    padding: 14px 28px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+  }
+  nav.topbar .brand {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    font-weight: 700;
+    font-size: 0.95rem;
+    letter-spacing: -0.01em;
+    color: var(--ink);
+    text-decoration: none;
+    white-space: nowrap;
+  }
+  nav.topbar .brand span { color: var(--clay-deep); }
+  nav.topbar .nav-links {
+    display: flex;
+    gap: 4px;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+  }
+  nav.topbar .nav-links a {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    font-size: 0.82rem;
+    font-weight: 500;
+    color: var(--muted);
+    text-decoration: none;
+    padding: 6px 12px;
+    border-radius: 100px;
+    transition: background 0.15s ease, color 0.15s ease;
+  }
+  nav.topbar .nav-links a:hover {
+    background: var(--ivory-deep);
+    color: var(--ink);
+  }
+  nav.topbar .nav-links a.print-link {
+    color: var(--clay-deep);
+    border: 1px solid var(--clay-soft);
+  }
+  nav.topbar .nav-links a.print-link:hover {
+    background: var(--clay-soft);
+    color: var(--clay-deep);
+  }
+  @media (max-width: 640px) {
+    nav.topbar .nav-links a.scroll-link { display: none; }
+  }
+
+  /* ---------- Hero ---------- */
+  header.hero {
+    background: linear-gradient(180deg, var(--paper) 0%, var(--ivory) 100%);
+    border-bottom: 1px solid var(--line);
+    padding: 88px 0 72px;
+  }
+  .hero-text { min-width: 0; }
+
+  .eyebrow {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    font-size: 0.72rem;
+    font-weight: 600;
+    color: var(--clay-deep);
+    margin-bottom: 22px;
+  }
+
+  .hero h1 {
+    font-size: clamp(2.6rem, 6vw, 4.1rem);
+    line-height: 1.04;
+    font-weight: 500;
+    letter-spacing: -0.02em;
+    color: var(--ink);
+    margin-bottom: 24px;
+  }
+
+  .hero .lede {
+    font-size: clamp(1.1rem, 2.3vw, 1.4rem);
+    color: var(--ink-soft);
+    max-width: 640px;
+    line-height: 1.5;
+  }
+
+  .hero .range {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    margin-top: 36px;
+    font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+    font-size: 0.92rem;
+    color: var(--muted);
+  }
+  .hero .range .dot {
+    width: 7px; height: 7px; border-radius: 50%;
+    background: var(--clay);
+  }
+
+  /* ---------- Phase strip ---------- */
+  .phases {
+    background: var(--ink);
+    color: var(--ivory);
+    padding: 64px 0;
+  }
+  .phases-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 14px;
+    overflow: hidden;
+  }
+  .phase {
+    background: var(--ink);
+    padding: 32px 26px;
+  }
+  .phase .yrs {
+    font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+    font-size: 0.78rem;
+    letter-spacing: 0.08em;
+    color: var(--clay);
+    font-weight: 600;
+    margin-bottom: 12px;
+  }
+  .phase h3 {
+    font-size: 1.18rem;
+    font-weight: 500;
+    line-height: 1.3;
+    color: var(--ivory);
+  }
+  @media (max-width: 720px) {
+    .phases-grid { grid-template-columns: 1fr; }
+  }
+
+  /* ---------- Timeline ---------- */
+  main { padding: 88px 0; }
+
+  .section-head {
+    margin-bottom: 56px;
+  }
+  .section-head h2 {
+    font-size: 2rem;
+    font-weight: 500;
+    letter-spacing: -0.01em;
+  }
+  .section-head p {
+    color: var(--muted);
+    font-size: 1.02rem;
+    margin-top: 10px;
+    max-width: 560px;
+  }
+
+  .era {
+    margin-bottom: 64px;
+  }
+  .era-band {
+    display: flex;
+    align-items: baseline;
+    gap: 18px;
+    flex-wrap: wrap;
+    padding-bottom: 18px;
+    margin-bottom: 36px;
+    border-bottom: 2px solid var(--clay-soft);
+  }
+  .era-band .yr {
+    font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--clay-deep);
+    letter-spacing: -0.01em;
+  }
+  .era-band .title {
+    font-size: 1.5rem;
+    font-weight: 500;
+    color: var(--ink);
+  }
+
+  .timeline {
+    position: relative;
+    padding-left: 30px;
+  }
+  .timeline::before {
+    content: "";
+    position: absolute;
+    left: 5px; top: 8px; bottom: 8px;
+    width: 2px;
+    background: var(--line);
+  }
+
+  .node {
+    position: relative;
+    margin-bottom: 34px;
+  }
+  .node::before {
+    content: "";
+    position: absolute;
+    left: -30px;
+    top: 7px;
+    width: 12px; height: 12px;
+    border-radius: 50%;
+    background: var(--ivory);
+    border: 2px solid var(--clay);
+  }
+  .node .year {
+    font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+    font-size: 0.82rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    color: var(--ink);
+    text-transform: uppercase;
+    margin-bottom: 12px;
+  }
+  .node ul {
+    list-style: none;
+  }
+  .node ul li {
+    position: relative;
+    padding-left: 20px;
+    margin-bottom: 9px;
+    color: var(--ink-soft);
+    font-size: 1.04rem;
+  }
+  .node ul li::before {
+    content: "";
+    position: absolute;
+    left: 0; top: 11px;
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: var(--clay-soft);
+  }
+  .node ul li strong { color: var(--ink); font-weight: 600; }
+
+  /* nested sub-lists (talk topics etc.) */
+  .node ul ul {
+    margin-top: 8px;
+    margin-bottom: 4px;
+  }
+  .node ul ul li {
+    font-size: 0.97rem;
+    color: var(--muted);
+    margin-bottom: 5px;
+  }
+  .node ul ul li::before {
+    background: transparent;
+    border: 1px solid var(--clay);
+    width: 5px; height: 5px;
+    top: 9px;
+  }
+
+  .tags {
+    display: flex; flex-wrap: wrap; gap: 8px;
+    margin-top: 12px;
+  }
+  .tag {
+    font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+    font-size: 0.74rem;
+    font-weight: 500;
+    padding: 4px 12px;
+    border-radius: 100px;
+    background: var(--ivory-deep);
+    border: 1px solid var(--line);
+    color: var(--ink-soft);
+  }
+
+  /* highlight callout */
+  .callout {
+    margin-top: 14px;
+    padding: 16px 20px;
+    background: var(--paper);
+    border-left: 3px solid var(--clay);
+    border-radius: 0 10px 10px 0;
+    font-style: italic;
+    color: var(--ink-soft);
+    font-size: 0.98rem;
+  }
+
+  /* ---------- Summary ---------- */
+  .summary {
+    background: var(--ivory-deep);
+    border-top: 1px solid var(--line);
+    padding: 88px 0;
+  }
+  .summary h2 {
+    font-size: 2rem;
+    font-weight: 500;
+    margin-bottom: 18px;
+  }
+  .summary > .wrap > p.intro {
+    color: var(--ink-soft);
+    font-size: 1.12rem;
+    max-width: 640px;
+    margin-bottom: 44px;
+  }
+  .pillars {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 22px;
+  }
+  .pillar {
+    background: var(--paper);
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    padding: 32px 26px;
+  }
+  .pillar .num {
+    font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: var(--clay);
+    margin-bottom: 14px;
+  }
+  .pillar h4 {
+    font-size: 1.18rem;
+    font-weight: 600;
+    margin-bottom: 12px;
+    line-height: 1.3;
+  }
+  .pillar p {
+    font-size: 0.98rem;
+    color: var(--muted);
+  }
+  @media (max-width: 720px) {
+    .pillars { grid-template-columns: 1fr; }
+  }
+
+  .closing {
+    margin-top: 48px;
+    font-size: 1.18rem;
+    line-height: 1.6;
+    color: var(--ink-soft);
+    max-width: 680px;
+  }
+  .closing strong { color: var(--ink); font-weight: 600; }
+
+  /* ---------- Extra sections (talks / writing / OSS) ---------- */
+  .extra {
+    padding: 80px 0;
+    border-top: 1px solid var(--line);
+  }
+  .extra.alt { background: var(--ivory-deep); }
+
+  /* Talks cards */
+  .cards {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+  .card {
+    background: var(--paper);
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    padding: 28px 26px;
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+  }
+  .card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 16px 36px -22px rgba(26,25,21,0.45);
+  }
+  .card-yr {
+    font-size: 0.76rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    color: var(--clay-deep);
+    text-transform: uppercase;
+    margin-bottom: 12px;
+  }
+  .card h4 {
+    font-size: 1.18rem;
+    font-weight: 500;
+    line-height: 1.3;
+    margin-bottom: 10px;
+    color: var(--ink);
+  }
+  .card p { font-size: 0.96rem; color: var(--muted); }
+
+  /* Publications list */
+  .pub-list { display: flex; flex-direction: column; gap: 2px; }
+  .pub {
+    display: grid;
+    grid-template-columns: 170px 1fr;
+    gap: 24px;
+    padding: 22px 4px;
+    border-top: 1px solid var(--line);
+    align-items: baseline;
+  }
+  .pub:last-child { border-bottom: 1px solid var(--line); }
+  .pub-kind {
+    font-size: 0.76rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--clay-deep);
+  }
+  .pub-body h4 {
+    font-size: 1.12rem;
+    font-weight: 500;
+    margin-bottom: 6px;
+    color: var(--ink);
+  }
+  .pub-body p { font-size: 0.96rem; color: var(--muted); }
+
+  /* Open source grid */
+  .os-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+  .os {
+    border-left: 3px solid var(--clay);
+    padding: 6px 0 6px 22px;
+  }
+  .os h4 {
+    font-size: 1.16rem;
+    font-weight: 500;
+    margin-bottom: 8px;
+    color: var(--ink);
+  }
+  .os p { font-size: 0.97rem; color: var(--muted); }
+
+  /* Industries / domains grid */
+  .domain-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+  }
+  .domain {
+    background: var(--paper);
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    padding: 22px 22px;
+    position: relative;
+    overflow: hidden;
+  }
+  .domain::before {
+    content: "";
+    position: absolute;
+    left: 0; top: 0; bottom: 0;
+    width: 4px;
+    background: var(--clay);
+  }
+  .domain h4 {
+    font-size: 1.06rem;
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: var(--ink);
+  }
+  .domain p { font-size: 0.9rem; color: var(--muted); line-height: 1.5; }
+
+  /* Advisory (Mova) block */
+  .advisory {
+    margin-top: 28px;
+    padding: 28px 30px;
+    background: var(--ink);
+    color: var(--ivory);
+    border-radius: 16px;
+  }
+  .advisory .adv-head {
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--clay);
+    margin-bottom: 14px;
+  }
+  .advisory p {
+    font-size: 1rem;
+    color: rgba(247,244,238,0.88);
+    max-width: 680px;
+    margin-bottom: 18px;
+  }
+  .advisory .tags .tag {
+    background: rgba(247,244,238,0.06);
+    border: 1px solid rgba(247,244,238,0.2);
+    color: var(--clay-soft);
+  }
+
+  @media (max-width: 900px) {
+    .domain-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 720px) {
+    .cards, .os-grid { grid-template-columns: 1fr; }
+    .pub { grid-template-columns: 1fr; gap: 6px; }
+    .domain-grid { grid-template-columns: 1fr; }
+  }
+
+  /* ---------- Footer ---------- */
+  footer {
+    background: var(--ink);
+    color: var(--ivory);
+    padding: 56px 0;
+    text-align: center;
+  }
+  footer .links {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 28px;
+  }
+  footer .links a {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: var(--ivory);
+    text-decoration: none;
+    padding: 8px 16px;
+    border: 1px solid rgba(247,244,238,0.22);
+    border-radius: 100px;
+    transition: background 0.15s ease, border-color 0.15s ease;
+  }
+  footer .links a:hover {
+    background: rgba(204,120,92,0.22);
+    border-color: var(--clay);
+    color: var(--clay-soft);
+  }
+  footer .note {
+    font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+    font-size: 0.82rem;
+    color: rgba(247,244,238,0.55);
+    max-width: 560px;
+    margin: 0 auto;
+    line-height: 1.6;
+  }
+  footer .name {
+    font-size: 1.2rem;
+    margin-bottom: 14px;
+    color: var(--clay-soft);
+  }
+
+  /* ---------- Print / PDF export ---------- */
+  @media print {
+    @page { margin: 16mm 14mm; }
+    html, body {
+      background: #fff !important;
+      color: #000;
+      font-size: 11pt;
+      line-height: 1.45;
+    }
+    nav.topbar { display: none !important; }
+    .wrap { max-width: 100%; padding: 0; }
+
+    header.hero {
+      padding: 0 0 18px;
+      border-bottom: 1.5px solid #999;
+      background: #fff !important;
+    }
+    .hero h1 { font-size: 26pt; }
+    .hero .lede { font-size: 12pt; }
+    .hero .range { margin-top: 14px; }
+
+    /* Dark blocks become light so they don't waste toner */
+    .phases, footer {
+      background: #fff !important;
+      color: #000 !important;
+      padding: 18px 0;
+      border-top: 1px solid #ccc;
+    }
+    .phases-grid {
+      background: #fff;
+      border: 1px solid #ccc;
+      page-break-inside: avoid;
+    }
+    .phase { background: #fff; padding: 14px 16px; }
+    .phase h3 { color: #000; font-size: 11pt; }
+    .phase .yrs { color: var(--clay-deep); }
+
+    main { padding: 24px 0; }
+    .section-head { margin-bottom: 24px; }
+
+    .era { page-break-inside: avoid; margin-bottom: 26px; }
+    .era-band { page-break-after: avoid; }
+    .node { page-break-inside: avoid; }
+
+    .summary {
+      background: #fff !important;
+      border-top: 1px solid #ccc;
+      padding: 24px 0;
+    }
+    .pillar {
+      background: #fff;
+      border: 1px solid #ccc;
+      page-break-inside: avoid;
+    }
+    .callout { background: #fff; }
+
+    .extra { padding: 22px 0; page-break-inside: auto; }
+    .extra.alt { background: #fff !important; }
+    .card, .pub, .os, .domain { page-break-inside: avoid; }
+    .card { background: #fff; border: 1px solid #ccc; box-shadow: none; }
+    .domain { background: #fff; border: 1px solid #ccc; }
+    .cards, .os-grid, .domain-grid { gap: 12px; }
+    .advisory {
+      background: #fff !important;
+      color: #000;
+      border: 1px solid #ccc;
+      page-break-inside: avoid;
+    }
+    .advisory p { color: #333; }
+    .advisory .tags .tag { background: #fff; border: 1px solid #bbb; color: var(--clay-deep); }
+
+    footer .links { display: none; }
+    footer .name { color: var(--clay-deep); }
+    footer .note { color: #555; }
+
+    a { color: inherit; text-decoration: none; }
+
+    /* Keep the warm accent ink in print */
+    .eyebrow, .era-band .yr, .node ul li::before,
+    .pillar .num, nav .brand span {
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+  }
+</style>
+</head>
+<body>
+
+<nav class="topbar">
+  <div class="nav-inner">
+    <a href="#top" class="brand">Dr. Lofi <span>Dewanto</span></a>
+    <div class="nav-links">
+      <a href="#timeline" class="scroll-link">Timeline</a>
+      <a href="#talks" class="scroll-link">Talks</a>
+      <a href="#writing" class="scroll-link">Writing</a>
+      <a href="#domains" class="scroll-link">Domains</a>
+      <a href="#summary" class="scroll-link">Summary</a>
+      <a href="#connect" class="scroll-link">Connect</a>
+      <a href="#" class="print-link" onclick="window.print();return false;">Download PDF</a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <div class="wrap">
+    <div class="hero-text">
+      <div class="eyebrow">Career Timeline · 1995 – 2026</div>
+      <h1>Dr. Lofi Dewanto</h1>
+      <p class="lede">Three decades at the leading edge of enterprise software — from Java and open source, through enterprise architecture and the cloud, to AI agents and the future of software platforms.</p>
+      <div class="range">
+        <span class="dot"></span>
+        <span class="sans">Java &amp; Open-Source Pioneer · Enterprise Architect · AI &amp; Agentic Systems Advocate</span>
+      </div>
+    </div>
+  </div>
+</header>
+
+<section class="phases" id="phases">
+  <div class="wrap">
+    <div class="phases-grid">
+      <div class="phase">
+        <div class="yrs sans">1995 – 2003</div>
+        <h3>Academic research, OpenUSS, Java pioneer &amp; open source</h3>
+      </div>
+      <div class="phase">
+        <div class="yrs sans">2004 – 2018</div>
+        <h3>Enterprise architecture, MDA, Java leadership &amp; digital transformation</h3>
+      </div>
+      <div class="phase">
+        <div class="yrs sans">2019 – 2026</div>
+        <h3>Cloud-native modernization, insurance tech, AI agents &amp; future platforms</h3>
+      </div>
+    </div>
+  </div>
+</section>
+
+<main id="timeline">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>The journey, year by year</h2>
+      <p>Some milestones are publicly documented; others are drawn from conference biographies, university records, publications, and industry activity. The focus is on major developments and contributions.</p>
+    </div>
+
+    <!-- ERA 1 -->
+    <div class="era">
+      <div class="era-band">
+        <span class="yr sans">1995–1998</span>
+        <span class="title">Education and Early Software Development</span>
+      </div>
+      <div class="timeline">
+        <div class="node">
+          <div class="year">1995 – 1996</div>
+          <ul>
+            <li>Studied <strong>Information Systems (Business Informatics)</strong> at the University of Münster, Germany.</li>
+            <li>Developed early software solutions for small businesses.</li>
+            <li>Focused on databases, client-server architectures, and enterprise applications.</li>
+          </ul>
+        </div>
+        <div class="node">
+          <div class="year">1997</div>
+          <ul>
+            <li>Worked as a <strong>research assistant</strong> at the University of Münster.</li>
+            <li>Participated in projects involving production planning and simulation systems.</li>
+            <li>Deepened expertise in object-oriented software engineering.</li>
+          </ul>
+        </div>
+        <div class="node">
+          <div class="year">1998</div>
+          <ul>
+            <li>Completed a diploma thesis on internet-based learning systems.</li>
+            <li>Created the foundation for <strong>InterUSS</strong> (Internet-based University Support System), which later evolved into <strong>OpenUSS</strong>.</li>
+            <li>Began working extensively with Java during the early J2EE era.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- ERA 2 -->
+    <div class="era">
+      <div class="era-band">
+        <span class="yr sans">1999–2003</span>
+        <span class="title">OpenUSS, Open Source, and Java Pioneer</span>
+      </div>
+      <div class="timeline">
+        <div class="node">
+          <div class="year">1999</div>
+          <ul>
+            <li>Graduated from university.</li>
+            <li>Expanded the InterUSS project.</li>
+            <li>Started publishing extensively on Java, XML, databases, and enterprise software.</li>
+          </ul>
+        </div>
+        <div class="node">
+          <div class="year">2000</div>
+          <ul>
+            <li>Became a <strong>research associate</strong> at the University of Münster.</li>
+            <li>Led the <strong>OpenUSS</strong> project — one of Germany's earliest and most successful open-source e-learning platforms.</li>
+            <li>Promoted open-source technologies in academia and enterprise environments.</li>
+          </ul>
+        </div>
+        <div class="node">
+          <div class="year">2000 – 2002</div>
+          <ul>
+            <li>Became a recognized contributor to the German Java and open-source community.</li>
+            <li>Contributed to the launch and growth of the German <strong>JavaMagazin</strong>.</li>
+            <li>Published articles and tutorials covering:
+              <ul>
+                <li>JBoss</li>
+                <li>JOnAS</li>
+                <li>Enhydra</li>
+                <li>UML</li>
+                <li>XML</li>
+                <li>Enterprise Java technologies</li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+        <div class="node">
+          <div class="year">2001 – 2005</div>
+          <ul>
+            <li>Regular speaker at major Java conferences, including the early <strong>JAX</strong> conferences.</li>
+            <li>Delivered talks on:
+              <ul>
+                <li>Enterprise Java</li>
+                <li>Software Architecture</li>
+                <li>Open Source</li>
+                <li>OpenUSS</li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- ERA 3 -->
+    <div class="era">
+      <div class="era-band">
+        <span class="yr sans">2003–2010</span>
+        <span class="title">Research, PhD, and Enterprise Architecture</span>
+      </div>
+      <div class="timeline">
+        <div class="node">
+          <div class="year">2003 – 2005</div>
+          <ul>
+            <li>Earned a <strong>PhD (Dr. rer. pol.)</strong> in Information Systems from the University of Münster.</li>
+            <li>Specialized in:
+              <ul>
+                <li>Model-Driven Architecture (MDA)</li>
+                <li>Software Engineering</li>
+                <li>Enterprise Systems</li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+        <div class="node">
+          <div class="year">2005 – 2010</div>
+          <ul>
+            <li>Transitioned from academia into large-scale enterprise software projects.</li>
+            <li>Focused on:
+              <ul>
+                <li>Java Enterprise platforms</li>
+                <li>Service-Oriented Architecture (SOA)</li>
+                <li>Model-driven development</li>
+                <li>Open-source governance</li>
+              </ul>
+            </li>
+            <li>Became a strong advocate for open-source adoption in corporate environments.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- ERA 4 -->
+    <div class="era">
+      <div class="era-band">
+        <span class="yr sans">2010–2018</span>
+        <span class="title">Enterprise Leadership and Digital Transformation</span>
+      </div>
+      <div class="timeline">
+        <div class="node">
+          <div class="year">2010 – 2015</div>
+          <ul>
+            <li>Assumed senior architecture and leadership roles in enterprise IT organizations.</li>
+            <li>Managed large Java application landscapes.</li>
+            <li>Introduced modern software engineering practices and open-source technologies.</li>
+          </ul>
+        </div>
+        <div class="node">
+          <div class="year">2015 – 2018</div>
+          <ul>
+            <li>Built and led <strong>Java competency centers</strong>.</li>
+            <li>Focused on:
+              <ul>
+                <li>Cloud adoption</li>
+                <li>DevOps</li>
+                <li>Continuous Delivery</li>
+                <li>API-driven architectures</li>
+                <li>Digital transformation initiatives</li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- ERA 5 -->
+    <div class="era">
+      <div class="era-band">
+        <span class="yr sans">2018–2022</span>
+        <span class="title">DEVK and Cloud Modernization</span>
+      </div>
+      <div class="timeline">
+        <div class="node">
+          <div class="year">2018 – 2020</div>
+          <ul>
+            <li>Took a leadership role at <strong>DEVK Versicherungen</strong> as <strong>Head of Sales Applications Group — Java Competence Center</strong> in Cologne.</li>
+            <li>Led sales application systems and Java platform initiatives.</li>
+            <li>Drove modernization of large legacy insurance systems.</li>
+          </ul>
+        </div>
+        <div class="node">
+          <div class="year">2019</div>
+          <ul>
+            <li>Delivered a notable presentation at <strong>FrOSCon 2019</strong>.</li>
+            <li>Strengthened his public profile as an advocate for open-source culture.</li>
+          </ul>
+          <div class="callout">"Open Source: Are You Only Taking, or Also Giving Back?"</div>
+        </div>
+        <div class="node">
+          <div class="year">2020 – 2022</div>
+          <ul>
+            <li>Focused heavily on:
+              <ul>
+                <li>Cloud migration</li>
+                <li>AWS adoption</li>
+                <li>Microservices</li>
+                <li>Enterprise modernization</li>
+              </ul>
+            </li>
+            <li>Helped establish cloud-native platforms within the insurance sector.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- ERA 6 -->
+    <div class="era">
+      <div class="era-band">
+        <span class="yr sans">2023–2025</span>
+        <span class="title">Cloud Native, AI, and Industry Thought Leadership</span>
+      </div>
+      <div class="timeline">
+        <div class="node">
+          <div class="year">2023</div>
+          <ul>
+            <li>Public speaker on:
+              <ul>
+                <li>Microservices</li>
+                <li>Microfrontends</li>
+                <li>Cloud-native transformation</li>
+                <li>Organizational change in technology-driven enterprises</li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+        <div class="node">
+          <div class="year">2024</div>
+          <ul>
+            <li>Spoke at <strong>JCON Europe 2024</strong> (with Daniel Krämer, anderScore GmbH) on <em>"The Journey of a Strongly Coupled Monolith into the Cloud Land"</em> — a multi-year migration of a production-critical Java insurance monolith and its databases (Oracle → PostgreSQL) to Kubernetes and AWS.</li>
+            <li>Speaker at major conferences including:</li>
+          </ul>
+          <div class="tags">
+            <span class="tag">IT-Tage</span>
+            <span class="tag">Navigate Kongress</span>
+            <span class="tag">JCON</span>
+          </div>
+        </div>
+        <div class="node">
+          <div class="year">2025</div>
+          <ul>
+            <li>Published articles and presentations on the future of Java and enterprise development.</li>
+            <li>Increased focus on:
+              <ul>
+                <li>Generative AI</li>
+                <li>Large Language Models (LLMs)</li>
+                <li>AI Agents</li>
+                <li>AI-assisted software engineering</li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- ERA 7 -->
+    <div class="era">
+      <div class="era-band">
+        <span class="yr sans">2026</span>
+        <span class="title">AI Agents, MCP, and the Future of Software Platforms</span>
+      </div>
+      <div class="timeline">
+        <div class="node">
+          <div class="year">2026</div>
+          <ul>
+            <li>Returned as a speaker to the <strong>JAX</strong> after nearly two decades.</li>
+            <li>Reflected on the evolution of:
+              <ul>
+                <li>OpenUSS</li>
+                <li>JavaMagazin</li>
+                <li>The German Java ecosystem</li>
+                <li>Enterprise software architecture</li>
+              </ul>
+            </li>
+            <li>Publicly explored topics such as:
+              <ul>
+                <li>AI Agents</li>
+                <li>MCP (Model Context Protocol)</li>
+                <li>Agentic Systems</li>
+                <li>Natural-language interfaces</li>
+                <li>The future of websites and software development</li>
+              </ul>
+            </li>
+            <li>Presented <em>"Microservices and Microfrontends: Scaling, Learning, Growing — Our Journey"</em> at <strong>JCON 2026</strong> (with Patricia Erdelen).</li>
+            <li>Serves as <strong>Advisor to Mova Tech / Mova Intelligence</strong>, championing "Chat as Code" conversational AI with LangChain4j and Spring AI, and AI customer-service agents on WhatsApp, Telegram, and web.</li>
+            <li>Keynote at the <strong>viadee Round Table "KI in der Softwareentwicklung"</strong> (Cologne, 30 June 2026): <em>"AI or DIE: Die Zukunft der Softwareentwicklung"</em> — how AI fundamentally transforms software development and the organizations around it.</li>
+          </ul>
+          <div class="callout">"AI or DIE: Die Zukunft der Softwareentwicklung" — viadee Round Table, Cologne, June 2026</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</main>
+
+<!-- ===== SELECTED TALKS ===== -->
+<section class="extra" id="talks">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Selected talks &amp; speaking</h2>
+      <p>A quarter-century on stage — from the early JAX era to today's AI round tables. Regular speaker at OOP, JAX, JCON, FrOSCon, Navigate, IT-Tage, and CampusSource.</p>
+    </div>
+    <div class="cards">
+      <div class="card">
+        <div class="card-yr sans">2026 · viadee Round Table</div>
+        <h4>AI or DIE: Die Zukunft der Softwareentwicklung</h4>
+        <p>Keynote on how AI fundamentally reshapes software development and the organizations building it. Cologne, June 2026.</p>
+      </div>
+      <div class="card">
+        <div class="card-yr sans">2026 · JCON</div>
+        <h4>Microservices &amp; Microfrontends: Scaling, Learning, Growing — Our Journey</h4>
+        <p>Lessons from scaling distributed front- and back-end architectures, with Patricia Erdelen.</p>
+      </div>
+      <div class="card">
+        <div class="card-yr sans">2024 · JCON Europe</div>
+        <h4>The Journey of a Strongly Coupled Monolith into the Cloud Land</h4>
+        <p>Migrating a production-critical Java insurance monolith and its databases to Kubernetes &amp; AWS, with Daniel Krämer.</p>
+      </div>
+      <div class="card">
+        <div class="card-yr sans">2019 · FrOSCon</div>
+        <h4>Open Source: Are You Only Taking, or Also Giving Back?</h4>
+        <p>A call to enterprises to contribute back to the open-source ecosystems they depend on.</p>
+      </div>
+      <div class="card">
+        <div class="card-yr sans">2001–2005 · JAX (early years)</div>
+        <h4>EJOSA &amp; OpenUSS</h4>
+        <p>Enterprise Java Open Source Architecture and the OpenUSS e-learning platform — pioneering open-source J2EE.</p>
+      </div>
+      <div class="card">
+        <div class="card-yr sans">Ongoing</div>
+        <h4>Training &amp; workshops</h4>
+        <p>Java, Maven, Spring Boot, and GWT / J2CL — delivered in German, English, and Indonesian.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== WRITING & PUBLICATIONS ===== -->
+<section class="extra alt" id="writing">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Writing &amp; publications</h2>
+      <p>Author of a book on Model Driven Architecture and a prolific writer for the German Java press, TheServerSide, and Medium since 2006.</p>
+    </div>
+    <div class="pub-list">
+      <div class="pub">
+        <div class="pub-kind sans">Book</div>
+        <div class="pub-body">
+          <h4>Anwendungsentwicklung mit Model Driven Architecture</h4>
+          <p>A practitioner's guide to building applications with MDA (German).</p>
+        </div>
+      </div>
+      <div class="pub">
+        <div class="pub-kind sans">Article · 2025</div>
+        <div class="pub-body">
+          <h4>The State and Future of Java Desktop Application Development</h4>
+          <p>TheServerSide.com / TechTarget — April 2025.</p>
+        </div>
+      </div>
+      <div class="pub">
+        <div class="pub-kind sans">Article</div>
+        <div class="pub-body">
+          <h4>Full-Stack Java in 2024 — GWT 2.12 Released</h4>
+          <p>Medium — a new chapter for modern Java-in-the-browser development.</p>
+        </div>
+      </div>
+      <div class="pub">
+        <div class="pub-kind sans">Article</div>
+        <div class="pub-body">
+          <h4>Dynamite Duo: GWT Boot and Spring Boot</h4>
+          <p>Geek Culture / Medium — high-quality full-stack web apps in pure Java.</p>
+        </div>
+      </div>
+      <div class="pub">
+        <div class="pub-kind sans">Magazine</div>
+        <div class="pub-body">
+          <h4>JavaMagazin &amp; the early German Java press</h4>
+          <p>Contributor and co-shaper of Germany's flagship Java publication — articles on JBoss, JOnAS, Enhydra, UML, XML, and Enterprise Java.</p>
+        </div>
+      </div>
+      <div class="pub">
+        <div class="pub-kind sans">Blog · since 2006</div>
+        <div class="pub-body">
+          <h4>"Lofi model @ work" &amp; Medium</h4>
+          <p>Two decades of writing on MDA, GWT/J2CL, microservices, cloud migration, and — lately — LLMs, LangChain4j, Ollama, and AI agents.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== OPEN SOURCE & COMMUNITY ===== -->
+<section class="extra" id="opensource">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Open source &amp; community</h2>
+      <p>A lifelong open-source advocate — building, maintaining, and championing Java OSS for nearly three decades.</p>
+    </div>
+    <div class="os-grid">
+      <div class="os">
+        <h4>OpenUSS</h4>
+        <p>Founder of one of the first e-learning platforms built on Java 2 Enterprise Edition — and one of Germany's earliest successful open-source academic projects.</p>
+      </div>
+      <div class="os">
+        <h4>GWT / J2CL &amp; GWT Boot</h4>
+        <p>Active contributor and maintainer in the modern Google Web Toolkit ecosystem, bringing pure-Java full-stack web development forward.</p>
+      </div>
+      <div class="os">
+        <h4>Java &amp; open-source advocacy</h4>
+        <p>Long-standing voice for open-source adoption and governance in enterprise — including the FrOSCon "give back" message.</p>
+      </div>
+      <div class="os">
+        <h4>GitHub · "Dr. Jawa"</h4>
+        <p>Open repositories and examples spanning GWT, Spring Boot, model-driven tooling, and AI-assisted development experiments.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== INDUSTRIES & DOMAINS ===== -->
+<section class="extra alt" id="domains">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Industries &amp; vertical domains</h2>
+      <p>Three decades across a remarkably wide range of business domains — building production systems in each, from architecture down to code.</p>
+    </div>
+    <div class="domain-grid">
+      <div class="domain">
+        <h4>Insurance</h4>
+        <p>DEVK Versicherungen — sales application systems, microservices, and AWS cloud architecture.</p>
+      </div>
+      <div class="domain">
+        <h4>Postal &amp; Pension Services</h4>
+        <p>Deutsche Post Renten Service — order, portfolio, payment &amp; liquidity management; COBOL mainframe → Java migration.</p>
+      </div>
+      <div class="domain">
+        <h4>Logistics &amp; Recycling</h4>
+        <p>Interseroh — circular-economy customer/supplier portals, microservices, and Oracle E-Business Suite ERP integration.</p>
+      </div>
+      <div class="domain">
+        <h4>Trust Center, PKI &amp; Security</h4>
+        <p>Deutsche Post Signtrust — SSL certificates and qualified digital-signature cards under German trust-center requirements.</p>
+      </div>
+      <div class="domain">
+        <h4>Digital Identity &amp; E-Government</h4>
+        <p>Identity-attribute services with OpenID &amp; OAuth, mobile/voice/index TAN, DE-Mail and Bürgerportale.</p>
+      </div>
+      <div class="domain">
+        <h4>Online Advertising &amp; Marketing</h4>
+        <p>Werbemanager Deutsche Post — SME online-campaign platform mediating Google AdWords and banner advertising.</p>
+      </div>
+      <div class="domain">
+        <h4>Healthcare &amp; eHealth</h4>
+        <p>ProMI — eHealth-card, contract &amp; billing management; Mundipharma medical information and reporting system.</p>
+      </div>
+      <div class="domain">
+        <h4>Pharmaceuticals</h4>
+        <p>Merck KGaA — capacity planning for clinical development; Apotik Klinika pharmacy management system (Jakarta).</p>
+      </div>
+      <div class="domain">
+        <h4>Higher Education &amp; E-Learning</h4>
+        <p>OpenUSS at the University of Münster — award-winning J2EE learning platform (Best Use Case, ObjectWeb 2005).</p>
+      </div>
+      <div class="domain">
+        <h4>Manufacturing &amp; Industry</h4>
+        <p>Hülsta &amp; Parador (CRM); production-planning, shop-floor scheduling and simulation systems.</p>
+      </div>
+      <div class="domain">
+        <h4>Retail &amp; Food</h4>
+        <p>Simon's Bakery — information system spanning a four-shop bakery operation.</p>
+      </div>
+      <div class="domain">
+        <h4>Real Estate</h4>
+        <p>HSI-Immobilien — website and automated integration with the existing back-office system.</p>
+      </div>
+    </div>
+
+    <div class="advisory">
+      <div class="adv-head sans">Advisory · Mova Intelligence</div>
+      <p>As technology advisor to <strong>Mova Tech / Mova Intelligence</strong>, he supports businesses with conversational-AI agents — "Chat as Code" built on LangChain4j, Spring AI, and Ollama, delivered across WhatsApp, Telegram, and web — in these verticals:</p>
+      <div class="tags">
+        <span class="tag">Restaurant &amp; Food · FeedSnap AI</span>
+        <span class="tag">Healthcare · Mandaya Hospital</span>
+        <span class="tag">eCommerce · Galva &amp; Kaze Rice</span>
+        <span class="tag">Travel &amp; Tourism · Goldenrama</span>
+        <span class="tag">Agriculture · Fantasia Raja Naga</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="summary" id="summary">
+  <div class="wrap">
+    <h2>Executive Summary</h2>
+    <p class="intro">Dr. Lofi Dewanto's career mirrors the evolution of enterprise software over the last three decades.</p>
+
+    <div class="pillars">
+      <div class="pillar">
+        <div class="num sans">01</div>
+        <h4>Java &amp; Open-Source Pioneer</h4>
+        <p><span class="sans" style="font-size:0.8rem;color:var(--clay-deep);font-weight:600;">1990s – 2000s</span><br><br>Helping shape Germany's early Java and open-source ecosystem.</p>
+      </div>
+      <div class="pillar">
+        <div class="num sans">02</div>
+        <h4>Enterprise Architect &amp; Technology Leader</h4>
+        <p><span class="sans" style="font-size:0.8rem;color:var(--clay-deep);font-weight:600;">2000s – 2010s</span><br><br>Driving large-scale software architecture and transformation initiatives.</p>
+      </div>
+      <div class="pillar">
+        <div class="num sans">03</div>
+        <h4>AI &amp; Agentic Systems Advocate</h4>
+        <p><span class="sans" style="font-size:0.8rem;color:var(--clay-deep);font-weight:600;">2020s</span><br><br>Exploring how AI agents, LLMs, MCP, and natural-language interfaces may redefine the future of software and the web.</p>
+      </div>
+    </div>
+
+    <p class="closing">
+      This trajectory places him among the rare professionals who have actively participated in — and adapted to — multiple major platform shifts: from <strong>desktop applications to web systems</strong>, from <strong>monoliths to cloud-native architectures</strong>, and now from <strong>traditional applications toward AI-driven agent ecosystems</strong>.
+    </p>
+  </div>
+</section>
+
+<footer id="connect">
+  <div class="wrap">
+    <div class="name">Dr. Lofi Dewanto</div>
+    <div class="links">
+      <a href="https://www.linkedin.com/in/dr-lofi-dewanto-5812a012/" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="https://github.com/lofidewanto" target="_blank" rel="noopener">GitHub</a>
+      <a href="https://lofidewanto.medium.com/" target="_blank" rel="noopener">Medium</a>
+      <a href="https://lofidewanto.blogspot.com/" target="_blank" rel="noopener">Blog</a>
+      <a href="https://sessionize.com/dewanto/" target="_blank" rel="noopener">Sessionize</a>
+      <a href="https://www.movatech.site/teams/" target="_blank" rel="noopener">Mova Tech</a>
+      <a href="https://www.youtube.com/channel/UCznmOzSBnlKYeFBt8w1XvpQ" target="_blank" rel="noopener">YouTube</a>
+      <a href="https://twitter.com/lofidewanto" target="_blank" rel="noopener">X / Twitter</a>
+    </div>
+    <p class="note">Career timeline, 1995–2026. Some milestones are publicly documented, while others are inferred from conference biographies, university records, publications, and industry activities.</p>
+  </div>
+</footer>
+
+</body>
+</html>
