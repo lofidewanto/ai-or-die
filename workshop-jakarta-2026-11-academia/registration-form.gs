@@ -18,21 +18,22 @@ const WHATSAPP_MOVA = 'https://wa.me/6285121336927';
 const CLOSED_MESSAGE =
   'Maaf, semua 100 kursi Workshop AI or DIE Akademia Jakarta sudah terisi. ' +
   'Untuk daftar tunggu atau pertanyaan, hubungi WhatsApp Mova: ' + WHATSAPP_MOVA;
+const FORM_DESCRIPTION =
+  'Workshop akademik 3 jam: teori LLM dan agen AI, contoh praktik dengan OpenCode / Claude Code ' +
+  'dan Spring AI, keamanan, etika dan integritas akademik.\n\n' +
+  DATE_LINE +
+  'Biaya: IDR 100.000 (termasuk rehat kopi & snack, materi, sertifikat) · ' +
+  'Kuota: 100 peserta · Bahasa: Indonesia\n\n' +
+  'Prasyarat: laptop sendiri dengan OpenCode (model gratis OpenCode atau NVIDIA) ' +
+  'atau Claude Code (model Claude seperti Opus) terinstal.\n\n' +
+  'Setelah mendaftar, Anda akan menerima instruksi pembayaran (QRIS / transfer bank). ' +
+  'Kursi Anda terkonfirmasi setelah pembayaran diterima.\n\n' +
+  'Ada pertanyaan? Chat WhatsApp Mova: ' + WHATSAPP_MOVA;
 
 function createRegistrationForm() {
   const form = FormApp.create(FORM_TITLE);
   form
-    .setDescription(
-      'Workshop akademik 3 jam: teori LLM dan agen AI, contoh praktik dengan OpenCode / Claude Code ' +
-      'dan Spring AI, keamanan, etika dan integritas akademik.\n\n' +
-      DATE_LINE +
-      'Biaya: IDR 50.000 (termasuk rehat kopi & snack, materi, sertifikat) · ' +
-      'Kuota: 100 peserta · Bahasa: Indonesia\n\n' +
-      'Prasyarat: laptop sendiri dengan OpenCode (model gratis OpenCode atau NVIDIA) ' +
-      'atau Claude Code (model Claude seperti Opus) terinstal.\n\n' +
-      'Setelah mendaftar, Anda akan menerima instruksi pembayaran (QRIS / transfer bank). ' +
-      'Kursi Anda terkonfirmasi setelah pembayaran diterima.\n\n' +
-      'Ada pertanyaan? Chat WhatsApp Mova: ' + WHATSAPP_MOVA)
+    .setDescription(FORM_DESCRIPTION)
     .setConfirmationMessage(
       'Terima kasih! Pendaftaran Anda sudah kami terima. Instruksi pembayaran akan dikirim ' +
       'melalui WhatsApp atau email. Kursi Anda terkonfirmasi setelah pembayaran diterima.\n\n' +
@@ -160,17 +161,15 @@ function closeWhenFull(e) {
 }
 
 /**
- * Updates the date in the already published form (title and description)
- * without changing its link or responses. The form is found through the
- * auto-close trigger created by createRegistrationForm.
+ * Applies FORM_TITLE and FORM_DESCRIPTION (date, price, …) to the already
+ * published form without changing its link or responses. The form is found
+ * through the auto-close trigger created by createRegistrationForm.
  */
-function updateFormDate() {
+function updateFormText() {
   const trigger = ScriptApp.getProjectTriggers()
     .find((t) => t.getHandlerFunction() === 'closeWhenFull');
   const form = FormApp.openById(trigger.getTriggerSourceId());
-  const description = form.getDescription()
-    .replace(/^.*– 12:30 WIB.*$/m, DATE_LINE.trim());
-  form.setTitle(FORM_TITLE).setDescription(description);
+  form.setTitle(FORM_TITLE).setDescription(FORM_DESCRIPTION);
   Logger.log('Updated: ' + form.getTitle());
-  Logger.log(description);
+  Logger.log(FORM_DESCRIPTION);
 }
