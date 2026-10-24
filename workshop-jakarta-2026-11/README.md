@@ -6,7 +6,7 @@
 
 | | |
 |---|---|
-| **Date** | Saturday, 14 November 2026 *(proposed — alternative: 21 November)* |
+| **Date** | 19, 20 or 21 November 2026 — **to be confirmed** (Thu / Fri / Sat) |
 | **Time** | 08:30 – 17:00 WIB |
 | **Venue** | Jakarta, TBC (co-working space / campus lab with power at every seat) |
 | **Fee** | **IDR 100.000** per person, fixed price (no early bird) — includes coffee breaks, lunch, materials, certificate |
@@ -176,17 +176,17 @@ If a paid venue is needed, look for a sponsor.
 
 ## 6. Organisation checklist
 
-**4 weeks before (by 17 Oct 2026 — overdue, do now)**
-- [ ] Confirm date and venue (power outlets, **reliable Wi-Fi for 50+ laptops**, projector, 50+ seats)
+**4 weeks before (by 22 Oct 2026 — overdue, do now)**
+- [ ] Confirm the date (19, 20 or 21 November) and venue (power outlets, **reliable Wi-Fi for 50+ laptops**, projector, 50+ seats)
 - [ ] Open registration (form + payment via QRIS / bank transfer)
 - [ ] Announce on LinkedIn, Medium, Mova Tech channels, Java/JUG Indonesia communities
 
-**2 weeks before (by 31 Oct 2026)**
+**2 weeks before (by 5 Nov 2026)**
 - [ ] Finalise workshop repository and test all labs on Windows, macOS, Linux
 - [ ] Send [participant-setup.md](participant-setup.md) to registered participants
 - [ ] Recruit 5 mentors (e.g. Mova Tech team, local JUG members)
 
-**1 week before (by 7 Nov 2026)**
+**1 week before (by 12 Nov 2026)**
 - [ ] Reminder + setup-check message; collect participants' laptop OS
 - [ ] Test the venue Wi-Fi with an AI agent session (bandwidth, no blocked ports)
 - [ ] Print handouts, name tags, certificates; confirm catering (halal, vegetarian option)

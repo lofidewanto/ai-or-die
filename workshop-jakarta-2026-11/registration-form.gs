@@ -1,6 +1,6 @@
 /**
  * Creates the registration Google Form for the AI or DIE Workshop Jakarta
- * (14 November 2026), links it to a response spreadsheet, and closes the
+ * (19, 20 or 21 November 2026), links it to a response spreadsheet, and closes the
  * form automatically once 50 registrations have arrived.
  *
  * How to use:
@@ -11,18 +11,20 @@
  */
 
 const MAX_PARTICIPANTS = 50;
+const FORM_TITLE = 'Pendaftaran Workshop AI or DIE — Jakarta, November 2026';
+const DATE_LINE = 'Tanggal: 19, 20 atau 21 November 2026 (menyusul) · 08:30 – 17:00 WIB · Jakarta (lokasi menyusul)\n';
 const WHATSAPP_MOVA = 'https://wa.me/6285121336927';
 const CLOSED_MESSAGE =
   'Maaf, semua 50 kursi Workshop AI or DIE Jakarta sudah terisi. ' +
   'Untuk daftar tunggu atau pertanyaan, hubungi WhatsApp Mova: ' + WHATSAPP_MOVA;
 
 function createRegistrationForm() {
-  const form = FormApp.create('Pendaftaran Workshop AI or DIE — Jakarta, 14 November 2026');
+  const form = FormApp.create(FORM_TITLE);
   form
     .setDescription(
       'Workshop satu hari: AI, LLM dan agen AI, bekerja dengan OpenCode / Claude Code, ' +
       'keamanan agen, dan membangun agen sendiri dengan Spring Boot & Spring AI.\n\n' +
-      'Sabtu, 14 November 2026 · 08:30 – 17:00 WIB · Jakarta (lokasi menyusul)\n' +
+      DATE_LINE +
       'Biaya: IDR 100.000 (termasuk makan siang, rehat kopi, materi, sertifikat) · ' +
       'Kuota: 50 peserta · Bahasa: Indonesia\n\n' +
       'Prasyarat: laptop sendiri dengan OpenCode (model gratis OpenCode atau NVIDIA) ' +
@@ -149,4 +151,20 @@ function closeWhenFull(e) {
   if (form.getResponses().length >= MAX_PARTICIPANTS) {
     form.setAcceptingResponses(false).setCustomClosedFormMessage(CLOSED_MESSAGE);
   }
+}
+
+/**
+ * Updates the date in the already published form (title and description)
+ * without changing its link or responses. The form is found through the
+ * auto-close trigger created by createRegistrationForm.
+ */
+function updateFormDate() {
+  const trigger = ScriptApp.getProjectTriggers()
+    .find((t) => t.getHandlerFunction() === 'closeWhenFull');
+  const form = FormApp.openById(trigger.getTriggerSourceId());
+  const description = form.getDescription()
+    .replace(/^.*08:30 – 17:00 WIB.*$/m, DATE_LINE.trim());
+  form.setTitle(FORM_TITLE).setDescription(description);
+  Logger.log('Updated: ' + form.getTitle());
+  Logger.log(description);
 }

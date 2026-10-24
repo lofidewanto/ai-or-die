@@ -9,7 +9,7 @@ Published with GitHub Pages: <https://lofidewanto.github.io/ai-or-die/>
 
 | Page | Description |
 |---|---|
-| [Workshop AI or DIE Jakarta](https://lofidewanto.github.io/ai-or-die/workshop-jakarta-2026-11/) ([Bahasa Indonesia](https://lofidewanto.github.io/ai-or-die/workshop-jakarta-2026-11/?lang=id)) | Landing page for the one-day workshop in Jakarta, 14 November 2026 — Indonesian / English |
+| [Workshop AI or DIE Jakarta](https://lofidewanto.github.io/ai-or-die/workshop-jakarta-2026-11/) ([Bahasa Indonesia](https://lofidewanto.github.io/ai-or-die/workshop-jakarta-2026-11/?lang=id)) | Landing page for the one-day workshop in Jakarta, 19, 20 or 21 November 2026 (TBD) — Indonesian / English |
 | [Career timeline](https://lofidewanto.github.io/ai-or-die/cv-lofi-dewanto.html) | Dr. Lofi Dewanto, 1995–2026 |
 | [Career timeline — green dark](https://lofidewanto.github.io/ai-or-die/cv-lofi-dewanto-green-dark.html) | Same content in a dark design with green accents |
 
@@ -24,7 +24,7 @@ Published with GitHub Pages: <https://lofidewanto.github.io/ai-or-die/>
 
 | | |
 |---|---|
-| **Date** | Saturday, 14 November 2026 |
+| **Date** | 19, 20 or 21 November 2026 — **to be confirmed** |
 | **Time** | 08:30 – 17:00 WIB |
 | **Venue** | Jakarta (to be confirmed) — reliable Wi-Fi for 50+ laptops required |
 | **Fee** | **IDR 100.000** per person, fixed price — includes lunch, two coffee breaks, materials, certificate |
