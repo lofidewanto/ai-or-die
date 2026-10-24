@@ -12,7 +12,7 @@
 | **Fee** | **IDR 100.000** per person, fixed price (no early bird) — includes coffee breaks, lunch, materials, certificate |
 | **Seats** | **Limited to 50 participants** — personal mentoring with 5 mentors |
 | **Language** | Bahasa Indonesia only (the website can switch between Indonesian and English) |
-| **Prerequisite** | Your own laptop with **OpenCode (NVIDIA as model provider, free API key from build.nvidia.com) or Claude Code** installed — see [participant-setup.md](participant-setup.md) (in Bahasa Indonesia) |
+| **Prerequisite** | Your own laptop with **OpenCode** (free OpenCode Zen models or free NVIDIA models from build.nvidia.com) **or Claude Code** (Claude models such as Opus) installed — see [participant-setup.md](participant-setup.md) (in Bahasa Indonesia) |
 | **Venue must have** | Reliable Wi-Fi for 50+ laptops — no local models, everything runs over the internet |
 
 ---

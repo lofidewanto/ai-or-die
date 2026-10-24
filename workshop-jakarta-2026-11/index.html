@@ -296,6 +296,9 @@
     }
     .cta-banner h2 { color: var(--text-on-inverse); }
     .cta-banner .lead { color: rgba(245, 245, 247, 0.78); max-width: 40rem; margin: 1.5rem auto 2rem; }
+    .cta-note { margin-top: 1.5rem; }
+    .cta-note a { color: #2997ff; font-size: 1rem; }
+    .cta-note a:hover { color: #47a4ff; }
     @media (max-width: 991px) { .section { padding: 4rem 0; } .cta-banner { padding: 3rem 1.5rem; border-radius: var(--radius-lg); } }
 
     /* ── Footer ── */
@@ -354,7 +357,7 @@
           <button type="button" class="theme-toggle" data-theme-toggle aria-label="Toggle theme">
             <i class="bi bi-sun-fill" data-theme-icon></i><span data-theme-label>Light</span>
           </button>
-          <a class="btn-brand sm" href="#register" data-i18n="nav.register">Register</a>
+          <a class="btn-brand sm" href="https://wa.me/6285121336927?text=Halo%20Mova%2C%20saya%20ingin%20mendaftar%20Workshop%20AI%20or%20DIE%20Jakarta%20%2814%20Nov%202026%29.%20Nama%3A%20" target="_blank" rel="noreferrer" data-i18n="nav.register">Register</a>
         </div>
       </div>
     </nav>
@@ -369,7 +372,7 @@
           <h1 class="display-2 reveal" data-i18n="hero.title">AI or DIE. One Day.<br><span class="text-gradient">Your Choice.</span></h1>
           <p class="hero-lead reveal" data-i18n="hero.lead">Understand AI, LLMs and agents, work with OpenCode and Claude Code &mdash; and build your own agent with Spring Boot and Spring AI.</p>
           <div class="hero-actions reveal">
-            <a class="btn-brand" href="#register" data-i18n="hero.cta">Reserve a seat &mdash; IDR 100.000</a>
+            <a class="btn-brand" href="https://wa.me/6285121336927?text=Halo%20Mova%2C%20saya%20ingin%20mendaftar%20Workshop%20AI%20or%20DIE%20Jakarta%20%2814%20Nov%202026%29.%20Nama%3A%20" target="_blank" rel="noreferrer" data-i18n="hero.cta">Reserve a seat &mdash; IDR 100.000</a>
             <a class="link-cta" href="#agenda" data-i18n="hero.link">See the agenda</a>
           </div>
           <div class="chips reveal">
@@ -388,7 +391,7 @@
     <section class="section" id="why">
       <div class="container">
         <div class="section-heading reveal">
-          <h2 class="display-5" data-i18n="why.title">AI does not add features.<br>It changes how software is built.</h2>
+          <h2 class="display-5" data-i18n="why.title">AI does not add features.<br>It changes how software is built.<br><span class="text-gradient">And it changes our lives as a whole.</span></h2>
           <p class="lead" data-i18n="why.lead">Desktop to web. Monolith to cloud. Now: applications to agents. Teams that adapt thrive &mdash; teams that ignore it fall behind. That is the message of <em>AI or DIE</em>.</p>
           <p class="muted" style="margin-top:0.75rem" data-i18n="why.text">This workshop turns the keynote into practice: from the why, through the theory, to agents you use every day &mdash; and one you build yourself in Java.</p>
         </div>
@@ -546,7 +549,7 @@
         <div class="price-card reveal">
           <span class="tag-chip" data-i18n="price.tag">Full-day workshop</span>
           <div class="price"><strong>IDR 100.000</strong><span data-i18n="price.per">/ person</span></div>
-          <p class="muted" data-i18n="price.pre"><strong>Prerequisite:</strong> your own laptop with OpenCode (NVIDIA as model provider) or Claude Code installed.</p>
+          <p class="muted" data-i18n="price.pre"><strong>Prerequisite:</strong> your own laptop with OpenCode (free OpenCode or NVIDIA models) or Claude Code (Claude models such as Opus) installed.</p>
           <ul class="check-list">
             <li><i class="bi bi-check-circle-fill"></i> <span data-i18n="price.1">Full day of hands-on labs with the speaker and 5 mentors</span></li>
             <li><i class="bi bi-check-circle-fill"></i> <span data-i18n="price.2">Lunch and two coffee breaks (halal, vegetarian option)</span></li>
@@ -555,8 +558,8 @@
             <li><i class="bi bi-check-circle-fill"></i> <span data-i18n="price.5">Certificate of participation</span></li>
             <li><i class="bi bi-check-circle-fill"></i> <span data-i18n="price.6">Alumni group for follow-up questions</span></li>
           </ul>
-          <a class="btn-brand" href="#register" style="width:100%;margin-top:1rem" data-i18n="price.cta">Reserve your seat</a>
-          <p class="muted" style="font-size:0.8125rem;margin-top:0.75rem;text-align:center" data-i18n="price.pay">Payment via QRIS or bank transfer &middot; 50 seats only</p>
+          <a class="btn-brand" href="https://wa.me/6285121336927?text=Halo%20Mova%2C%20saya%20ingin%20mendaftar%20Workshop%20AI%20or%20DIE%20Jakarta%20%2814%20Nov%202026%29.%20Nama%3A%20" target="_blank" rel="noreferrer" style="width:100%;margin-top:1rem" data-i18n="price.cta">Reserve your seat</a>
+          <p class="muted" style="font-size:0.8125rem;margin-top:0.75rem;text-align:center" data-i18n="price.pay">Register online &middot; payment instructions (QRIS / bank transfer) follow by WhatsApp or email &middot; 50 seats only</p>
         </div>
       </div>
     </section>
@@ -625,7 +628,7 @@
           </details>
           <details>
             <summary data-i18n="faq.3.q">Do I need an API key or a paid AI subscription?</summary>
-            <p data-i18n="faq.3.a">No. Everything runs over the internet: OpenCode and the Spring AI lab use free models from NVIDIA (build.nvidia.com) &mdash; you only need a free NVIDIA developer account and API key. If you already have a Claude subscription, you can use Claude Code instead.</p>
+            <p data-i18n="faq.3.a">No. Everything runs over the internet with free models: OpenCode brings its own free models (OpenCode Zen), and NVIDIA offers free models at build.nvidia.com &mdash; you only need a free account. The Spring AI lab uses the free NVIDIA models. If you have Claude Code, you can use Claude models such as Opus.</p>
           </details>
           <details>
             <summary data-i18n="faq.4.q">Which language is the workshop in?</summary>
@@ -634,6 +637,10 @@
           <details>
             <summary data-i18n="faq.5.q">Why only 50 seats?</summary>
             <p data-i18n="faq.5.a">So that every participant gets personal help. With the speaker and five mentors, the ratio is about one mentor per ten participants.</p>
+          </details>
+          <details>
+            <summary data-i18n="faq.6.q">I have another question &mdash; who can I ask?</summary>
+            <p data-i18n="faq.6.a">Chat with Mova on WhatsApp: <a href="https://wa.me/6285121336927?text=Halo%20Mova%2C%20saya%20punya%20pertanyaan%20tentang%20Workshop%20AI%20or%20DIE%20Jakarta%20%2814%20Nov%202026%29%3A%20" target="_blank" rel="noreferrer">+62 851-2133-6927</a> (Monday&ndash;Friday, 09:00&ndash;18:00 WIB).</p>
           </details>
         </div>
       </div>
@@ -645,7 +652,8 @@
         <div class="cta-banner reveal">
           <h2 class="display-5" data-i18n="cta.title">AI or DIE. Your Choice.</h2>
           <p class="lead" data-i18n="cta.lead">Spend one Saturday building the future instead of reading about it. Seats are limited to 50 &mdash; reserve yours now.</p>
-          <a class="btn-brand" href="https://www.linkedin.com/in/dr-lofi-dewanto-5812a012/" target="_blank" rel="noreferrer" data-i18n="cta.btn">Register &mdash; IDR 100.000</a>
+          <a class="btn-brand" href="https://wa.me/6285121336927?text=Halo%20Mova%2C%20saya%20ingin%20mendaftar%20Workshop%20AI%20or%20DIE%20Jakarta%20%2814%20Nov%202026%29.%20Nama%3A%20" target="_blank" rel="noreferrer" data-i18n="cta.btn">Register &mdash; IDR 100.000</a>
+          <p class="cta-note"><a href="https://wa.me/6285121336927?text=Halo%20Mova%2C%20saya%20punya%20pertanyaan%20tentang%20Workshop%20AI%20or%20DIE%20Jakarta%20%2814%20Nov%202026%29%3A%20" target="_blank" rel="noreferrer"><i class="bi bi-whatsapp"></i> <span data-i18n="cta.wa">Questions? Chat with Mova on WhatsApp</span></a></p>
         </div>
       </div>
     </section>
@@ -674,6 +682,7 @@
           <h2 data-i18n="foot.more">More</h2>
           <a href="#faq" data-i18n="nav.faq">FAQ</a>
           <a href="https://www.youtube.com/channel/UCznmOzSBnlKYeFBt8w1XvpQ" target="_blank" rel="noreferrer">YouTube</a>
+          <a href="https://wa.me/6285121336927?text=Halo%20Mova%2C%20saya%20punya%20pertanyaan%20tentang%20Workshop%20AI%20or%20DIE%20Jakarta%20%2814%20Nov%202026%29%3A%20" target="_blank" rel="noreferrer">WhatsApp Mova</a>
           <a href="https://mova-intelligence.com" target="_blank" rel="noreferrer">Mova Intelligence</a>
         </div>
       </div>
@@ -708,7 +717,7 @@
       "chip.lang": "Berbahasa Indonesia",
       "chip.wifi": "WiFi tersedia",
 
-      "why.title": "AI bukan sekadar fitur tambahan.<br>AI mengubah cara software dibangun.",
+      "why.title": "AI bukan sekadar fitur tambahan.<br>AI mengubah cara software dibangun.<br><span class=\"text-gradient\">Dan mengubah hidup kita secara keseluruhan.</span>",
       "why.lead": "Dari desktop ke web. Dari monolit ke cloud. Kini: dari aplikasi ke agen. Tim yang beradaptasi akan berkembang &mdash; tim yang mengabaikannya akan tertinggal. Itulah pesan <em>AI or DIE</em>.",
       "why.text": "Workshop ini mengubah keynote menjadi praktik: dari alasan, melalui teori, hingga agen yang Anda gunakan setiap hari &mdash; dan satu agen yang Anda bangun sendiri dengan Java.",
       "metric.1": "hari, teori &amp; praktik",
@@ -769,7 +778,7 @@
       "price.lead": "Cukup terjangkau untuk semua. Cukup bernilai untuk berkomitmen.",
       "price.tag": "Workshop sehari penuh",
       "price.per": "/ orang",
-      "price.pre": "<strong>Prasyarat:</strong> laptop sendiri dengan OpenCode (NVIDIA sebagai model provider) atau Claude Code terinstal.",
+      "price.pre": "<strong>Prasyarat:</strong> laptop sendiri dengan OpenCode (model gratis OpenCode atau NVIDIA) atau Claude Code (model Claude seperti Opus) terinstal.",
       "price.1": "Sehari penuh lab praktik bersama pembicara dan 5 mentor",
       "price.2": "Makan siang dan dua kali rehat kopi (halal, ada pilihan vegetarian)",
       "price.3": "Repository workshop dengan semua lab dan solusi",
@@ -777,7 +786,7 @@
       "price.5": "Sertifikat keikutsertaan",
       "price.6": "Grup alumni untuk pertanyaan lanjutan",
       "price.cta": "Pesan kursi Anda",
-      "price.pay": "Pembayaran via QRIS atau transfer bank &middot; hanya 50 kursi",
+      "price.pay": "Daftar online &middot; instruksi pembayaran (QRIS / transfer bank) dikirim via WhatsApp atau email &middot; hanya 50 kursi",
 
       "spk.roles": "Pionir Java &amp; Open Source &middot; Enterprise Architect &middot; Advokat AI &amp; Agentic Systems",
       "spk.eyebrow": "Trainer Anda",
@@ -802,15 +811,18 @@
       "faq.2.q": "Apakah saya harus menguasai Java?",
       "faq.2.a": "Hanya untuk Sesi 5. Sesi 1&ndash;4 dan 6 tidak memerlukan pemrograman &mdash; dan di Sesi 3 agenlah yang menulis kode. Untuk Sesi 5, latar belakang bahasa berorientasi objek apa pun sudah cukup, dan checkpoint branch membantu Anda menyusul.",
       "faq.3.q": "Apakah saya perlu API key atau langganan AI berbayar?",
-      "faq.3.a": "Tidak. Semua berjalan melalui internet: OpenCode dan lab Spring AI menggunakan model gratis dari NVIDIA (build.nvidia.com) &mdash; Anda hanya perlu akun developer NVIDIA dan API key gratis. Jika Anda sudah berlangganan Claude, Anda dapat menggunakan Claude Code.",
+      "faq.3.a": "Tidak. Semua berjalan melalui internet dengan model gratis: OpenCode punya model gratis sendiri (OpenCode Zen), dan NVIDIA menyediakan model gratis di build.nvidia.com &mdash; cukup dengan akun gratis. Lab Spring AI menggunakan model gratis NVIDIA. Jika Anda punya Claude Code, Anda dapat menggunakan model Claude seperti Opus.",
       "faq.4.q": "Workshop menggunakan bahasa apa?",
       "faq.4.a": "Workshop sepenuhnya dalam Bahasa Indonesia. Website ini tersedia dalam dua bahasa.",
       "faq.5.q": "Mengapa hanya 50 kursi?",
       "faq.5.a": "Agar setiap peserta mendapat bantuan personal. Dengan pembicara dan lima mentor, rasionya sekitar satu mentor untuk sepuluh peserta.",
+      "faq.6.q": "Saya punya pertanyaan lain &mdash; ke mana saya bertanya?",
+      "faq.6.a": "Chat WhatsApp Mova: <a href=\"https://wa.me/6285121336927?text=Halo%20Mova%2C%20saya%20punya%20pertanyaan%20tentang%20Workshop%20AI%20or%20DIE%20Jakarta%20%2814%20Nov%202026%29%3A%20\" target=\"_blank\" rel=\"noreferrer\">+62 851-2133-6927</a> (Senin&ndash;Jumat, 09:00&ndash;18:00 WIB).",
 
       "cta.title": "AI or DIE. Pilihan Anda.",
       "cta.lead": "Luangkan satu hari Sabtu untuk membangun masa depan, bukan hanya membacanya. Kursi terbatas 50 &mdash; pesan sekarang.",
       "cta.btn": "Daftar &mdash; IDR 100.000",
+      "cta.wa": "Ada pertanyaan? Chat WhatsApp Mova",
 
       "foot.tag": "Workshop satu hari &middot; Jakarta &middot; November 2026",
       "foot.cv": "Perjalanan karier",

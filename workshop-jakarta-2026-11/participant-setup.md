@@ -12,18 +12,26 @@ Tanpa ini Anda tidak dapat mengikuti sesi praktik.
    (colokan listrik tersedia di setiap kursi).
 2. **Agen AI — pilih salah satu:**
 
-   **A. OpenCode dengan NVIDIA sebagai model provider** (gratis)
-   1. Daftar akun developer NVIDIA di <https://build.nvidia.com> dan buat **API key**.
-   2. Instal OpenCode — <https://opencode.ai>
+   **A. OpenCode dengan model gratis** (tanpa biaya)
+   1. Instal OpenCode — <https://opencode.ai>
       Cek: `opencode --version`
-   3. Hubungkan NVIDIA: jalankan `opencode auth login`, pilih **Nvidia**, lalu tempel API key Anda.
-      (Alternatif: set environment variable `NVIDIA_API_KEY`.)
-   4. Jalankan `opencode`, pilih salah satu model NVIDIA, dan ketik: `Halo, apa kabar?` — agen harus menjawab.
+   2. Pilih model provider gratis:
+      - **Model gratis OpenCode (OpenCode Zen)** — jalankan `opencode`, ketik `/models`
+        dan pilih salah satu model yang bertanda *Free*. Ikuti petunjuk di layar bila diminta login.
+      - **Model gratis NVIDIA** — daftar di <https://build.nvidia.com> dan buat **API key**,
+        lalu jalankan `opencode auth login`, pilih **Nvidia** dan tempel API key Anda
+        (alternatif: set environment variable `NVIDIA_API_KEY`).
+        API key ini juga dipakai di Sesi 5, jadi sebaiknya tetap dibuat.
+   3. Jalankan `opencode` dan ketik: `Halo, apa kabar?` — agen harus menjawab.
 
-   **B. Claude Code** (memerlukan langganan Claude)
+   **B. Claude Code dengan model Claude** (memerlukan langganan Claude)
    1. Instal Claude Code — <https://docs.claude.com/en/docs/claude-code/overview>
       Cek: `claude --version`
-   2. Jalankan `claude` sekali dan login.
+   2. Jalankan `claude` sekali dan login. Anda dapat memakai model Claude seperti Opus atau Sonnet.
+
+   > **Info — GitHub Copilot:** GitHub juga menawarkan paket gratis (*Copilot Free*) dengan kuota
+   > bulanan terbatas. Untuk workshop ini kami tidak memakainya sebagai agen utama, karena kuotanya
+   > bisa habis di tengah sesi praktik. Jika Anda sudah punya langganan Copilot, silakan dicoba sendiri.
 
 3. **Akun GitHub** — untuk latihan spec-driven development di Sesi 3.
 
@@ -35,7 +43,7 @@ Tanpa ini Anda tidak dapat mengikuti sesi praktik.
    Cek: `mvn -version`
 3. **Git** — <https://git-scm.com/>
 4. **IDE** — IntelliJ IDEA Community atau VS Code dengan Java extension pack
-5. **NVIDIA API key** dari langkah 2A — Spring AI memakai model NVIDIA dari build.nvidia.com.
+5. **NVIDIA API key** (gratis, dari build.nvidia.com) — Spring AI memakai model gratis NVIDIA.
    Peserta dengan Claude dapat memakai Anthropic API key sebagai gantinya.
 
 ## Unduh project workshop lebih awal
