@@ -339,7 +339,9 @@
     @media (max-width: 480px) {
       .theme-toggle [data-theme-label] { display: none; }
     }
-      .step-links { display: flex; flex-wrap: wrap; gap: 1.25rem; margin-top: 0.6rem; }
+      .agenda-divider { position: relative; padding: 2rem 0 0.75rem 3.5rem; font-size: 0.8125rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); }
+    .agenda-more { text-align: center; margin-top: 2.5rem; }
+    .step-links { display: flex; flex-wrap: wrap; gap: 1.25rem; margin-top: 0.6rem; }
     .step-links .link-cta { font-size: 0.95rem; }
     ::selection { background: rgba(215, 0, 21, 0.22); }
   </style>
@@ -430,11 +432,11 @@
       <div class="container">
         <div class="section-heading center reveal">
           <h2 class="display-5" data-i18n="ev.title">Events</h2>
-          <p class="lead" data-i18n="ev.lead">From Cologne to Jakarta &mdash; keynotes, webinars and hands-on workshops.</p>
+          <p class="lead" data-i18n="ev.lead">From Cologne to Jakarta &mdash; keynotes, talks, webinars and hands-on workshops.</p>
         </div>
         <div class="agenda">
           <div class="step reveal">
-            <div class="step-time">19, 20 or 21 Nov 2026 (TBD) &middot; Jakarta <span class="tag-chip" data-i18n="ev.upcoming">Upcoming</span></div>
+            <div class="step-time"><span data-i18n="ev.1.date">19, 20 or 21 Nov 2026 (TBD)</span> &middot; Jakarta <span class="tag-chip" data-i18n="ev.upcoming">Upcoming</span></div>
             <h3 data-i18n="ev.1.t">Workshop: AI or DIE. One Day. Your Choice.</h3>
             <p data-i18n="ev.1.p">One-day workshop in Bahasa Indonesia: AI, LLMs and agents, working with OpenCode and Claude Code, agent security, and building your own agent with Spring Boot and Spring AI. 50 seats, IDR 100.000.</p>
             <p class="step-links">
@@ -442,20 +444,76 @@
               <a class="link-cta" href="https://forms.gle/gsvDgE4x2zncKwJ77" target="_blank" rel="noreferrer" data-i18n="ev.1.reg">Register</a>
             </p>
           </div>
+
+          <h3 class="agenda-divider reveal" data-i18n="ev.past">Past events</h3>
+
+          <div class="step reveal">
+            <div class="step-time">Sep 2026 &middot; Cologne <span class="tag-chip">Talk</span></div>
+            <h3>Einsatz von KI in der Softwareentwicklung &mdash; Vorteile, Implementierung und Erfahrungen</h3>
+            <p data-i18n="ev.rhenag.p">Invited talk at rhenag Rheinische Energie AG in the context of lima, an IT solution for energy suppliers &mdash; followed by discussions from the perspective of technology, organisation and environment (TOE).</p>
+          </div>
           <div class="step reveal">
             <div class="step-time">30 Jun 2026 &middot; Cologne <span class="tag-chip">Keynote</span></div>
             <h3>AI or DIE: Die Zukunft der Softwareentwicklung</h3>
-            <p data-i18n="ev.2.p">viadee Round Table &ldquo;KI in der Softwareentwicklung&rdquo; &mdash; how AI fundamentally transforms software development and the organisations around it.</p>
+            <p data-i18n="ev.2.p">viadee Round Table &ldquo;KI in der Softwareentwicklung&rdquo; &mdash; how AI fundamentally transforms software development and the organisations around it, seen through the TOE framework.</p>
           </div>
           <div class="step reveal">
             <div class="step-time">May 2026 &middot; Jakarta (online) <span class="tag-chip">Webinar</span></div>
             <h3>AI or DIE: The Digital Library &mdash; Unlock AI Knowledge Anytime, Anywhere</h3>
-            <p data-i18n="ev.3.p">46th anniversary of Perpustakaan Nasional RI &mdash; how AI becomes a librarian&rsquo;s &ldquo;super assistant&rdquo;, with its opportunities and challenges.</p>
+            <p data-i18n="ev.3.p">46th anniversary of Perpustakaan Nasional RI, attended by more than 600 librarians from across Indonesia &mdash; how AI becomes a librarian&rsquo;s &ldquo;super assistant&rdquo;, with its opportunities and challenges.</p>
             <p class="step-links">
               <a class="link-cta" href="https://www.youtube.com/live/4dGn6rFST6Y" target="_blank" rel="noreferrer" data-i18n="ev.3.watch">Watch the recording</a>
             </p>
           </div>
+          <div class="step reveal">
+            <div class="step-time">2026 &middot; Cologne &middot; JCON <span class="tag-chip">Talk</span></div>
+            <h3>Microservices &amp; Microfrontends: Scaling, Learning, Growing &mdash; Our Journey</h3>
+            <p data-i18n="ev.jcon26.p">Lessons from scaling distributed front- and back-end architectures, with Patricia Erdelen &mdash; and why clear domain boundaries help AI agents too.</p>
+            <p class="step-links">
+              <a class="link-cta" href="https://youtu.be/CkNo9xD3ewQ" target="_blank" rel="noreferrer" data-i18n="ev.watch">Watch</a>
+            </p>
+          </div>
+          <div class="step reveal">
+            <div class="step-time">Nov 2025 &middot; Jakarta <span class="tag-chip">Workshop</span></div>
+            <h3 data-i18n="ev.jkt25.t">AI Agent Workshop: How Generative AI Transforms Businesses in Indonesia</h3>
+            <p data-i18n="ev.jkt25.p">Three-hour workshop with around 20 participants from travel, rice plantations, libraries, e-commerce, construction and manufacturing &mdash; which processes AI and LLMs can support, shown along the customer journey.</p>
+          </div>
+          <div class="step reveal">
+            <div class="step-time">2025 &middot; Cologne &middot; JCON <span class="tag-chip">Talk</span></div>
+            <h3>History of Java UI Development: Live. Die. Repeat.</h3>
+            <p data-i18n="ev.jcon25.p">The rise, fall and return of Java UI technologies &mdash; from desktop to the browser to chat-only UIs, with Ingo D&uuml;ppe.</p>
+            <p class="step-links">
+              <a class="link-cta" href="https://youtu.be/-5m2Qe5BJwY" target="_blank" rel="noreferrer" data-i18n="ev.watch">Watch</a>
+            </p>
+          </div>
+          <div class="step reveal">
+            <div class="step-time">Apr 2025 &middot; Online &middot; Microsoft JDConf <span class="tag-chip">Talk</span></div>
+            <h3>Chat as Code: WhatsApp Customer Support with Spring Boot &amp; LangChain4j</h3>
+            <p data-i18n="ev.jdconf.p">Building a WhatsApp customer-support agent in pure Java, with Erlina Hennies &mdash; including the choice between no-code / low-code and &ldquo;love-code&rdquo;.</p>
+            <p class="step-links">
+              <a class="link-cta" href="https://youtu.be/TU8Uts9LfiU" target="_blank" rel="noreferrer" data-i18n="ev.watch">Watch</a>
+            </p>
+          </div>
+          <div class="step reveal">
+            <div class="step-time">11 Feb 2025 &middot; Jakarta &middot; ISPE TechXCon <span class="tag-chip">Talk</span></div>
+            <h3 data-i18n="ev.ispe.t">AI for Industry</h3>
+            <p data-i18n="ev.ispe.p">Seminar session at ISPE TechXCon 2025 at SMESCO Indonesia &mdash; how AI improves efficiency, productivity and decision-making in industry.</p>
+          </div>
+          <div class="step reveal">
+            <div class="step-time">Dec 2024 &middot; Frankfurt &middot; IT-Tage <span class="tag-chip">Talk</span></div>
+            <h3 data-i18n="ev.ittage.t">The Journey of a Strongly Coupled Monolith into the Cloud Land</h3>
+            <p data-i18n="ev.ittage.p">With Daniel Kr&auml;mer: migrating a production-critical Java insurance monolith and its databases to Kubernetes and AWS &mdash; also presented at JCON Europe 2024.</p>
+            <p class="step-links">
+              <a class="link-cta" href="https://youtu.be/J1_127CCacg" target="_blank" rel="noreferrer" data-i18n="ev.watch.jcon24">Watch the JCON 2024 talk</a>
+            </p>
+          </div>
+          <div class="step reveal">
+            <div class="step-time">2024 &middot; IEEE AGERS <span class="tag-chip">Tutorial</span></div>
+            <h3>Java Programming for Geoscientists</h3>
+            <p data-i18n="ev.agers.p">Tutorial at the IEEE Asia-Pacific Geosciences, Electronics and Remote Sensing Technology Conference &mdash; every slide linked to ChatGPT so participants could explore each topic interactively.</p>
+          </div>
         </div>
+        <p class="agenda-more reveal"><a class="link-cta" href="cv-lofi-dewanto.html#talks" data-i18n="ev.all">All talks since 2001 in the career timeline</a></p>
       </div>
     </section>
 
@@ -611,15 +669,31 @@
       "toe.3.p": "Kebutuhan, biaya dan proses &mdash; serta perubahan pola pikir dari imperatif ke deskriptif.",
 
       "ev.title": "Acara",
-      "ev.lead": "Dari Köln hingga Jakarta &mdash; keynote, webinar dan workshop praktik.",
+      "ev.lead": "Dari Köln hingga Jakarta &mdash; keynote, talk, webinar dan workshop praktik.",
       "ev.upcoming": "Segera",
+      "ev.past": "Acara sebelumnya",
+      "ev.1.date": "19, 20 atau 21 Nov 2026 (menyusul)",
       "ev.1.t": "Workshop: AI or DIE. Satu Hari. Pilihan Anda.",
       "ev.1.p": "Workshop satu hari dalam Bahasa Indonesia: AI, LLM dan agen, bekerja dengan OpenCode dan Claude Code, keamanan agen, serta membangun agen sendiri dengan Spring Boot dan Spring AI. 50 kursi, IDR 100.000.",
       "ev.1.more": "Detail workshop",
       "ev.1.reg": "Daftar",
-      "ev.2.p": "viadee Round Table &ldquo;KI in der Softwareentwicklung&rdquo; &mdash; bagaimana AI secara mendasar mengubah pengembangan software dan organisasi di sekitarnya.",
-      "ev.3.p": "Ulang tahun ke-46 Perpustakaan Nasional RI &mdash; bagaimana AI menjadi &ldquo;super asisten&rdquo; pustakawan, beserta peluang dan tantangannya.",
+      "ev.rhenag.p": "Talk undangan di rhenag Rheinische Energie AG dalam konteks lima, solusi IT untuk perusahaan energi &mdash; dilanjutkan diskusi dari sudut pandang teknologi, organisasi dan lingkungan (TOE).",
+      "ev.2.p": "viadee Round Table &ldquo;KI in der Softwareentwicklung&rdquo; &mdash; bagaimana AI secara mendasar mengubah pengembangan software dan organisasi di sekitarnya, dilihat melalui kerangka TOE.",
+      "ev.3.p": "Ulang tahun ke-46 Perpustakaan Nasional RI, dihadiri lebih dari 600 pustakawan dari seluruh Indonesia &mdash; bagaimana AI menjadi &ldquo;super asisten&rdquo; pustakawan, beserta peluang dan tantangannya.",
       "ev.3.watch": "Tonton rekamannya",
+      "ev.watch": "Tonton",
+      "ev.jcon26.p": "Pelajaran dari penskalaan arsitektur front-end dan back-end terdistribusi, bersama Patricia Erdelen &mdash; dan mengapa batas domain yang jelas juga membantu agen AI.",
+      "ev.jkt25.t": "Workshop Agen AI: Bagaimana Generative AI Mengubah Bisnis di Indonesia",
+      "ev.jkt25.p": "Workshop tiga jam dengan sekitar 20 peserta dari bidang travel, perkebunan padi, perpustakaan, e-commerce, konstruksi dan manufaktur &mdash; proses mana yang dapat didukung AI dan LLM, ditunjukkan melalui customer journey.",
+      "ev.jcon25.p": "Naik, jatuh dan bangkitnya teknologi UI Java &mdash; dari desktop ke browser hingga UI berbasis chat, bersama Ingo D&uuml;ppe.",
+      "ev.jdconf.p": "Membangun agen customer support WhatsApp dengan Java murni, bersama Erlina Hennies &mdash; termasuk pilihan antara no-code / low-code dan &ldquo;love-code&rdquo;.",
+      "ev.ispe.t": "AI untuk Industri",
+      "ev.ispe.p": "Sesi seminar di ISPE TechXCon 2025 di SMESCO Indonesia &mdash; bagaimana AI meningkatkan efisiensi, produktivitas dan pengambilan keputusan di industri.",
+      "ev.ittage.t": "Perjalanan Monolit yang Saling Terkait Erat ke Cloud",
+      "ev.ittage.p": "Bersama Daniel Kr&auml;mer: migrasi monolit Java asuransi yang kritis beserta database-nya ke Kubernetes dan AWS &mdash; juga dipresentasikan di JCON Europe 2024.",
+      "ev.watch.jcon24": "Tonton talk JCON 2024",
+      "ev.agers.p": "Tutorial di IEEE Asia-Pacific Geosciences, Electronics and Remote Sensing Technology Conference &mdash; setiap slide terhubung ke ChatGPT sehingga peserta dapat mengeksplorasi setiap topik secara interaktif.",
+      "ev.all": "Semua talk sejak 2001 di perjalanan karier",
 
       "top.title": "Cakupan Seri Ini",
       "top.lead": "Dari alasan hingga praktik &mdash; teori, demo langsung dan kode yang bisa Anda bawa pulang.",
