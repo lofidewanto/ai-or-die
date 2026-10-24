@@ -80,7 +80,9 @@ MakanChat (restaurant & food), Mandaya Hospital (healthcare), Galva & Kaze Rice 
 |---|---|
 | [workshop-jakarta-2026-11/index.html](workshop-jakarta-2026-11/index.html) | Bilingual landing page (Mova Intelligence style, light/dark mode, EN / ID switch, `?lang=id`) |
 | [workshop-jakarta-2026-11-academia/index.html](workshop-jakarta-2026-11-academia/index.html) | Alternative 1: academic edition, same design in green |
+| [workshop-jakarta-2026-11-academia/registration-form.gs](workshop-jakarta-2026-11-academia/registration-form.gs) | Google Apps Script for the academia registration form, with auto-close at 100 registrations |
 | [workshop-jakarta-2026-11-executive/index.html](workshop-jakarta-2026-11-executive/index.html) | Alternative 2: executive edition, same design in purple |
+| [workshop-jakarta-2026-11-executive/registration-form.gs](workshop-jakarta-2026-11-executive/registration-form.gs) | Google Apps Script for the executive registration form, with auto-close at 30 registrations |
 | [workshop-jakarta-2026-11/README.md](workshop-jakarta-2026-11/README.md) | Full workshop plan: learning outcomes, session details, budget, organisation checklist, risks |
 | [workshop-jakarta-2026-11/participant-setup.md](workshop-jakarta-2026-11/participant-setup.md) | Installation guide for participants (Bahasa Indonesia) |
 | [workshop-jakarta-2026-11/registration-form.gs](workshop-jakarta-2026-11/registration-form.gs) | Google Apps Script that creates the registration form, the response sheet and the auto-close at 50 registrations |
