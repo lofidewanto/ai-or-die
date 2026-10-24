@@ -16,6 +16,16 @@
 | **Venue must have** | Reliable Wi-Fi for 50+ laptops — no local models, everything runs over the internet |
 | **Registration** | Google Form <https://forms.gle/gsvDgE4x2zncKwJ77> — questions via WhatsApp Mova [+62 851-2133-6927](https://wa.me/6285121336927) |
 
+### Alternatives
+
+This plan describes the full-day workshop. Two shorter alternatives use the same design and setup:
+
+| Format | Page | Registration | Time (WIB) | Seats | Fee | For |
+|---|---|---|---|---|---|---|
+| Full-day workshop | [English](https://lofidewanto.github.io/ai-or-die/workshop-jakarta-2026-11/) · [Bahasa Indonesia](https://lofidewanto.github.io/ai-or-die/workshop-jakarta-2026-11/?lang=id) | [Google Form](https://forms.gle/gsvDgE4x2zncKwJ77) | 09:30 – 17:00 (one day) | 50 | IDR 100.000 | Developers, tech leads, students — build your own agent with Spring AI |
+| Alternative 1 — Academia (green) | [English](https://lofidewanto.github.io/ai-or-die/workshop-jakarta-2026-11-academia/) · [Bahasa Indonesia](https://lofidewanto.github.io/ai-or-die/workshop-jakarta-2026-11-academia/?lang=id) | [Google Form](https://forms.gle/AsKs1reZgAb57D8z9) | 09:30 – 12:30 (3 hours) | 100 | IDR 50.000 | Students, lecturers, researchers — theory first, with hands-on examples |
+| Alternative 2 — Executive (purple) | [English](https://lofidewanto.github.io/ai-or-die/workshop-jakarta-2026-11-executive/) · [Bahasa Indonesia](https://lofidewanto.github.io/ai-or-die/workshop-jakarta-2026-11-executive/?lang=id) | [Google Form](https://forms.gle/ojSTAxPxdameJVgaA) | 09:30 – 14:30 (5 hours) | 30 | IDR 1.500.000 | Leaders and managers — hands-on managerial work and an AI roadmap |
+
 ---
 
 ## 1. Why this workshop
