@@ -12,7 +12,7 @@
 
 const MAX_PARTICIPANTS = 50;
 const FORM_TITLE = 'Pendaftaran Workshop AI or DIE — Jakarta, November 2026';
-const DATE_LINE = 'Tanggal: 19, 20 atau 21 November 2026 (menyusul) · 08:30 – 17:00 WIB · Jakarta (lokasi menyusul)\n';
+const DATE_LINE = 'Tanggal: 19, 20 atau 21 November 2026 (menyusul) · 09:30 – 17:00 WIB · Jakarta (lokasi menyusul)\n';
 const WHATSAPP_MOVA = 'https://wa.me/6285121336927';
 const CLOSED_MESSAGE =
   'Maaf, semua 50 kursi Workshop AI or DIE Jakarta sudah terisi. ' +
@@ -163,7 +163,7 @@ function updateFormDate() {
     .find((t) => t.getHandlerFunction() === 'closeWhenFull');
   const form = FormApp.openById(trigger.getTriggerSourceId());
   const description = form.getDescription()
-    .replace(/^.*08:30 – 17:00 WIB.*$/m, DATE_LINE.trim());
+    .replace(/^.*– 17:00 WIB.*$/m, DATE_LINE.trim());
   form.setTitle(FORM_TITLE).setDescription(description);
   Logger.log('Updated: ' + form.getTitle());
   Logger.log(description);

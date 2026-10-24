@@ -25,7 +25,7 @@ Published with GitHub Pages: <https://lofidewanto.github.io/ai-or-die/>
 | | |
 |---|---|
 | **Date** | 19, 20 or 21 November 2026 — **to be confirmed** |
-| **Time** | 08:30 – 17:00 WIB |
+| **Time** | 09:30 – 17:00 WIB |
 | **Venue** | Jakarta (to be confirmed) — reliable Wi-Fi for 50+ laptops required |
 | **Fee** | **IDR 100.000** per person, fixed price — includes lunch, two coffee breaks, materials, certificate |
 | **Seats** | Max. **50 participants**, 5 mentors (about 1 mentor per 10 participants) |
@@ -56,17 +56,16 @@ Full installation guide (Bahasa Indonesia): [participant-setup.md](workshop-jaka
 
 | Time | Session |
 |---|---|
-| 08:30 – 09:00 | Registration, coffee, Wi-Fi and agent check |
-| 09:00 – 10:00 | **01 — Introduction: AI or DIE** — Disrupted, Irrelevant, Extinct or AI-native; six months of building software with AI agents; TOE framework; maturity model up to agentic AI; RAD → MDA → low-code → AI agents |
-| 10:00 – 10:15 | Coffee break |
-| 10:15 – 11:15 | **02 — Theory: AI, LLMs and agents** — how an LLM is made, AGI, anatomy of an agent (memory, RAG, tools, MCP), apps vs. services vs. agents, the agent landscape |
-| 11:15 – 12:15 | **03a — Software development with AI agents** — OpenCode / Claude Code, spec-driven development (specify → plan → tasks → implement), live demo from GitHub issue to finished feature |
-| 12:15 – 13:15 | Lunch, networking & Dzuhur break |
-| 13:15 – 14:15 | **03b — Beyond code** — agents for presentations, stock-market (saham) analysis *(learning only, no investment advice)*, research and documents |
-| 14:15 – 15:00 | **04 — Security and agents** — agent server vs. client, rights, sandboxes (Docker, NVIDIA OpenShell), secrets, prompt injection, human in the loop, UU PDP |
-| 15:00 – 15:15 | Coffee & Ashar break |
-| 15:15 – 16:30 | **05 — Your own agent with Spring Boot & Spring AI** — "Warung Digital" restaurant assistant: `ChatClient`, memory, RAG, `@Tool`, MCP, NVIDIA models |
-| 16:30 – 17:00 | **06 — The future & closing** — product builder, micro-teams, the mindset shift; "Don't DIE, or at least DIE Hard"; Q&A, certificates, group photo |
+| 09:30 – 10:00 | Registration, coffee, Wi-Fi and agent check |
+| 10:00 – 10:45 | **01 — Introduction: AI or DIE** — Disrupted, Irrelevant, Extinct or AI-native; six months of building software with AI agents; TOE framework; maturity model up to agentic AI; RAD → MDA → low-code → AI agents |
+| 10:45 – 11:45 | **02 — Theory: AI, LLMs and agents** — how an LLM is made, AGI, anatomy of an agent (memory, RAG, tools, MCP), apps vs. services vs. agents, the agent landscape |
+| 11:45 – 12:30 | **03a — Software development with AI agents** — OpenCode / Claude Code, spec-driven development (specify → plan → tasks → implement), live demo from GitHub issue to finished feature |
+| 12:30 – 13:30 | Lunch, networking & Dzuhur break |
+| 13:30 – 14:30 | **03b — Beyond code** — agents for presentations, stock-market (saham) analysis *(learning only, no investment advice)*, research and documents |
+| 14:30 – 15:10 | **04 — Security and agents** — agent server vs. client, rights, sandboxes (Docker, NVIDIA OpenShell), secrets, prompt injection, human in the loop, UU PDP |
+| 15:10 – 15:25 | Coffee & Ashar break |
+| 15:25 – 16:35 | **05 — Your own agent with Spring Boot & Spring AI** — "Warung Digital" restaurant assistant: `ChatClient`, memory, RAG, `@Tool`, MCP, NVIDIA models |
+| 16:35 – 17:00 | **06 — The future & closing** — product builder, micro-teams, the mindset shift; "Don't DIE, or at least DIE Hard"; Q&A, certificates, group photo |
 
 ### Built on real cases
 

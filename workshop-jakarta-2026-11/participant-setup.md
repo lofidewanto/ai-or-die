@@ -58,7 +58,7 @@ mvn -q dependency:go-offline
 
 ## Ada kendala?
 
-Tanyakan di grup peserta, atau datang pukul **08:30** pada hari-H —
+Tanyakan di grup peserta, atau datang pukul **09:30** pada hari-H —
 asisten akan membantu saat registrasi.
 
 Sampai jumpa di Jakarta!

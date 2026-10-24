@@ -7,7 +7,7 @@
 | | |
 |---|---|
 | **Date** | 19, 20 or 21 November 2026 — **to be confirmed** (Thu / Fri / Sat) |
-| **Time** | 08:30 – 17:00 WIB |
+| **Time** | 09:30 – 17:00 WIB |
 | **Venue** | Jakarta, TBC (co-working space / campus lab with power at every seat) |
 | **Fee** | **IDR 100.000** per person, fixed price (no early bird) — includes coffee breaks, lunch, materials, certificate |
 | **Seats** | **Limited to 50 participants** — personal mentoring with 5 mentors |
@@ -61,21 +61,20 @@ By 17:00 every participant can:
 
 | Time | Session | Format |
 |---|---|---|
-| 08:30 – 09:00 | **Registration, coffee, setup check** — Wi-Fi login; check OpenCode / Claude Code runs | Setup |
-| 09:00 – 10:00 | **1 — Introduction: AI or DIE** | Talk |
-| 10:00 – 10:15 | Coffee break | |
-| 10:15 – 11:15 | **2 — Theory: AI, LLMs and agents** | Talk + Q&A |
-| 11:15 – 12:15 | **3a — Software development with AI agents (OpenCode / Claude Code, SDD)** | Live demo + hands-on |
-| 12:15 – 13:15 | Lunch & networking (+ Dzuhur break) | |
-| 13:15 – 14:15 | **3b — Beyond code: agents for everyday work** | Hands-on |
-| 14:15 – 15:00 | **4 — Security and agents: what matters** | Talk + demo |
-| 15:00 – 15:15 | Coffee break (+ Ashar break) | |
-| 15:15 – 16:30 | **5 — Build your own agent with Spring Boot & Spring AI** | Hands-on |
-| 16:30 – 17:00 | **6 — The future & closing** — Q&A, certificates, group photo | Talk |
+| 09:30 – 10:00 | **Registration, coffee, setup check** — Wi-Fi login; check OpenCode / Claude Code runs | Setup |
+| 10:00 – 10:45 | **1 — Introduction: AI or DIE** | Talk |
+| 10:45 – 11:45 | **2 — Theory: AI, LLMs and agents** | Talk + Q&A |
+| 11:45 – 12:30 | **3a — Software development with AI agents (OpenCode / Claude Code, SDD)** | Live demo + hands-on |
+| 12:30 – 13:30 | Lunch & networking (+ Dzuhur break) | |
+| 13:30 – 14:30 | **3b — Beyond code: agents for everyday work** | Hands-on |
+| 14:30 – 15:10 | **4 — Security and agents: what matters** | Talk + demo |
+| 15:10 – 15:25 | Coffee break (+ Ashar break) | |
+| 15:25 – 16:35 | **5 — Build your own agent with Spring Boot & Spring AI** | Hands-on |
+| 16:35 – 17:00 | **6 — The future & closing** — Q&A, certificates, group photo | Talk |
 
 ### Session details
 
-**1 — Introduction: AI or DIE (60 min)**
+**1 — Introduction: AI or DIE (45 min)**
 
 Based on the keynote *"AI or DIE: Die Zukunft der Softwareentwicklung"* (viadee Round Table, Cologne, June 2026).
 - *Disrupted. Irrelevant. Extinct.* — the old way vs. the AI-native way across the SDLC
@@ -97,7 +96,7 @@ Based on the keynote *"AI or DIE: Die Zukunft der Softwareentwicklung"* (viadee 
 - MCP (Model Context Protocol) — the "USB-C for AI"
 - The agent landscape: Claude, OpenCode, GitHub Copilot, ChatGPT, Gemini, Manus, OpenClaw, Hermes Agent, …
 
-**3a — Software development with AI agents (60 min)**
+**3a — Software development with AI agents (45 min)**
 - Macro and micro process of software development — where agents fit
 - IDE-centred (imperative) vs. conversation-centred (descriptive) work
 - **Spec-driven development (SDD):** specify → plan → tasks → implement; functional and technical specifications
@@ -117,7 +116,7 @@ Participants pick one challenge and solve it with an agent:
 
 Short round: what worked, what did not, where a human must stay in the loop.
 
-**4 — Security and agents: what matters (45 min)**
+**4 — Security and agents: what matters (40 min)**
 - Agent server vs. agent client — the biggest difference: a client agent can do everything *you* can
 - Attention: rights, deleting data, installing software, running any system command
 - Least privilege: restrict the agent's rights if you do not want it to do everything
@@ -125,7 +124,7 @@ Short round: what worked, what did not, where a human must stay in the loop.
 - Secrets and tokens (e.g. GitHub PAT), prompt injection, reviewing what agents produce
 - Data protection: which data you send to cloud models, Indonesian data regulation (UU PDP)
 
-**5 — Build your own agent with Spring Boot & Spring AI (75 min)**
+**5 — Build your own agent with Spring Boot & Spring AI (70 min)**
 - Low-code / no-code vs. "love-code": when to build your own agent in Java
 - Concrete example **"Warung Digital"** — a WhatsApp-style assistant for a fictional Jakarta restaurant
   (menu, opening hours, orders, reservations)
@@ -137,7 +136,7 @@ Short round: what worked, what did not, where a human must stay in the loop.
 - Checkpoint branches so everyone can catch up
 - "Eat your own agent food": step 1 build software with agents, step 2 build agents with that knowledge
 
-**6 — The future & closing (30 min)**
+**6 — The future & closing (25 min)**
 - One role for everything? The "product builder" and micro-teams of three people
 - DevSecOps, internal developer platforms and agile stay — the way we work inside them changes
 - The mindset shift: from imperative "small-small" thinking to descriptive "big" thinking
