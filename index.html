@@ -1,0 +1,734 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AI or DIE — Series by Dr. Lofi Dewanto</title>
+  <meta name="description" content="The AI or DIE series: keynotes, workshops and material on how AI, LLMs and AI agents change software development, organisations and our lives as a whole.">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="AI or DIE — Series by Dr. Lofi Dewanto">
+  <meta property="og:description" content="Keynotes, workshops and material on how AI, LLMs and AI agents change software development, organisations and our lives as a whole.">
+  <meta property="og:url" content="https://lofidewanto.github.io/ai-or-die/">
+  <meta property="og:image" content="https://lofidewanto.github.io/ai-or-die/favicon.png">
+  <link rel="icon" href="favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+  <script>
+    (() => {
+      let theme = null;
+      try { theme = localStorage.getItem("aiordie-theme"); } catch (e) {}
+      if (!theme) theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+      document.documentElement.setAttribute("data-theme", theme);
+      document.documentElement.classList.add("js");
+    })();
+  </script>
+  <style>
+    /* ── Design tokens (Mova Intelligence style, red edition) ── */
+    :root {
+      --brand: #d70015;
+      --brand-strong: #e3001b;
+      --brand-soft: rgba(215, 0, 21, 0.08);
+      --accent: #ff8a00;
+      --success: #29a745;
+      --bg: #fbfbfd;
+      --bg-secondary: #f5f5f7;
+      --bg-elevated-strong: #ffffff;
+      --bg-inverse: #1d1d1f;
+      --text: #1d1d1f;
+      --text-on-inverse: #f5f5f7;
+      --muted: #6e6e73;
+      --muted-strong: #515154;
+      --border: rgba(0, 0, 0, 0.08);
+      --border-soft: rgba(0, 0, 0, 0.06);
+      --shadow: 0 1px 2px rgba(0,0,0,0.04), 0 4px 14px rgba(0,0,0,0.05);
+      --shadow-lg: 0 6px 24px rgba(0,0,0,0.06), 0 24px 60px rgba(0,0,0,0.08);
+      --nav-bg: rgba(251, 251, 253, 0.72);
+      --radius-lg: 22px;
+      --radius-xl: 28px;
+      --radius-pill: 980px;
+      color-scheme: light;
+    }
+    :root[data-theme="dark"] {
+      --brand: #ff453a;
+      --brand-strong: #ff6961;
+      --brand-soft: rgba(255, 69, 58, 0.14);
+      --accent: #ff9f0a;
+      --success: #34c759;
+      --bg: #000000;
+      --bg-secondary: #1d1d1f;
+      --bg-elevated-strong: #1d1d1f;
+      --bg-inverse: #1d1d1f;
+      --text: #f5f5f7;
+      --muted: #a1a1a6;
+      --muted-strong: #c7c7cc;
+      --border: rgba(255, 255, 255, 0.10);
+      --border-soft: rgba(255, 255, 255, 0.06);
+      --shadow: 0 1px 2px rgba(0,0,0,0.4), 0 8px 24px rgba(0,0,0,0.5);
+      --shadow-lg: 0 12px 36px rgba(0,0,0,0.55), 0 30px 80px rgba(0,0,0,0.6);
+      --nav-bg: rgba(0, 0, 0, 0.72);
+      color-scheme: dark;
+    }
+
+    /* ── Base ── */
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+    body {
+      margin: 0;
+      font-family: "SF Pro Text", -apple-system, BlinkMacSystemFont, "Inter", "Helvetica Neue", Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      font-size: 17px;
+      line-height: 1.5;
+      letter-spacing: -0.003em;
+      -webkit-font-smoothing: antialiased;
+      transition: background 0.3s ease, color 0.3s ease;
+    }
+    h1, h2, h3, h4 {
+      font-family: "SF Pro Display", -apple-system, BlinkMacSystemFont, "Inter", "Helvetica Neue", Arial, sans-serif;
+      font-weight: 600;
+      letter-spacing: -0.022em;
+      line-height: 1.08;
+      margin: 0;
+      color: var(--text);
+    }
+    p { margin: 0; line-height: 1.55; }
+    a { color: var(--brand); text-decoration: none; }
+    a:hover { color: var(--brand-strong); text-decoration: underline; text-underline-offset: 3px; }
+    :target { scroll-margin-top: 64px; }
+
+    .container { width: 100%; max-width: 1140px; margin: 0 auto; padding: 0 16px; }
+    @media (min-width: 576px) { .container { padding: 0 24px; } }
+    .section { padding: 6rem 0; }
+    .section-heading { max-width: 48rem; margin-bottom: 3rem; }
+    .section-heading.center { margin-left: auto; margin-right: auto; text-align: center; }
+    .display-2 { font-size: clamp(2.6rem, 6vw, 4.75rem); letter-spacing: -0.045em; line-height: 1.02; }
+    .display-5 { font-size: clamp(1.75rem, 3vw, 2.5rem); letter-spacing: -0.035em; line-height: 1.05; }
+    .lead { font-size: clamp(1.0625rem, 1.5vw, 1.3125rem); line-height: 1.45; color: var(--muted-strong); margin-top: 1rem; }
+    .muted { color: var(--muted); }
+    .eyebrow { display: inline-block; color: var(--brand); font-size: 1.0625rem; font-weight: 500; margin-bottom: 0.75rem; }
+    .hero-eyebrow { color: var(--brand); font-size: clamp(1.0625rem, 1.6vw, 1.25rem); font-weight: 500; margin-bottom: 1rem; }
+    .text-gradient {
+      background: linear-gradient(135deg, var(--brand), var(--accent));
+      -webkit-background-clip: text; background-clip: text; color: transparent;
+    }
+
+    /* ── Nav ── */
+    header { position: sticky; top: 0; z-index: 100; }
+    .navbar {
+      -webkit-backdrop-filter: saturate(180%) blur(20px);
+      backdrop-filter: saturate(180%) blur(20px);
+      background: var(--nav-bg);
+      border-bottom: 1px solid var(--border-soft);
+    }
+    .nav-inner { display: flex; align-items: center; justify-content: space-between; gap: 1rem; min-height: 52px; }
+    .brand { font-weight: 700; font-size: 1rem; letter-spacing: -0.02em; color: var(--text); }
+    .brand:hover { color: var(--text); text-decoration: none; }
+    .brand span { color: var(--brand); }
+    .nav-links { display: flex; align-items: center; gap: 0.25rem; list-style: none; margin: 0; padding: 0; }
+    .nav-links a { color: var(--muted-strong); font-size: 0.82rem; padding: 0.4rem 0.75rem; }
+    .nav-links a:hover { color: var(--text); text-decoration: none; }
+    .nav-actions { display: flex; align-items: center; gap: 0.5rem; }
+    .theme-toggle {
+      display: inline-flex; align-items: center; gap: 0.4rem;
+      height: 2rem; padding: 0 0.7rem;
+      border: 1px solid var(--border); border-radius: var(--radius-pill);
+      background: transparent; color: var(--muted-strong);
+      font: 500 0.78rem/1 inherit; cursor: pointer;
+    }
+    .theme-toggle:hover { color: var(--text); }
+    @media (max-width: 860px) { .nav-links { display: none; } }
+
+    /* ── Buttons ── */
+    .btn-brand {
+      display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem;
+      min-height: 44px; padding: 0.75rem 1.5rem;
+      border-radius: var(--radius-pill); border: 0;
+      background: var(--brand); color: #fff;
+      font-size: 1.0625rem; letter-spacing: -0.012em;
+      transition: background 0.2s ease, transform 0.15s ease;
+    }
+    .btn-brand:hover { background: var(--brand-strong); color: #fff; text-decoration: none; }
+    .btn-brand:active { transform: scale(0.98); }
+    .btn-brand.sm { min-height: 0; padding: 0.35rem 0.95rem; font-size: 0.78rem; font-weight: 500; }
+    .link-cta { font-size: 1.0625rem; }
+    .link-cta::after { content: " ›"; }
+
+    /* ── Hero ── */
+    .hero {
+      min-height: calc(100svh - 52px);
+      display: flex; align-items: center;
+      padding: 4rem 0;
+      text-align: center;
+      background: radial-gradient(ellipse 60% 50% at 50% 0%, rgba(215, 0, 21, 0.07), transparent 70%), var(--bg);
+    }
+    :root[data-theme="dark"] .hero {
+      background: radial-gradient(ellipse 70% 50% at 50% 0%, rgba(255, 69, 58, 0.13), transparent 70%), var(--bg);
+    }
+    .hero-stage { max-width: 60rem; margin: 0 auto; }
+    .news-pill {
+      display: inline-flex; align-items: center; gap: 0.6rem; max-width: 100%;
+      padding: 0.35rem 1rem 0.35rem 0.4rem; margin-bottom: 2rem;
+      border: 1px solid var(--border); border-radius: var(--radius-pill);
+      background: var(--bg-elevated-strong); box-shadow: var(--shadow);
+      color: var(--text); font-size: 0.9375rem; text-align: left;
+    }
+    .news-pill:hover { border-color: var(--brand); color: var(--text); text-decoration: none; }
+    .news-pill .bi { color: var(--brand); }
+    .news-pill-label {
+      flex-shrink: 0; padding: 0.2rem 0.65rem;
+      border-radius: var(--radius-pill); background: var(--brand); color: #fff;
+      font-size: 0.75rem; font-weight: 600;
+    }
+    .hero h1 { margin-bottom: 1.5rem; }
+    .hero-lead { font-size: clamp(1.1875rem, 1.85vw, 1.5rem); line-height: 1.35; color: var(--muted-strong); max-width: 44rem; margin: 0 auto; }
+    .hero-actions { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 1.75rem; margin-top: 2rem; }
+    .chips { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.5rem; margin-top: 2.5rem; }
+    .chip {
+      display: inline-flex; align-items: center; gap: 0.4rem;
+      padding: 0.45rem 0.9rem; border-radius: var(--radius-pill);
+      background: var(--bg-secondary); border: 1px solid var(--border-soft);
+      color: var(--muted-strong); font-size: 0.875rem;
+    }
+    .chip .bi { color: var(--brand); }
+
+    /* ── Grid & cards ── */
+    .grid { display: grid; gap: 1.5rem; }
+    @media (min-width: 640px) { .grid-2, .grid-3, .grid-4 { grid-template-columns: repeat(2, 1fr); } }
+    @media (min-width: 1000px) { .grid-3 { grid-template-columns: repeat(3, 1fr); } .grid-4 { grid-template-columns: repeat(4, 1fr); } }
+    .card {
+      height: 100%; padding: 2rem;
+      background: var(--bg-secondary);
+      border: 1px solid var(--border-soft);
+      border-radius: var(--radius-xl);
+      transition: transform 0.25s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.25s ease;
+    }
+    .card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); }
+    .card h3 { font-size: 1.1875rem; margin: 1.25rem 0 0.5rem; }
+    .card p { color: var(--muted); font-size: 0.97rem; }
+    .icon-badge {
+      display: inline-flex; align-items: center; justify-content: center;
+      width: 3rem; height: 3rem; border-radius: 50%;
+      background: var(--brand-soft); color: var(--brand); font-size: 1.25rem;
+    }
+    .tag-chip {
+      display: inline-flex; padding: 0.3rem 0.75rem; border-radius: var(--radius-pill);
+      background: var(--brand-soft); color: var(--brand);
+      font-size: 0.75rem; font-weight: 500;
+    }
+
+    /* ── Metrics ── */
+    .metrics { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; text-align: center; }
+    @media (min-width: 800px) { .metrics { grid-template-columns: repeat(4, 1fr); } }
+    .metric strong {
+      display: block; font-family: "SF Pro Display", -apple-system, "Inter", sans-serif;
+      font-size: clamp(2.25rem, 4.5vw, 3.5rem); font-weight: 600; letter-spacing: -0.04em; line-height: 1;
+    }
+    .metric span { display: block; margin-top: 0.4rem; font-size: 0.9375rem; color: var(--muted); }
+
+    /* ── Agenda timeline ── */
+    .agenda { position: relative; max-width: 52rem; margin: 0 auto; }
+    .agenda::before {
+      content: ""; position: absolute; left: 1.15rem; top: 0; bottom: 0; width: 2px;
+      background: linear-gradient(to bottom, var(--brand), var(--accent), transparent 95%); opacity: 0.5;
+    }
+    .step { position: relative; padding: 1.25rem 1.5rem 1.25rem 3.5rem; border-radius: var(--radius-lg); transition: background 0.2s; }
+    .step:hover { background: var(--bg-secondary); }
+    .step::before {
+      content: ""; position: absolute; left: 0.575rem; top: 1.6rem;
+      width: 1.15rem; height: 1.15rem; border-radius: 50%;
+      background: var(--bg); border: 2.5px solid var(--brand);
+      transition: background 0.2s, box-shadow 0.2s;
+    }
+    .step:hover::before { background: var(--brand); box-shadow: 0 0 0 4px rgba(215, 0, 21, 0.15); }
+    .step.break::before { border-color: var(--muted); border-width: 2px; }
+    .step-time { display: flex; flex-wrap: wrap; align-items: center; gap: 0.6rem; color: var(--brand); font-size: 0.8125rem; font-weight: 500; letter-spacing: 0.02em; margin-bottom: 0.3rem; }
+    .step.break .step-time { color: var(--muted); }
+    .step h3 { font-size: 1.15rem; }
+    .step p { color: var(--muted); font-size: 0.95rem; margin-top: 0.35rem; }
+
+    /* ── Lists ── */
+    .check-list { list-style: none; padding: 0; margin: 1.25rem 0 0; }
+    .check-list li { display: flex; gap: 0.75rem; margin-bottom: 0.8rem; color: var(--muted-strong); font-size: 0.97rem; line-height: 1.45; }
+    .check-list li .bi { color: var(--success); margin-top: 0.15rem; flex-shrink: 0; }
+    .check-list.no li .bi { color: var(--muted); }
+
+    /* ── Pricing ── */
+    .price-card {
+      max-width: 34rem; margin: 0 auto; padding: 2.5rem;
+      background: var(--bg-elevated-strong);
+      border: 1px solid var(--border); border-radius: var(--radius-xl);
+      box-shadow: var(--shadow-lg); text-align: left;
+    }
+    .price { display: flex; align-items: baseline; gap: 0.5rem; margin: 0.75rem 0 0.25rem; }
+    .price strong { font-family: "SF Pro Display", -apple-system, "Inter", sans-serif; font-size: clamp(2.5rem, 5vw, 3.25rem); font-weight: 600; letter-spacing: -0.04em; }
+    .price span { color: var(--muted); }
+
+    /* ── Speaker ── */
+    .speaker { display: grid; gap: 2rem; align-items: center; }
+    @media (min-width: 860px) { .speaker { grid-template-columns: 1fr 1.4fr; } }
+    .speaker-tile {
+      aspect-ratio: 1; border-radius: var(--radius-xl);
+      background: linear-gradient(135deg, var(--brand), var(--accent));
+      display: flex; flex-direction: column; justify-content: flex-end; padding: 2rem; color: #fff;
+    }
+    .speaker-tile .initials { font-family: "SF Pro Display", -apple-system, "Inter", sans-serif; font-size: clamp(4rem, 10vw, 7rem); font-weight: 600; letter-spacing: -0.05em; line-height: 1; }
+    .speaker-tile p { opacity: 0.9; margin-top: 0.75rem; }
+    .pill-links { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 1.5rem; }
+    .pill-link {
+      display: inline-flex; align-items: center; gap: 0.35rem;
+      padding: 0.35rem 0.85rem; border-radius: var(--radius-pill);
+      border: 1px solid var(--border); color: var(--text);
+      font-size: 0.8125rem; font-weight: 500;
+    }
+    .pill-link:hover { border-color: var(--brand); background: var(--brand); color: #fff; text-decoration: none; }
+
+    /* ── FAQ ── */
+    .faq { max-width: 48rem; margin: 0 auto; }
+    .faq details { border-bottom: 1px solid var(--border); padding: 1.25rem 0; }
+    .faq summary { cursor: pointer; font-weight: 600; font-size: 1.0625rem; list-style: none; display: flex; justify-content: space-between; gap: 1rem; }
+    .faq summary::-webkit-details-marker { display: none; }
+    .faq summary::after { content: "+"; color: var(--brand); font-weight: 400; font-size: 1.4rem; line-height: 1; }
+    .faq details[open] summary::after { content: "–"; }
+    .faq details p { color: var(--muted); margin-top: 0.75rem; }
+
+    /* ── CTA banner ── */
+    .cta-banner {
+      padding: 5rem 2.5rem; text-align: center;
+      background: var(--bg-inverse); color: var(--text-on-inverse);
+      border: 1px solid var(--border-soft); border-radius: var(--radius-xl);
+    }
+    .cta-banner h2 { color: var(--text-on-inverse); }
+    .cta-banner .lead { color: rgba(245, 245, 247, 0.78); max-width: 40rem; margin: 1.5rem auto 2rem; }
+    .cta-note { margin-top: 1.5rem; }
+    .cta-note a { color: #ff6961; font-size: 1rem; }
+    .cta-note a:hover { color: #ff8a80; }
+    @media (max-width: 991px) { .section { padding: 4rem 0; } .cta-banner { padding: 3rem 1.5rem; border-radius: var(--radius-lg); } }
+
+    /* ── Footer ── */
+    footer { padding: 3rem 0 2rem; border-top: 1px solid var(--border-soft); background: var(--bg-secondary); font-size: 0.8125rem; color: var(--muted); }
+    .footer-grid { display: grid; gap: 1.5rem; }
+    @media (min-width: 760px) { .footer-grid { grid-template-columns: 2fr 1fr 1fr 1fr; } }
+    footer h2 { font-size: 0.875rem; margin-bottom: 0.75rem; }
+    footer a { display: block; color: var(--muted); line-height: 1.9; }
+    footer a:hover { color: var(--text); }
+
+    /* ── Reveal ── */
+    .js .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1), transform 0.7s cubic-bezier(0.22, 1, 0.36, 1); }
+    .js .reveal.visible { opacity: 1; transform: none; }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after { transition: none !important; }
+      .js .reveal { opacity: 1; transform: none; }
+    }
+
+    /* ── Language switch ── */
+    .lang-switch {
+      display: inline-flex; height: 2rem; padding: 2px;
+      border: 1px solid var(--border); border-radius: var(--radius-pill);
+    }
+    .lang-switch button {
+      border: 0; border-radius: var(--radius-pill);
+      padding: 0 0.6rem; background: transparent; color: var(--muted-strong);
+      font: 500 0.75rem/1 inherit; letter-spacing: 0.02em; cursor: pointer;
+      transition: background 0.2s, color 0.2s;
+    }
+    .lang-switch button:hover { color: var(--text); }
+    .lang-switch button[aria-pressed="true"] { background: var(--brand); color: #fff; }
+    @media (max-width: 480px) {
+      .theme-toggle [data-theme-label] { display: none; }
+    }
+      .step-links { display: flex; flex-wrap: wrap; gap: 1.25rem; margin-top: 0.6rem; }
+    .step-links .link-cta { font-size: 0.95rem; }
+    ::selection { background: rgba(215, 0, 21, 0.22); }
+  </style>
+</head>
+<body>
+  <header>
+    <nav class="navbar" aria-label="Primary">
+      <div class="container nav-inner">
+        <a class="brand" href="#top">AI <span>or</span> DIE</a>
+        <ul class="nav-links">
+          <li><a href="#why" data-i18n="nav.why">Why</a></li>
+          <li><a href="#events" data-i18n="nav.events">Events</a></li>
+          <li><a href="#topics" data-i18n="nav.topics">Topics</a></li>
+          <li><a href="#speaker" data-i18n="nav.speaker">Speaker</a></li>
+        </ul>
+        <div class="nav-actions">
+          <div class="lang-switch" role="group" aria-label="Language / Bahasa">
+            <button type="button" data-lang="en" aria-pressed="true" title="English">EN</button>
+            <button type="button" data-lang="id" aria-pressed="false" title="Bahasa Indonesia">ID</button>
+          </div>
+          <button type="button" class="theme-toggle" data-theme-toggle aria-label="Toggle theme">
+            <i class="bi bi-sun-fill" data-theme-icon></i><span data-theme-label>Light</span>
+          </button>
+          <a class="btn-brand sm" href="workshop-jakarta-2026-11/" data-i18n="nav.workshop">Workshop Jakarta</a>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main id="top">
+    <!-- Hero -->
+    <section class="hero">
+      <div class="container">
+        <div class="hero-stage">
+          <p class="hero-eyebrow reveal" data-i18n="hero.eyebrow">The AI or DIE Series &middot; Dr. Lofi Dewanto</p>
+          <div class="reveal">
+            <a class="news-pill" href="workshop-jakarta-2026-11/">
+              <span class="news-pill-label" data-i18n="hero.pill.label">New</span>
+              <span data-i18n="hero.pill.text">Workshop in Jakarta, 14 November 2026 &mdash; 50 seats, IDR 100.000</span>
+              <i class="bi bi-arrow-right" aria-hidden="true"></i>
+            </a>
+          </div>
+          <h1 class="display-2 reveal" data-i18n="hero.title">AI or DIE.<br><span class="text-gradient">Disrupted. Irrelevant. Extinct.</span></h1>
+          <p class="hero-lead reveal" data-i18n="hero.lead">Talks, workshops and material on how AI, LLMs and AI agents change software development, organisations &mdash; and our lives as a whole.</p>
+          <div class="hero-actions reveal">
+            <a class="btn-brand" href="workshop-jakarta-2026-11/" data-i18n="hero.cta">Join the workshop in Jakarta</a>
+            <a class="link-cta" href="#events" data-i18n="hero.link">See all events</a>
+          </div>
+          <div class="chips reveal">
+            <span class="chip"><i class="bi bi-mic"></i> <span data-i18n="chip.talks">Keynotes &amp; talks</span></span>
+            <span class="chip"><i class="bi bi-laptop"></i> <span data-i18n="chip.workshops">Hands-on workshops</span></span>
+            <span class="chip"><i class="bi bi-robot"></i> <span data-i18n="chip.agents">AI agents in practice</span></span>
+            <span class="chip"><i class="bi bi-globe2"></i> <span data-i18n="chip.lang">German &middot; English &middot; Indonesian</span></span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Why -->
+    <section class="section" id="why">
+      <div class="container">
+        <div class="section-heading reveal">
+          <h2 class="display-5" data-i18n="why.title">AI does not add features.<br>It changes how software is built.<br><span class="text-gradient">And it changes our lives as a whole.</span></h2>
+          <p class="lead" data-i18n="why.lead">Desktop to web. Monolith to cloud. Now: applications to agents. Teams that adapt thrive &mdash; teams that ignore it fall behind. The choice is ours: <strong>AI or DIE</strong>.</p>
+        </div>
+        <div class="grid grid-3">
+          <article class="card reveal">
+            <span class="icon-badge"><i class="bi bi-cpu"></i></span>
+            <h3 data-i18n="toe.1.t">Technology</h3>
+            <p data-i18n="toe.1.p">LLMs, AI agents and agentic AI &mdash; what they are, how they work, and where their limits are.</p>
+          </article>
+          <article class="card reveal">
+            <span class="icon-badge"><i class="bi bi-people"></i></span>
+            <h3 data-i18n="toe.2.t">Organisation</h3>
+            <p data-i18n="toe.2.p">DevSecOps, agile and new roles: from developer to &ldquo;product builder&rdquo; in micro-teams.</p>
+          </article>
+          <article class="card reveal">
+            <span class="icon-badge"><i class="bi bi-diagram-3"></i></span>
+            <h3 data-i18n="toe.3.t">Environment</h3>
+            <p data-i18n="toe.3.p">Requirements, costs and processes &mdash; and the mindset shift from imperative to descriptive thinking.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Events -->
+    <section class="section" id="events" style="background:var(--bg-secondary)">
+      <div class="container">
+        <div class="section-heading center reveal">
+          <h2 class="display-5" data-i18n="ev.title">Events</h2>
+          <p class="lead" data-i18n="ev.lead">From Cologne to Jakarta &mdash; keynotes, webinars and hands-on workshops.</p>
+        </div>
+        <div class="agenda">
+          <div class="step reveal">
+            <div class="step-time">14 Nov 2026 &middot; Jakarta <span class="tag-chip" data-i18n="ev.upcoming">Upcoming</span></div>
+            <h3 data-i18n="ev.1.t">Workshop: AI or DIE. One Day. Your Choice.</h3>
+            <p data-i18n="ev.1.p">One-day workshop in Bahasa Indonesia: AI, LLMs and agents, working with OpenCode and Claude Code, agent security, and building your own agent with Spring Boot and Spring AI. 50 seats, IDR 100.000.</p>
+            <p class="step-links">
+              <a class="link-cta" href="workshop-jakarta-2026-11/" data-i18n="ev.1.more">Workshop details</a>
+              <a class="link-cta" href="https://forms.gle/gsvDgE4x2zncKwJ77" target="_blank" rel="noreferrer" data-i18n="ev.1.reg">Register</a>
+            </p>
+          </div>
+          <div class="step reveal">
+            <div class="step-time">30 Jun 2026 &middot; Cologne <span class="tag-chip">Keynote</span></div>
+            <h3>AI or DIE: Die Zukunft der Softwareentwicklung</h3>
+            <p data-i18n="ev.2.p">viadee Round Table &ldquo;KI in der Softwareentwicklung&rdquo; &mdash; how AI fundamentally transforms software development and the organisations around it.</p>
+          </div>
+          <div class="step reveal">
+            <div class="step-time">May 2026 &middot; Jakarta (online) <span class="tag-chip">Webinar</span></div>
+            <h3>AI or DIE: The Digital Library &mdash; Unlock AI Knowledge Anytime, Anywhere</h3>
+            <p data-i18n="ev.3.p">46th anniversary of Perpustakaan Nasional RI &mdash; how AI becomes a librarian&rsquo;s &ldquo;super assistant&rdquo;, with its opportunities and challenges.</p>
+            <p class="step-links">
+              <a class="link-cta" href="https://www.youtube.com/live/4dGn6rFST6Y" target="_blank" rel="noreferrer" data-i18n="ev.3.watch">Watch the recording</a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Topics -->
+    <section class="section" id="topics">
+      <div class="container">
+        <div class="section-heading reveal">
+          <h2 class="display-5" data-i18n="top.title">What the Series Covers</h2>
+          <p class="lead" data-i18n="top.lead">From the why to the how &mdash; theory, live demos and code you can take home.</p>
+        </div>
+        <div class="grid grid-3">
+          <article class="card reveal">
+            <span class="icon-badge"><i class="bi bi-lightning-charge"></i></span>
+            <h3 data-i18n="top.1.t">AI, LLMs &amp; AGI</h3>
+            <p data-i18n="top.1.p">How an LLM is made, why it is a &ldquo;clever parrot&rdquo;, and the road to artificial general intelligence.</p>
+          </article>
+          <article class="card reveal">
+            <span class="icon-badge"><i class="bi bi-robot"></i></span>
+            <h3 data-i18n="top.2.t">AI agents &amp; agentic AI</h3>
+            <p data-i18n="top.2.p">Memory, RAG, tools and MCP &mdash; and agents that plan, act and revise across many steps.</p>
+          </article>
+          <article class="card reveal">
+            <span class="icon-badge"><i class="bi bi-terminal"></i></span>
+            <h3 data-i18n="top.3.t">Spec-driven development</h3>
+            <p data-i18n="top.3.p">OpenCode and Claude Code from GitHub issue to finished feature: specify, plan, tasks, implement.</p>
+          </article>
+          <article class="card reveal">
+            <span class="icon-badge"><i class="bi bi-shield-lock"></i></span>
+            <h3 data-i18n="top.4.t">Security &amp; agents</h3>
+            <p data-i18n="top.4.p">An agent can do everything you are allowed to do. Rights, sandboxes, secrets and prompt injection.</p>
+          </article>
+          <article class="card reveal">
+            <span class="icon-badge"><i class="bi bi-boxes"></i></span>
+            <h3 data-i18n="top.5.t">Own agents in Java</h3>
+            <p data-i18n="top.5.p">&ldquo;Chat as Code&rdquo; with Spring Boot, Spring AI and LangChain4j &mdash; on WhatsApp, Telegram and the web.</p>
+          </article>
+          <article class="card reveal">
+            <span class="icon-badge"><i class="bi bi-rocket-takeoff"></i></span>
+            <h3 data-i18n="top.6.t">The future of work</h3>
+            <p data-i18n="top.6.p">Product builders, micro-teams and a new mindset &mdash; &ldquo;Don&rsquo;t DIE, or at least DIE Hard.&rdquo;</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Speaker -->
+    <section class="section" id="speaker" style="background:var(--bg-secondary)">
+      <div class="container">
+        <div class="speaker">
+          <div class="speaker-tile reveal">
+            <div class="initials">LD</div>
+            <p data-i18n="spk.roles">Java &amp; Open-Source Pioneer &middot; Enterprise Architect &middot; AI &amp; Agentic Systems Advocate</p>
+          </div>
+          <div class="reveal">
+            <p class="eyebrow" data-i18n="spk.eyebrow">The speaker</p>
+            <h2 class="display-5">Dr. Lofi Dewanto</h2>
+            <p class="lead" data-i18n="spk.lead">Three decades at the leading edge of enterprise software &mdash; from Java and open source, through enterprise architecture and the cloud, to AI agents.</p>
+            <ul class="check-list">
+              <li><i class="bi bi-star-fill" style="color:var(--brand)"></i> <span data-i18n="spk.1">Founder of OpenUSS, one of Germany&rsquo;s earliest open-source e-learning platforms</span></li>
+              <li><i class="bi bi-star-fill" style="color:var(--brand)"></i> <span data-i18n="spk.2">Head of Sales Applications, Java Competence Center at DEVK Versicherungen</span></li>
+              <li><i class="bi bi-star-fill" style="color:var(--brand)"></i> <span data-i18n="spk.3">Speaker at JAX, JCON, JDConf, FrOSCon, Navigate &mdash; and Perpustakaan Nasional RI</span></li>
+              <li><i class="bi bi-star-fill" style="color:var(--brand)"></i> <span data-i18n="spk.4">Advisor to Mova Tech / Mova Intelligence on &ldquo;Chat as Code&rdquo; AI agents</span></li>
+            </ul>
+            <div class="pill-links">
+              <a class="pill-link" href="cv-lofi-dewanto.html"><i class="bi bi-person-lines-fill"></i> <span data-i18n="spk.cv">Career timeline</span></a>
+              <a class="pill-link" href="cv-lofi-dewanto-green-dark.html"><i class="bi bi-moon-stars"></i> <span data-i18n="spk.cvdark">Career timeline (dark)</span></a>
+              <a class="pill-link" href="https://www.linkedin.com/in/dr-lofi-dewanto-5812a012/" target="_blank" rel="noreferrer"><i class="bi bi-linkedin"></i> LinkedIn</a>
+              <a class="pill-link" href="https://github.com/lofidewanto" target="_blank" rel="noreferrer"><i class="bi bi-github"></i> GitHub</a>
+              <a class="pill-link" href="https://lofidewanto.medium.com/" target="_blank" rel="noreferrer"><i class="bi bi-medium"></i> Medium</a>
+              <a class="pill-link" href="https://www.youtube.com/channel/UCznmOzSBnlKYeFBt8w1XvpQ" target="_blank" rel="noreferrer"><i class="bi bi-youtube"></i> YouTube</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="section" id="join">
+      <div class="container">
+        <div class="cta-banner reveal">
+          <h2 class="display-5" data-i18n="cta.title">AI or DIE. Your Choice.</h2>
+          <p class="lead" data-i18n="cta.lead">Spend one Saturday in Jakarta building the future instead of reading about it. 14 November 2026 &mdash; only 50 seats.</p>
+          <a class="btn-brand" href="workshop-jakarta-2026-11/" data-i18n="cta.btn">To the workshop</a>
+          <p class="cta-note"><a href="https://sessionize.com/dewanto/" target="_blank" rel="noreferrer"><i class="bi bi-calendar-event"></i> <span data-i18n="cta.invite">Invite Lofi to your event on Sessionize</span></a></p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <p class="brand" style="margin-bottom:0.75rem">AI <span>or</span> DIE</p>
+          <p data-i18n="foot.tag">Talks, workshops and material by Dr. Lofi Dewanto</p>
+        </div>
+        <div>
+          <h2 data-i18n="foot.series">Series</h2>
+          <a href="#events" data-i18n="nav.events">Events</a>
+          <a href="workshop-jakarta-2026-11/" data-i18n="nav.workshop">Workshop Jakarta</a>
+          <a href="#topics" data-i18n="nav.topics">Topics</a>
+        </div>
+        <div>
+          <h2 data-i18n="nav.speaker">Speaker</h2>
+          <a href="cv-lofi-dewanto.html" data-i18n="spk.cv">Career timeline</a>
+          <a href="cv-lofi-dewanto-green-dark.html" data-i18n="spk.cvdark">Career timeline (dark)</a>
+          <a href="https://sessionize.com/dewanto/" target="_blank" rel="noreferrer">Sessionize</a>
+        </div>
+        <div>
+          <h2 data-i18n="foot.more">More</h2>
+          <a href="https://github.com/lofidewanto/ai-or-die" target="_blank" rel="noreferrer">GitHub repository</a>
+          <a href="https://www.linkedin.com/in/dr-lofi-dewanto-5812a012/" target="_blank" rel="noreferrer">LinkedIn</a>
+          <a href="https://mova-intelligence.com" target="_blank" rel="noreferrer">Mova Intelligence</a>
+        </div>
+      </div>
+      <p style="margin-top:2rem">Copyright &copy; 2026 Dr. Lofi Dewanto &middot; AI or DIE Series</p>
+    </div>
+  </footer>
+
+  <script>
+    /* Indonesian strings; English is taken from the page itself. */
+    const I18N_ID = {
+      "meta.title": "AI or DIE — Seri oleh Dr. Lofi Dewanto",
+      "meta.description": "Seri AI or DIE: keynote, workshop dan materi tentang bagaimana AI, LLM dan agen AI mengubah pengembangan software, organisasi dan hidup kita secara keseluruhan.",
+      "theme.light": "Terang",
+      "theme.dark": "Gelap",
+
+      "nav.why": "Mengapa",
+      "nav.events": "Acara",
+      "nav.topics": "Topik",
+      "nav.speaker": "Pembicara",
+      "nav.workshop": "Workshop Jakarta",
+
+      "hero.eyebrow": "Seri AI or DIE &middot; Dr. Lofi Dewanto",
+      "hero.pill.label": "Baru",
+      "hero.pill.text": "Workshop di Jakarta, 14 November 2026 &mdash; 50 kursi, IDR 100.000",
+      "hero.title": "AI or DIE.<br><span class=\"text-gradient\">Disrupted. Irrelevant. Extinct.</span>",
+      "hero.lead": "Keynote, workshop dan materi tentang bagaimana AI, LLM dan agen AI mengubah pengembangan software, organisasi &mdash; dan hidup kita secara keseluruhan.",
+      "hero.cta": "Ikuti workshop di Jakarta",
+      "hero.link": "Lihat semua acara",
+      "chip.talks": "Keynote &amp; talk",
+      "chip.workshops": "Workshop praktik",
+      "chip.agents": "Agen AI dalam praktik",
+      "chip.lang": "Jerman &middot; Inggris &middot; Indonesia",
+
+      "why.title": "AI bukan sekadar fitur tambahan.<br>AI mengubah cara software dibangun.<br><span class=\"text-gradient\">Dan mengubah hidup kita secara keseluruhan.</span>",
+      "why.lead": "Dari desktop ke web. Dari monolit ke cloud. Kini: dari aplikasi ke agen. Tim yang beradaptasi akan berkembang &mdash; tim yang mengabaikannya akan tertinggal. Pilihannya ada pada kita: <strong>AI or DIE</strong>.",
+      "toe.1.t": "Teknologi",
+      "toe.1.p": "LLM, agen AI dan agentic AI &mdash; apa itu, bagaimana cara kerjanya, dan di mana batasannya.",
+      "toe.2.t": "Organisasi",
+      "toe.2.p": "DevSecOps, agile dan peran baru: dari developer menjadi &ldquo;product builder&rdquo; dalam micro-team.",
+      "toe.3.t": "Lingkungan",
+      "toe.3.p": "Kebutuhan, biaya dan proses &mdash; serta perubahan pola pikir dari imperatif ke deskriptif.",
+
+      "ev.title": "Acara",
+      "ev.lead": "Dari Köln hingga Jakarta &mdash; keynote, webinar dan workshop praktik.",
+      "ev.upcoming": "Segera",
+      "ev.1.t": "Workshop: AI or DIE. Satu Hari. Pilihan Anda.",
+      "ev.1.p": "Workshop satu hari dalam Bahasa Indonesia: AI, LLM dan agen, bekerja dengan OpenCode dan Claude Code, keamanan agen, serta membangun agen sendiri dengan Spring Boot dan Spring AI. 50 kursi, IDR 100.000.",
+      "ev.1.more": "Detail workshop",
+      "ev.1.reg": "Daftar",
+      "ev.2.p": "viadee Round Table &ldquo;KI in der Softwareentwicklung&rdquo; &mdash; bagaimana AI secara mendasar mengubah pengembangan software dan organisasi di sekitarnya.",
+      "ev.3.p": "Ulang tahun ke-46 Perpustakaan Nasional RI &mdash; bagaimana AI menjadi &ldquo;super asisten&rdquo; pustakawan, beserta peluang dan tantangannya.",
+      "ev.3.watch": "Tonton rekamannya",
+
+      "top.title": "Cakupan Seri Ini",
+      "top.lead": "Dari alasan hingga praktik &mdash; teori, demo langsung dan kode yang bisa Anda bawa pulang.",
+      "top.1.t": "AI, LLM &amp; AGI",
+      "top.1.p": "Bagaimana LLM dibuat, mengapa ia seperti &ldquo;burung beo yang pintar&rdquo;, dan jalan menuju artificial general intelligence.",
+      "top.2.t": "Agen AI &amp; agentic AI",
+      "top.2.p": "Memori, RAG, tools dan MCP &mdash; serta agen yang merencanakan, bertindak dan merevisi dalam banyak langkah.",
+      "top.3.t": "Spec-driven development",
+      "top.3.p": "OpenCode dan Claude Code dari GitHub issue hingga fitur selesai: specify, plan, tasks, implement.",
+      "top.4.t": "Keamanan &amp; agen",
+      "top.4.p": "Agen dapat melakukan semua yang boleh Anda lakukan. Hak akses, sandbox, secret dan prompt injection.",
+      "top.5.t": "Agen sendiri dengan Java",
+      "top.5.p": "&ldquo;Chat as Code&rdquo; dengan Spring Boot, Spring AI dan LangChain4j &mdash; di WhatsApp, Telegram dan web.",
+      "top.6.t": "Masa depan pekerjaan",
+      "top.6.p": "Product builder, micro-team dan pola pikir baru &mdash; &ldquo;Don&rsquo;t DIE, or at least DIE Hard.&rdquo;",
+
+      "spk.roles": "Pionir Java &amp; Open Source &middot; Enterprise Architect &middot; Advokat AI &amp; Agentic Systems",
+      "spk.eyebrow": "Pembicara",
+      "spk.lead": "Tiga dekade di garis depan software enterprise &mdash; dari Java dan open source, arsitektur enterprise dan cloud, hingga agen AI.",
+      "spk.1": "Pendiri OpenUSS, salah satu platform e-learning open source pertama di Jerman",
+      "spk.2": "Head of Sales Applications, Java Competence Center di DEVK Versicherungen",
+      "spk.3": "Pembicara di JAX, JCON, JDConf, FrOSCon, Navigate &mdash; dan Perpustakaan Nasional RI",
+      "spk.4": "Advisor Mova Tech / Mova Intelligence untuk agen AI &ldquo;Chat as Code&rdquo;",
+      "spk.cv": "Perjalanan karier",
+      "spk.cvdark": "Perjalanan karier (gelap)",
+
+      "cta.title": "AI or DIE. Pilihan Anda.",
+      "cta.lead": "Luangkan satu hari Sabtu di Jakarta untuk membangun masa depan, bukan hanya membacanya. 14 November 2026 &mdash; hanya 50 kursi.",
+      "cta.btn": "Ke halaman workshop",
+      "cta.invite": "Undang Lofi ke acara Anda via Sessionize",
+
+      "foot.tag": "Keynote, workshop dan materi oleh Dr. Lofi Dewanto",
+      "foot.series": "Seri",
+      "foot.more": "Lainnya"
+    };
+
+    (() => {
+      const root = document.documentElement;
+      const nodes = document.querySelectorAll("[data-i18n]");
+      const metaDesc = document.querySelector('meta[name="description"]');
+      const english = {
+        "meta.title": document.title,
+        "meta.description": metaDesc.content,
+        "theme.light": "Light",
+        "theme.dark": "Dark"
+      };
+      nodes.forEach((el) => { english[el.dataset.i18n] = el.innerHTML; });
+
+      let lang = "en";
+      const t = (key) => (lang === "id" && I18N_ID[key]) || english[key];
+
+      /* ── Theme ── */
+      const icon = document.querySelector("[data-theme-icon]");
+      const label = document.querySelector("[data-theme-label]");
+      const renderTheme = () => {
+        const dark = root.getAttribute("data-theme") === "dark";
+        icon.className = dark ? "bi bi-moon-stars-fill" : "bi bi-sun-fill";
+        label.textContent = t(dark ? "theme.dark" : "theme.light");
+      };
+      document.querySelector("[data-theme-toggle]").addEventListener("click", () => {
+        const next = root.getAttribute("data-theme") === "dark" ? "light" : "dark";
+        root.setAttribute("data-theme", next);
+        try { localStorage.setItem("aiordie-theme", next); } catch (e) {}
+        renderTheme();
+      });
+
+      /* ── Language ── */
+      const setLang = (next, persist) => {
+        lang = next === "id" ? "id" : "en";
+        root.lang = lang;
+        document.title = t("meta.title");
+        metaDesc.content = t("meta.description");
+        nodes.forEach((el) => { el.innerHTML = t(el.dataset.i18n); });
+        document.querySelectorAll("[data-lang]").forEach((btn) => {
+          btn.setAttribute("aria-pressed", String(btn.dataset.lang === lang));
+        });
+        renderTheme();
+        if (persist) {
+          try { localStorage.setItem("aiordie-lang", lang); } catch (e) {}
+          const url = new URL(window.location.href);
+          url.searchParams.set("lang", lang);
+          try { history.replaceState(null, "", url); } catch (e) {}
+        }
+      };
+      document.querySelectorAll("[data-lang]").forEach((btn) => {
+        btn.addEventListener("click", () => setLang(btn.dataset.lang, true));
+      });
+
+      let initial = new URLSearchParams(window.location.search).get("lang");
+      if (!initial) { try { initial = localStorage.getItem("aiordie-lang"); } catch (e) {} }
+      if (!initial) initial = (navigator.language || "").toLowerCase().startsWith("id") ? "id" : "en";
+      setLang(initial, false);
+
+      /* ── Reveal on scroll ── */
+      const items = document.querySelectorAll(".reveal");
+      if (!("IntersectionObserver" in window)) {
+        items.forEach((el) => el.classList.add("visible"));
+        return;
+      }
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.12 });
+      items.forEach((el) => observer.observe(el));
+    })();
+  </script>
+</body>
+</html>
