@@ -103,6 +103,7 @@
     .lead { font-size: clamp(1.0625rem, 1.5vw, 1.3125rem); line-height: 1.45; color: var(--muted-strong); margin-top: 1rem; }
     .muted { color: var(--muted); }
     .eyebrow { display: inline-block; color: var(--brand); font-size: 1.0625rem; font-weight: 500; margin-bottom: 0.75rem; }
+    .hero-eyebrow { color: var(--brand); font-size: clamp(1.0625rem, 1.6vw, 1.25rem); font-weight: 500; margin-bottom: 1rem; }
     .text-gradient {
       background: linear-gradient(135deg, var(--brand), var(--accent));
       -webkit-background-clip: text; background-clip: text; color: transparent;
@@ -364,12 +365,14 @@
     <section class="hero">
       <div class="container">
         <div class="hero-stage">
-          <a class="news-pill reveal" href="#pricing">
-            <span class="news-pill-label" data-i18n="hero.pill.label">Early bird</span>
-            <span data-i18n="hero.pill.text">First 10 seats IDR 75.000 &mdash; only 30 seats in total</span>
-            <i class="bi bi-arrow-right" aria-hidden="true"></i>
-          </a>
-          <p class="eyebrow reveal" data-i18n="hero.eyebrow">AI or DIE Workshop &middot; Jakarta &middot; November 2026</p>
+          <p class="hero-eyebrow reveal" data-i18n="hero.eyebrow">AI or DIE Workshop &middot; Jakarta &middot; November 2026</p>
+          <div class="reveal">
+            <a class="news-pill" href="#pricing">
+              <span class="news-pill-label" data-i18n="hero.pill.label">Early bird</span>
+              <span data-i18n="hero.pill.text">First 10 seats IDR 75.000 &mdash; only 30 seats in total</span>
+              <i class="bi bi-arrow-right" aria-hidden="true"></i>
+            </a>
+          </div>
           <h1 class="display-2 reveal" data-i18n="hero.title">From Chat to Agent.<br><span class="text-gradient">In One Day.</span></h1>
           <p class="hero-lead reveal" data-i18n="hero.lead">Build your own AI customer-service agent with Java, Spring Boot, LangChain4j and MCP &mdash; running locally on your own laptop.</p>
           <div class="hero-actions reveal">
@@ -592,7 +595,7 @@
               <a class="pill-link" href="https://github.com/lofidewanto" target="_blank" rel="noreferrer"><i class="bi bi-github"></i> GitHub</a>
               <a class="pill-link" href="https://lofidewanto.medium.com/" target="_blank" rel="noreferrer"><i class="bi bi-medium"></i> Medium</a>
               <a class="pill-link" href="https://youtu.be/TU8Uts9LfiU" target="_blank" rel="noreferrer"><i class="bi bi-youtube"></i> <span data-i18n="spk.talk">Chat as Code talk</span></a>
-              <a class="pill-link" href="../cv-lofi-dewanto.html"><i class="bi bi-person-lines-fill"></i> <span data-i18n="spk.cv">Full career timeline</span></a>
+              <a class="pill-link" href="../cv-lofi-dewanto-green-dark.html"><i class="bi bi-person-lines-fill"></i> <span data-i18n="spk.cv">Full career timeline</span></a>
             </div>
           </div>
         </div>
@@ -674,7 +677,7 @@
         <div>
           <h2 data-i18n="nav.speaker">Speaker</h2>
           <a href="#speaker">Dr. Lofi Dewanto</a>
-          <a href="../cv-lofi-dewanto.html" data-i18n="foot.cv">Career timeline</a>
+          <a href="../cv-lofi-dewanto-green-dark.html" data-i18n="foot.cv">Career timeline</a>
           <a href="https://sessionize.com/dewanto/" target="_blank" rel="noreferrer">Sessionize</a>
         </div>
         <div>
