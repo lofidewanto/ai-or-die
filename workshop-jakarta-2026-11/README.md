@@ -14,6 +14,7 @@
 | **Language** | Bahasa Indonesia only (the website can switch between Indonesian and English) |
 | **Prerequisite** | Your own laptop with **OpenCode** (free OpenCode Zen models or free NVIDIA models from build.nvidia.com) **or Claude Code** (Claude models such as Opus) installed — see [participant-setup.md](participant-setup.md) (in Bahasa Indonesia) |
 | **Venue must have** | Reliable Wi-Fi for 50+ laptops — no local models, everything runs over the internet |
+| **Registration** | Google Form <https://forms.gle/gsvDgE4x2zncKwJ77> — questions via WhatsApp Mova [+62 851-2133-6927](https://wa.me/6285121336927) |
 
 ---
 
