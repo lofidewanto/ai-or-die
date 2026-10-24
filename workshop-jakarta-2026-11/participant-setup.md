@@ -1,33 +1,46 @@
-# Participant Setup — AI or DIE Workshop Jakarta
+# Persiapan Peserta — Workshop AI or DIE Jakarta
 
-Please complete this **at home before the workshop**. Venue Wi-Fi is shared by 30 people and
-cannot download several gigabytes per laptop. It takes about 30–45 minutes.
+Mohon selesaikan persiapan ini **di rumah sebelum workshop**. Waktu yang dibutuhkan sekitar 30–45 menit.
+Tidak ada model lokal — semua berjalan melalui internet. WiFi tersedia di lokasi,
+tetapi instalasi harus sudah selesai sebelum hari-H.
 
-## Laptop
+## Prasyarat (wajib)
 
-- Windows 10/11, macOS, or Linux
-- **At least 8 GB RAM** (16 GB recommended), 15 GB free disk space
-- Charger (power outlets are available at every seat)
+Tanpa ini Anda tidak dapat mengikuti sesi praktik.
 
-## Install
+1. **Laptop sendiri** — Windows 10/11, macOS atau Linux, beserta charger
+   (colokan listrik tersedia di setiap kursi).
+2. **Agen AI — pilih salah satu:**
 
-1. **JDK 21** — e.g. [Eclipse Temurin](https://adoptium.net/)
-   Check: `java -version`
+   **A. OpenCode dengan NVIDIA sebagai model provider** (gratis)
+   1. Daftar akun developer NVIDIA di <https://build.nvidia.com> dan buat **API key**.
+   2. Instal OpenCode — <https://opencode.ai>
+      Cek: `opencode --version`
+   3. Hubungkan NVIDIA: jalankan `opencode auth login`, pilih **Nvidia**, lalu tempel API key Anda.
+      (Alternatif: set environment variable `NVIDIA_API_KEY`.)
+   4. Jalankan `opencode`, pilih salah satu model NVIDIA, dan ketik: `Halo, apa kabar?` — agen harus menjawab.
+
+   **B. Claude Code** (memerlukan langganan Claude)
+   1. Instal Claude Code — <https://docs.claude.com/en/docs/claude-code/overview>
+      Cek: `claude --version`
+   2. Jalankan `claude` sekali dan login.
+
+3. **Akun GitHub** — untuk latihan spec-driven development di Sesi 3.
+
+## Untuk Sesi 5 — agen sendiri dengan Spring Boot & Spring AI
+
+1. **JDK 21** — misalnya [Eclipse Temurin](https://adoptium.net/)
+   Cek: `java -version`
 2. **Maven 3.9+** — <https://maven.apache.org/download.cgi>
-   Check: `mvn -version`
+   Cek: `mvn -version`
 3. **Git** — <https://git-scm.com/>
-4. **IDE** — IntelliJ IDEA Community or VS Code with the Java extension pack
-5. **Ollama** — <https://ollama.com/download>
-   Then download the workshop models:
-   ```bash
-   ollama pull llama3.2:3b
-   ollama pull nomic-embed-text
-   ```
-   Check: `ollama run llama3.2:3b "Halo, apa kabar?"` should answer.
+4. **IDE** — IntelliJ IDEA Community atau VS Code dengan Java extension pack
+5. **NVIDIA API key** dari langkah 2A — Spring AI memakai model NVIDIA dari build.nvidia.com.
+   Peserta dengan Claude dapat memakai Anthropic API key sebagai gantinya.
 
-## Pre-load the workshop project
+## Unduh project workshop lebih awal
 
-The repository link will be sent to registered participants one week before the workshop.
+Link repository dikirim kepada peserta terdaftar satu minggu sebelum workshop.
 
 ```bash
 git clone <workshop-repository-url>
@@ -35,10 +48,9 @@ cd <workshop-repository>
 mvn -q dependency:go-offline
 ```
 
-## Stuck?
+## Ada kendala?
 
-Post your question in the participant group, or come at **08:30** on the day —
-assistants will help during registration. USB sticks with installers and models are available
-as a fallback.
+Tanyakan di grup peserta, atau datang pukul **08:30** pada hari-H —
+asisten akan membantu saat registrasi.
 
 Sampai jumpa di Jakarta!
