@@ -10,6 +10,8 @@ Published with GitHub Pages: <https://lofidewanto.github.io/ai-or-die/>
 | Page | Description |
 |---|---|
 | [Workshop AI or DIE Jakarta](https://lofidewanto.github.io/ai-or-die/workshop-jakarta-2026-11/) ([Bahasa Indonesia](https://lofidewanto.github.io/ai-or-die/workshop-jakarta-2026-11/?lang=id)) | Landing page for the one-day workshop in Jakarta, 19, 20 or 21 November 2026 (TBD) — Indonesian / English |
+| [Workshop AI or DIE Academia](https://lofidewanto.github.io/ai-or-die/workshop-jakarta-2026-11-academia/) ([Bahasa Indonesia](https://lofidewanto.github.io/ai-or-die/workshop-jakarta-2026-11-academia/?lang=id)) | Alternative 1 (green): 3-hour academic edition, theory first with hands-on examples — 100 seats, IDR 50.000 |
+| [Workshop AI or DIE Executive](https://lofidewanto.github.io/ai-or-die/workshop-jakarta-2026-11-executive/) ([Bahasa Indonesia](https://lofidewanto.github.io/ai-or-die/workshop-jakarta-2026-11-executive/?lang=id)) | Alternative 2 (purple): 5-hour executive edition for leaders and managers, hands-on managerial work — 30 seats, IDR 1.500.000 |
 | [Career timeline](https://lofidewanto.github.io/ai-or-die/cv-lofi-dewanto.html) | Dr. Lofi Dewanto, 1995–2026 |
 | [Career timeline — green dark](https://lofidewanto.github.io/ai-or-die/cv-lofi-dewanto-green-dark.html) | Same content in a dark design with green accents |
 
@@ -77,6 +79,8 @@ MakanChat (restaurant & food), Mandaya Hospital (healthcare), Galva & Kaze Rice 
 | File | Purpose |
 |---|---|
 | [workshop-jakarta-2026-11/index.html](workshop-jakarta-2026-11/index.html) | Bilingual landing page (Mova Intelligence style, light/dark mode, EN / ID switch, `?lang=id`) |
+| [workshop-jakarta-2026-11-academia/index.html](workshop-jakarta-2026-11-academia/index.html) | Alternative 1: academic edition, same design in green |
+| [workshop-jakarta-2026-11-executive/index.html](workshop-jakarta-2026-11-executive/index.html) | Alternative 2: executive edition, same design in purple |
 | [workshop-jakarta-2026-11/README.md](workshop-jakarta-2026-11/README.md) | Full workshop plan: learning outcomes, session details, budget, organisation checklist, risks |
 | [workshop-jakarta-2026-11/participant-setup.md](workshop-jakarta-2026-11/participant-setup.md) | Installation guide for participants (Bahasa Indonesia) |
 | [workshop-jakarta-2026-11/registration-form.gs](workshop-jakarta-2026-11/registration-form.gs) | Google Apps Script that creates the registration form, the response sheet and the auto-close at 50 registrations |
