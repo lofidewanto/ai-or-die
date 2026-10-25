@@ -25,7 +25,7 @@ function createRegistrationForm() {
       'Workshop satu hari: AI, LLM dan agen AI, bekerja dengan OpenCode / Claude Code, ' +
       'keamanan agen, dan membangun agen sendiri dengan Spring Boot & Spring AI.\n\n' +
       DATE_LINE +
-      'Biaya: IDR 100.000 (termasuk makan siang, rehat kopi, materi, sertifikat) · ' +
+      'Biaya: IDR 500.000 (termasuk makan siang, rehat kopi, materi, sertifikat) · ' +
       'Kuota: 50 peserta · Bahasa: Indonesia\n\n' +
       'Prasyarat: laptop sendiri dengan OpenCode (model gratis OpenCode atau NVIDIA) ' +
       'atau Claude Code (model Claude seperti Opus) terinstal.\n\n' +

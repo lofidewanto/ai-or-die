@@ -30,7 +30,7 @@ Published with GitHub Pages: <https://lofidewanto.github.io/ai-or-die/>
 | **Date** | 19, 20 or 21 November 2026 — **to be confirmed** |
 | **Time** | 09:30 – 17:00 WIB |
 | **Venue** | Jakarta (to be confirmed) — reliable Wi-Fi for 50+ laptops required |
-| **Fee** | **IDR 100.000** per person, fixed price — includes lunch, two coffee breaks, materials, certificate |
+| **Fee** | **IDR 500.000** per person, fixed price — includes lunch, two coffee breaks, materials, certificate |
 | **Seats** | Max. **50 participants**, 5 mentors (about 1 mentor per 10 participants) |
 | **Language** | Bahasa Indonesia (the website can switch between Indonesian and English) |
 | **Trainer** | Dr. Lofi Dewanto — Java & open-source pioneer, enterprise architect, advisor to Mova Tech / Mova Intelligence |
@@ -48,7 +48,7 @@ The workshop is offered in three formats — same date options, venue, language,
 
 | Format | Page | Registration | Time (WIB) | Seats | Fee | For |
 |---|---|---|---|---|---|---|
-| Full-day workshop | [English](https://lofidewanto.github.io/ai-or-die/workshop-jakarta-2026-11/) · [Bahasa Indonesia](https://lofidewanto.github.io/ai-or-die/workshop-jakarta-2026-11/?lang=id) | [Google Form](https://forms.gle/gsvDgE4x2zncKwJ77) | 09:30 – 17:00 (one day) | 50 | IDR 100.000 | Developers, tech leads, students — build your own agent with Spring AI |
+| Full-day workshop | [English](https://lofidewanto.github.io/ai-or-die/workshop-jakarta-2026-11/) · [Bahasa Indonesia](https://lofidewanto.github.io/ai-or-die/workshop-jakarta-2026-11/?lang=id) | [Google Form](https://forms.gle/gsvDgE4x2zncKwJ77) | 09:30 – 17:00 (one day) | 50 | IDR 500.000 | Developers, tech leads, students — build your own agent with Spring AI |
 | Alternative 1 — Academia (green) | [English](https://lofidewanto.github.io/ai-or-die/workshop-jakarta-2026-11-academia/) · [Bahasa Indonesia](https://lofidewanto.github.io/ai-or-die/workshop-jakarta-2026-11-academia/?lang=id) | [Google Form](https://forms.gle/AsKs1reZgAb57D8z9) | 09:30 – 12:30 (3 hours) | 100 | IDR 100.000 | Students, lecturers, researchers — theory first, with hands-on examples |
 | Alternative 2 — Executive (purple) | [English](https://lofidewanto.github.io/ai-or-die/workshop-jakarta-2026-11-executive/) · [Bahasa Indonesia](https://lofidewanto.github.io/ai-or-die/workshop-jakarta-2026-11-executive/?lang=id) | [Google Form](https://forms.gle/ojSTAxPxdameJVgaA) | 09:30 – 14:30 (5 hours) | 30 | IDR 1.500.000 | Leaders and managers — hands-on managerial work and an AI roadmap |
 

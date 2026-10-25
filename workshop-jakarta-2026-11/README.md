@@ -9,7 +9,7 @@
 | **Date** | 19, 20 or 21 November 2026 — **to be confirmed** (Thu / Fri / Sat) |
 | **Time** | 09:30 – 17:00 WIB |
 | **Venue** | Jakarta, TBC (co-working space / campus lab with power at every seat) |
-| **Fee** | **IDR 100.000** per person, fixed price (no early bird) — includes coffee breaks, lunch, materials, certificate |
+| **Fee** | **IDR 500.000** per person, fixed price (no early bird) — includes coffee breaks, lunch, materials, certificate |
 | **Seats** | **Limited to 50 participants** — personal mentoring with 5 mentors |
 | **Language** | Bahasa Indonesia only (the website can switch between Indonesian and English) |
 | **Prerequisite** | Your own laptop with **OpenCode** (free OpenCode Zen models or free NVIDIA models from build.nvidia.com) **or Claude Code** (Claude models such as Opus) installed — see [participant-setup.md](participant-setup.md) (in Bahasa Indonesia) |
@@ -22,7 +22,7 @@ This plan describes the full-day workshop. Two shorter alternatives use the same
 
 | Format | Page | Registration | Time (WIB) | Seats | Fee | For |
 |---|---|---|---|---|---|---|
-| Full-day workshop | [English](https://lofidewanto.github.io/ai-or-die/workshop-jakarta-2026-11/) · [Bahasa Indonesia](https://lofidewanto.github.io/ai-or-die/workshop-jakarta-2026-11/?lang=id) | [Google Form](https://forms.gle/gsvDgE4x2zncKwJ77) | 09:30 – 17:00 (one day) | 50 | IDR 100.000 | Developers, tech leads, students — build your own agent with Spring AI |
+| Full-day workshop | [English](https://lofidewanto.github.io/ai-or-die/workshop-jakarta-2026-11/) · [Bahasa Indonesia](https://lofidewanto.github.io/ai-or-die/workshop-jakarta-2026-11/?lang=id) | [Google Form](https://forms.gle/gsvDgE4x2zncKwJ77) | 09:30 – 17:00 (one day) | 50 | IDR 500.000 | Developers, tech leads, students — build your own agent with Spring AI |
 | Alternative 1 — Academia (green) | [English](https://lofidewanto.github.io/ai-or-die/workshop-jakarta-2026-11-academia/) · [Bahasa Indonesia](https://lofidewanto.github.io/ai-or-die/workshop-jakarta-2026-11-academia/?lang=id) | [Google Form](https://forms.gle/AsKs1reZgAb57D8z9) | 09:30 – 12:30 (3 hours) | 100 | IDR 100.000 | Students, lecturers, researchers — theory first, with hands-on examples |
 | Alternative 2 — Executive (purple) | [English](https://lofidewanto.github.io/ai-or-die/workshop-jakarta-2026-11-executive/) · [Bahasa Indonesia](https://lofidewanto.github.io/ai-or-die/workshop-jakarta-2026-11-executive/?lang=id) | [Google Form](https://forms.gle/ojSTAxPxdameJVgaA) | 09:30 – 14:30 (5 hours) | 30 | IDR 1.500.000 | Leaders and managers — hands-on managerial work and an AI roadmap |
 
@@ -156,7 +156,7 @@ Short round: what worked, what did not, where a human must stay in the loop.
 **Stretch goals** (for fast participants, in the repo): connect the Spring AI agent to WhatsApp/Telegram,
 deploy it with Docker, add evaluation tests for the agent's answers.
 
-## 5. Why IDR 100.000 — the "exclusive" model
+## 5. Why IDR 500.000 — the "exclusive" model
 
 The fee is deliberately low enough to be accessible, but high enough to mean commitment.
 
@@ -175,13 +175,12 @@ The fee is deliberately low enough to be accessible, but high enough to mean com
 
 | Item | Estimate (IDR) |
 |---|---|
-| Income: 50 × 100.000 | 5.000.000 |
+| Income: 50 × 500.000 | 25.000.000 |
 | Lunch + 2 coffee breaks (~ 70.000 / person) | – 3.500.000 |
 | Printing (handouts, certificates, name tags) | – 500.000 |
-| Buffer | 1.000.000 |
+| Remaining for venue, mentors and buffer | 21.000.000 |
 
-Venue and speaker are assumed sponsored / pro bono (e.g. by Mova Tech or a partner campus).
-If a paid venue is needed, look for a sponsor.
+The remainder can cover a paid venue, the mentors and a buffer; a sponsored venue (e.g. Mova Tech or a partner campus) leaves more room.
 
 ## 6. Organisation checklist
 
