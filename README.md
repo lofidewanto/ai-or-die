@@ -9,6 +9,7 @@ Published with GitHub Pages: <https://lofidewanto.github.io/ai-or-die/>
 
 | Page | Description |
 |---|---|
+| [Workshops AI or DIE Jakarta — all formats](https://lofidewanto.github.io/ai-or-die/workshops-jakarta-2026-11/) ([Bahasa Indonesia](https://lofidewanto.github.io/ai-or-die/workshops-jakarta-2026-11/?lang=id)) | Overview of the three workshop formats with comparison table — linked from the homepage |
 | [Workshop AI or DIE Jakarta](https://lofidewanto.github.io/ai-or-die/workshop-jakarta-2026-11/) ([Bahasa Indonesia](https://lofidewanto.github.io/ai-or-die/workshop-jakarta-2026-11/?lang=id)) | Landing page for the one-day workshop in Jakarta, 19, 20 or 21 November 2026 (TBD) — Indonesian / English |
 | [Workshop AI or DIE Academia](https://lofidewanto.github.io/ai-or-die/workshop-jakarta-2026-11-academia/) ([Bahasa Indonesia](https://lofidewanto.github.io/ai-or-die/workshop-jakarta-2026-11-academia/?lang=id)) | Alternative 1 (green): 3-hour academic edition, theory first with hands-on examples — 100 seats, IDR 100.000 |
 | [Workshop AI or DIE Executive](https://lofidewanto.github.io/ai-or-die/workshop-jakarta-2026-11-executive/) ([Bahasa Indonesia](https://lofidewanto.github.io/ai-or-die/workshop-jakarta-2026-11-executive/?lang=id)) | Alternative 2 (purple): 5-hour executive edition for leaders and managers, hands-on managerial work — 30 seats, IDR 1.500.000 |
@@ -88,6 +89,7 @@ MakanChat (restaurant & food), Mandaya Hospital (healthcare), Galva & Kaze Rice 
 
 | File | Purpose |
 |---|---|
+| [workshops-jakarta-2026-11/index.html](workshops-jakarta-2026-11/index.html) | Overview of all workshop formats (series red design, EN / ID, light/dark) |
 | [workshop-jakarta-2026-11/index.html](workshop-jakarta-2026-11/index.html) | Bilingual landing page (Mova Intelligence style, light/dark mode, EN / ID switch, `?lang=id`) |
 | [workshop-jakarta-2026-11-academia/index.html](workshop-jakarta-2026-11-academia/index.html) | Alternative 1: academic edition, same design in green |
 | [workshop-jakarta-2026-11-academia/registration-form.gs](workshop-jakarta-2026-11-academia/registration-form.gs) | Google Apps Script for the academia registration form, with auto-close at 100 registrations |
