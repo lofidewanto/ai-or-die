@@ -118,11 +118,11 @@
       border-bottom: 1px solid var(--border-soft);
     }
     .nav-inner { display: flex; align-items: center; justify-content: space-between; gap: 1rem; min-height: 52px; }
-    .brand { font-weight: 700; font-size: 1rem; letter-spacing: -0.02em; color: var(--text); }
+    .brand { font-weight: 700; font-size: 1rem; letter-spacing: -0.02em; color: var(--text); white-space: nowrap; }
     .brand:hover { color: var(--text); text-decoration: none; }
     .brand span { color: var(--brand); }
     .nav-links { display: flex; align-items: center; gap: 0.25rem; list-style: none; margin: 0; padding: 0; }
-    .nav-links a { color: var(--muted-strong); font-size: 0.82rem; padding: 0.4rem 0.75rem; }
+    .nav-links a { color: var(--muted-strong); font-size: 0.82rem; padding: 0.4rem 0.75rem; white-space: nowrap; }
     .nav-links a:hover { color: var(--text); text-decoration: none; }
     .nav-actions { display: flex; align-items: center; gap: 0.5rem; }
     .theme-toggle {
@@ -133,7 +133,7 @@
       font: 500 0.78rem/1 inherit; cursor: pointer;
     }
     .theme-toggle:hover { color: var(--text); }
-    @media (max-width: 860px) { .nav-links { display: none; } }
+    @media (max-width: 1180px) { .nav-links { display: none; } }
 
     /* ── Buttons ── */
     .btn-brand {
@@ -348,6 +348,7 @@
           <li><a href="#pricing" data-i18n="nav.pricing">Ticket</a></li>
           <li><a href="#speaker" data-i18n="nav.speaker">Speaker</a></li>
           <li><a href="#faq" data-i18n="nav.faq">FAQ</a></li>
+          <li><a href="../workshops-jakarta-2026-11/" data-i18n="nav.formats">All formats</a></li>
         </ul>
         <div class="nav-actions">
           <div class="lang-switch" role="group" aria-label="Language / Bahasa">
@@ -657,6 +658,7 @@
           <a href="#outcomes" data-i18n="nav.outcomes">What you learn</a>
           <a href="#agenda" data-i18n="nav.agenda">Agenda</a>
           <a href="#pricing" data-i18n="nav.pricing">Ticket</a>
+          <a href="../workshops-jakarta-2026-11/" data-i18n="nav.formats">All formats</a>
           <a href="../workshop-jakarta-2026-11/" data-i18n="foot.full">Full-day workshop</a>
         </div>
         <div>
@@ -691,6 +693,7 @@
       "nav.pricing": "Tiket",
       "nav.speaker": "Pembicara",
       "nav.faq": "FAQ",
+      "nav.formats": "Semua format",
       "nav.register": "Daftar",
 
       "hero.eyebrow": "AI or DIE Akademia &middot; Jakarta &middot; November 2026",
