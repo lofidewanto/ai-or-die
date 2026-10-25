@@ -458,6 +458,7 @@
     text-decoration: none;
   }
   .card-link:hover { color: var(--clay); text-decoration: underline; }
+  .card-link + .card-link { margin-left: 18px; }
 
   /* Publications list */
   .pub-list { display: flex; flex-direction: column; gap: 2px; }
@@ -1061,6 +1062,12 @@
         <p>Keynote on how AI fundamentally reshapes software development and the organizations building it. Cologne, June 2026.</p>
       </div>
       <div class="card">
+        <div class="card-yr sans">2026 · ITCS · Cologne</div>
+        <h4>AI or DIE: Die Zukunft der Softwareentwicklung</h4>
+        <p>Tech talk at the ITCS tech conference in Cologne — experiences of how AI agents fundamentally change the way software is built.</p>
+        <a class="card-link" href="https://youtu.be/2HLWPl9HVEw" target="_blank" rel="noopener">Watch ▶</a>
+      </div>
+      <div class="card">
         <div class="card-yr sans">2026 · JCON</div>
         <h4>Microservices &amp; Microfrontends: Scaling, Learning, Growing — Our Journey</h4>
         <p>Lessons from scaling distributed front- and back-end architectures, with Patricia Erdelen.</p>
@@ -1101,6 +1108,7 @@
         <h4>Open Source: Are You Only Taking, or Also Giving Back?</h4>
         <p>A call to enterprises to contribute back to the open-source ecosystems they depend on.</p>
         <a class="card-link" href="https://youtu.be/NJtYDjqzR0U" target="_blank" rel="noopener">Watch ▶</a>
+        <a class="card-link" href="https://media.ccc.de/v/froscon2019-2398-open-source_nimmst_du_noch_oder_gibst_du_schon" target="_blank" rel="noopener">media.ccc.de ▶</a>
       </div>
       <div class="card">
         <div class="card-yr sans">2017 · GWTcon · Florence, Italy</div>
