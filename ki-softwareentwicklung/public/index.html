@@ -1,0 +1,1035 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>KI in der Softwareentwicklung</title>
+  <meta name="description" content="KI in der Softwareentwicklung – Von GitHub Copilot bis zu LLM-basierten Anwendungen. Dr. Blasius Lofi Dewanto">
+  <meta name="robots" content="noindex">
+  <meta name="theme-color" content="#d70015">
+  <link rel="icon" href="assets/img/favicon.png">
+  <link rel="preload" href="assets/fonts/inter-deck.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="assets/css/deck.css">
+  <link rel="stylesheet" href="assets/css/theme.css">
+  <script src="assets/js/deck.js" defer></script>
+</head>
+<body>
+<!-- Icons: Lucide (https://lucide.dev), ISC License – see THIRD_PARTY_NOTICES.md -->
+<svg class="sprite" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+    <defs>
+      <marker id="security-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 L10 5 L0 10 z" style="fill: var(--red-1)"/></marker>
+      <marker id="arrowhead" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0 0 L10 5 L0 10 z" style="fill: var(--red-1)"/></marker>
+      <marker id="arrowhead-macro" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="2.6" markerHeight="2.6" orient="auto"><path d="M0 0 L10 5 L0 10 z" style="fill: var(--brand-300)"/></marker>
+      <marker id="arrowhead-gold" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="2.6" markerHeight="2.6" orient="auto"><path d="M0 0 L10 5 L0 10 z" style="fill: var(--orange-strong)"/></marker>
+      <marker id="arrowhead-ink" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0 0 L10 5 L0 10 z" style="fill: var(--muted)"/></marker>
+    </defs>
+    <symbol id="i-arrow-right" viewBox="0 0 24 24"><path d="M5 12h14" /><path d="m12 5 7 7-7 7" /></symbol>
+    <symbol id="i-bot" viewBox="0 0 24 24"><path d="M12 8V4H8" /><rect width="16" height="12" x="4" y="8" rx="2" /><path d="M2 14h2" /><path d="M20 14h2" /><path d="M15 13v2" /><path d="M9 13v2" /></symbol>
+    <symbol id="i-brain" viewBox="0 0 24 24"><path d="M12 18V5" /><path d="M15 13a4.17 4.17 0 01-3-4 4.17 4.17 0 01-3 4" /><path d="M17.707 6.294A3 3 0 1012 5a3 3 0 10-5.707 1.294" /><path d="M17.996 5.125a4 4 0 012.526 5.77" /><path d="M18 18a4 4 0 002-7.465" /><path d="M19.967 17.482a4 4 0 11-7.967.517 4 4 0 11-7.967-.517" /><path d="M6 18a4 4 0 01-2-7.465" /><path d="M6.004 5.125a4 4 0 00-2.526 5.77" /></symbol>
+    <symbol id="i-brain-circuit" viewBox="0 0 24 24"><path d="M12 13h4" /><path d="M12 18h6a2 2 0 012 2v1" /><path d="M12 8h8" /><path d="M12 9a4.17 4.17 0 01-3 4" /><path d="M16 8V5a2 2 0 012-2" /><path d="M6 18a4 4 0 01-2-7.465" /><path d="M6.004 5.125a4 4 0 00-2.526 5.77" /><path d="M6.294 6.294A3 3 0 1112 5v13a4 4 0 11-7.967-.518" /><circle cx="16" cy="13" r="0.5" fill="currentColor" /><circle cx="18" cy="3" r="0.5" fill="currentColor" /><circle cx="20" cy="21" r="0.5" fill="currentColor" /><circle cx="20" cy="8" r="0.5" fill="currentColor" /></symbol>
+    <symbol id="i-chart-column-big" viewBox="0 0 24 24"><path d="M3 3v16a2 2 0 0 0 2 2h16" /><rect x="15" y="5" width="4" height="12" rx="1" /><rect x="7" y="8" width="4" height="9" rx="1" /></symbol>
+    <symbol id="i-chevron-left" viewBox="0 0 24 24"><path d="m15 18-6-6 6-6" /></symbol>
+    <symbol id="i-chevron-right" viewBox="0 0 24 24"><path d="m9 18 6-6-6-6" /></symbol>
+    <symbol id="i-circle-play" viewBox="0 0 24 24"><path d="M9 9.003a1 1 0 0 1 1.517-.859l4.997 2.997a1 1 0 0 1 0 1.718l-4.997 2.997A1 1 0 0 1 9 14.996z" /><circle cx="12" cy="12" r="10" /></symbol>
+    <symbol id="i-cloud" viewBox="0 0 24 24"><path d="M17.5 19H9a7 7 0 1 1 6.71-9h1.79a4.5 4.5 0 1 1 0 9Z" /></symbol>
+    <symbol id="i-cloud-upload" viewBox="0 0 24 24"><path d="M12 13v8" /><path d="M4 14.899A7 7 0 1 1 15.71 8h1.79a4.5 4.5 0 0 1 2.5 8.242" /><path d="m8 17 4-4 4 4" /></symbol>
+    <symbol id="i-code-xml" viewBox="0 0 24 24"><path d="m18 16 4-4-4-4" /><path d="m6 8-4 4 4 4" /><path d="m14.5 4-5 16" /></symbol>
+    <symbol id="i-cog" viewBox="0 0 24 24"><path d="M11 10.27 7 3.34" /><path d="m11 13.73-4 6.93" /><path d="M12 22v-2" /><path d="M12 2v2" /><path d="M14 12h8" /><path d="m17 20.66-1-1.73" /><path d="m17 3.34-1 1.73" /><path d="M2 12h2" /><path d="m20.66 17-1.73-1" /><path d="m20.66 7-1.73 1" /><path d="m3.34 17 1.73-1" /><path d="m3.34 7 1.73 1" /><circle cx="12" cy="12" r="2" /><circle cx="12" cy="12" r="8" /></symbol>
+    <symbol id="i-cpu" viewBox="0 0 24 24"><path d="M12 20v2" /><path d="M12 2v2" /><path d="M17 20v2" /><path d="M17 2v2" /><path d="M2 12h2" /><path d="M2 17h2" /><path d="M2 7h2" /><path d="M20 12h2" /><path d="M20 17h2" /><path d="M20 7h2" /><path d="M7 20v2" /><path d="M7 2v2" /><rect x="4" y="4" width="16" height="16" rx="2" /><rect x="8" y="8" width="8" height="8" rx="1" /></symbol>
+    <symbol id="i-database" viewBox="0 0 24 24"><ellipse cx="12" cy="5" rx="9" ry="3" /><path d="M3 5V19A9 3 0 0 0 21 19V5" /><path d="M3 12A9 3 0 0 0 21 12" /></symbol>
+    <symbol id="i-drafting-compass" viewBox="0 0 24 24"><path d="m12.99 6.74 1.93 3.44" /><path d="M19.136 12a10 10 0 0 1-14.271 0" /><path d="m21 21-2.16-3.84" /><path d="m3 21 8.02-14.26" /><circle cx="12" cy="5" r="2" /></symbol>
+    <symbol id="i-file-cog" viewBox="0 0 24 24"><path d="M15 8a1 1 0 0 1-1-1V2a2.4 2.4 0 0 1 1.704.706l3.588 3.588A2.4 2.4 0 0 1 20 8z" /><path d="M20 8v12a2 2 0 0 1-2 2h-4.182" /><path d="m3.305 19.53.923-.382" /><path d="M4 10.592V4a2 2 0 0 1 2-2h8" /><path d="m4.228 16.852-.924-.383" /><path d="m5.852 15.228-.383-.923" /><path d="m5.852 20.772-.383.924" /><path d="m8.148 15.228.383-.923" /><path d="m8.53 21.696-.382-.924" /><path d="m9.773 16.852.922-.383" /><path d="m9.773 19.148.922.383" /><circle cx="7" cy="18" r="3" /></symbol>
+    <symbol id="i-file-pen-line" viewBox="0 0 24 24"><path d="M14.364 13.634a2 2 0 0 0-.506.854l-.837 2.87a.5.5 0 0 0 .62.62l2.87-.837a2 2 0 0 0 .854-.506l4.013-4.009a1 1 0 0 0-3.004-3.004z" /><path d="M14.487 7.858A1 1 0 0 1 14 7V2" /><path d="M20 19.645V20a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h8a2.4 2.4 0 0 1 1.704.706l2.516 2.516" /><path d="M8 18h1" /></symbol>
+    <symbol id="i-file-scan" viewBox="0 0 24 24"><path d="M20 10V8a2.4 2.4 0 0 0-.706-1.704l-3.588-3.588A2.4 2.4 0 0 0 14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h4.35" /><path d="M14 2v5a1 1 0 0 0 1 1h5" /><path d="M16 14a2 2 0 0 0-2 2" /><path d="M16 22a2 2 0 0 1-2-2" /><path d="M20 14a2 2 0 0 1 2 2" /><path d="M20 22a2 2 0 0 0 2-2" /></symbol>
+    <symbol id="i-flag" viewBox="0 0 24 24"><path d="M4 22V4a1 1 0 0 1 .4-.8A6 6 0 0 1 8 2c3 0 5 2 7.333 2q2 0 3.067-.8A1 1 0 0 1 20 4v10a1 1 0 0 1-.4.8A6 6 0 0 1 16 16c-3 0-5-2-8-2a6 6 0 0 0-4 1.528" /></symbol>
+<symbol id="i-infinity" viewBox="0 0 24 24"><path d="M6 16c5 0 7-8 12-8a4 4 0 0 1 0 8c-5 0-7-8-12-8a4 4 0 1 0 0 8" /></symbol>
+    <symbol id="i-key-round" viewBox="0 0 24 24"><path d="M2.586 17.414A2 2 0 0 0 2 18.828V21a1 1 0 0 0 1 1h3a1 1 0 0 0 1-1v-1a1 1 0 0 1 1-1h1a1 1 0 0 0 1-1v-1a1 1 0 0 1 1-1h.172a2 2 0 0 0 1.414-.586l.814-.814a6.5 6.5 0 1 0-4-4z" /><circle cx="16.5" cy="7.5" r=".5" fill="currentColor" /></symbol>
+    <symbol id="i-laptop" viewBox="0 0 24 24"><path d="M18 5a2 2 0 0 1 2 2v8.526a2 2 0 0 0 .212.897l1.068 2.127a1 1 0 0 1-.9 1.45H3.62a1 1 0 0 1-.9-1.45l1.068-2.127A2 2 0 0 0 4 15.526V7a2 2 0 0 1 2-2z" /><path d="M20.054 15.987H3.946" /></symbol>
+    <symbol id="i-layout-grid" viewBox="0 0 24 24"><rect width="7" height="7" x="3" y="3" rx="1" /><rect width="7" height="7" x="14" y="3" rx="1" /><rect width="7" height="7" x="14" y="14" rx="1" /><rect width="7" height="7" x="3" y="14" rx="1" /></symbol>
+    <symbol id="i-lightbulb" viewBox="0 0 24 24"><path d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .2 2.2 1.5 3.5.7.7 1.3 1.5 1.5 2.5" /><path d="M9 18h6" /><path d="M10 22h4" /></symbol>
+    <symbol id="i-list-checks" viewBox="0 0 24 24"><path d="M13 5h8" /><path d="M13 12h8" /><path d="M13 19h8" /><path d="m3 17 2 2 4-4" /><path d="m3 7 2 2 4-4" /></symbol>
+    <symbol id="i-lock" viewBox="0 0 24 24"><rect width="18" height="11" x="3" y="11" rx="2" ry="2" /><path d="M7 11V7a5 5 0 0 1 10 0v4" /></symbol>
+    <symbol id="i-lock-keyhole" viewBox="0 0 24 24"><circle cx="12" cy="16" r="1" /><rect x="3" y="10" width="18" height="12" rx="2" /><path d="M7 10V7a5 5 0 0 1 10 0v3" /></symbol>
+    <symbol id="i-maximize" viewBox="0 0 24 24"><path d="M8 3H5a2 2 0 0 0-2 2v3" /><path d="M21 8V5a2 2 0 0 0-2-2h-3" /><path d="M3 16v3a2 2 0 0 0 2 2h3" /><path d="M16 21h3a2 2 0 0 0 2-2v-3" /></symbol>
+    <symbol id="i-microscope" viewBox="0 0 24 24"><path d="M6 18h8" /><path d="M3 22h18" /><path d="M14 22a7 7 0 1 0 0-14h-1" /><path d="M9 14h2" /><path d="M9 12a2 2 0 0 1-2-2V6h6v4a2 2 0 0 1-2 2Z" /><path d="M12 6V3a1 1 0 0 0-1-1H9a1 1 0 0 0-1 1v3" /></symbol>
+    <symbol id="i-minimize" viewBox="0 0 24 24"><path d="M8 3v3a2 2 0 0 1-2 2H3" /><path d="M21 8h-3a2 2 0 0 1-2-2V3" /><path d="M3 16h3a2 2 0 0 1 2 2v3" /><path d="M16 21v-3a2 2 0 0 1 2-2h3" /></symbol>
+    <symbol id="i-monitor-play" viewBox="0 0 24 24"><path d="M15.033 9.44a.647.647 0 0 1 0 1.12l-4.065 2.352a.645.645 0 0 1-.968-.56V7.648a.645.645 0 0 1 .967-.56z" /><path d="M12 17v4" /><path d="M8 21h8" /><rect x="2" y="3" width="20" height="14" rx="2" /></symbol>
+    <symbol id="i-network" viewBox="0 0 24 24"><rect x="16" y="16" width="6" height="6" rx="1" /><rect x="2" y="16" width="6" height="6" rx="1" /><rect x="9" y="2" width="6" height="6" rx="1" /><path d="M5 16v-3a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v3" /><path d="M12 12V8" /></symbol>
+    <symbol id="i-package" viewBox="0 0 24 24"><path d="M11 21.73a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73z" /><path d="M12 22V12" /><polyline points="3.29 7 12 12 20.71 7" /><path d="m7.5 4.27 9 5.15" /></symbol>
+    <symbol id="i-rocket" viewBox="0 0 24 24"><path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5" /><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09" /><path d="M9 12a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.4 22.4 0 0 1-4 2z" /><path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 .05 5 .05" /></symbol>
+    <symbol id="i-scan-search" viewBox="0 0 24 24"><path d="M3 7V5a2 2 0 0 1 2-2h2" /><path d="M17 3h2a2 2 0 0 1 2 2v2" /><path d="M21 17v2a2 2 0 0 1-2 2h-2" /><path d="M7 21H5a2 2 0 0 1-2-2v-2" /><circle cx="12" cy="12" r="3" /><path d="m16 16-1.9-1.9" /></symbol>
+    <symbol id="i-search" viewBox="0 0 24 24"><path d="m21 21-4.34-4.34" /><circle cx="11" cy="11" r="8" /></symbol>
+    <symbol id="i-server" viewBox="0 0 24 24"><rect width="20" height="8" x="2" y="2" rx="2" ry="2" /><rect width="20" height="8" x="2" y="14" rx="2" ry="2" /><line x1="6" x2="6.01" y1="6" y2="6" /><line x1="6" x2="6.01" y1="18" y2="18" /></symbol>
+    <symbol id="i-shield-user" viewBox="0 0 24 24"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z" /><path d="M6.376 18.91a6 6 0 0 1 11.249.003" /><circle cx="12" cy="11" r="4" /></symbol>
+    <symbol id="i-smartphone" viewBox="0 0 24 24"><rect width="14" height="20" x="5" y="2" rx="2" ry="2" /><path d="M12 18h.01" /></symbol>
+    <symbol id="i-triangle-alert" viewBox="0 0 24 24"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3" /><path d="M12 9v4" /><path d="M12 17h.01" /></symbol>
+    <symbol id="i-user-cog" viewBox="0 0 24 24"><path d="M10 15H6a4 4 0 0 0-4 4v2" /><path d="m14.305 16.53.923-.382" /><path d="m15.228 13.852-.923-.383" /><path d="m16.852 12.228-.383-.923" /><path d="m16.852 17.772-.383.924" /><path d="m19.148 12.228.383-.923" /><path d="m19.53 18.696-.382-.924" /><path d="m20.772 13.852.924-.383" /><path d="m20.772 16.148.924.383" /><circle cx="18" cy="15" r="3" /><circle cx="9" cy="7" r="4" /></symbol>
+    <symbol id="i-workflow" viewBox="0 0 24 24"><rect width="8" height="8" x="3" y="3" rx="2" /><path d="M7 11v4a2 2 0 0 0 2 2h4" /><rect width="8" height="8" x="13" y="13" rx="2" /></symbol>
+    <symbol id="i-flask-conical" viewBox="0 0 24 24"><path d="M14 2v6a2 2 0 0 0 .245.96l5.51 10.08A2 2 0 0 1 18 22H6a2 2 0 0 1-1.755-2.96l5.51-10.08A2 2 0 0 0 10 8V2" /><path d="M6.453 15h11.094" /><path d="M8.5 2h7" /></symbol>
+    <symbol id="i-zap" viewBox="0 0 24 24"><path d="M15.914 4a1.5 1.5 0 00-2.474-1.561l-9 9A1.5 1.5 0 005.5 14h4.002a.5.5 0 01.471.666L8.086 20a1.5 1.5 0 002.475 1.56l9-9A1.5 1.5 0 0018.5 10h-3.997a.5.5 0 01-.472-.667z" /></symbol>
+    <symbol id="i-database-backup" viewBox="0 0 24 24"><ellipse cx="12" cy="5" rx="9" ry="3" /><path d="M3 12a9 3 0 0 0 5 2.69" /><path d="M21 9.3V5" /><path d="M3 5v14a9 3 0 0 0 6.47 2.88" /><path d="M12 12v4h4" /><path d="M13 20a5 5 0 0 0 9-3 4.5 4.5 0 0 0-4.5-4.5c-1.33 0-2.54.54-3.41 1.41L12 16" /></symbol>
+    <symbol id="i-library-big" viewBox="0 0 24 24"><rect width="8" height="18" x="3" y="3" rx="1" /><path d="M7 3v18" /><path d="M20.4 18.9c.2.5-.1 1.1-.6 1.3l-1.9.7c-.5.2-1.1-.1-1.3-.6L11.1 5.1c-.2-.5.1-1.1.6-1.3l1.9-.7c.5-.2 1.1.1 1.3.6Z" /></symbol>
+    <symbol id="i-trash-2" viewBox="0 0 24 24"><path d="M10 11v6" /><path d="M14 11v6" /><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6" /><path d="M3 6h18" /><path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2" /></symbol>
+    <symbol id="i-package-plus" viewBox="0 0 24 24"><path d="M12 22V12" /><path d="M16 17h6" /><path d="M19 14v6" /><path d="M21 10.535V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.729l7 4a2 2 0 0 0 2 .001l1.675-.955" /><path d="M3.29 7 12 12l8.71-5" /><path d="m7.5 4.27 8.997 5.148" /></symbol>
+    <symbol id="i-terminal" viewBox="0 0 24 24"><path d="M12 19h8" /><path d="m4 17 6-6-6-6" /></symbol>
+    <symbol id="i-hard-drive-download" viewBox="0 0 24 24"><path d="M12 2v8" /><path d="m16 6-4 4-4-4" /><rect width="20" height="8" x="2" y="14" rx="2" /><path d="M6 18h.01" /><path d="M10 18h.01" /></symbol>
+</svg>
+
+<div class="viewport">
+  <main class="stage" aria-label="Präsentation: KI in der Softwareentwicklung">
+
+    <!-- 1 · Titel -->
+    <section class="slide slide--title no-footer" data-title="KI in der Softwareentwicklung">
+      <figure class="title__hero">
+        <img src="assets/img/hero.webp" alt="" width="1536" height="449">
+      </figure>
+      <div class="title__body">
+        <h1 class="title__main">KI in der <span class="text-gradient">Softwareentwicklung</span></h1>
+        <p class="title__sub">Von GitHub Copilot bis zu LLM-basierten Anwendungen</p>
+        <p class="title__author">Dr. Blasius Lofi Dewanto</p>
+      </div>
+    </section>
+
+    <!-- 2 · Agenda -->
+    <section class="slide" data-title="Agenda">
+      <header class="slide__header">
+        <h2 class="slide__title">Agenda</h2>
+        <p class="slide__subtitle">KI in der Softwareentwicklung: Ein Überblick</p>
+      </header>
+      <ol class="agenda">
+        <li><a class="agenda__item" href="#/3">
+          <span class="agenda__icon"><svg class="icon"><use href="#i-brain"/></svg></span>
+          <span class="agenda__num">01</span>
+          <span class="agenda__label">Basis/Theorie</span>
+        </a></li>
+        <li><a class="agenda__item" href="#/16">
+          <span class="agenda__icon"><svg class="icon"><use href="#i-workflow"/></svg></span>
+          <span class="agenda__num">02</span>
+          <span class="agenda__label">Softwareentwick&shy;lungsprozess</span>
+        </a></li>
+        <li><a class="agenda__item" href="#/27">
+          <span class="agenda__icon"><svg class="icon"><use href="#i-network"/></svg></span>
+          <span class="agenda__num">03</span>
+          <span class="agenda__label">Integration in Anwendungen</span>
+        </a></li>
+        <li><a class="agenda__item" href="#/31">
+          <span class="agenda__icon"><svg class="icon"><use href="#i-monitor-play"/></svg></span>
+          <span class="agenda__num">04</span>
+          <span class="agenda__label">Demo</span>
+        </a></li>
+      </ol>
+    </section>
+
+    <!-- 3 · Abschnitt: Basis / Theorie -->
+    <section class="slide slide--section no-footer" data-section-title="Basis / Theorie" data-title="Basis / Theorie">
+      <div class="section__content">
+        <span class="section__num">01</span>
+        <h2 class="section__title">Basis / Theorie</h2>
+        <p class="section__subtitle">KI – LLMs – KI-Agenten – Agentic AI</p>
+      </div>
+    </section>
+
+    <!-- 4 · Reifegradmodell -->
+    <section class="slide" data-title="Reifegradmodell in der Digitalen Transformation">
+      <header class="slide__header">
+        <h2 class="slide__title">Reifegradmodell in der Digitalen Transformation</h2>
+      </header>
+      <ol class="maturity">
+        <li class="maturity__step fragment">
+          <div class="maturity__arrow"><span class="maturity__num">01</span><svg class="icon"><use href="#i-file-scan"/></svg></div>
+          <h3 class="maturity__title">Digitalisierung</h3>
+          <p class="maturity__text">Übergang von Papier- oder manuellen Aufzeichnungen zu digitalen Daten</p>
+        </li>
+        <li class="maturity__step fragment">
+          <div class="maturity__arrow"><span class="maturity__num">02</span><svg class="icon"><use href="#i-cog"/></svg></div>
+          <h3 class="maturity__title">Digitale Transformation</h3>
+          <p class="maturity__text">Straffung von Prozessen mit digitalen Werkzeugen</p>
+        </li>
+        <li class="maturity__step fragment">
+          <div class="maturity__arrow"><span class="maturity__num">03</span><svg class="icon"><use href="#i-workflow"/></svg></div>
+          <h3 class="maturity__title">Automatisierung</h3>
+          <p class="maturity__text">Prozessautomatisierung, RPA<span class="ref">*</span> und einfache KI-Werkzeuge zur Effizienzsteigerung</p>
+        </li>
+        <li class="maturity__step fragment">
+          <div class="maturity__arrow"><span class="maturity__num">04</span><svg class="icon"><use href="#i-brain-circuit"/></svg></div>
+          <h3 class="maturity__title">Erweiterte Intelligenz</h3>
+          <p class="maturity__text">KI-gestützte Erkenntnisse zur Unterstützung der Entscheidungsfindung</p>
+        </li>
+        <li class="maturity__step maturity__step--highlight fragment">
+          <div class="maturity__arrow"><span class="maturity__num">05</span><svg class="icon"><use href="#i-bot"/></svg></div>
+          <h3 class="maturity__title">KI-Agenten und Agentic AI</h3>
+          <p class="maturity__text">Autonome Agenten, die planen, handeln, zusammenarbeiten und Ergebnisse optimieren</p>
+        </li>
+      </ol>
+      <p class="footnote fragment fade" data-step="3"><span class="ref">*</span> RPA: Robotic Process Automation</p>
+    </section>
+
+    <!-- 5 · KI-Agenten und Agentic AI brauchen LLM -->
+    <section class="slide" data-title="KI-Agenten und Agentic AI brauchen LLM">
+      <header class="slide__header slide__header--tight">
+        <h2 class="slide__title">KI-Agenten und Agentic AI</h2>
+      </header>
+      <div class="llm-loop">
+        <svg class="llm-loop__arrows fragment fade" data-step="1" viewBox="0 0 1696 740" aria-hidden="true">
+          <path d="M 616 40 C 400 30 275 70 270 186"/>
+          <path d="M 1080 40 C 1296 30 1421 70 1426 186"/>
+          <path d="M 726 622 C 420 642 275 612 270 536"/>
+          <path d="M 970 622 C 1276 642 1421 612 1426 536"/>
+          <path class="llm-loop__inner" d="M 452 360 H 650"/>
+          <path class="llm-loop__inner" d="M 1244 360 H 1046"/>
+        </svg>
+        <p class="llm-loop__top fragment fade" data-step="1">brauchen LLM</p>
+        <div class="llm-hub__node llm-loop__node fragment fade" data-step="1" style="left: 100px">
+          <span class="llm-hub__icon"><svg class="icon"><use href="#i-bot"/></svg></span>
+          <span class="llm-hub__label">KI-Agenten</span>
+        </div>
+        <div class="llm-loop__core">
+          <svg class="icon"><use href="#i-brain"/></svg>
+        </div>
+        <div class="llm-hub__node llm-loop__node fragment fade" data-step="1" style="left: 1256px">
+          <span class="llm-hub__icon"><svg class="icon"><use href="#i-network"/></svg></span>
+          <span class="llm-hub__label">Agentic AI</span>
+        </div>
+        <p class="llm-loop__bottom"><strong>LLM</strong><span>(Large Language Model)</span></p>
+      </div>
+    </section>
+
+    <!-- 6 · Wie das LLM entsteht -->
+    <section class="slide" data-title="Vor der Nutzung sollte man wissen, wie das LLM entsteht.">
+      <header class="slide__header">
+        <h2 class="slide__title">Vor der Nutzung sollte man wissen, wie das LLM entsteht.</h2>
+      </header>
+      <div class="video-card card">
+        <p class="video-card__title"><em>„Deep Dive into LLMs“</em> – Andrej Karpathy</p>
+        <a class="video-card__button" href="https://youtu.be/7xTGNNLPyMI?si=lPrCfWlPBsH8lHa3" target="_blank" rel="noopener">
+          <svg class="icon"><use href="#i-circle-play"/></svg>
+          <span>Video ansehen: <u>YouTube Link</u></span>
+        </a>
+        <p class="video-card__url">https://youtu.be/7xTGNNLPyMI?si=lPrCfWlPBsH8lHa3</p>
+      </div>
+    </section>
+
+    <!-- 7 · Mental-Modell -->
+    <section class="slide" data-title="Mental-Modell: KI-Agenten">
+      <header class="slide__header">
+        <h2 class="slide__title">Mental-Modell: KI-Agenten</h2>
+      </header>
+      <div class="cols-2">
+        <article class="card training__card mental fragment" style="--accent: var(--brand)">
+          <h3 class="training__head">IRON MAN &amp; IRONHEART</h3>
+          <div class="mental__media">
+            <img src="assets/img/mental-ironman.webp" alt="Szenen aus Iron Man und Ironheart" width="496" height="156">
+          </div>
+          <ul class="icon-list">
+            <li><svg class="icon"><use href="#i-user-cog"/></svg>Jarvis</li>
+            <li><svg class="icon"><use href="#i-brain-circuit"/></svg>Natalie</li>
+          </ul>
+        </article>
+        <article class="card training__card mental fragment" style="--accent: var(--red-3)">
+          <h3 class="training__head">STAR TREK AI</h3>
+          <div class="mental__media mental__media--pair">
+            <img src="assets/img/mental-emh.webp" alt="Das Emergency Medical Hologram aus Star Trek" width="240" height="154">
+            <img src="assets/img/mental-data.webp" alt="Data aus Star Trek" width="224" height="154">
+          </div>
+          <ul class="icon-list">
+            <li><svg class="icon"><use href="#i-laptop"/></svg>Computer</li>
+            <li><svg class="icon"><use href="#i-cpu"/></svg>Emergency Medical Hologram (EMH)</li>
+            <li><svg class="icon"><use href="#i-database"/></svg>Data</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <!-- 8 · Buddy → Assistent → Copilot -->
+    <section class="slide" data-title="KI-Agent: Buddy → Assistent → Copilot">
+      <header class="slide__header">
+        <h2 class="slide__title">KI-Agent: <em>Buddy</em> → Assistent → Copilot</h2>
+      </header>
+      <figure class="figure">
+        <img src="assets/img/agent-antomy.webp" alt="Illustration eines KI-Agenten als menschliche Figur: LLM als Gehirn, Harness als Körper und Nervensystem sowie System Message, User Message, AI Message, Chat Memory, Knowledge (RAG), Context, Tools und Security / Guardrails" width="1024" height="1024">
+      </figure>
+    </section>
+
+    <!-- Begriffe aus der Agenten-Anatomie (nach Folie 8) -->
+    <section class="slide" data-title="Die Bausteine eines KI-Agenten – kurz erklärt">
+      <header class="slide__header">
+        <h2 class="slide__title">Die Bausteine eines KI-Agenten – kurz erklärt</h2>
+      </header>
+      <div class="cols-3 training">
+        <article class="card training__card" style="--accent: var(--brand)">
+          <h3 class="training__head">Modell &amp; Steuerung</h3>
+          <dl class="agent-glossary">
+            <dt>LLM (Brain)</dt>
+            <dd>Großes Sprachmodell: verarbeitet Eingaben und erzeugt Antworten.</dd>
+            <dt>Harness (Body / Nervous System)</dt>
+            <dd>Software-Rahmen: verbindet Modell, Speicher und Tools und steuert den Ablauf.</dd>
+            <dt>Security / Guardrails</dt>
+            <dd>Rechte, Prüfungen und Grenzen für Datenzugriffe und Aktionen.</dd>
+          </dl>
+        </article>
+        <article class="card training__card" style="--accent: var(--red-3)">
+          <h3 class="training__head">Nachrichten</h3>
+          <dl class="agent-glossary">
+            <dt>System Message</dt>
+            <dd>Übergeordnete Vorgaben zu Rolle, Verhalten und Regeln.</dd>
+            <dt>User Message</dt>
+            <dd>Die Frage oder der Arbeitsauftrag des Menschen.</dd>
+            <dt>AI Message</dt>
+            <dd>Die Ausgabe des Modells: eine Antwort oder ein Tool-Aufruf.</dd>
+          </dl>
+        </article>
+        <article class="card training__card" style="--accent: var(--bg-inverse)">
+          <h3 class="training__head">Wissen &amp; Werkzeuge</h3>
+          <dl class="agent-glossary">
+            <dt>Chat Memory</dt>
+            <dd>Gesprächsverlauf für spätere Anfragen.</dd>
+            <dt>Knowledge (RAG)</dt>
+            <dd>Externes Wissen suchen und als Kontext mitgeben.</dd>
+            <dt>Context</dt>
+            <dd>Alle Eingaben für den aktuellen Modellaufruf.</dd>
+            <dt>Tools</dt>
+            <dd>Funktionen wie Suche, APIs oder Code-Ausführung.</dd>
+          </dl>
+        </article>
+      </div>
+    </section>
+
+    <!-- 9 · Natürliche Sprache -->
+    <section class="slide" data-title="Ich kann mit den Agenten in natürlicher Sprache kommunizieren!">
+      <header class="slide__header">
+        <h2 class="slide__title">Ich kann mit den Agenten in natürlicher Sprache kommunizieren!</h2>
+      </header>
+      <figure class="figure figure--large">
+        <img src="assets/img/natural-language.webp" alt="Illustration: Globus mit Sprechblase und einem sprechenden Kopf" width="422" height="373">
+      </figure>
+    </section>
+
+    <!-- 10 · Training von KI-Agenten -->
+    <section class="slide" data-title="Training von KI-Agenten">
+      <header class="slide__header">
+        <h2 class="slide__title">Training von KI-Agenten</h2>
+      </header>
+      <div class="cols-3 training">
+        <article class="card training__card fragment" style="--accent: var(--brand)">
+          <h3 class="training__head">Tools</h3>
+          <span class="compare__icon training__icon"><svg class="icon"><use href="#i-zap"/></svg></span>
+          <span class="training__meter" style="--pos: 90%" aria-hidden="true"></span>
+          <ul class="bullets">
+            <li>Sekündlich aktualisiert</li>
+            <li>Ständig aktuelle Daten</li>
+          </ul>
+        </article>
+        <article class="card training__card fragment" style="--accent: var(--red-3)">
+          <h3 class="training__head">RAG</h3>
+          <span class="compare__icon training__icon"><svg class="icon"><use href="#i-database-backup"/></svg></span>
+          <span class="training__meter" style="--pos: 55%" aria-hidden="true"></span>
+          <ul class="bullets">
+            <li>Wöchentliche Updates</li>
+            <li>Kontext &amp; Faktenprüfung</li>
+          </ul>
+        </article>
+        <article class="card training__card fragment" style="--accent: var(--bg-inverse)">
+          <h3 class="training__head">Fine-tuning LLM</h3>
+          <span class="compare__icon training__icon"><svg class="icon"><use href="#i-library-big"/></svg></span>
+          <span class="training__meter" style="--pos: 20%" aria-hidden="true"></span>
+          <ul class="bullets">
+            <li>Monatliche Updates</li>
+            <li>Stabile Wissensgrundlage</li>
+          </ul>
+        </article>
+      </div>
+      <p class="source"><a href="https://www.linkedin.com/posts/dr-lofi-dewanto_tinker-tinker-python-activity-7379782886352121856-LEeK" target="_blank" rel="noopener">https://www.linkedin.com/posts/dr-lofi-dewanto_tinker-tinker-python-activity-7379782886352121856-LEeK</a></p>
+    </section>
+
+    <!-- 11 · Apps, Dienste, KI-Agenten -->
+    <section class="slide" data-title="Was sind die Unterschiede zwischen Apps, Diensten und KI-Agenten?">
+      <header class="slide__header">
+        <h2 class="slide__title">Was sind die Unterschiede zwischen Apps, Diensten und KI-Agenten?</h2>
+      </header>
+      <div class="compare">
+        <article class="card training__card compare__card fragment" data-step="1" style="--accent: var(--brand)">
+          <h3 class="training__head">Apps</h3>
+          <span class="compare__icon training__icon"><svg class="icon"><use href="#i-smartphone"/></svg></span>
+          <ul class="bullets">
+            <li>Nutzergesteuert</li>
+            <li>Lokale Ausführung</li>
+            <li>Fokus auf Einzelaufgaben</li>
+          </ul>
+        </article>
+        <span class="compare__arrow fragment fade" data-step="2" aria-hidden="true"><svg class="icon"><use href="#i-arrow-right"/></svg></span>
+        <article class="card training__card compare__card fragment" data-step="2" style="--accent: var(--red-3)">
+          <h3 class="training__head">Dienste</h3>
+          <span class="compare__icon training__icon"><svg class="icon"><use href="#i-cloud"/></svg></span>
+          <ul class="bullets">
+            <li>Backend-basiert</li>
+            <li>Netzwerk&shy;gesteuert</li>
+            <li>Dauerhafte Funktionen</li>
+          </ul>
+        </article>
+        <span class="compare__arrow fragment fade" data-step="3" aria-hidden="true"><svg class="icon"><use href="#i-arrow-right"/></svg></span>
+        <article class="card training__card compare__card fragment" data-step="3" style="--accent: var(--bg-inverse)">
+          <h3 class="training__head">KI-Agenten</h3>
+          <span class="compare__icon training__icon"><svg class="icon"><use href="#i-brain"/></svg></span>
+          <ul class="bullets">
+            <li>Autonom &amp; Proaktiv</li>
+            <li>Lernfähig &amp; Kontext&shy;bewusst</li>
+            <li>KI-gesteuerte Entscheidungen</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <!-- 12 · Agentic AI -->
+    <section class="slide" data-title="Agentic AI: Autonomie, Multi-Schritte und Revision">
+      <header class="slide__header">
+        <h2 class="slide__title">Agentic AI: Autonomie, Multi-Schritte und Revision</h2>
+      </header>
+      <figure class="figure">
+        <img src="assets/img/agentic-company.webp" alt="Illustration „Agentic AI as Company“: KI-Agenten arbeiten über Domain X, Domain Y und Domain Z hinweg zusammen" width="1190" height="512">
+      </figure>
+    </section>
+
+    <!-- 13 · Letzter Schrei -->
+    <section class="slide" data-title="Letzter Schrei...">
+      <header class="slide__header">
+        <h2 class="slide__title">Letzter Schrei...</h2>
+      </header>
+      <div class="cols-2">
+        <article class="card training__card hype fragment" style="--accent: var(--brand)">
+          <h3 class="training__head">Clawd Bot alias OpenClaw</h3>
+          <div class="hype__media"><img src="assets/img/claw.webp" alt="OpenClaw: Hummer-Logo über einer Roboterhand" width="700" height="360"></div>
+          <p class="hype__claim">→ Jarvis für uns</p>
+          <a class="hype__link" href="https://openclaw.ai" target="_blank" rel="noopener">https://openclaw.ai</a>
+        </article>
+        <article class="card training__card hype fragment" style="--accent: var(--red-3)">
+          <h3 class="training__head">Moltbook</h3>
+          <div class="hype__media"><img src="assets/img/moltbook.webp" alt="Moltbook: Netzwerk von KI-Agenten" width="636" height="360"></div>
+          <p class="hype__claim">Facebook / Reddit für KI-Agenten</p>
+          <a class="hype__link" href="https://www.moltbook.com" target="_blank" rel="noopener">https://www.moltbook.com</a>
+        </article>
+      </div>
+    </section>
+
+    <!-- 14 · Andon Labs -->
+    <section class="slide" data-title="Andon Labs">
+      <header class="slide__header slide__header--tight">
+        <h2 class="slide__title">Andon Labs</h2>
+      </header>
+      <figure class="browser">
+        <div class="browser__bar">
+          <span class="browser__dots" aria-hidden="true"><i></i><i></i><i></i></span>
+          <a class="browser__url" href="https://andonlabs.com" target="_blank" rel="noopener">andonlabs.com</a>
+        </div>
+        <img src="assets/img/andon-labs.webp" alt="Website von Andon Labs: „Autonomous organizations without humans in the loop. Safety from humans in the loop is a mirage. We prepare for the future where organizations are run autonomously by AI by benchmarking and deploying frontier AI in the real world.“" width="2048" height="1152">
+      </figure>
+    </section>
+
+    <!-- 15 · Beispiele von KI-Agenten -->
+    <section class="slide" data-title="Beispiele von KI-Agenten">
+      <header class="slide__header slide__header--tight">
+        <h2 class="slide__title">Beispiele von KI-Agenten</h2>
+      </header>
+      <ul class="agents">
+        <li class="agent">
+          <div class="agent__head" style="--brand: #d97757">
+            <span class="agent__plate agent__plate--wide"><img src="assets/img/logos/claude.webp" alt="" width="640" height="121"></span>
+          </div>
+          <h3>Anthropic Claude</h3>
+          <p>Versatile &amp; Safe AI Assistant</p>
+          <a href="https://anthropic.com/product/claude-code" target="_blank" rel="noopener">anthropic.com/product/<wbr>claude-code</a>
+        </li>
+        <li class="agent">
+          <div class="agent__head" style="--brand: #3a3a3a">
+            <span class="agent__plate agent__plate--wide"><img src="assets/img/logos/opencode.webp" alt="" width="640" height="139"></span>
+          </div>
+          <h3>OpenCode</h3>
+          <p>Open-Source Code AI</p>
+          <a href="https://opencode.ai" target="_blank" rel="noopener">opencode.ai</a>
+        </li>
+        <li class="agent">
+          <div class="agent__head" style="--brand: #3b82f6">
+            <span class="agent__plate"><img src="assets/img/logos/copilot.svg" alt="" width="96" height="96"></span>
+          </div>
+          <h3>GitHub Copilot</h3>
+          <p>AI Coding Partner</p>
+          <a href="https://github.com/features/copilot" target="_blank" rel="noopener">github.com/features/<wbr>copilot</a>
+        </li>
+        <li class="agent">
+          <div class="agent__head" style="--brand: #10a37f">
+            <span class="agent__plate"><img src="assets/img/logos/openai.svg" alt="" width="96" height="96"></span>
+          </div>
+          <h3>ChatGPT</h3>
+          <p>Powerful Text &amp; Chat AI</p>
+          <a href="https://openai.com/de-DE/index/introducing-chatgpt-agent" target="_blank" rel="noopener">openai.com/de-DE/index/<wbr>introducing-chatgpt-agent</a>
+        </li>
+        <li class="agent">
+          <div class="agent__head" style="--brand: #7c5cff">
+            <span class="agent__plate agent__plate--wide"><img src="assets/img/logos/manus.webp" alt="" width="640" height="197"></span>
+          </div>
+          <h3>Manus AI</h3>
+          <p>Workflow &amp; Task Automation</p>
+          <a href="https://manus.im" target="_blank" rel="noopener">manus.im</a>
+        </li>
+        <li class="agent">
+          <div class="agent__head" style="--brand: #4285f4">
+            <span class="agent__plate"><img src="assets/img/logos/gemini.svg" alt="" width="96" height="96"></span>
+          </div>
+          <h3>Gemini</h3>
+          <p>Google's Advanced LLM &amp; App</p>
+          <a href="https://gemini.google.com" target="_blank" rel="noopener">gemini.google.com</a>
+        </li>
+        <li class="agent">
+          <div class="agent__head" style="--brand: #e5484d">
+            <span class="agent__plate"><img src="assets/img/logos/openclaw.svg" alt="" width="96" height="96"></span>
+          </div>
+          <h3>OpenClaw</h3>
+          <p>Scalable AI for Enterprise</p>
+          <a href="https://openclaw.ai" target="_blank" rel="noopener">openclaw.ai</a>
+        </li>
+        <li class="agent">
+          <div class="agent__head" style="--brand: #f08c00">
+            <span class="agent__plate agent__plate--photo"><img src="assets/img/agent-javaclaw.webp" alt="" width="165" height="78"></span>
+          </div>
+          <h3>JavaClaw/ClawRunr</h3>
+          <p>Java based Agent</p>
+          <a href="https://clawrunr.io" target="_blank" rel="noopener">clawrunr.io</a>
+        </li>
+        <li class="agent">
+          <div class="agent__head" style="--brand: #9aa5b1">
+            <span class="agent__plate"><img src="assets/img/logos/paperclip.svg" alt="" width="96" height="96"></span>
+          </div>
+          <h3>Paperclip</h3>
+          <p>Agent Task Organizer</p>
+          <a href="https://paperclip.ing" target="_blank" rel="noopener">paperclip.ing</a>
+        </li>
+        <li class="agent">
+          <div class="agent__head" style="--brand: #c9a227">
+            <span class="agent__plate agent__plate--portrait"><img src="assets/img/logos/hermes.webp" alt="" width="554" height="554"></span>
+          </div>
+          <h3>Hermes Agent</h3>
+          <p>Customizable Workflow AI</p>
+          <a href="https://get-hermes.ai" target="_blank" rel="noopener">get-hermes.ai</a>
+        </li>
+      </ul>
+      <p class="agents__more">... und viele weitere...</p>
+    </section>
+
+    <!-- 16 · Abschnitt: Softwareentwicklungsprozess -->
+    <section class="slide slide--section no-footer" data-section-title="Softwareentwicklungsprozess" data-title="Softwareentwicklungsprozess">
+      <div class="section__content">
+        <span class="section__num">02</span>
+        <h2 class="section__title">Softwareentwicklungsprozess</h2>
+        <p class="section__subtitle">GitHub Copilot – OpenCode</p>
+        <ol class="section__cycle">
+          <li><svg class="icon"><use href="#i-cog"/></svg>PLANUNG</li>
+          <li><svg class="icon"><use href="#i-code-xml"/></svg>ENTWICKLUNG</li>
+          <li><svg class="icon"><use href="#i-search"/></svg>TESTING</li>
+          <li><svg class="icon"><use href="#i-cloud-upload"/></svg>DEPLOYMENT</li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- 17 · Makro- und Mikroprozess -->
+    <section class="slide" data-title="Makro- und Mikroprozess">
+      <header class="slide__header slide__header--tight">
+        <h2 class="slide__title">Makro- und Mikroprozess</h2>
+      </header>
+      <div class="process">
+        <svg class="process__links" viewBox="0 0 1696 700" aria-hidden="true">
+          <path d="M 70 156 V 222 H 192"/>
+          <path d="M 250 266 V 332 H 332"/>
+          <path class="process__link--gold" d="M 392 376 V 462 H 562"/>
+        </svg>
+        <ol class="process__macro">
+          <li class="macro" style="--l: 20px; --t: 70px; --w: 400px"><svg class="icon"><use href="#i-scan-search"/></svg>Requirements</li>
+          <li class="macro" style="--l: 200px; --t: 180px; --w: 380px"><svg class="icon"><use href="#i-chart-column-big"/></svg>Analysis</li>
+          <li class="macro" style="--l: 340px; --t: 290px; --w: 370px"><svg class="icon"><use href="#i-drafting-compass"/></svg>Design</li>
+          <li class="macro macro--impl" style="--l: 570px; --t: 420px; --w: 780px">Implementation</li>
+          <li class="macro macro--late" style="--l: 710px; --t: 518px; --w: 780px"><svg class="icon"><use href="#i-microscope"/></svg>Test<svg class="icon"><use href="#i-flask-conical"/></svg></li>
+          <li class="macro macro--late" style="--l: 850px; --t: 614px; --w: 740px"><svg class="icon"><use href="#i-server"/></svg>Operation<svg class="icon"><use href="#i-database"/></svg></li>
+        </ol>
+        <div class="micro fragment">
+          <h3 class="micro__title">IMPLEMENTATION</h3>
+          <div class="micro__grid">
+            <span class="micro__cell" style="grid-area: 1 / 1">Check out</span>
+            <span class="micro__flow" style="grid-area: 1 / 2"><svg class="icon"><use href="#i-key-round"/></svg></span>
+            <span class="micro__cell" style="grid-area: 1 / 3">Install</span>
+            <span class="micro__flow" style="grid-area: 1 / 4" aria-hidden="true"></span>
+            <span class="micro__cell" style="grid-area: 1 / 5">Release</span>
+            <span class="micro__flow micro__flow--exit" style="grid-area: 1 / 6"><svg class="icon"><use href="#i-flag"/></svg></span>
+
+            <span class="micro__v micro__v--up" style="grid-area: 2 / 1"><svg class="icon"><use href="#i-code-xml"/></svg></span>
+            <span class="micro__v micro__v--down" style="grid-area: 2 / 3"><svg class="icon"><use href="#i-hard-drive-download"/></svg></span>
+            <span class="micro__v micro__v--up" style="grid-area: 2 / 5"><svg class="icon"><use href="#i-rocket"/></svg></span>
+
+            <span class="micro__cell" style="grid-area: 3 / 1">Code</span>
+            <span class="micro__cell" style="grid-area: 3 / 3">Package</span>
+            <span class="micro__flow micro__flow--left" style="grid-area: 3 / 4" aria-hidden="true"></span>
+            <span class="micro__cell" style="grid-area: 3 / 5">Deploy</span>
+
+            <span class="micro__v micro__v--up" style="grid-area: 4 / 1"><svg class="icon"><use href="#i-cog"/></svg></span>
+            <span class="micro__v micro__v--down" style="grid-area: 4 / 3"><svg class="icon"><use href="#i-package"/></svg></span>
+            <span class="micro__v micro__v--up" style="grid-area: 4 / 5"><svg class="icon"><use href="#i-file-pen-line"/></svg></span>
+
+            <span class="micro__cell" style="grid-area: 5 / 1">Compile</span>
+            <span class="micro__flow micro__flow--left" style="grid-area: 5 / 2" aria-hidden="true"></span>
+            <span class="micro__cell" style="grid-area: 5 / 3"><svg class="icon"><use href="#i-search"/></svg> Test</span>
+            <span class="micro__flow" style="grid-area: 5 / 4"><svg class="icon"><use href="#i-microscope"/></svg></span>
+            <span class="micro__cell" style="grid-area: 5 / 5">Documentation</span>
+          </div>
+        </div>
+        <ul class="process__legend">
+          <li><span class="swatch swatch--macro"></span>Macro Process</li>
+          <li><span class="swatch swatch--micro"></span>Micro Process</li>
+        </ul>
+      </div>
+      <p class="source"><a href="https://lofidewanto.medium.com/software-development-macro-and-micro-process-d90b10bd635a" target="_blank" rel="noopener">https://lofidewanto.medium.com/software-development-macro-and-micro-process-d90b10bd635a</a></p>
+    </section>
+
+    <!-- 18 · Specification-Driven Development -->
+    <section class="slide" data-title="Specification-Driven Development (SDD) mit KI">
+      <header class="slide__header">
+        <h2 class="slide__title">Specification-Driven Development (SDD) mit KI</h2>
+      </header>
+      <ol class="sdd">
+        <li class="sdd__step fragment">
+          <span class="sdd__icon"><svg class="icon"><use href="#i-file-cog"/></svg></span>
+          <p><strong>Specify:</strong> Anforderungen, Motivation, technische Rahmenbedingungen &amp; Constraints festlegen.</p>
+        </li>
+        <li class="sdd__step fragment">
+          <span class="sdd__icon"><svg class="icon"><use href="#i-list-checks"/></svg></span>
+          <p><strong>Plan:</strong> Architektur und technische Strategie definieren: Welche Technologien, welche Schnittstellen, welche Patterns, wie integriert das Ganze?</p>
+        </li>
+        <li class="sdd__step fragment">
+          <span class="sdd__icon"><svg class="icon"><use href="#i-workflow"/></svg></span>
+          <p><strong>Tasks:</strong> Den Plan in kleine, umsetzbare Arbeitspakete unterteilen – so dass jedes Teil isoliert getestet oder reviewt werden kann.</p>
+        </li>
+        <li class="sdd__step fragment">
+          <span class="sdd__icon"><svg class="icon"><use href="#i-code-xml"/></svg></span>
+          <p><strong>Implement:</strong> Die KI-Agenten oder Entwickler beginnen mit der Umsetzung, wobei sie sich strikt an Spezifikationen und Tasks halten.</p>
+        </li>
+      </ol>
+      <p class="source fragment fade" data-step="4"><a href="https://github.blog/ai-and-ml/generative-ai/spec-driven-development-with-ai-get-started-with-a-new-open-source-toolkit" target="_blank" rel="noopener">https://github.blog/ai-and-ml/generative-ai/spec-driven-development-with-ai-get-started-with-a-new-open-source-toolkit</a> - <a href="https://github.com/github/spec-kit" target="_blank" rel="noopener">https://github.com/github/spec-kit</a></p>
+    </section>
+
+    <!-- 19 · IDE- vs. Konversationszentrierte Arbeit -->
+    <section class="slide" data-title="IDE- vs. Konversationszentrierte Arbeit">
+      <header class="slide__header">
+        <h2 class="slide__title">IDE- vs. Konversationszentrierte Arbeit</h2>
+      </header>
+      <div class="versus">
+        <p class="versus__tag tone-a">Imperativ</p>
+        <p class="versus__tag versus__vs fragment fade" data-step="1">vs.</p>
+        <p class="versus__tag tone-b fragment fade" data-step="1">Deskriptiv</p>
+        <figure class="card training__card versus__panel" style="--accent: var(--brand)">
+          <figcaption class="training__head">IDE-zentrierte Arbeit</figcaption>
+          <img src="assets/img/imperativ.webp" alt="Screenshot: Code-Editor in einer IDE" width="1024" height="639">
+        </figure>
+        <span class="versus__arrow fragment fade" data-step="1" aria-hidden="true"><svg class="icon"><use href="#i-arrow-right"/></svg></span>
+        <figure class="card training__card versus__panel fragment" data-step="1" style="--accent: var(--bg-inverse)">
+          <figcaption class="training__head">Chat-/Konversationszentrierte Arbeit</figcaption>
+          <img src="assets/img/conversation.webp" alt="Screenshot: Konversation mit einem KI-Agenten im Terminal" width="1670" height="800">
+        </figure>
+      </div>
+    </section>
+
+    <!-- 20 · Umsetzung -->
+    <section class="slide" data-title="Umsetzung">
+      <header class="slide__header">
+        <h2 class="slide__title">Umsetzung</h2>
+      </header>
+      <div class="impl">
+        <svg class="impl__links" aria-hidden="true">
+          <path class="fragment" data-step="2" data-from="office right" data-mid="tools right 0.5 28" data-to="terminal left"/>
+          <path class="fragment" data-step="2" data-from="apps right" data-mid="tools right 0.5 28" data-to="terminal left"/>
+          <path class="fragment" data-step="3" data-from="terminal right" data-mid="llm left 0.5 -28" data-to="brain left"/>
+          <path class="fragment" data-step="3" data-from="brain bottom" data-to="copilot top"/>
+          <path class="fragment" data-step="3" data-from="brain bottom" data-to="bedrock top"/>
+        </svg>
+        <section class="card impl__col fragment" data-step="1" data-anchor="tools">
+          <h3 class="impl__title">Tools = Skills &amp; MCP Servers</h3>
+          <div class="impl__group" data-anchor="office">
+            <img class="impl__office" src="assets/img/microsoft-365-apps.webp" alt="Microsoft-365-Anwendungen" width="456" height="264">
+          </div>
+          <div class="impl__group impl__apps" data-anchor="apps">
+            <img src="assets/img/logos/telegram.webp" alt="Telegram" width="256" height="256">
+            <img class="impl__apps-chrome" src="assets/img/logos/chrome.webp" alt="Google Chrome" width="256" height="256">
+            <img src="assets/img/logos/file-explorer.webp" alt="Datei-Explorer" width="256" height="256">
+          </div>
+        </section>
+        <div class="impl__center fragment" data-step="2">
+          <p class="impl__kicker">CLI / Desktop</p>
+          <section class="card impl__col impl__col--center">
+          <h3 class="impl__title">Agents &amp; Subagents</h3>
+          <div class="impl__agents">
+            <img class="impl__terminal" data-anchor="terminal" src="assets/img/agent-webterminal.webp" alt="Terminal-Sitzung eines KI-Agenten in OpenCode" width="1688" height="875">
+            <div>
+              <p class="impl__label">Example Agents</p>
+              <ul class="impl__agent-list">
+                <li><span class="impl__logo impl__logo--wide"><img src="assets/img/logos/opencode.webp" alt="" width="640" height="139"></span>OpenCode</li>
+                <li><span class="impl__logo"><img src="assets/img/logos/copilot.svg" alt="" width="96" height="96"></span>GitHub Copilot CLI</li>
+              </ul>
+            </div>
+          </div>
+          </section>
+        </div>
+        <section class="card impl__col fragment" data-step="3" data-anchor="llm">
+          <h3 class="impl__title">Brain</h3>
+          <img class="impl__brain" data-anchor="brain" src="assets/img/brain-llm.webp" alt="LLM" width="120" height="96">
+          <div class="impl__logos">
+            <figure><span class="impl__plate" data-anchor="copilot"><img src="assets/img/logos/copilot.svg" alt="" width="96" height="96"></span><figcaption>GitHub Copilot</figcaption></figure>
+            <figure><img data-anchor="bedrock" src="assets/img/aws-bedrock.webp" alt="" width="100" height="100"><figcaption>AWS Bedrock</figcaption></figure>
+          </div>
+        </section>
+      </div>
+    </section>
+
+    <!-- 21 · GitHub Copilot und OpenCode -->
+    <section class="slide" data-title="GitHub Copilot und OpenCode">
+      <header class="slide__header">
+        <h2 class="slide__title">GitHub Copilot und OpenCode</h2>
+      </header>
+      <div class="cols-2">
+        <article class="card training__card duo fragment" style="--accent: var(--brand)">
+          <h3 class="training__head duo__head"><span class="duo__logo"><img src="assets/img/logos/copilot.svg" alt="" width="96" height="96"></span>GitHub Copilot</h3>
+          <img class="duo__img" src="assets/img/copilot_intellij.webp" alt="Screenshot: GitHub Copilot Chat in IntelliJ IDEA erklärt einen Kompilierfehler" width="1920" height="1200">
+          <ul class="bullets">
+            <li>AI pair programmer</li>
+            <li>Suggests code and functions</li>
+            <li>Supports multiple languages</li>
+            <li>Integrated into IDEs</li>
+          </ul>
+        </article>
+        <article class="card training__card duo fragment" style="--accent: var(--red-3)">
+          <h3 class="training__head duo__head"><span class="duo__logo duo__logo--wide"><img src="assets/img/logos/opencode.webp" alt="" width="640" height="139"></span>OpenCode</h3>
+          <img class="duo__img" src="assets/img/opencode.webp" alt="Screenshot: OpenCode im Terminal prüft ein Spring-Boot-Upgrade" width="1680" height="821">
+          <ul class="bullets">
+            <li>Command-line interface</li>
+            <li>AI-driven automation</li>
+            <li>Scripting and workflows</li>
+            <li>Terminal integration</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <!-- 22 · Enablement -->
+    <section class="slide" data-title="Enablement mit Hilfe von KI-Agenten">
+      <header class="slide__header">
+        <h2 class="slide__title">Enablement mit Hilfe von KI-Agenten</h2>
+      </header>
+      <div class="enable">
+        <svg class="enable__lines" viewBox="0 0 1696 700" aria-hidden="true">
+          <path class="fragment" data-step="1" d="M 125 285 C 40 330 30 470 98 500"/>
+          <path class="fragment" data-step="2" d="M 365 520 C 600 520 680 160 888 150"/>
+          <path class="fragment" data-step="2" d="M 365 545 L 948 545"/>
+          <path class="fragment" data-step="2" d="M 365 570 C 640 700 1180 690 1388 640"/>
+          <path class="enable__dotted fragment" data-step="2" d="M 1125 150 L 1328 150"/>
+          <path class="enable__dotted fragment" data-step="2" d="M 1182 545 L 1388 545"/>
+          <path class="fragment" data-step="2" d="M 1150 440 C 1270 430 1400 400 1445 325"/>
+        </svg>
+        <figure class="enable__node" style="left: 110px; top: 20px">
+          <span class="enable__icon"><svg class="icon"><use href="#i-shield-user"/></svg></span>
+          <figcaption>DevSecOps</figcaption>
+        </figure>
+        <figure class="enable__node enable__node--agent fragment" data-step="1" style="left: 110px; top: 420px">
+          <span class="enable__icon"><svg class="icon"><use href="#i-bot"/></svg></span>
+          <figcaption>KI Agent(en)</figcaption>
+        </figure>
+        <figure class="enable__node fragment" data-step="2" style="left: 900px; top: 40px">
+          <span class="enable__icon"><svg class="icon"><use href="#i-server"/></svg></span>
+          <figcaption>System A</figcaption>
+        </figure>
+        <figure class="enable__node fragment" data-step="2" style="left: 1340px; top: 40px">
+          <span class="enable__icon"><svg class="icon"><use href="#i-server"/></svg></span>
+          <figcaption>System B</figcaption>
+        </figure>
+        <figure class="enable__node fragment" data-step="2" style="left: 960px; top: 420px">
+          <span class="enable__icon"><svg class="icon"><use href="#i-server"/></svg></span>
+          <figcaption>System C</figcaption>
+        </figure>
+        <figure class="enable__node fragment" data-step="2" style="left: 1400px; top: 420px">
+          <span class="enable__icon"><svg class="icon"><use href="#i-server"/></svg></span>
+          <figcaption>System D</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- 24 · Reifegradmodell: SDD / SDLC mit KI -->
+    <section class="slide" data-title="Reifegradmodell: SDD / SDLC mit KI">
+      <header class="slide__header">
+        <h2 class="slide__title">Reifegradmodell: SDD / SDLC mit KI</h2>
+        <p class="slide__subtitle">Von punktueller Assistenz zum durchgängig KI-gestützten Softwarelebenszyklus</p>
+      </header>
+      <ol class="maturity">
+        <li class="maturity__step fragment" data-step="1">
+          <div class="maturity__arrow"><span class="maturity__num">01</span><svg class="icon"><use href="#i-brain"/></svg></div>
+          <h3 class="maturity__title">KI-Assistenz</h3>
+          <p class="maturity__text">KI erklärt Code und liefert Ideen. Menschen übertragen die Ergebnisse manuell in die Entwicklung.</p>
+        </li>
+        <li class="maturity__step fragment" data-step="2">
+          <div class="maturity__arrow"><span class="maturity__num">02</span><svg class="icon"><use href="#i-code-xml"/></svg></div>
+          <h3 class="maturity__title">KI-gestütztes Coding</h3>
+          <p class="maturity__text">KI erzeugt Code und Tests direkt im Projekt. Menschen steuern einzelne Änderungen und prüfen sie.</p>
+        </li>
+        <li class="maturity__step fragment" data-step="3">
+          <div class="maturity__arrow"><span class="maturity__num">03</span><svg class="icon"><use href="#i-file-cog"/></svg></div>
+          <h3 class="maturity__title">SDD mit KI</h3>
+          <p class="maturity__text">Versionierte Spezifikationen, Pläne und Tasks leiten die KI. Akzeptanzkriterien machen Ergebnisse prüfbar.</p>
+        </li>
+        <li class="maturity__step fragment" data-step="4">
+          <div class="maturity__arrow"><span class="maturity__num">04</span><svg class="icon"><use href="#i-bot"/></svg></div>
+          <h3 class="maturity__title">Agentische Entwicklung</h3>
+          <p class="maturity__text">Agenten setzen spezifizierte Tasks um, testen und korrigieren iterativ – mit begrenzten Rechten und Reviews.</p>
+        </li>
+        <li class="maturity__step fragment" data-step="5" style="--step-color: var(--orange-strong)">
+          <div class="maturity__arrow"><span class="maturity__num">05</span><svg class="icon"><use href="#i-infinity"/></svg></div>
+          <h3 class="maturity__title">KI im gesamten SDLC</h3>
+          <p class="maturity__text">KI verknüpft Anforderungen, Entwicklung, Tests und Betrieb. Betriebsfeedback fließt in die Spezifikationen zurück.</p>
+        </li>
+      </ol>
+      <p class="footnote">Eigenes Orientierungsmodell, kein Standard. Auf allen Stufen: menschliche Verantwortung, Prüfung und Freigabe.</p>
+    </section>
+
+    <!-- 25 · Achtung -->
+    <section class="slide" data-title="Achtung: Das Umfeld von KI-Agenten beachten!">
+      <header class="alert__banner">
+        <svg class="icon"><use href="#i-triangle-alert"/></svg>
+        <h2 class="slide__title">ACHTUNG: DAS UMFELD VON KI-AGENTEN BEACHTEN!</h2>
+      </header>
+      <div class="risks">
+        <article class="card training__card risk fragment" style="--accent: var(--brand)">
+          <h3 class="training__head">Rechte-Befugnis</h3>
+          <span class="compare__icon risk__icon"><svg class="icon"><use href="#i-key-round"/></svg></span>
+          <p>KI-Agenten können alles tun, wozu wir befugt sind. – logisch.</p>
+        </article>
+        <article class="card training__card risk fragment" style="--accent: var(--brand)">
+          <h3 class="training__head">Systemeingriffe</h3>
+          <span class="compare__icon risk__icon"><svg class="icon"><use href="#i-trash-2"/></svg></span>
+          <p>Daten löschen, Systeme verändern.</p>
+        </article>
+        <article class="card training__card risk fragment" style="--accent: var(--brand)">
+          <h3 class="training__head">Software-Verwaltung</h3>
+          <span class="compare__icon risk__icon"><svg class="icon"><use href="#i-package-plus"/></svg></span>
+          <p>Anwendungen herunterladen, installieren.</p>
+        </article>
+        <article class="card training__card risk fragment" style="--accent: var(--brand)">
+          <h3 class="training__head">Allumfassende Aktionen</h3>
+          <span class="compare__icon risk__icon"><svg class="icon"><use href="#i-terminal"/></svg></span>
+          <p>... praktisch alle Systemoperationen durchführen!</p>
+        </article>
+      </div>
+      <p class="alert__bottom fragment">
+        <span>Wenn das nicht gewünscht ist, müssen ihre Rechte entsprechend eingeschränkt werden.</span>
+        <svg class="icon" aria-hidden="true"><use href="#i-lock"/></svg>
+      </p>
+    </section>
+
+    <!-- 25 · Sandbox -->
+    <section class="slide no-footer" data-title="Ein Bild. Sechs Kontrollpunkte.">
+      <header class="slide__header slide__header--tight">
+        <h2 class="slide__title">Ein Bild. Sechs Kontrollpunkte.</h2>
+      </header>
+      <div class="sandbox">
+        <div class="sandbox__host"><span class="sandbox__label">HOST MACHINE</span></div>
+        <div class="sandbox__box sandbox__box--muted" style="left: 44px; top: 188px; width: 282px; height: 145px">
+          <strong>Workspace</strong>
+          <code>/Users/kevin/proj</code>
+          <small>bidirectional sync</small>
+        </div>
+        <div class="sandbox__vm" style="left: 384px; top: 94px; width: 826px; height: 356px">
+          <span class="sandbox__vm-label">MICROVM BOUNDARY · OWN KERNEL</span>
+        </div>
+        <div class="sandbox__container" style="left: 424px; top: 162px; width: 746px; height: 262px">
+          <strong>Agent container</strong>
+          <small>untrusted code lives here</small>
+        </div>
+        <div class="sandbox__box sandbox__box--dark" style="left: 464px; top: 241px; width: 292px; height: 160px">
+          <strong>Agent runtime</strong>
+          <code>claude / gemini / codex</code>
+          <small>+ CLI, mvn, npm, …</small>
+        </div>
+        <div class="sandbox__box sandbox__box--dark" style="left: 839px; top: 241px; width: 292px; height: 160px">
+          <strong>Docker daemon</strong>
+          <code>private, nested</code>
+          <small>makes Testcontainers work</small>
+        </div>
+        <div class="sandbox__box sandbox__box--accent" style="left: 433px; top: 542px; width: 727px; height: 126px">
+          <strong>Egress proxy</strong>
+          <code>policy-as-code · MITM for known services</code>
+          <small>lives on the host, outside the microVM</small>
+        </div>
+        <div class="sandbox__box sandbox__box--muted" style="left: 1272px; top: 544px; width: 262px; height: 125px">
+          <strong>Secret store</strong>
+          <code>OS keychain</code>
+          <small>host-side</small>
+        </div>
+        <svg class="sandbox__arrows" viewBox="0 0 1614 770" aria-hidden="true">
+          <path d="M 326 293 H 418"/>
+          <path d="M 424 322 H 332"/>
+          <path d="M 756 321 H 833"/>
+          <path d="M 797 450 V 536"/>
+          <path d="M 1272 606 H 1166"/>
+          <path d="M 797 668 V 734"/>
+        </svg>
+        <span class="sandbox__note" style="left: 336px; top: 262px">bind-mount</span>
+        <span class="sandbox__note" style="left: 830px; top: 470px">every outbound packet<br>crosses the boundary</span>
+        <span class="sandbox__note" style="left: 1196px; top: 574px">inject</span>
+        <span class="sandbox__note sandbox__note--center" style="left: 797px; top: 740px">external systems · internet</span>
+      </div>
+      <p class="source source--bottom">Quelle: <a href="https://gist.github.com/kiview/cd11a5f6793d05c55ab0affa62d2b8c8" target="_blank" rel="noopener">https://gist.github.com/kiview/cd11a5f6793d05c55ab0affa62d2b8c8</a></p>
+    </section>
+
+    <!-- 26 · Nicht zu stoppen -->
+    <section class="slide" data-title="KI-Agenten nicht zu stoppen">
+      <div class="statement statement--rule">
+        <p class="statement__text">KI-Agenten nicht zu stoppen</p>
+        <p class="statement__text fragment">Wir nutzen sie sinnvoll und bewusst!</p>
+      </div>
+    </section>
+
+    <!-- 27 · Sicheres Entwicklernotebook -->
+    <section class="slide" data-title="Basis hierfür... Sicheres Entwicklernotebook!">
+      <div class="basis">
+        <figure class="basis__media">
+          <img src="assets/img/warning-triangle.webp" alt="Warndreieck aus Gras vor einem Notebook" width="390" height="420">
+        </figure>
+        <div class="statement statement--rule basis__statement">
+          <p class="statement__text">Basis hierfür…</p>
+          <div class="fragment">
+            <p class="statement__text">Sicheres Entwicklernotebook! (DevSecOps Notebook)</p>
+            <ul class="basis__icons" aria-hidden="true">
+              <li><svg class="icon"><use href="#i-shield-user"/></svg></li>
+              <li><svg class="icon"><use href="#i-lock-keyhole"/></svg></li>
+              <li><svg class="icon"><use href="#i-infinity"/></svg></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 28 · Foundation: Sandbox und Isolation (aus Security, Folie 26) -->
+    <section class="slide" data-title="Foundation: Sandbox und Isolation">
+      <header class="slide__header"><h2 class="slide__title">Foundation: Sandbox und Isolation</h2><p class="slide__subtitle">Kontrollierte Übergänge zwischen Agent, Host und externen Diensten</p></header>
+      <figure class="security__diagram">
+        <svg viewBox="0 0 1696 580" role="img" aria-labelledby="sandbox-title sandbox-desc">
+          <title id="sandbox-title">Sandbox-Architektur mit kontrollierten Zugriffsgrenzen</title>
+          <desc id="sandbox-desc">Auf dem Host läuft ein KI-Agent in einer Sandbox. Er hat begrenzten Projektzugriff. Externe Zugriffe laufen über einen Proxy; Secrets werden separat verwaltet. Ein Reverse Proxy verbindet Browser und Agent.</desc>
+          <rect x="16" y="16" width="1150" height="540" rx="24"/>
+          <text x="590" y="64">Host / Entwicklernotebook</text>
+          <rect class="security__boundary" x="400" y="105" width="450" height="320" rx="24"/>
+          <text x="625" y="153">Sandbox / Isolation</text>
+          <rect x="460" y="210" width="330" height="100" rx="16"/><text x="625" y="270">KI-Agent</text>
+          <rect x="50" y="200" width="280" height="120" rx="16"/><text x="190" y="250">Projektdateien</text><text x="190" y="290">Git · Tools · CLI</text>
+          <path class="security__connector" d="M460 260 H330"/>
+          <rect x="900" y="210" width="220" height="100" rx="16"/><text x="1010" y="270">Proxy</text>
+          <path class="security__connector" d="M790 260 H900"/>
+          <rect x="900" y="90" width="220" height="80" rx="16"/><text x="1010" y="140">Secrets</text>
+          <path class="security__connector" d="M1010 170 V210"/>
+          <rect x="1250" y="120" width="420" height="310" rx="24"/><text x="1460" y="180">Freigegebene Ziele</text><text x="1460" y="240">LLM-Provider / MCP</text><text x="1460" y="300">Unternehmenssysteme</text><text x="1460" y="360">Internet-Dienste</text>
+          <path class="security__connector" d="M1120 260 H1250"/>
+          <rect x="50" y="450" width="280" height="80" rx="16"/><text x="190" y="500">Browser</text>
+          <rect x="460" y="450" width="330" height="80" rx="16"/><text x="625" y="500">Reverse Proxy</text>
+          <path class="security__connector" d="M330 490 H460"/><path class="security__connector" d="M625 450 V310"/>
+        </svg>
+      </figure>
+      <p class="source">Vereinfachte Sicherheitsgrenzen; auch lokale LLM-Provider sind möglich. Pfeile zeigen die Zugriffsrichtung, keine pauschale Freigabe.</p>
+    </section>
+
+    <!-- 29 · MacBook und Sandbox-Wrapper -->
+    <section class="slide" data-title="MacBook + Sandbox-Wrapper: ein starkes KI-Agenten-Duo">
+      <header class="slide__header">
+        <h2 class="slide__title">MacBook + Sandbox-Wrapper</h2>
+        <p class="slide__subtitle">Ein starkes KI-Agenten-Duo</p>
+      </header>
+      <figure class="figure agent-duo">
+        <svg class="agent-duo__notebook" viewBox="0 0 800 520" role="img" aria-labelledby="macbook-title macbook-desc">
+          <title id="macbook-title">MacBook als Entwicklernotebook</title>
+          <desc id="macbook-desc">Schematische Illustration eines geöffneten MacBooks mit Terminal auf dem Bildschirm.</desc>
+          <rect class="agent-duo__case" x="90" y="36" width="620" height="404" rx="24"/>
+          <rect class="agent-duo__screen" x="110" y="60" width="580" height="354" rx="8"/>
+          <path class="agent-duo__terminal" d="m180 180 52 42-52 42m90 0h95"/>
+          <text class="agent-duo__screen-label" x="400" y="350">Sandbox</text>
+          <path class="agent-duo__case" d="M90 440H710L770 474Q770 490 746 490H54Q30 490 30 474Z"/>
+          <path class="agent-duo__hinge" d="M320 440H480L465 456H335Z"/>
+        </svg>
+        <span class="agent-duo__plus" aria-hidden="true">+</span>
+        <span class="agent-duo__name">Sandbox-Wrapper</span>
+        <figcaption class="sr-only">MacBook und Sandbox-Wrapper als starkes KI-Agenten-Duo.</figcaption>
+      </figure>
+      <p class="source">Wrapper für Sandbox-Lösungen wie sbx, OpenShell und nono.</p>
+    </section>
+
+    <!-- 30 · Abschnitt: Integration in Anwendungen -->
+    <section class="slide slide--section no-footer" data-section-title="Integration in Anwendungen" data-title="Integration in Anwendungen">
+      <div class="section__content section__content--split">
+        <div>
+          <span class="section__num">03</span>
+          <h2 class="section__title">Integration in Anwendungen</h2>
+          <p class="section__subtitle">(Eigenentwicklungen)</p>
+        </div>
+        <figure class="section__media">
+          <img src="assets/img/integration.webp" alt="Illustration: Anwendungen als Bausteine, verbunden mit Eigenentwicklungen" width="898" height="463">
+        </figure>
+      </div>
+    </section>
+
+    <!-- 31 · Low-Code vs. Love-Code -->
+    <section class="slide" data-title="Low-Code/No-Code vs. „Love-Code“">
+      <header class="slide__header slide__header--tight">
+        <h2 class="slide__title">Low-Code/No-Code vs. „Love-Code“</h2>
+      </header>
+      <figure class="figure">
+        <img src="assets/img/lowcode.webp" alt="Low-Code/No-Code (Azure AI Foundry, n8n – Simplified, Visual Tools) oder – bei Knowledge in Software Development – Love-Code mit Java: Spring Boot (LangChain4j, Spring AI, Embabel) oder Other: Micronaut, Quarkus, etc. (LangChain4j) – Full Control, Enterprise Power" width="1376" height="649">
+      </figure>
+    </section>
+
+    <!-- 33 · Wichtig -->
+    <section class="slide" data-title="WICHTIG: Softwareentwicklungskonzepte verstehen!">
+      <header class="slide__header slide__header--callout">
+        <svg class="icon" aria-hidden="true"><use href="#i-lightbulb"/></svg>
+        <h2 class="slide__title">WICHTIG: Softwareentwicklungskonzepte verstehen!</h2>
+      </header>
+      <div class="important">
+        <p class="important__text">Deine eigenen <strong>KI-Agenten</strong> mit <strong>Java</strong> und <strong>Spring Boot</strong> sowie <strong>Spring AI</strong> bauen!</p>
+        <ul class="important__logos">
+          <li><img src="assets/img/logos/java.webp" alt="Java" width="300" height="400"></li>
+          <li><img src="assets/img/logos/spring-boot.webp" alt="Spring Boot" width="584" height="222"></li>
+          <li><img src="assets/img/logos/spring-ai.webp" alt="Spring AI" width="245" height="206"></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- 35 · Abschnitt: Demo -->
+    <section class="slide slide--section no-footer" data-section-title="Demo" data-title="Demo">
+      <div class="section__content">
+        <span class="section__num">04</span>
+          <h2 class="section__title">Demo</h2>
+      </div>
+    </section>
+
+  </main>
+</div>
+
+<div class="progress" aria-hidden="true"><div class="progress__bar"></div></div>
+
+<nav class="controls" aria-label="Foliensteuerung">
+  <button type="button" data-action="prev" title="Zurück (←)" aria-label="Zurück"><svg class="icon"><use href="#i-chevron-left"/></svg></button>
+  <span class="controls__counter" data-counter>1 / 35</span>
+  <button type="button" data-action="next" title="Weiter (→ / Leertaste)" aria-label="Weiter"><svg class="icon"><use href="#i-chevron-right"/></svg></button>
+  <button type="button" data-action="overview" title="Übersicht (O)" aria-label="Übersicht"><svg class="icon"><use href="#i-layout-grid"/></svg></button>
+  <button type="button" data-action="fullscreen" title="Vollbild (F)" aria-label="Vollbild"><svg class="icon"><use href="#i-maximize"/></svg></button>
+</nav>
+
+<div class="overview" role="dialog" aria-label="Folienübersicht" hidden>
+  <div class="overview__head">
+    <h2 class="overview__heading">Übersicht</h2>
+    <p class="overview__hint">Pfeiltasten wählen · Enter öffnet · Esc schließt</p>
+    <button type="button" class="overview__close" data-action="close-overview">Schließen</button>
+  </div>
+  <ol class="overview__grid"></ol>
+</div>
+
+<p class="sr-only" aria-live="polite" data-status></p>
+</body>
+</html>

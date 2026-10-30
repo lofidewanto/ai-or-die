@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>KI-Agenten in der Softwareentwicklung · Security</title>
+  <meta name="description" content="KI-Agenten für die Softwareentwicklung: Sicherheitsanforderungen, Zero Trust und Roadmap. Dr. Blasius Lofi Dewanto.">
+  <meta name="robots" content="noindex">
+  <link rel="icon" href="assets/img/favicon.png">
+  <link rel="preload" href="assets/fonts/inter-deck.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="assets/css/deck.css">
+  <link rel="stylesheet" href="assets/css/theme.css">
+  <link rel="stylesheet" href="assets/css/security.css">
+  <script src="assets/js/deck.js" defer></script>
+</head>
+<body class="security">
+<!-- Lucide, ISC License. Steuerung und Security-Titelmotiv. -->
+<svg class="sprite" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+  <defs>
+    <marker id="security-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 L10 5 L0 10 z" style="fill: var(--red-1)"/></marker>
+  </defs>
+  <symbol id="i-chevron-left" viewBox="0 0 24 24"><path d="m15 18-6-6 6-6"/></symbol>
+  <symbol id="i-chevron-right" viewBox="0 0 24 24"><path d="m9 18 6-6-6-6"/></symbol>
+  <symbol id="i-layout-grid" viewBox="0 0 24 24"><rect width="7" height="7" x="3" y="3" rx="1"/><rect width="7" height="7" x="14" y="3" rx="1"/><rect width="7" height="7" x="14" y="14" rx="1"/><rect width="7" height="7" x="3" y="14" rx="1"/></symbol>
+  <symbol id="i-maximize" viewBox="0 0 24 24"><path d="M8 3H5a2 2 0 0 0-2 2v3M21 8V5a2 2 0 0 0-2-2h-3M3 16v3a2 2 0 0 0 2 2h3M16 21h3a2 2 0 0 0 2-2v-3"/></symbol>
+  <symbol id="i-minimize" viewBox="0 0 24 24"><path d="M8 3v3a2 2 0 0 1-2 2H3M21 8h-3a2 2 0 0 1-2-2V3M3 16h3a2 2 0 0 1 2 2v3M16 21v-3a2 2 0 0 1 2-2h3"/></symbol>
+  <symbol id="i-bot" viewBox="0 0 24 24"><path d="M12 8V4H8"/><rect width="16" height="12" x="4" y="8" rx="2"/><path d="M2 14h2M20 14h2M15 13v2M9 13v2"/></symbol>
+  <symbol id="i-lock-keyhole" viewBox="0 0 24 24"><circle cx="12" cy="16" r="1"/><rect x="3" y="10" width="18" height="12" rx="2"/><path d="M7 10V7a5 5 0 0 1 10 0v3"/></symbol>
+</svg>
+
+<div class="viewport">
+  <main class="stage" aria-label="Präsentation: KI-Agenten in der Softwareentwicklung – Security">
+    <!-- 1 · PDF 1. Vom Nutzer freigegebene Ausnahme: illustrierte Titelfolie. -->
+    <section class="slide security__cover no-footer" data-title="KI-Agenten für die Softwareentwicklung">
+      <!-- Eigenes Vektormotiv; dekorativ, ohne zusätzliche inhaltliche Aussage. -->
+      <svg class="security__cover-art" viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+        <defs>
+          <radialGradient id="cover-halo"><stop stop-color="var(--red-1)" stop-opacity="0.6"/><stop offset="1" stop-color="var(--text)" stop-opacity="0"/></radialGradient>
+          <linearGradient id="cover-shield" x1="0" y1="0" x2="1" y2="1"><stop stop-color="var(--red-1)" stop-opacity="0.65"/><stop offset="1" stop-color="var(--text)"/></linearGradient>
+          <linearGradient id="cover-edge" x1="0" y1="0" x2="1" y2="1"><stop stop-color="var(--brand-100)"/><stop offset="1" stop-color="var(--red-1)"/></linearGradient>
+          <pattern id="cover-grid" width="64" height="64" patternUnits="userSpaceOnUse"><path d="M64 0H0V64" fill="none" stroke="var(--brand-300)" stroke-opacity="0.07"/></pattern>
+        </defs>
+        <rect width="1920" height="1080" fill="var(--text)"/>
+        <rect x="960" width="960" height="1080" fill="url(#cover-grid)"/>
+        <ellipse cx="1450" cy="510" rx="640" ry="630" fill="url(#cover-halo)"/>
+        <g fill="none" stroke="var(--brand-300)">
+          <circle cx="1450" cy="510" r="375" stroke-opacity="0.12"/>
+          <circle cx="1450" cy="510" r="305" stroke-opacity="0.22" stroke-dasharray="3 15"/>
+          <path d="M1085 425a375 375 0 0 1 190-240M1625 842a375 375 0 0 0 190-247" stroke-width="3" stroke-opacity="0.6"/>
+          <g stroke-opacity="0.2" stroke-width="2">
+            <path d="M1530 0V100L1620 190H1920M1635 0V60L1720 145H1920M1770 0V55L1815 100H1920"/>
+            <path d="M1920 790H1790L1680 900H1540V1080M1920 850H1830L1720 960H1610V1080M1920 910H1860L1750 1020H1680V1080"/>
+            <path d="M1040 0V110L1110 180M1920 440H1850M1920 510H1810M1920 580H1860"/>
+          </g>
+        </g>
+        <!-- Geschützter Kern, mit den Agentenknoten über klare Bahnen verbunden. -->
+        <g fill="none" stroke="var(--brand-300)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M1200 270H1280L1330 320"/>
+          <path d="M1680 310H1620L1585 345"/>
+          <path d="M1215 725H1290L1350 665"/>
+          <path d="M1685 745H1620L1560 685"/>
+        </g>
+        <path d="M1450 250C1510 285 1570 300 1640 310V480C1640 626 1560 713 1450 770C1340 713 1260 626 1260 480V310C1330 300 1390 285 1450 250Z" fill="url(#cover-shield)" stroke="url(#cover-edge)" stroke-width="3"/>
+        <path d="M1450 280C1500 308 1550 322 1610 334V480C1610 606 1545 681 1450 734C1355 681 1290 606 1290 480V334C1350 322 1400 308 1450 280Z" fill="none" stroke="var(--brand-300)" stroke-opacity="0.22"/>
+        <g fill="var(--text)" stroke="var(--brand-300)" stroke-width="2">
+          <rect x="1100" y="220" width="100" height="100" rx="28"/>
+          <rect x="1680" y="260" width="100" height="100" rx="28"/>
+          <rect x="1115" y="675" width="100" height="100" rx="28"/>
+          <rect x="1685" y="695" width="100" height="100" rx="28"/>
+        </g>
+        <g class="security__cover-icons">
+          <use href="#i-bot" x="1120" y="240" width="60" height="60"/>
+          <use href="#i-bot" x="1700" y="280" width="60" height="60"/>
+          <use href="#i-bot" x="1135" y="695" width="60" height="60"/>
+          <use href="#i-bot" x="1705" y="715" width="60" height="60"/>
+          <use href="#i-lock-keyhole" x="1370" y="400" width="160" height="160"/>
+        </g>
+        <g fill="var(--brand-100)">
+          <circle cx="1275" cy="185" r="5"/><circle cx="1815" cy="595" r="5"/>
+          <circle cx="1280" cy="270" r="5"/><circle cx="1620" cy="745" r="5"/>
+        </g>
+        <path d="M1400 615h100" stroke="var(--brand-300)" stroke-width="3" stroke-linecap="round"/>
+        <circle cx="1450" cy="615" r="7" fill="var(--brand-100)"/>
+      </svg>
+      <p class="security__cover-label">SECURITY</p>
+      <header class="slide__header">
+        <h1 class="slide__title">KI-Agenten für die Softwareentwicklung</h1>
+        <p class="slide__subtitle">Security · Anforderungen und Roadmap</p>
+      </header>
+      <p class="security__cover-message">Handlungsfähigkeit braucht<br>klare Grenzen.</p>
+      <div class="security__cover-bottom">
+        <div><p class="security__cover-author">Dr. Blasius Lofi Dewanto</p><p class="source">Sicherheitskonzept und Roadmap, keine Freigabeliste.</p></div>
+      </div>
+    </section>
+
+    <!-- 2 · PDF 2. Die Grundlagen aus index.html werden nur verlinkt. -->
+    <section class="slide" data-title="Agenda">
+      <header class="slide__header"><h2 class="slide__title">Agenda</h2><p class="slide__subtitle">Die Security-Ergänzung zum bestehenden Workshop</p></header>
+      <ol class="security__links">
+        <li><a href="#/3">KI-Agenten für die Softwareentwicklung</a></li>
+        <li><a href="#/8">Sicherheitsanforderungen an KI-Agenten</a></li>
+        <li><a href="#/20">Roadmap</a></li>
+        <li><a href="#/24">Diskussion</a></li>
+      </ol>
+      <p class="source">Vertiefung: <a href="index.html" target="_blank" rel="noopener">KI in der Softwareentwicklung – Grundlagen und Entwicklungsprozesse</a>.</p>
+    </section>
+
+    <!-- 3 · PDF 7 -->
+    <section class="slide slide--section no-footer" data-section-title="KI-Agenten für die Softwareentwicklung" data-title="Warum KI-Agenten?">
+      <div class="section__content"><span class="section__num">01</span><h2 class="section__title">Warum KI-Agenten?</h2><p class="section__subtitle">Grundlagen, Nutzen und Anforderungen</p></div>
+    </section>
+
+    <!-- 4 · Deduplizierung PDF 8, 13, 15–20, 22–26 -->
+    <section class="slide" data-title="Grundlagen und Vertiefung">
+      <header class="slide__header"><h2 class="slide__title">Grundlagen und Vertiefung</h2><p class="slide__subtitle">KI-Agenten und Entwicklungsprozesse im Workshop-Deck</p></header>
+      <ul class="security__links">
+        <li><a href="index.html#/4" target="_blank" rel="noopener">Reifegradmodell, LLM und Bausteine eines Agenten</a></li>
+        <li><a href="index.html#/7" target="_blank" rel="noopener">Mental-Modell, natürliche Sprache und Training</a></li>
+        <li><a href="index.html#/18" target="_blank" rel="noopener">Softwareentwicklung: Makro- und Mikroprozess</a></li>
+        <li><a href="index.html#/19" target="_blank" rel="noopener">Specification-Driven Development und konversationszentrierte Arbeit</a></li>
+        <li><a href="index.html#/22" target="_blank" rel="noopener">GitHub Copilot und OpenCode</a></li>
+        <li><a href="index.html#/24" target="_blank" rel="noopener">Agentenumfeld und Kontrollpunkte</a></li>
+      </ul>
+      <p class="source">Die Links öffnen die jeweiligen Themen im Workshop-Deck in einem separaten Tab.</p>
+    </section>
+
+    <!-- 5 · PDF 9–10, lesbare HTML-Zusammenfassung statt Bild mit unleserlichen Labels -->
+    <section class="slide" data-title="Funktionale und nichtfunktionale Anforderungen">
+      <header class="slide__header"><h2 class="slide__title">Funktionale und nichtfunktionale Anforderungen</h2></header>
+      <div class="cols-2">
+        <article class="card training__card" style="--accent: var(--brand)"><h3 class="training__head">Was soll die Software tun?</h3><p>Anforderungen, User Stories und Use Cases beschreiben die fachliche Aufgabe.</p><p>Sie geben den Kontext für Umsetzung und Prüfung durch Mensch und Agent.</p></article>
+        <article class="card training__card" style="--accent: var(--bg-inverse)"><h3 class="training__head">Wie gut muss sie es tun?</h3><ul class="bullets"><li>Performance, Verfügbarkeit, Zuverlässigkeit</li><li>Sicherheit und Benutzbarkeit</li><li>Wartbarkeit, Portabilität, Kompatibilität</li><li>Skalierbarkeit und Beobachtbarkeit</li></ul></article>
+      </div>
+      <p class="source">Nichtfunktionale Anforderungen müssen messbar und testbar sein.</p>
+    </section>
+
+    <!-- 6 · PDF 11 -->
+    <section class="slide" data-title="KI-basierte Softwareentwicklung: Nutzen und Kosten">
+      <header class="slide__header"><h2 class="slide__title">KI-basierte Softwareentwicklung</h2><p class="slide__subtitle">Mensch und KI als Team – Potenziale und Wirtschaftlichkeit</p></header>
+      <div class="cols-3">
+        <article class="card training__card" style="--accent: var(--brand)"><h3 class="training__head">Produktivität</h3><p>Schnellere Entwicklung, Fehlersuche und Legacy-Modernisierung.</p><p>Mehr Fokus auf Innovation und Kundennutzen.</p></article>
+        <article class="card training__card" style="--accent: var(--red-3)"><h3 class="training__head">Qualität</h3><p>Unterstützung bei Architektur, Testautomatisierung und Dokumentation.</p><p>Begleitung im gesamten Software-Lifecycle.</p></article>
+        <article class="card training__card" style="--accent: var(--bg-inverse)"><h3 class="training__head">Wissen</h3><p>Wissensmultiplikator und Wissensmanagement mit RAG.</p><p>Mehr Zeit für Architektur und Qualität.</p></article>
+      </div>
+      <p class="security__note">Welche Kosten stehen dem Nutzen gegenüber?</p>
+    </section>
+
+    <!-- 7 · übernommen aus talk-itcs-2026-cologne, Folie 5 -->
+    <section class="slide" data-title="Was ist ein LLM?">
+      <header class="slide__header"><h2 class="slide__title">Was ist ein Large Language Model?</h2></header>
+      <div class="security__stack security__stack--fill">
+        <p class="security__lead">Ein Large Language Model (LLM) ist ein <strong>Computerprogramm</strong>, das aus riesigen Mengen von <strong>Texten</strong> lernt, sodass es menschliche Sprache verstehen und <strong>menschenähnliche Texte</strong> erzeugen kann.</p>
+        <p class="security__lead"><strong>Ein schlauer Papagei zur Textvorhersage</strong>, der mit Unmengen an Texten trainiert wurde.</p>
+        <figure class="figure"><img src="assets/img/llm-papagei.webp" width="2048" height="588" alt="Ein Papagei nimmt links Textströme auf und erzeugt rechts neuen Text."></figure>
+      </div>
+    </section>
+
+    <!-- 8 · PDF 27 -->
+    <section class="slide slide--section no-footer" data-section-title="Sicherheitsanforderungen" data-title="Sicherheitsanforderungen an KI-Agenten">
+      <div class="section__content"><span class="section__num">02</span><h2 class="section__title">Sicherheitsanforderungen an KI-Agenten</h2><p class="section__subtitle">Fähigkeiten begrenzen · Auswirkungen reduzieren · Kontrolle behalten</p></div>
+    </section>
+
+    <!-- 9 · PDF 28, Architektur nicht erneut zeichnen -->
+    <section class="slide" data-title="Anbindung heißt Angriffsfläche">
+      <header class="slide__header"><h2 class="slide__title">Anbindung heißt Angriffsfläche</h2><p class="slide__subtitle">Agent, Modell, Werkzeuge und Unternehmenssysteme gemeinsam betrachten</p></header>
+      <div class="cols-3">
+        <article class="card training__card" style="--accent: var(--brand)"><h3 class="training__head">Agent</h3><p>OpenCode oder GitHub Copilot CLI.</p><p>Zugang über CLI, Desktop oder Web.</p></article>
+        <article class="card training__card" style="--accent: var(--red-3)"><h3 class="training__head">Werkzeuge</h3><p>Tools, Skills, MCP-Server und interne APIs.</p><p>Jede Anbindung erweitert den möglichen Aktionsraum.</p></article>
+        <article class="card training__card" style="--accent: var(--bg-inverse)"><h3 class="training__head">Modellzugang</h3><p>GitHub Copilot oder AWS Bedrock als Zugang zu LLMs.</p><p>Modell und Laufzeitumgebung sind getrennte Komponenten.</p></article>
+      </div>
+      <p class="source">Vertiefung: <a href="index.html#/24" target="_blank" rel="noopener">Agentenumfeld und Architektur</a> · Verprobung / Use Cases / Ergebnisse.</p>
+    </section>
+
+    <!-- 10 · PDF 29 -->
+    <section class="slide" data-title="Was kann ein Agent machen?">
+      <header class="slide__header"><h2 class="slide__title">Was kann ein Agent machen?</h2><p class="slide__subtitle">Mehr als feste Regeln klassischer Software ausführen</p></header>
+      <ul class="security__links"><li>Autonom arbeiten und eigene Handlungsschritte auswählen.</li><li>Externe Tools und APIs nutzen.</li><li>Informationen über längere Zeiträume behalten.</li><li>Mit anderen Agenten kommunizieren.</li></ul>
+      <p class="source">Referenz: Zero Trust for AI Agents – Anthropic.</p>
+    </section>
+
+    <!-- 11 · PDF 29 -->
+    <section class="slide" data-title="Blast Radius und Least Agency">
+      <header class="slide__header"><h2 class="slide__title">Blast Radius und Least Agency</h2></header>
+      <div class="cols-2">
+        <article class="card training__card fragment" style="--accent: var(--brand)"><h3 class="training__head">Blast Radius</h3><p>Wie groß wäre der Schaden, wenn ein Agent kompromittiert wird?</p><p>Admin-Rechte ermöglichen deutlich größere Schäden als reiner Lesezugriff.</p></article>
+        <article class="card training__card fragment" style="--accent: var(--bg-inverse)"><h3 class="training__head">Least Agency</h3><p>Nicht nur Zugriffsrechte minimieren, sondern auch die Fähigkeiten des Agenten und seiner Tools.</p><p>Erweiterung des Least-Privilege-Prinzips.</p></article>
+      </div>
+      <p class="source">Referenz: Zero Trust for AI Agents – Anthropic.</p>
+    </section>
+
+    <!-- 12–15 · PDF 30: zwölf Risiken, auf vier lesbare Folien verteilt -->
+    <section class="slide" data-title="Bedrohungen: Eingaben und Aktionen">
+      <header class="slide__header"><h2 class="slide__title">Bedrohungen: Eingaben und Aktionen</h2><p class="slide__subtitle">Manipulierte Anweisungen und missbrauchte Werkzeuge</p></header>
+      <div class="cols-3">
+        <article class="card training__card" style="--accent: var(--brand)"><h3 class="training__head">Prompt Injection</h3><ul class="bullets"><li>Manipulierte Benutzereingaben</li><li>Versteckte Anweisungen in Webseiten, E-Mails oder Dokumenten</li><li>Umgehung von Sicherheitsregeln durch indirekte Instruktionen</li></ul></article>
+        <article class="card training__card" style="--accent: var(--red-3)"><h3 class="training__head">Tool Injection</h3><ul class="bullets"><li>Manipulierte Tool-Eingaben oder -Ausgaben</li><li>Schädliche Parameter und missbrauchte API-Aufrufe</li><li>Angriffsketten durch Kombination mehrerer Tools</li></ul></article>
+        <article class="card training__card" style="--accent: var(--bg-inverse)"><h3 class="training__head">Tool-Missbrauch</h3><ul class="bullets"><li>Unerlaubte API-Aufrufe</li><li>Daten löschen oder verändern</li><li>Unerwünschte Nachrichten versenden</li><li>Falsche Aktionen trotz legitimer Berechtigung</li></ul></article>
+      </div>
+      <p class="source">Auch externe Inhalte und Tool-Ausgaben können schädliche Anweisungen enthalten.</p>
+    </section>
+
+    <section class="slide" data-title="Bedrohungen: Daten, Secrets und Rechte">
+      <header class="slide__header"><h2 class="slide__title">Bedrohungen: Daten, Secrets und Rechte</h2><p class="slide__subtitle">Datenabfluss, offengelegte Zugangsdaten und übermäßige Berechtigungen</p></header>
+      <div class="cols-3">
+        <article class="card training__card" style="--accent: var(--brand)"><h3 class="training__head">Data Exfiltration</h3><ul class="bullets"><li>Diebstahl sensibler Unternehmensdaten</li><li>Unberechtigte Weitergabe von Dokumenten</li><li>Datenabfluss über externe APIs oder Tools</li><li>Umgehung von DLP-Maßnahmen</li></ul></article>
+        <article class="card training__card" style="--accent: var(--red-3)"><h3 class="training__head">Secret Leakage</h3><ul class="bullets"><li>Offenlegung von API-Keys, Tokens und Passwörtern</li><li>Zugriff auf gespeicherte Zugangsdaten</li><li>Leaks aus Prompt-Historien oder Agent Memory</li></ul></article>
+        <article class="card training__card" style="--accent: var(--bg-inverse)"><h3 class="training__head">Identität und Rechte</h3><ul class="bullets"><li>Übermäßige Berechtigungen</li><li>Zu hohe Rechte für Unteragenten</li><li>Confused-Deputy-Angriffe</li><li>Fehlende Trennung von Rollen und Berechtigungen</li></ul></article>
+      </div>
+      <p class="source">DLP: Data Loss Prevention.</p>
+    </section>
+
+    <section class="slide" data-title="Bedrohungen: Wissen, Modelle und Lieferkette">
+      <header class="slide__header"><h2 class="slide__title">Bedrohungen: Wissen, Modelle und Lieferkette</h2><p class="slide__subtitle">Manipulierte Wissensquellen, Modelle und Abhängigkeiten</p></header>
+      <div class="cols-3">
+        <article class="card training__card" style="--accent: var(--brand)"><h3 class="training__head">Memory / RAG</h3><ul class="bullets"><li>Manipulierte Wissens- und Vektordatenbanken</li><li>Vergiftetes Langzeitgedächtnis</li><li>Später falsche Entscheidungen durch manipuliertes Wissen</li></ul></article>
+        <article class="card training__card" style="--accent: var(--red-3)"><h3 class="training__head">Model Poisoning</h3><ul class="bullets"><li>Manipulierte Trainingsdaten</li><li>Vergiftetes Fine-Tuning</li><li>Backdoors in Modellen</li><li>Beeinflussung des Modellverhaltens</li></ul></article>
+        <article class="card training__card" style="--accent: var(--bg-inverse)"><h3 class="training__head">Supply Chain</h3><ul class="bullets"><li>Kompromittierte Foundation Models</li><li>Unsichere Frameworks und Bibliotheken</li><li>Schadhafte Abhängigkeiten</li><li>Kompromittierte Plugins und Erweiterungen</li></ul></article>
+      </div>
+      <p class="source">RAG: Retrieval-Augmented Generation.</p>
+    </section>
+
+    <section class="slide" data-title="Bedrohungen: MCP und fehlerhafte Ergebnisse">
+      <header class="slide__header"><h2 class="slide__title">Bedrohungen: MCP und fehlerhafte Ergebnisse</h2><p class="slide__subtitle">Unsichere Anbindungen, falsche Antworten und unbeabsichtigte Aktionen</p></header>
+      <div class="cols-3">
+        <article class="card training__card" style="--accent: var(--brand)"><h3 class="training__head">MCP-Server</h3><ul class="bullets"><li>Kompromittierte oder bösartige Server</li><li>Unsichere Tools und manipulierte Ergebnisse</li><li>Unzureichende Authentifizierung und Autorisierung</li><li>Missbrauch von Vertrauen</li></ul></article>
+        <article class="card training__card" style="--accent: var(--red-3)"><h3 class="training__head">Halluzinationen</h3><ul class="bullets"><li>Erfundene Fakten oder Quellen</li><li>Falsche Schlussfolgerungen</li><li>Nicht existierende APIs oder Funktionen</li><li>Autonome Entscheidungen ohne Validierung</li></ul></article>
+        <article class="card training__card" style="--accent: var(--bg-inverse)"><h3 class="training__head">Falsche Aktionen</h3><ul class="bullets"><li>Fehlinterpretierte Anfragen</li><li>Irreversible Aktionen</li><li>Fehlerhafte Automatisierung von Geschäftsprozessen</li><li>Unzureichende menschliche Kontrolle</li></ul></article>
+      </div>
+      <p class="source">MCP: Model Context Protocol. Überwachen · Zugriffsrechte prüfen · Validieren · Kontinuierlich verbessern.</p>
+    </section>
+
+    <!-- 16 · PDF 31 -->
+    <section class="slide" data-title="Agent Harness: Laufzeit und Kontrollgerüst">
+      <header class="slide__header"><h2 class="slide__title">Agent Harness: Laufzeit und Kontrollgerüst</h2><p class="slide__subtitle">Wie ein Betriebssystem für einen KI-Agenten</p></header>
+      <div class="security__stack">
+        <p class="security__lead">Ein Harness ist die Umgebung, in der der Agent ausgeführt und sein Ablauf gesteuert wird. Der Begriff ist nicht standardisiert.</p>
+        <div class="cols-3">
+          <article class="card training__card" style="--accent: var(--brand)"><h3 class="training__head">Kontext und Ablauf</h3><p>Prompt-Management, Planung, Kurz- und Langzeitspeicher.</p><p>Schleife: Denken → Handeln → Beobachten.</p></article>
+          <article class="card training__card" style="--accent: var(--red-3)"><h3 class="training__head">Kontrolle</h3><p>Tool-Ausführung, Sicherheitskontrollen und menschliche Zustimmung.</p><p>Sandbox, Berechtigungen und Secrets.</p></article>
+          <article class="card training__card" style="--accent: var(--bg-inverse)"><h3 class="training__head">Nachvollziehbarkeit</h3><p>Logging, Tracing, Kosten und Tokens.</p><p>Fehlerbehebung und Wiederholungslogik.</p></article>
+        </div>
+      </div>
+      <p class="source">Der Harness verbindet LLMs, Werkzeuge / APIs und isolierte Tool-Ausführung.</p>
+    </section>
+
+    <!-- 17 · PDF 32 -->
+    <section class="slide" data-title="Zero Trust: drei Stufen">
+      <header class="slide__header"><h2 class="slide__title">Zero Trust für Agenten: drei Stufen</h2></header>
+      <div class="cols-3">
+        <article class="card training__card fragment" style="--accent: var(--brand)"><h3 class="training__head">Foundation</h3><p>Mindeststandard für kleinere Deployments.</p></article>
+        <article class="card training__card fragment" style="--accent: var(--red-3)"><h3 class="training__head">Enterprise</h3><p>Empfohlener Standard für die meisten Umgebungen.</p></article>
+        <article class="card training__card fragment" style="--accent: var(--bg-inverse)"><h3 class="training__head">Advanced</h3><p>Für hochkritische oder stark regulierte Umgebungen.</p></article>
+      </div>
+      <p class="source">Referenz zum Stufenmodell: Zero Trust for AI Agents – Anthropic.</p>
+    </section>
+
+    <!-- 18–19 · PDF 33: vier Bausteine in zwei gleich gestalteten Zweierspalten -->
+    <section class="slide" data-title="Zero Trust: Identität und Least Privilege">
+      <header class="slide__header"><h2 class="slide__title">Zero Trust: Identität und Least Privilege</h2></header>
+      <div class="cols-2">
+        <article class="card training__card" style="--accent: var(--brand)"><h3 class="training__head">Identität</h3><ul class="bullets"><li>Jeder Agent erhält eine eigene Identität.</li><li>Alle Agenten und Services authentifizieren.</li><li>Keine gemeinsamen Servicekonten.</li></ul></article>
+        <article class="card training__card" style="--accent: var(--bg-inverse)"><h3 class="training__head">Least Privilege</h3><ul class="bullets"><li>Nur die minimal benötigten Rechte.</li><li>Stark begrenzte Tool-Berechtigungen.</li><li>Zeitlich begrenzte Tokens.</li></ul></article>
+      </div>
+      <p class="source">Referenz: Zero Trust for AI Agents – Anthropic.</p>
+    </section>
+
+    <section class="slide" data-title="Zero Trust: Netzwerk und Isolation">
+      <header class="slide__header"><h2 class="slide__title">Zero Trust: Netzwerk und Isolation</h2></header>
+      <div class="cols-2">
+        <article class="card training__card" style="--accent: var(--brand)"><h3 class="training__head">Netzwerksegmentierung</h3><ul class="bullets"><li>Agenten, Datenquellen und Systeme trennen.</li><li>Ost-West-Verkehr minimieren.</li><li>Mikrosegmentierung einsetzen.</li></ul></article>
+        <article class="card training__card" style="--accent: var(--bg-inverse)"><h3 class="training__head">Isolation</h3><ul class="bullets"><li>Containerisierung.</li><li>Sandboxen.</li><li>Hardware-basierte Isolation, z. B. AMD SEV oder Intel TDX.</li></ul></article>
+      </div>
+      <p class="source">Referenz: Zero Trust for AI Agents – Anthropic. Mechanismen passend zum Schutzbedarf auswählen.</p>
+    </section>
+
+    <!-- 20 · PDF 34 -->
+    <section class="slide slide--section no-footer" data-section-title="Roadmap" data-title="Roadmap">
+      <div class="section__content"><span class="section__num">03</span><h2 class="section__title">Roadmap</h2><p class="section__subtitle">Kurzfristig Foundation</p></div>
+    </section>
+
+    <!-- 21 · PDF 35 -->
+    <section class="slide" data-title="Foundation: Standard-System-Prompt">
+      <header class="slide__header"><h2 class="slide__title">Foundation: Standard-System-Prompt</h2><p class="slide__subtitle">„Persona“ des Architekten-Teams – integriert in den Agenten</p></header>
+      <div class="cols-2">
+        <article class="card training__card" style="--accent: var(--brand)"><h3 class="training__head">Zweck und Rahmen</h3><p>Standardisierte Vorgaben für die Nutzung des Agenten.</p><p>Der System-Prompt legt Einschränkungen für Hochrisiko-Einsatzbereiche fest.</p></article>
+        <article class="card training__card" style="--accent: var(--bg-inverse)"><h3 class="training__head">Genannte Bereiche</h3><ul class="bullets"><li>Allgemeine und berufliche Bildung</li><li>Beschäftigung und Personalmanagement</li><li>Zugang zu grundlegenden privaten und öffentlichen Diensten</li></ul></article>
+      </div>
+      <p class="source">Der System-Prompt ergänzt technische und organisatorische Schutzmaßnahmen; er ersetzt keine rechtliche Prüfung.</p>
+    </section>
+
+    <!-- 22 · PDF 36: HTML/SVG statt Screenshot, explizite Grenzen und Richtung -->
+    <section class="slide" data-title="Foundation: Sandbox und Isolation">
+      <header class="slide__header"><h2 class="slide__title">Foundation: Sandbox und Isolation</h2><p class="slide__subtitle">Kontrollierte Übergänge zwischen Agent, Host und externen Diensten</p></header>
+      <figure class="security__diagram">
+        <svg viewBox="0 0 1696 580" role="img" aria-labelledby="sandbox-title sandbox-desc">
+          <title id="sandbox-title">Sandbox-Architektur mit kontrollierten Zugriffsgrenzen</title>
+          <desc id="sandbox-desc">Auf dem Host läuft ein KI-Agent in einer Sandbox. Er hat begrenzten Projektzugriff. Externe Zugriffe laufen über einen Proxy; Secrets werden separat verwaltet. Ein Reverse Proxy verbindet Browser und Agent.</desc>
+          <rect x="16" y="16" width="1150" height="540" rx="24"/>
+          <text x="590" y="64">Host / Entwicklernotebook</text>
+          <rect class="security__boundary" x="400" y="105" width="450" height="320" rx="24"/>
+          <text x="625" y="153">Sandbox / Isolation</text>
+          <rect x="460" y="210" width="330" height="100" rx="16"/><text x="625" y="270">KI-Agent</text>
+          <rect x="50" y="200" width="280" height="120" rx="16"/><text x="190" y="250">Projektdateien</text><text x="190" y="290">Git · Tools · CLI</text>
+          <path class="security__connector" d="M460 260 H330"/>
+          <rect x="900" y="210" width="220" height="100" rx="16"/><text x="1010" y="270">Proxy</text>
+          <path class="security__connector" d="M790 260 H900"/>
+          <rect x="900" y="90" width="220" height="80" rx="16"/><text x="1010" y="140">Secrets</text>
+          <path class="security__connector" d="M1010 170 V210"/>
+          <rect x="1250" y="120" width="420" height="310" rx="24"/><text x="1460" y="180">Freigegebene Ziele</text><text x="1460" y="240">LLM-Provider / MCP</text><text x="1460" y="300">Unternehmenssysteme</text><text x="1460" y="360">Internet-Dienste</text>
+          <path class="security__connector" d="M1120 260 H1250"/>
+          <rect x="50" y="450" width="280" height="80" rx="16"/><text x="190" y="500">Browser</text>
+          <rect x="460" y="450" width="330" height="80" rx="16"/><text x="625" y="500">Reverse Proxy</text>
+          <path class="security__connector" d="M330 490 H460"/><path class="security__connector" d="M625 450 V310"/>
+        </svg>
+      </figure>
+      <p class="source">Vereinfachte Sicherheitsgrenzen; auch lokale LLM-Provider sind möglich. Pfeile zeigen die Zugriffsrichtung, keine pauschale Freigabe.</p>
+    </section>
+
+    <!-- 23 · PDF 37: keine versionsabhängigen Leistungsversprechen als aktuelle Fakten -->
+    <section class="slide" data-title="Sandbox-Ansätze im Vergleich">
+      <header class="slide__header"><h2 class="slide__title">Sandbox-Ansätze im Vergleich</h2><p class="slide__subtitle">Isolation und Betriebsmodelle</p></header>
+      <div class="cols-3">
+        <article class="card training__card" style="--accent: var(--brand)"><h3 class="training__head">Docker sbx</h3><p>MicroVM-basierte Sandbox.</p><p>Isolation auf dem Entwickler-Laptop mit Docker-Infrastruktur.</p><p>Secrets-Proxy und Netzwerk-Policies.</p></article>
+        <article class="card training__card" style="--accent: var(--red-3)"><h3 class="training__head">nono</h3><p>Kernel-basierte Prozess-Sandbox.</p><p>Ohne Docker; Betriebssystemmechanismen wie Landlock / Seatbelt / seccomp.</p><p>Domain-Allowlist und Secret Proxy.</p></article>
+        <article class="card training__card" style="--accent: var(--bg-inverse)"><h3 class="training__head">NVIDIA OpenShell</h3><p>Kubernetes-basierte Plattform.</p><p>Zentrale Verwaltung von Sandboxen, Policies und Routing.</p><p>Höherer Infrastrukturaufwand.</p></article>
+      </div>
+      <p class="source">Die Auswahl richtet sich nach Schutzbedarf und Betriebsmodell. Weiterer Ansatz: DevContainer-Lösung.</p>
+    </section>
+
+    <!-- 24 · PDF 41 -->
+    <section class="slide slide--section no-footer" data-section-title="Diskussion" data-title="Diskussion">
+      <div class="section__content"><span class="section__num">04</span><h2 class="section__title">Diskussion</h2><p class="section__subtitle">KI-Agenten für die Softwareentwicklung</p></div>
+    </section>
+  </main>
+</div>
+
+<div class="progress" aria-hidden="true"><div class="progress__bar"></div></div>
+<nav class="controls" aria-label="Foliensteuerung">
+  <button type="button" data-action="prev" title="Zurück (←)" aria-label="Zurück"><svg class="icon"><use href="#i-chevron-left"/></svg></button>
+  <span class="controls__counter" data-counter>1 / 24</span>
+  <button type="button" data-action="next" title="Weiter (→ / Leertaste)" aria-label="Weiter"><svg class="icon"><use href="#i-chevron-right"/></svg></button>
+  <button type="button" data-action="overview" title="Übersicht (O)" aria-label="Übersicht"><svg class="icon"><use href="#i-layout-grid"/></svg></button>
+  <button type="button" data-action="fullscreen" title="Vollbild (F)" aria-label="Vollbild"><svg class="icon"><use href="#i-maximize"/></svg></button>
+</nav>
+<div class="overview" role="dialog" aria-label="Folienübersicht" hidden>
+  <div class="overview__head">
+    <h2 class="overview__heading">Übersicht</h2>
+    <p class="overview__hint">Pfeiltasten wählen · Enter öffnet · Esc schließt</p>
+    <button type="button" class="overview__close" data-action="close-overview">Schließen</button>
+  </div>
+  <ol class="overview__grid"></ol>
+</div>
+<p class="sr-only" aria-live="polite" data-status></p>
+</body>
+</html>

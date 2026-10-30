@@ -9,12 +9,16 @@ Published with GitHub Pages: <https://lofidewanto.github.io/ai-or-die/>
 
 | Page | Description |
 |---|---|
+| [Homepage](https://lofidewanto.github.io/ai-or-die/) | AI or DIE: Series — overview of talks, workshops and material |
 | [Workshops AI or DIE Jakarta — all formats](https://lofidewanto.github.io/ai-or-die/workshops-jakarta-2026-11/) ([Bahasa Indonesia](https://lofidewanto.github.io/ai-or-die/workshops-jakarta-2026-11/?lang=id)) | Overview of the three workshop formats with comparison table — linked from the homepage |
 | [Workshop AI or DIE Jakarta](https://lofidewanto.github.io/ai-or-die/workshop-jakarta-2026-11/) ([Bahasa Indonesia](https://lofidewanto.github.io/ai-or-die/workshop-jakarta-2026-11/?lang=id)) | Landing page for the one-day workshop in Jakarta, 19, 20 or 21 November 2026 (TBD) — Indonesian / English |
 | [Workshop AI or DIE Academia](https://lofidewanto.github.io/ai-or-die/workshop-jakarta-2026-11-academia/) ([Bahasa Indonesia](https://lofidewanto.github.io/ai-or-die/workshop-jakarta-2026-11-academia/?lang=id)) | Alternative 1 (green): 3-hour academic edition, theory first with hands-on examples — 100 seats, IDR 100.000 |
 | [Workshop AI or DIE Executive](https://lofidewanto.github.io/ai-or-die/workshop-jakarta-2026-11-executive/) ([Bahasa Indonesia](https://lofidewanto.github.io/ai-or-die/workshop-jakarta-2026-11-executive/?lang=id)) | Alternative 2 (purple): 5-hour executive edition for leaders and managers, hands-on managerial work — 30 seats, IDR 1.500.000 |
 | [Career timeline](https://lofidewanto.github.io/ai-or-die/cv-lofi-dewanto.html) | Dr. Lofi Dewanto, 1995–2026 |
 | [Career timeline — green dark](https://lofidewanto.github.io/ai-or-die/cv-lofi-dewanto-green-dark.html) | Same content in a dark design with green accents |
+| [Talk: AI or DIE — Die Zukunft der Softwareentwicklung](https://lofidewanto.github.io/ai-or-die/talk-itcs-2026-cologne/public/index.html) | Slides, ITCS Cologne 2026 (German) |
+| [Workshop: KI in der Softwareentwicklung](https://lofidewanto.github.io/ai-or-die/ki-softwareentwicklung/public/index.html) | Slides, from GitHub Copilot to LLM-based applications (German) |
+| [Security: KI-Agenten für die Softwareentwicklung](https://lofidewanto.github.io/ai-or-die/ki-softwareentwicklung/public/security.html) | Slides, security requirements, zero trust and roadmap (German) |
 
 ---
 

@@ -1,0 +1,12 @@
+{
+  "name": "deck-tools",
+  "private": true,
+  "description": "Dev-only checks for the slide deck; not part of the published site.",
+  "scripts": {
+    "check": "node check_deck.js && node check_deck.js security.html && html-validate --config .htmlvalidate.json '../public/*.html'"
+  },
+  "devDependencies": {
+    "html-validate": "^9.0.0",
+    "jsdom": "^25.0.1"
+  }
+}
