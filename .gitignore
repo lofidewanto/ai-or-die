@@ -25,3 +25,8 @@ replay_pid*
 
 # IntelliJ IDEA project settings
 .idea/
+
+# Local files
+temp/
+.DS_Store
+node_modules/
