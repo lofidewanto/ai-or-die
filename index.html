@@ -359,9 +359,10 @@
           <li><a href="#speaker" data-i18n="nav.speaker">Speaker</a></li>
         </ul>
         <div class="nav-actions">
-          <div class="lang-switch" role="group" aria-label="Language / Bahasa">
+          <div class="lang-switch" role="group" aria-label="Language / Bahasa / Sprache">
             <button type="button" data-lang="en" aria-pressed="true" title="English">EN</button>
             <button type="button" data-lang="id" aria-pressed="false" title="Bahasa Indonesia">ID</button>
+            <button type="button" data-lang="de" aria-pressed="false" title="Deutsch">DE</button>
           </div>
           <button type="button" class="theme-toggle" data-theme-toggle aria-label="Toggle theme">
             <i class="bi bi-sun-fill" data-theme-icon></i><span data-theme-label>Light</span>
@@ -673,7 +674,7 @@
   </footer>
 
   <script>
-    /* Indonesian strings; English is taken from the page itself. */
+    /* Indonesian and German strings; English is taken from the page itself. */
     const I18N_ID = {
       "meta.title": "AI or DIE — Seri oleh Dr. Lofi Dewanto",
       "meta.description": "Seri AI or DIE: keynote, workshop dan materi tentang bagaimana AI, LLM dan agen AI mengubah pengembangan software, organisasi dan hidup kita secara keseluruhan.",
@@ -781,6 +782,115 @@
       "foot.more": "Lainnya"
     };
 
+    const I18N_DE = {
+      "meta.title": "AI or DIE — Reihe von Dr. Lofi Dewanto",
+      "meta.description": "Die Reihe AI or DIE: Keynotes, Workshops und Material dazu, wie KI, LLMs und KI-Agenten die Softwareentwicklung, Organisationen und unser Leben als Ganzes verändern.",
+      "theme.light": "Hell",
+      "theme.dark": "Dunkel",
+
+      "nav.why": "Warum",
+      "nav.events": "Events",
+      "nav.pres": "Präsentationen",
+      "nav.topics": "Themen",
+      "nav.speaker": "Speaker",
+      "nav.workshop": "Workshops Jakarta",
+
+      "hero.eyebrow": "Die Reihe AI or DIE &middot; Dr. Lofi Dewanto",
+      "hero.pill.label": "Neu",
+      "hero.pill.text": "Workshops in Jakarta, 19., 20. oder 21. November 2026 (Termin offen) &mdash; drei Formate: Academia, ganztägig, Executive",
+      "hero.title": "AI or DIE.<br><span class=\"text-gradient\">Disrupted. Irrelevant. Extinct.</span>",
+      "hero.lead": "Vorträge, Workshops und Material dazu, wie KI, LLMs und KI-Agenten die Softwareentwicklung und Organisationen verändern &mdash; und unser Leben als Ganzes.",
+      "hero.cta": "Wählen Sie Ihren Workshop in Jakarta",
+      "hero.link": "Alle Events ansehen",
+      "chip.talks": "Keynotes &amp; Vorträge",
+      "chip.workshops": "Praxis-Workshops",
+      "chip.agents": "KI-Agenten in der Praxis",
+      "chip.lang": "Deutsch &middot; Englisch &middot; Indonesisch",
+
+      "why.title": "KI ergänzt nicht nur Features.<br>Sie verändert, wie Software entsteht.<br><span class=\"text-gradient\">Und sie verändert unser Leben als Ganzes.</span>",
+      "why.lead": "Vom Desktop ins Web. Vom Monolithen in die Cloud. Jetzt: von Anwendungen zu Agenten. Teams, die sich anpassen, wachsen &mdash; Teams, die es ignorieren, fallen zurück. Die Wahl liegt bei uns: <strong>AI or DIE</strong>.",
+      "toe.1.t": "Technologie",
+      "toe.1.p": "LLMs, KI-Agenten und Agentic AI &mdash; was sie sind, wie sie funktionieren und wo ihre Grenzen liegen.",
+      "toe.2.t": "Organisation",
+      "toe.2.p": "DevSecOps, Agilität und neue Rollen: vom Entwickeln zum &bdquo;Product Builder&ldquo; in Micro-Teams.",
+      "toe.3.t": "Umfeld",
+      "toe.3.p": "Anforderungen, Kosten und Prozesse &mdash; und der Wandel im Denken von imperativ zu deskriptiv.",
+
+      "ev.title": "Events",
+      "ev.lead": "Von Köln bis Jakarta &mdash; Keynotes, Vorträge, Webinare und Praxis-Workshops.",
+      "ev.upcoming": "Demnächst",
+      "ev.past": "Vergangene Events",
+      "ev.1.date": "19., 20. oder 21. Nov. 2026 (Termin offen)",
+      "ev.1.t": "Workshops: AI or DIE. Drei Formate. Ihre Wahl.",
+      "ev.1.p": "Drei Workshop-Formate auf Bahasa Indonesia: Academia (3 Stunden, 100 Plätze, IDR 100.000), der ganztägige Workshop mit Ihrem eigenen Spring-AI-Agenten (50 Plätze, IDR 500.000) und Executive für Führungskräfte (5 Stunden, 30 Plätze, IDR 1.500.000).",
+      "ev.1.more": "Alle Formate",
+      "ev.1.cmp": "Formate vergleichen",
+      "ev.rhenag.p": "Eingeladener Vortrag bei der rhenag Rheinische Energie AG im Kontext von lima, einer IT-Lösung für Energieversorger &mdash; mit anschließenden Diskussionen aus Sicht von Technologie, Organisation und Umfeld (TOE).",
+      "ev.2.p": "viadee Round Table &bdquo;KI in der Softwareentwicklung&ldquo; &mdash; wie KI die Softwareentwicklung und die Organisationen darum herum grundlegend verändert, betrachtet durch das TOE-Framework.",
+      "ev.itcs.p": "Tech-Talk auf der Tech-Konferenz ITCS in Köln &mdash; Erfahrungen damit, wie KI-Agenten die Art, Software zu bauen, grundlegend verändern.",
+      "ev.3.p": "46. Jubiläum der Perpustakaan Nasional RI mit mehr als 600 Bibliothekarinnen und Bibliothekaren aus ganz Indonesien &mdash; wie KI zum &bdquo;Super-Assistenten&ldquo; in der Bibliothek wird, mit ihren Chancen und Herausforderungen.",
+      "ev.3.watch": "Aufzeichnung ansehen",
+      "ev.watch": "Ansehen",
+      "ev.jcon26.p": "Lehren aus der Skalierung verteilter Frontend- und Backend-Architekturen, mit Patricia Erdelen &mdash; und warum klare Domänengrenzen auch KI-Agenten helfen.",
+      "ev.jkt25.t": "KI-Agenten-Workshop: Wie generative KI Unternehmen in Indonesien verändert",
+      "ev.jkt25.p": "Dreistündiger Workshop mit rund 20 Teilnehmenden aus Reisebranche, Reisanbau, Bibliotheken, E-Commerce, Bauwesen und Fertigung &mdash; welche Prozesse KI und LLMs unterstützen können, gezeigt entlang der Customer Journey.",
+      "ev.jcon25.p": "Aufstieg, Fall und Rückkehr der Java-UI-Technologien &mdash; vom Desktop über den Browser bis zu reinen Chat-UIs, mit Ingo D&uuml;ppe.",
+      "ev.jdconf.p": "Ein WhatsApp-Kundensupport-Agent in reinem Java, mit Erlina Hennies &mdash; einschließlich der Wahl zwischen No-Code / Low-Code und &bdquo;Love-Code&ldquo;.",
+      "ev.ittage.t": "Die Reise eines stark gekoppelten Monolithen ins Cloud-Land",
+      "ev.ittage.p": "Mit Daniel Kr&auml;mer: Migration eines produktionskritischen Java-Versicherungsmonolithen und seiner Datenbanken nach Kubernetes und AWS &mdash; auch auf der JCON Europe 2024 präsentiert.",
+      "ev.watch.jcon24": "JCON-2024-Vortrag ansehen",
+      "ev.agers.p": "Tutorial auf der IEEE Asia-Pacific Geosciences, Electronics and Remote Sensing Technology Conference &mdash; jede Folie war mit ChatGPT verknüpft, sodass die Teilnehmenden jedes Thema interaktiv erkunden konnten.",
+      "ev.all": "Alle Vorträge seit 2001 im Karriereverlauf",
+
+      "ev.slides": "Folien",
+
+      "pres.title": "Präsentationen",
+      "pres.lead": "Die Folien, direkt im Browser zu öffnen.",
+      "pres.open": "Folien öffnen",
+      "pres.talk": "Vortrag &middot; Deutsch",
+      "pres.workshop": "Workshop &middot; Deutsch",
+      "pres.security": "Security &middot; Deutsch",
+      "pres.1.p": "ITCS Köln 2026.",
+      "pres.2.p": "Von GitHub Copilot bis zu LLM-basierten Anwendungen.",
+      "pres.3.p": "Sicherheitsanforderungen, Zero Trust und eine Roadmap.",
+
+      "top.title": "Was die Reihe abdeckt",
+      "top.lead": "Vom Warum zum Wie &mdash; Theorie, Live-Demos und Code zum Mitnehmen.",
+      "top.1.t": "KI, LLMs &amp; AGI",
+      "top.1.p": "Wie ein LLM entsteht, warum es ein &bdquo;kluger Papagei&ldquo; ist, und der Weg zur künstlichen allgemeinen Intelligenz.",
+      "top.2.t": "KI-Agenten &amp; Agentic AI",
+      "top.2.p": "Memory, RAG, Tools und MCP &mdash; und Agenten, die über viele Schritte planen, handeln und nachbessern.",
+      "top.3.t": "Spec-Driven Development",
+      "top.3.p": "OpenCode und Claude Code vom GitHub-Issue bis zum fertigen Feature: specify, plan, tasks, implement.",
+      "top.4.t": "Security &amp; Agenten",
+      "top.4.p": "Ein Agent kann alles, was Sie dürfen. Rechte, Sandboxes, Secrets und Prompt Injection.",
+      "top.5.t": "Eigene Agenten in Java",
+      "top.5.p": "&bdquo;Chat as Code&ldquo; mit Spring Boot, Spring AI und LangChain4j &mdash; auf WhatsApp, Telegram und im Web.",
+      "top.6.t": "Die Zukunft der Arbeit",
+      "top.6.p": "Product Builder, Micro-Teams und ein neues Mindset &mdash; &bdquo;Don&rsquo;t DIE, or at least DIE Hard.&ldquo;",
+
+      "spk.roles": "Java &amp; Open-Source Pioneer &middot; Enterprise Architect &middot; AI &amp; Agentic Systems Advocate",
+      "spk.eyebrow": "Speaker",
+      "spk.lead": "Drei Jahrzehnte an der Spitze der Enterprise-Software &mdash; von Java und Open Source über Enterprise-Architektur und die Cloud bis zu KI-Agenten.",
+      "spk.1": "Gründung von OpenUSS, einer der frühesten Open-Source-E-Learning-Plattformen Deutschlands",
+      "spk.2": "Head of Sales Applications, Java Competence Center bei der DEVK Versicherungen",
+      "spk.3": "Vorträge auf JAX, JCON, JDConf, FrOSCon, Navigate &mdash; und bei der Perpustakaan Nasional RI",
+      "spk.4": "Beratung von Mova Tech / Mova Intelligence zu &bdquo;Chat as Code&ldquo;-KI-Agenten",
+      "spk.cv": "Karriereverlauf",
+      "spk.cvdark": "Karriereverlauf (dunkel)",
+
+      "cta.title": "AI or DIE. Ihre Wahl.",
+      "cta.lead": "Gestalten Sie an einem Vormittag, einem ganzen Tag oder in einer Executive-Session in Jakarta die Zukunft, statt nur darüber zu lesen. 19., 20. oder 21. November 2026 &mdash; drei Formate.",
+      "cta.btn": "Zu den Workshops",
+      "cta.invite": "Lofi über Sessionize zu Ihrem Event einladen",
+
+      "foot.tag": "Vorträge, Workshops und Material von Dr. Lofi Dewanto",
+      "foot.series": "Reihe",
+      "foot.more": "Mehr"
+    };
+
+    const I18N = { id: I18N_ID, de: I18N_DE };
+
     (() => {
       const root = document.documentElement;
       const nodes = document.querySelectorAll("[data-i18n]");
@@ -794,7 +904,7 @@
       nodes.forEach((el) => { english[el.dataset.i18n] = el.innerHTML; });
 
       let lang = "en";
-      const t = (key) => (lang === "id" && I18N_ID[key]) || english[key];
+      const t = (key) => (I18N[lang] && I18N[lang][key]) || english[key];
 
       /* ── Theme ── */
       const icon = document.querySelector("[data-theme-icon]");
@@ -813,7 +923,7 @@
 
       /* ── Language ── */
       const setLang = (next, persist) => {
-        lang = next === "id" ? "id" : "en";
+        lang = I18N[next] ? next : "en";
         root.lang = lang;
         document.title = t("meta.title");
         metaDesc.content = t("meta.description");
@@ -835,7 +945,7 @@
 
       let initial = new URLSearchParams(window.location.search).get("lang");
       if (!initial) { try { initial = localStorage.getItem("aiordie-lang"); } catch (e) {} }
-      if (!initial) initial = (navigator.language || "").toLowerCase().startsWith("id") ? "id" : "en";
+      if (!initial) initial = (navigator.language || "").toLowerCase().slice(0, 2);
       setLang(initial, false);
 
       /* ── Reveal on scroll ── */

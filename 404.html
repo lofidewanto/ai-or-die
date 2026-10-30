@@ -187,9 +187,10 @@
       <div class="container nav-inner">
         <a class="brand" href="/ai-or-die/">AI <span>or</span> DIE</a>
         <div class="nav-actions">
-          <div class="lang-switch" role="group" aria-label="Language / Bahasa">
+          <div class="lang-switch" role="group" aria-label="Language / Bahasa / Sprache">
             <button type="button" data-lang="en" aria-pressed="true" title="English">EN</button>
             <button type="button" data-lang="id" aria-pressed="false" title="Bahasa Indonesia">ID</button>
+            <button type="button" data-lang="de" aria-pressed="false" title="Deutsch">DE</button>
           </div>
           <button type="button" class="theme-toggle" data-theme-toggle aria-label="Toggle theme">
             <i class="bi bi-sun-fill" data-theme-icon></i><span data-theme-label>Light</span>
@@ -247,7 +248,7 @@
   </footer>
 
   <script>
-    /* Indonesian strings; English is taken from the page itself. */
+    /* Indonesian and German strings; English is taken from the page itself. */
     const I18N_ID = {
       "meta.title": "Halaman tidak ditemukan — AI or DIE",
       "theme.light": "Terang",
@@ -272,6 +273,32 @@
       "foot.more": "Lainnya"
     };
 
+    const I18N_DE = {
+      "meta.title": "Seite nicht gefunden — AI or DIE",
+      "theme.light": "Hell",
+      "theme.dark": "Dunkel",
+
+      "nav.events": "Events",
+      "nav.topics": "Themen",
+      "nav.speaker": "Speaker",
+      "nav.workshop": "Workshops Jakarta",
+
+      "nf.eyebrow": "404 &middot; Seite nicht gefunden",
+      "nf.title": "Diese Seite hat DIE gewählt.<br><span class=\"text-gradient\">Disrupted. Irrelevant. Extinct.</span>",
+      "nf.lead": "Die gesuchte Seite gibt es nicht oder sie ist umgezogen. Der Rest der Reihe ist noch sehr lebendig.",
+      "nf.cta": "Zur Startseite",
+      "nf.link": "Alle Events ansehen",
+
+      "spk.cv": "Karriereverlauf",
+      "spk.cvdark": "Karriereverlauf (dunkel)",
+
+      "foot.tag": "Vorträge, Workshops und Material von Dr. Lofi Dewanto",
+      "foot.series": "Reihe",
+      "foot.more": "Mehr"
+    };
+
+    const I18N = { id: I18N_ID, de: I18N_DE };
+
     (() => {
       const root = document.documentElement;
       const nodes = document.querySelectorAll("[data-i18n]");
@@ -283,7 +310,7 @@
       nodes.forEach((el) => { english[el.dataset.i18n] = el.innerHTML; });
 
       let lang = "en";
-      const t = (key) => (lang === "id" && I18N_ID[key]) || english[key];
+      const t = (key) => (I18N[lang] && I18N[lang][key]) || english[key];
 
       /* ── Theme ── */
       const icon = document.querySelector("[data-theme-icon]");
@@ -302,7 +329,7 @@
 
       /* ── Language ── */
       const setLang = (next, persist) => {
-        lang = next === "id" ? "id" : "en";
+        lang = I18N[next] ? next : "en";
         root.lang = lang;
         document.title = t("meta.title");
         nodes.forEach((el) => { el.innerHTML = t(el.dataset.i18n); });
@@ -320,7 +347,7 @@
 
       let initial = new URLSearchParams(window.location.search).get("lang");
       if (!initial) { try { initial = localStorage.getItem("aiordie-lang"); } catch (e) {} }
-      if (!initial) initial = (navigator.language || "").toLowerCase().startsWith("id") ? "id" : "en";
+      if (!initial) initial = (navigator.language || "").toLowerCase().slice(0, 2);
       setLang(initial, false);
     })();
   </script>
