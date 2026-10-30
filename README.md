@@ -10,10 +10,10 @@ Published with GitHub Pages: <https://lofidewanto.github.io/ai-or-die/>
 | Page | Description |
 |---|---|
 | [Homepage](https://lofidewanto.github.io/ai-or-die/) | AI or DIE: Series — overview of talks, workshops and material |
-| [Workshops AI or DIE Jakarta — all formats](https://lofidewanto.github.io/ai-or-die/workshops-jakarta-2026-11/) ([Bahasa Indonesia](https://lofidewanto.github.io/ai-or-die/workshops-jakarta-2026-11/?lang=id)) | Overview of the three workshop formats with comparison table — linked from the homepage |
-| [Workshop AI or DIE Jakarta](https://lofidewanto.github.io/ai-or-die/workshop-jakarta-2026-11/) ([Bahasa Indonesia](https://lofidewanto.github.io/ai-or-die/workshop-jakarta-2026-11/?lang=id)) | Landing page for the one-day workshop in Jakarta, 19, 20 or 21 November 2026 (TBD) — Indonesian / English |
-| [Workshop AI or DIE Academia](https://lofidewanto.github.io/ai-or-die/workshop-jakarta-2026-11-academia/) ([Bahasa Indonesia](https://lofidewanto.github.io/ai-or-die/workshop-jakarta-2026-11-academia/?lang=id)) | Alternative 1 (green): 3-hour academic edition, theory first with hands-on examples — 100 seats, IDR 100.000 |
-| [Workshop AI or DIE Executive](https://lofidewanto.github.io/ai-or-die/workshop-jakarta-2026-11-executive/) ([Bahasa Indonesia](https://lofidewanto.github.io/ai-or-die/workshop-jakarta-2026-11-executive/?lang=id)) | Alternative 2 (purple): 5-hour executive edition for leaders and managers, hands-on managerial work — 30 seats, IDR 1.500.000 |
+| [Workshops AI or DIE Jakarta — all formats](https://lofidewanto.github.io/ai-or-die/workshop-jakarta/workshops-jakarta-2026-11/) ([Bahasa Indonesia](https://lofidewanto.github.io/ai-or-die/workshop-jakarta/workshops-jakarta-2026-11/?lang=id)) | Overview of the three workshop formats with comparison table — linked from the homepage |
+| [Workshop AI or DIE Jakarta](https://lofidewanto.github.io/ai-or-die/workshop-jakarta/workshop-jakarta-2026-11/) ([Bahasa Indonesia](https://lofidewanto.github.io/ai-or-die/workshop-jakarta/workshop-jakarta-2026-11/?lang=id)) | Landing page for the one-day workshop in Jakarta, 19, 20 or 21 November 2026 (TBD) — Indonesian / English |
+| [Workshop AI or DIE Academia](https://lofidewanto.github.io/ai-or-die/workshop-jakarta/workshop-jakarta-2026-11-academia/) ([Bahasa Indonesia](https://lofidewanto.github.io/ai-or-die/workshop-jakarta/workshop-jakarta-2026-11-academia/?lang=id)) | Alternative 1 (green): 3-hour academic edition, theory first with hands-on examples — 100 seats, IDR 100.000 |
+| [Workshop AI or DIE Executive](https://lofidewanto.github.io/ai-or-die/workshop-jakarta/workshop-jakarta-2026-11-executive/) ([Bahasa Indonesia](https://lofidewanto.github.io/ai-or-die/workshop-jakarta/workshop-jakarta-2026-11-executive/?lang=id)) | Alternative 2 (purple): 5-hour executive edition for leaders and managers, hands-on managerial work — 30 seats, IDR 1.500.000 |
 | [Career timeline](https://lofidewanto.github.io/ai-or-die/cv-lofi-dewanto.html) | Dr. Lofi Dewanto, 1995–2026 |
 | [Career timeline — green dark](https://lofidewanto.github.io/ai-or-die/cv-lofi-dewanto-green-dark.html) | Same content in a dark design with green accents |
 | [Talk: AI or DIE — Die Zukunft der Softwareentwicklung](https://lofidewanto.github.io/ai-or-die/talk-itcs-2026-cologne/public/index.html) | Slides, ITCS Cologne 2026 (German) |
@@ -52,9 +52,9 @@ The workshop is offered in three formats — same date options, venue, language,
 
 | Format | Page | Registration | Time (WIB) | Seats | Fee | For |
 |---|---|---|---|---|---|---|
-| Full-day workshop | [English](https://lofidewanto.github.io/ai-or-die/workshop-jakarta-2026-11/) · [Bahasa Indonesia](https://lofidewanto.github.io/ai-or-die/workshop-jakarta-2026-11/?lang=id) | [Google Form](https://forms.gle/gsvDgE4x2zncKwJ77) | 09:30 – 17:00 (one day) | 50 | IDR 500.000 | Developers, tech leads, students — build your own agent with Spring AI |
-| Alternative 1 — Academia (green) | [English](https://lofidewanto.github.io/ai-or-die/workshop-jakarta-2026-11-academia/) · [Bahasa Indonesia](https://lofidewanto.github.io/ai-or-die/workshop-jakarta-2026-11-academia/?lang=id) | [Google Form](https://forms.gle/AsKs1reZgAb57D8z9) | 09:30 – 12:30 (3 hours) | 100 | IDR 100.000 | Students, lecturers, researchers — theory first, with hands-on examples |
-| Alternative 2 — Executive (purple) | [English](https://lofidewanto.github.io/ai-or-die/workshop-jakarta-2026-11-executive/) · [Bahasa Indonesia](https://lofidewanto.github.io/ai-or-die/workshop-jakarta-2026-11-executive/?lang=id) | [Google Form](https://forms.gle/ojSTAxPxdameJVgaA) | 09:30 – 14:30 (5 hours) | 30 | IDR 1.500.000 | Leaders and managers — hands-on managerial work and an AI roadmap |
+| Full-day workshop | [English](https://lofidewanto.github.io/ai-or-die/workshop-jakarta/workshop-jakarta-2026-11/) · [Bahasa Indonesia](https://lofidewanto.github.io/ai-or-die/workshop-jakarta/workshop-jakarta-2026-11/?lang=id) | [Google Form](https://forms.gle/gsvDgE4x2zncKwJ77) | 09:30 – 17:00 (one day) | 50 | IDR 500.000 | Developers, tech leads, students — build your own agent with Spring AI |
+| Alternative 1 — Academia (green) | [English](https://lofidewanto.github.io/ai-or-die/workshop-jakarta/workshop-jakarta-2026-11-academia/) · [Bahasa Indonesia](https://lofidewanto.github.io/ai-or-die/workshop-jakarta/workshop-jakarta-2026-11-academia/?lang=id) | [Google Form](https://forms.gle/AsKs1reZgAb57D8z9) | 09:30 – 12:30 (3 hours) | 100 | IDR 100.000 | Students, lecturers, researchers — theory first, with hands-on examples |
+| Alternative 2 — Executive (purple) | [English](https://lofidewanto.github.io/ai-or-die/workshop-jakarta/workshop-jakarta-2026-11-executive/) · [Bahasa Indonesia](https://lofidewanto.github.io/ai-or-die/workshop-jakarta/workshop-jakarta-2026-11-executive/?lang=id) | [Google Form](https://forms.gle/ojSTAxPxdameJVgaA) | 09:30 – 14:30 (5 hours) | 30 | IDR 1.500.000 | Leaders and managers — hands-on managerial work and an AI roadmap |
 
 ### Prerequisites
 
@@ -67,7 +67,7 @@ Every participant brings their **own laptop** with an **AI agent installed** —
 
 *Info:* GitHub Copilot also has a free plan (*Copilot Free*) with a limited monthly quota; it is not used as the main agent in the workshop.
 
-Full installation guide (Bahasa Indonesia): [participant-setup.md](workshop-jakarta-2026-11/participant-setup.md)
+Full installation guide (Bahasa Indonesia): [participant-setup.md](workshop-jakarta/workshop-jakarta-2026-11/participant-setup.md)
 
 ### Agenda
 
@@ -91,17 +91,20 @@ MakanChat (restaurant & food), Mandaya Hospital (healthcare), Galva & Kaze Rice 
 
 ### Files
 
+All workshop pages live in [workshop-jakarta/](workshop-jakarta/), one subfolder per page.
+Old URLs without `workshop-jakarta/` still work: [404.html](404.html) redirects them to the new location.
+
 | File | Purpose |
 |---|---|
-| [workshops-jakarta-2026-11/index.html](workshops-jakarta-2026-11/index.html) | Overview of all workshop formats (series red design, EN / ID, light/dark) |
-| [workshop-jakarta-2026-11/index.html](workshop-jakarta-2026-11/index.html) | Bilingual landing page (Mova Intelligence style, light/dark mode, EN / ID switch, `?lang=id`) |
-| [workshop-jakarta-2026-11-academia/index.html](workshop-jakarta-2026-11-academia/index.html) | Alternative 1: academic edition, same design in green |
-| [workshop-jakarta-2026-11-academia/registration-form.gs](workshop-jakarta-2026-11-academia/registration-form.gs) | Google Apps Script for the academia registration form, with auto-close at 100 registrations |
-| [workshop-jakarta-2026-11-executive/index.html](workshop-jakarta-2026-11-executive/index.html) | Alternative 2: executive edition, same design in purple |
-| [workshop-jakarta-2026-11-executive/registration-form.gs](workshop-jakarta-2026-11-executive/registration-form.gs) | Google Apps Script for the executive registration form, with auto-close at 30 registrations |
-| [workshop-jakarta-2026-11/README.md](workshop-jakarta-2026-11/README.md) | Full workshop plan: learning outcomes, session details, budget, organisation checklist, risks |
-| [workshop-jakarta-2026-11/participant-setup.md](workshop-jakarta-2026-11/participant-setup.md) | Installation guide for participants (Bahasa Indonesia) |
-| [workshop-jakarta-2026-11/registration-form.gs](workshop-jakarta-2026-11/registration-form.gs) | Google Apps Script that creates the registration form, the response sheet and the auto-close at 50 registrations |
+| [workshop-jakarta/workshops-jakarta-2026-11/index.html](workshop-jakarta/workshops-jakarta-2026-11/index.html) | Overview of all workshop formats (series red design, EN / ID, light/dark) |
+| [workshop-jakarta/workshop-jakarta-2026-11/index.html](workshop-jakarta/workshop-jakarta-2026-11/index.html) | Bilingual landing page (Mova Intelligence style, light/dark mode, EN / ID switch, `?lang=id`) |
+| [workshop-jakarta/workshop-jakarta-2026-11-academia/index.html](workshop-jakarta/workshop-jakarta-2026-11-academia/index.html) | Alternative 1: academic edition, same design in green |
+| [workshop-jakarta/workshop-jakarta-2026-11-academia/registration-form.gs](workshop-jakarta/workshop-jakarta-2026-11-academia/registration-form.gs) | Google Apps Script for the academia registration form, with auto-close at 100 registrations |
+| [workshop-jakarta/workshop-jakarta-2026-11-executive/index.html](workshop-jakarta/workshop-jakarta-2026-11-executive/index.html) | Alternative 2: executive edition, same design in purple |
+| [workshop-jakarta/workshop-jakarta-2026-11-executive/registration-form.gs](workshop-jakarta/workshop-jakarta-2026-11-executive/registration-form.gs) | Google Apps Script for the executive registration form, with auto-close at 30 registrations |
+| [workshop-jakarta/workshop-jakarta-2026-11/README.md](workshop-jakarta/workshop-jakarta-2026-11/README.md) | Full workshop plan: learning outcomes, session details, budget, organisation checklist, risks |
+| [workshop-jakarta/workshop-jakarta-2026-11/participant-setup.md](workshop-jakarta/workshop-jakarta-2026-11/participant-setup.md) | Installation guide for participants (Bahasa Indonesia) |
+| [workshop-jakarta/workshop-jakarta-2026-11/registration-form.gs](workshop-jakarta/workshop-jakarta-2026-11/registration-form.gs) | Google Apps Script that creates the registration form, the response sheet and the auto-close at 50 registrations |
 
 ### Background
 

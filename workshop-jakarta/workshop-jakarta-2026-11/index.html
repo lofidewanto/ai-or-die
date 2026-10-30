@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>AI or DIE Workshop Executive</title>
-  <meta name="description" content="Five-hour executive workshop in Jakarta, November 2026: AI or DIE &mdash; AI agents for leaders and managers, hands-on managerial work, governance and risk, and an AI roadmap for your organisation. IDR 1.500.000, limited to 30 seats.">
-  <link rel="icon" href="../favicon.png">
+  <title>AI or DIE Workshop Jakarta</title>
+  <meta name="description" content="One-day workshop in Jakarta, November 2026: AI or DIE &mdash; AI, LLMs and agents, working with OpenCode and Claude Code, agent security, and building your own agent with Spring Boot and Spring AI. IDR 500.000, limited to 50 seats.">
+  <link rel="icon" href="../../favicon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -20,12 +20,12 @@
     })();
   </script>
   <style>
-    /* ── Design tokens (Mova Intelligence style, executive palette) ── */
+    /* ── Design tokens (Mova Intelligence style) ── */
     :root {
-      --brand: #7c3aed;
-      --brand-strong: #8b5cf6;
-      --brand-soft: rgba(124, 58, 237, 0.08);
-      --accent: #c026d3;
+      --brand: #0071e3;
+      --brand-strong: #0077ed;
+      --brand-soft: rgba(0, 113, 227, 0.08);
+      --accent: #06b6d4;
       --success: #29a745;
       --bg: #fbfbfd;
       --bg-secondary: #f5f5f7;
@@ -46,10 +46,10 @@
       color-scheme: light;
     }
     :root[data-theme="dark"] {
-      --brand: #8b5cf6;
-      --brand-strong: #a78bfa;
-      --brand-soft: rgba(139, 92, 246, 0.14);
-      --accent: #e879f9;
+      --brand: #2997ff;
+      --brand-strong: #47a4ff;
+      --brand-soft: rgba(41, 151, 255, 0.12);
+      --accent: #22d3ee;
       --success: #34c759;
       --bg: #000000;
       --bg-secondary: #1d1d1f;
@@ -156,10 +156,10 @@
       display: flex; align-items: center;
       padding: 4rem 0;
       text-align: center;
-      background: radial-gradient(ellipse 60% 50% at 50% 0%, rgba(124, 58, 237, 0.07), transparent 70%), var(--bg);
+      background: radial-gradient(ellipse 60% 50% at 50% 0%, rgba(0, 113, 227, 0.07), transparent 70%), var(--bg);
     }
     :root[data-theme="dark"] .hero {
-      background: radial-gradient(ellipse 70% 50% at 50% 0%, rgba(139, 92, 246, 0.14), transparent 70%), var(--bg);
+      background: radial-gradient(ellipse 70% 50% at 50% 0%, rgba(41, 151, 255, 0.12), transparent 70%), var(--bg);
     }
     .hero-stage { max-width: 60rem; margin: 0 auto; }
     .news-pill {
@@ -236,7 +236,7 @@
       background: var(--bg); border: 2.5px solid var(--brand);
       transition: background 0.2s, box-shadow 0.2s;
     }
-    .step:hover::before { background: var(--brand); box-shadow: 0 0 0 4px rgba(124, 58, 237, 0.15); }
+    .step:hover::before { background: var(--brand); box-shadow: 0 0 0 4px rgba(0, 113, 227, 0.15); }
     .step.break::before { border-color: var(--muted); border-width: 2px; }
     .step-time { display: flex; flex-wrap: wrap; align-items: center; gap: 0.6rem; color: var(--brand); font-size: 0.8125rem; font-weight: 500; letter-spacing: 0.02em; margin-bottom: 0.3rem; }
     .step.break .step-time { color: var(--muted); }
@@ -297,8 +297,8 @@
     .cta-banner h2 { color: var(--text-on-inverse); }
     .cta-banner .lead { color: rgba(245, 245, 247, 0.78); max-width: 40rem; margin: 1.5rem auto 2rem; }
     .cta-note { margin-top: 1.5rem; }
-    .cta-note a { color: #c4b5fd; font-size: 1rem; }
-    .cta-note a:hover { color: #ddd6fe; }
+    .cta-note a { color: #2997ff; font-size: 1rem; }
+    .cta-note a:hover { color: #47a4ff; }
     @media (max-width: 991px) { .section { padding: 4rem 0; } .cta-banner { padding: 3rem 1.5rem; border-radius: var(--radius-lg); } }
 
     /* ── Footer ── */
@@ -343,7 +343,7 @@
         <a class="brand" href="#top">AI <span>or</span> DIE</a>
         <ul class="nav-links">
           <li><a href="#why" data-i18n="nav.why">Why</a></li>
-          <li><a href="#outcomes" data-i18n="nav.outcomes">What you take home</a></li>
+          <li><a href="#outcomes" data-i18n="nav.outcomes">What you build</a></li>
           <li><a href="#agenda" data-i18n="nav.agenda">Agenda</a></li>
           <li><a href="#pricing" data-i18n="nav.pricing">Ticket</a></li>
           <li><a href="#speaker" data-i18n="nav.speaker">Speaker</a></li>
@@ -358,7 +358,7 @@
           <button type="button" class="theme-toggle" data-theme-toggle aria-label="Toggle theme">
             <i class="bi bi-sun-fill" data-theme-icon></i><span data-theme-label>Light</span>
           </button>
-          <a class="btn-brand sm" href="https://forms.gle/ojSTAxPxdameJVgaA" target="_blank" rel="noreferrer" data-i18n="nav.register">Register</a>
+          <a class="btn-brand sm" href="https://forms.gle/gsvDgE4x2zncKwJ77" target="_blank" rel="noreferrer" data-i18n="nav.register">Register</a>
         </div>
       </div>
     </nav>
@@ -369,18 +369,18 @@
     <section class="hero">
       <div class="container">
         <div class="hero-stage">
-          <p class="hero-eyebrow reveal" data-i18n="hero.eyebrow">AI or DIE Executive &middot; Jakarta &middot; November 2026</p>
-          <h1 class="display-2 reveal" data-i18n="hero.title">AI or DIE. Five Hours.<br><span class="text-gradient">Your Decision.</span></h1>
-          <p class="hero-lead reveal" data-i18n="hero.lead">For leaders and managers: understand what AI agents can really do, use them hands-on for managerial work &mdash; and leave with a roadmap for your organisation.</p>
+          <p class="hero-eyebrow reveal" data-i18n="hero.eyebrow">AI or DIE Workshop &middot; Jakarta &middot; November 2026</p>
+          <h1 class="display-2 reveal" data-i18n="hero.title">AI or DIE. One Day.<br><span class="text-gradient">Your Choice.</span></h1>
+          <p class="hero-lead reveal" data-i18n="hero.lead">Understand AI, LLMs and agents, work with OpenCode and Claude Code &mdash; and build your own agent with Spring Boot and Spring AI.</p>
           <div class="hero-actions reveal">
-            <a class="btn-brand" href="https://forms.gle/ojSTAxPxdameJVgaA" target="_blank" rel="noreferrer" data-i18n="hero.cta">Reserve a seat &mdash; IDR 1.500.000</a>
+            <a class="btn-brand" href="https://forms.gle/gsvDgE4x2zncKwJ77" target="_blank" rel="noreferrer" data-i18n="hero.cta">Reserve a seat &mdash; IDR 500.000</a>
             <a class="link-cta" href="#agenda" data-i18n="hero.link">See the agenda</a>
           </div>
           <div class="chips reveal">
             <span class="chip"><i class="bi bi-calendar-event"></i> <span data-i18n="chip.date">19, 20 or 21 Nov 2026 (TBD)</span></span>
-            <span class="chip"><i class="bi bi-clock"></i> 09:30 &ndash; 14:30 WIB</span>
+            <span class="chip"><i class="bi bi-clock"></i> 09:30 &ndash; 17:00 WIB</span>
             <span class="chip"><i class="bi bi-geo-alt"></i> <span data-i18n="chip.venue">Jakarta (venue TBC)</span></span>
-            <span class="chip"><i class="bi bi-people"></i> <span data-i18n="chip.seats">Max. 30 participants</span></span>
+            <span class="chip"><i class="bi bi-people"></i> <span data-i18n="chip.seats">Max. 50 participants</span></span>
             <span class="chip"><i class="bi bi-translate"></i> <span data-i18n="chip.lang">In Bahasa Indonesia</span></span>
             <span class="chip"><i class="bi bi-wifi"></i> <span data-i18n="chip.wifi">Wi-Fi provided</span></span>
           </div>
@@ -392,15 +392,15 @@
     <section class="section" id="why">
       <div class="container">
         <div class="section-heading reveal">
-          <h2 class="display-5" data-i18n="why.title">AI does not add features.<br>It changes how organisations work.<br><span class="text-gradient">And it changes our lives as a whole.</span></h2>
-          <p class="lead" data-i18n="why.lead">Desktop to web. Monolith to cloud. Now: applications to agents. Organisations that adapt thrive &mdash; organisations that ignore it fall behind. That is the message of <em>AI or DIE</em>.</p>
-          <p class="muted" style="margin-top:0.75rem" data-i18n="why.text">This executive edition turns the keynote into decisions: what AI agents mean for your strategy, your teams and your risks &mdash; and how you use them yourself in your daily management work.</p>
+          <h2 class="display-5" data-i18n="why.title">AI does not add features.<br>It changes how software is built.<br><span class="text-gradient">And it changes our lives as a whole.</span></h2>
+          <p class="lead" data-i18n="why.lead">Desktop to web. Monolith to cloud. Now: applications to agents. Teams that adapt thrive &mdash; teams that ignore it fall behind. That is the message of <em>AI or DIE</em>.</p>
+          <p class="muted" style="margin-top:0.75rem" data-i18n="why.text">This workshop turns the keynote into practice: from the why, through the theory, to agents you use every day &mdash; and one you build yourself in Java.</p>
         </div>
         <div class="metrics reveal">
-          <div class="metric"><strong>5</strong><span data-i18n="metric.1">hours, insight &amp; hands-on</span></div>
-          <div class="metric"><strong>6</strong><span data-i18n="metric.2">sessions, from why to roadmap</span></div>
-          <div class="metric"><strong>30</strong><span data-i18n="metric.3">seats &middot; 1 mentor per 10</span></div>
-          <div class="metric"><strong>1</strong><span data-i18n="metric.4">AI roadmap for your organisation</span></div>
+          <div class="metric"><strong>1</strong><span data-i18n="metric.1">day, theory &amp; hands-on</span></div>
+          <div class="metric"><strong>6</strong><span data-i18n="metric.2">sessions, from why to how</span></div>
+          <div class="metric"><strong>50</strong><span data-i18n="metric.3">seats &middot; 1 mentor per 10</span></div>
+          <div class="metric"><strong>1</strong><span data-i18n="metric.4">own agent &mdash; built by you</span></div>
         </div>
       </div>
     </section>
@@ -409,39 +409,39 @@
     <section class="section" id="outcomes" style="padding-top:0">
       <div class="container">
         <div class="section-heading reveal">
-          <h2 class="display-5" data-i18n="out.title">What You Take Home</h2>
-          <p class="lead" data-i18n="out.lead">Six sessions, one goal: decide with confidence where AI agents create value in your organisation, how to control the risks &mdash; and use them yourself starting tomorrow.</p>
+          <h2 class="display-5" data-i18n="out.title">What You Will Learn</h2>
+          <p class="lead" data-i18n="out.lead">Six sessions, one goal: understand how AI agents work, use them safely in your daily work &mdash; and build your own agent in Java.</p>
         </div>
         <div class="grid grid-3">
           <article class="card reveal">
             <span class="icon-badge"><i class="bi bi-lightning-charge"></i></span>
-            <h3 data-i18n="out.1.t">AI or DIE &mdash; the executive view</h3>
-            <p data-i18n="out.1.p">Disrupted, irrelevant, extinct &mdash; or AI-native. Where your organisation stands on the maturity model from digitalisation to agentic AI.</p>
+            <h3 data-i18n="out.1.t">AI or DIE &mdash; why now</h3>
+            <p data-i18n="out.1.p">Disrupted, irrelevant, extinct &mdash; or AI-native. Technology, organisation and environment, and the path from digitalisation to agentic AI.</p>
           </article>
           <article class="card reveal">
             <span class="icon-badge"><i class="bi bi-cpu"></i></span>
-            <h3 data-i18n="out.2.t">AI agents without the jargon</h3>
-            <p data-i18n="out.2.p">What an LLM and an agent really are, what is hype and what is real today, and what drives cost, quality and speed.</p>
+            <h3 data-i18n="out.2.t">AI, LLMs &amp; agents</h3>
+            <p data-i18n="out.2.p">How an LLM is made, why it is a &ldquo;clever parrot&rdquo;, and what turns it into an agent: memory, RAG, tools and MCP.</p>
           </article>
           <article class="card reveal">
-            <span class="icon-badge"><i class="bi bi-briefcase"></i></span>
-            <h3 data-i18n="out.3.t">Agents for managerial work</h3>
-            <p data-i18n="out.3.p">Hands-on: board presentations, market and competitor analysis, stock (saham) research, reports and decision memos &mdash; prepared by an agent, decided by you.</p>
+            <span class="icon-badge"><i class="bi bi-terminal"></i></span>
+            <h3 data-i18n="out.3.t">Working with AI agents</h3>
+            <p data-i18n="out.3.p">OpenCode and Claude Code for spec-driven development &mdash; and far beyond code: presentations, stock (saham) analysis, research.</p>
           </article>
           <article class="card reveal">
             <span class="icon-badge"><i class="bi bi-shield-lock"></i></span>
-            <h3 data-i18n="out.4.t">Governance, risk &amp; security</h3>
-            <p data-i18n="out.4.p">An agent can do everything it is allowed to do. AI policies, access rights, data protection (UU PDP) and keeping a human in the loop.</p>
+            <h3 data-i18n="out.4.t">Security &amp; agents</h3>
+            <p data-i18n="out.4.p">An agent can do everything you are allowed to do. Rights, sandboxes, secrets and prompt injection &mdash; how to stay in control.</p>
           </article>
           <article class="card reveal">
-            <span class="icon-badge"><i class="bi bi-signpost-split"></i></span>
-            <h3 data-i18n="out.5.t">Use cases, build vs. buy &amp; ROI</h3>
-            <p data-i18n="out.5.p">Find the right processes, choose between low-code and custom agents, and estimate effort and return &mdash; with the real &ldquo;Warung Digital&rdquo; example.</p>
+            <span class="icon-badge"><i class="bi bi-boxes"></i></span>
+            <h3 data-i18n="out.5.t">Your own agent with Spring AI</h3>
+            <p data-i18n="out.5.p">A concrete example, &ldquo;Warung Digital&rdquo;: a restaurant assistant built with Spring Boot, Spring AI, NVIDIA models, RAG and tools.</p>
           </article>
           <article class="card reveal">
-            <span class="icon-badge"><i class="bi bi-people"></i></span>
-            <h3 data-i18n="out.6.t">Leading AI-native teams</h3>
-            <p data-i18n="out.6.p">The &ldquo;product builder&rdquo; role, micro-teams and a new mindset &mdash; and how you take your people with you.</p>
+            <span class="icon-badge"><i class="bi bi-rocket-takeoff"></i></span>
+            <h3 data-i18n="out.6.t">The future of software work</h3>
+            <p data-i18n="out.6.p">From developer to &ldquo;product builder&rdquo;, micro-teams and a new mindset: describe the goal, let agents handle the how.</p>
           </article>
         </div>
       </div>
@@ -452,47 +452,56 @@
       <div class="container">
         <div class="section-heading center reveal">
           <h2 class="display-5" data-i18n="ag.title">The Day at a Glance</h2>
-          <p class="lead" data-i18n="ag.lead">19, 20 or 21 November 2026 (date to be confirmed) &middot; 09:30 &ndash; 14:30 WIB</p>
+          <p class="lead" data-i18n="ag.lead">19, 20 or 21 November 2026 (date to be confirmed) &middot; 09:30 &ndash; 17:00 WIB</p>
         </div>
         <div class="agenda">
           <div class="step break reveal">
             <div class="step-time">09:30 &ndash; 10:00</div>
             <h3 data-i18n="ag.0.t">Registration, coffee &amp; setup check</h3>
-            <p data-i18n="ag.0.p">Connect to the Wi-Fi and check that OpenCode or Claude Code runs on your laptop. Mentors help if something is missing.</p>
+            <p data-i18n="ag.0.p">Connect to the Wi-Fi and check that OpenCode or Claude Code runs on your laptop. Assistants help if something is missing.</p>
           </div>
           <div class="step reveal">
-            <div class="step-time">10:00 &ndash; 10:40 <span class="tag-chip">01</span></div>
-            <h3 data-i18n="ag.1.t">Introduction: AI or DIE &mdash; the executive view</h3>
-            <p data-i18n="ag.1.p">Disrupted. Irrelevant. Extinct. &mdash; or AI-native? Lessons from six months of building software with AI agents, the TOE framework (technology, organisation, environment), and the maturity model from digitalisation to agentic AI: where does your organisation stand?</p>
+            <div class="step-time">10:00 &ndash; 10:45 <span class="tag-chip">01</span></div>
+            <h3 data-i18n="ag.1.t">Introduction: AI or DIE</h3>
+            <p data-i18n="ag.1.p">Disrupted. Irrelevant. Extinct. &mdash; or AI-native? Lessons from six months of building software with AI agents, the TOE framework (technology, organisation, environment), the maturity model from digitalisation to agentic AI, and how software development evolved: RAD &rarr; MDA &rarr; low-code &rarr; AI agents.</p>
           </div>
           <div class="step reveal">
-            <div class="step-time">10:40 &ndash; 11:20 <span class="tag-chip">02</span></div>
-            <h3 data-i18n="ag.2.t">AI, LLMs and agents for decision-makers</h3>
-            <p data-i18n="ag.2.p">What an LLM is and what it is not, what turns it into an agent (memory, RAG, tools, MCP), apps vs. services vs. agents &mdash; and today&rsquo;s landscape: Claude, OpenCode, Copilot, ChatGPT, Gemini and more. Hype vs. reality, cost and vendor lock-in.</p>
+            <div class="step-time">10:45 &ndash; 11:45 <span class="tag-chip">02</span></div>
+            <h3 data-i18n="ag.2.t">Theory: AI, LLMs and agents</h3>
+            <p data-i18n="ag.2.p">What an LLM is and how it is trained, the road to AGI, the anatomy of an agent (LLM as brain, memory, RAG, tools, MCP), apps vs. services vs. agents, agentic AI with autonomy and multi-step planning &mdash; and today&rsquo;s agent landscape: Claude, OpenCode, Copilot, ChatGPT, Gemini, OpenClaw and more.</p>
           </div>
           <div class="step reveal">
-            <div class="step-time">11:20 &ndash; 12:10 <span class="tag-chip">03</span></div>
-            <h3 data-i18n="ag.3.t">Hands-on: agents for managerial work</h3>
-            <p data-i18n="ag.3.p">Pick your challenge: create a board presentation from a short brief, analyse the market and competitors, research stocks (saham) from public data, turn a spreadsheet into a management report or draft a decision memo. Stock analysis is for learning only &mdash; not investment advice.</p>
+            <div class="step-time">11:45 &ndash; 12:30 <span class="tag-chip">03a</span></div>
+            <h3 data-i18n="ag.3.t">Software development with AI agents</h3>
+            <p data-i18n="ag.3.p">OpenCode and Claude Code in action. Spec-driven development: specify &rarr; plan &rarr; tasks &rarr; implement. Live demo: from a GitHub issue to a finished Spring Boot feature, built autonomously. IDE-centred vs. conversation-centred work.</p>
           </div>
           <div class="step break reveal">
-            <div class="step-time">12:10 &ndash; 13:00</div>
+            <div class="step-time">12:30 &ndash; 13:30</div>
             <h3 data-i18n="ag.lunch">Lunch, networking &amp; Dzuhur break</h3>
           </div>
           <div class="step reveal">
-            <div class="step-time">13:00 &ndash; 13:35 <span class="tag-chip">04</span></div>
-            <h3 data-i18n="ag.4.t">Governance, risk and security</h3>
-            <p data-i18n="ag.4.p">An agent can do everything it is allowed to do &mdash; delete data, send messages, change systems. Least privilege, sandboxes, secrets, prompt injection, human in the loop, an AI policy for your company and data protection (UU PDP).</p>
+            <div class="step-time">13:30 &ndash; 14:30 <span class="tag-chip">03b</span></div>
+            <h3 data-i18n="ag.4.t">Beyond code: agents for everyday work</h3>
+            <p data-i18n="ag.4.p">Hands-on: let an agent create a presentation, analyse the stock market (saham) from public data, research a topic or automate documents. Pick your challenge and discover what else is possible. Stock analysis is for learning only &mdash; not investment advice.</p>
           </div>
           <div class="step reveal">
-            <div class="step-time">13:35 &ndash; 14:15 <span class="tag-chip">05</span></div>
-            <h3 data-i18n="ag.5.t">From use case to roadmap</h3>
-            <p data-i18n="ag.5.p">Live demo &ldquo;Warung Digital&rdquo;: a restaurant assistant built with Spring Boot and Spring AI &mdash; what it takes and what it costs. Low-code vs. &ldquo;love-code&rdquo;, build vs. buy, ROI. Hands-on: map your own processes on the AI roadmap canvas and pick your first use case.</p>
+            <div class="step-time">14:30 &ndash; 15:10 <span class="tag-chip">04</span></div>
+            <h3 data-i18n="ag.5.t">Security and agents: what matters</h3>
+            <p data-i18n="ag.5.p">Agent server vs. agent client: an agent can do everything you are allowed to do &mdash; delete data, install software, change systems. Least privilege, sandboxes (Docker, NVIDIA OpenShell), secrets and tokens, prompt injection, human in the loop, and data protection (UU PDP).</p>
+          </div>
+          <div class="step break reveal">
+            <div class="step-time">15:10 &ndash; 15:25</div>
+            <h3 data-i18n="ag.ashar">Coffee &amp; Ashar break</h3>
           </div>
           <div class="step reveal">
-            <div class="step-time">14:15 &ndash; 14:30 <span class="tag-chip">06</span></div>
-            <h3 data-i18n="ag.6.t">Leading AI-native teams &amp; closing</h3>
-            <p data-i18n="ag.6.p">The &ldquo;product builder&rdquo; role and micro-teams, from imperative to descriptive thinking &mdash; &ldquo;Don&rsquo;t DIE, or at least DIE Hard.&rdquo; Q&amp;A, certificates and group photo.</p>
+            <div class="step-time">15:25 &ndash; 16:35 <span class="tag-chip">05</span></div>
+            <h3 data-i18n="ag.6.t">Build your own agent with Spring Boot &amp; Spring AI</h3>
+            <p data-i18n="ag.6.p">Concrete example &ldquo;Warung Digital&rdquo;: a restaurant assistant that knows the menu, takes orders and books tables. <code>ChatClient</code>, conversation memory, RAG over menu and FAQ, <code>@Tool</code> methods and MCP &mdash; using NVIDIA models from build.nvidia.com (or Claude). Low-code vs. &ldquo;love-code&rdquo;.</p>
+          </div>
+          <div class="step reveal">
+            <div class="step-time">16:35 &ndash; 17:00 <span class="tag-chip">06</span></div>
+            <h3 data-i18n="ag.7.t">The future &amp; closing</h3>
+            <p data-i18n="ag.7.p">The &ldquo;product builder&rdquo; role and micro-teams, from imperative to descriptive thinking &mdash; &ldquo;Don&rsquo;t DIE, or at least DIE Hard.&rdquo; Q&amp;A, certificates and group photo.</p>
           </div>
         </div>
       </div>
@@ -502,23 +511,23 @@
     <section class="section">
       <div class="container">
         <div class="section-heading reveal">
-          <h2 class="display-5" data-i18n="aud.title">Exclusive. Small. Decisive.</h2>
-          <p class="lead" data-i18n="aud.lead">Thirty seats for people who shape where their organisation goes.</p>
+          <h2 class="display-5" data-i18n="aud.title">Exclusive. Small. Committed.</h2>
+          <p class="lead" data-i18n="aud.lead">A paid seat filters for people who actually want to build.</p>
         </div>
         <div class="grid grid-2">
           <article class="card reveal">
             <h3 style="margin-top:0" data-i18n="aud.yes">This is for you if you are&hellip;</h3>
             <ul class="check-list">
-              <li><i class="bi bi-check-circle-fill"></i> <span data-i18n="aud.yes.1">A CEO, director or member of the board</span></li>
-              <li><i class="bi bi-check-circle-fill"></i> <span data-i18n="aud.yes.2">A head of IT, digital, operations, HR or finance</span></li>
-              <li><i class="bi bi-check-circle-fill"></i> <span data-i18n="aud.yes.3">A manager or team lead who has to decide on AI investments</span></li>
-              <li><i class="bi bi-check-circle-fill"></i> <span data-i18n="aud.yes.4">An SME owner or founder who wants to know what is really possible</span></li>
+              <li><i class="bi bi-check-circle-fill"></i> <span data-i18n="aud.yes.1">A software developer &mdash; Java preferred, any OOP language is fine</span></li>
+              <li><i class="bi bi-check-circle-fill"></i> <span data-i18n="aud.yes.2">A tech lead or architect evaluating AI agents for your company</span></li>
+              <li><i class="bi bi-check-circle-fill"></i> <span data-i18n="aud.yes.3">A final-year Informatics or Information Systems student</span></li>
+              <li><i class="bi bi-check-circle-fill"></i> <span data-i18n="aud.yes.4">An SME founder or product person &mdash; pair with a developer in the labs</span></li>
             </ul>
           </article>
           <article class="card reveal">
             <h3 style="margin-top:0" data-i18n="aud.no">Probably not for you if&hellip;</h3>
             <ul class="check-list no">
-              <li><i class="bi bi-dash-circle"></i> <span data-i18n="aud.no.1">You want to write code and build an agent yourself &mdash; join the full-day workshop</span></li>
+              <li><i class="bi bi-dash-circle"></i> <span data-i18n="aud.no.1">You have never programmed and want to build the Spring AI agent alone</span></li>
               <li><i class="bi bi-dash-circle"></i> <span data-i18n="aud.no.2">You are looking for a lecture-only seminar</span></li>
               <li><i class="bi bi-dash-circle"></i> <span data-i18n="aud.no.3">You cannot bring your own laptop with OpenCode or Claude Code installed</span></li>
             </ul>
@@ -532,22 +541,22 @@
       <div class="container">
         <div class="section-heading center reveal">
           <h2 class="display-5" data-i18n="price.title">One Ticket. Everything Included.</h2>
-          <p class="lead" data-i18n="price.lead">An investment of five hours &mdash; with a roadmap as the return.</p>
+          <p class="lead" data-i18n="price.lead">Low enough to be accessible. High enough to mean commitment.</p>
         </div>
         <div class="price-card reveal">
-          <span class="tag-chip" data-i18n="price.tag">5-hour executive workshop</span>
-          <div class="price"><strong>IDR 1.500.000</strong><span data-i18n="price.per">/ person</span></div>
+          <span class="tag-chip" data-i18n="price.tag">Full-day workshop</span>
+          <div class="price"><strong>IDR 500.000</strong><span data-i18n="price.per">/ person</span></div>
           <p class="muted" data-i18n="price.pre"><strong>Prerequisite:</strong> your own laptop with OpenCode (free OpenCode or NVIDIA models) or Claude Code (Claude models such as Opus) installed.</p>
           <ul class="check-list">
-            <li><i class="bi bi-check-circle-fill"></i> <span data-i18n="price.1">Five hours of insight and hands-on work with the speaker and 3 mentors</span></li>
-            <li><i class="bi bi-check-circle-fill"></i> <span data-i18n="price.2">Lunch and coffee breaks (halal, vegetarian option)</span></li>
-            <li><i class="bi bi-check-circle-fill"></i> <span data-i18n="price.3">AI roadmap canvas and use-case checklist for your organisation</span></li>
-            <li><i class="bi bi-check-circle-fill"></i> <span data-i18n="price.4">Slides, prompts and templates for managerial work</span></li>
+            <li><i class="bi bi-check-circle-fill"></i> <span data-i18n="price.1">Full day of hands-on labs with the speaker and 5 mentors</span></li>
+            <li><i class="bi bi-check-circle-fill"></i> <span data-i18n="price.2">Lunch and two coffee breaks (halal, vegetarian option)</span></li>
+            <li><i class="bi bi-check-circle-fill"></i> <span data-i18n="price.3">Workshop repository with all labs and solutions</span></li>
+            <li><i class="bi bi-check-circle-fill"></i> <span data-i18n="price.4">Slides, prompts and spec templates</span></li>
             <li><i class="bi bi-check-circle-fill"></i> <span data-i18n="price.5">Certificate of participation</span></li>
-            <li><i class="bi bi-check-circle-fill"></i> <span data-i18n="price.6">Executive alumni group for follow-up questions</span></li>
+            <li><i class="bi bi-check-circle-fill"></i> <span data-i18n="price.6">Alumni group for follow-up questions</span></li>
           </ul>
-          <a class="btn-brand" href="https://forms.gle/ojSTAxPxdameJVgaA" target="_blank" rel="noreferrer" style="width:100%;margin-top:1rem" data-i18n="price.cta">Reserve your seat</a>
-          <p class="muted" style="font-size:0.8125rem;margin-top:0.75rem;text-align:center" data-i18n="price.pay">Register via Google Form &middot; payment instructions (QRIS / bank transfer) follow by WhatsApp or email &middot; 30 seats only</p>
+          <a class="btn-brand" href="https://forms.gle/gsvDgE4x2zncKwJ77" target="_blank" rel="noreferrer" style="width:100%;margin-top:1rem" data-i18n="price.cta">Reserve your seat</a>
+          <p class="muted" style="font-size:0.8125rem;margin-top:0.75rem;text-align:center" data-i18n="price.pay">Register via Google Form &middot; payment instructions (QRIS / bank transfer) follow by WhatsApp or email &middot; 50 seats only</p>
         </div>
       </div>
     </section>
@@ -576,7 +585,7 @@
               <a class="pill-link" href="https://github.com/lofidewanto" target="_blank" rel="noreferrer"><i class="bi bi-github"></i> GitHub</a>
               <a class="pill-link" href="https://lofidewanto.medium.com/" target="_blank" rel="noreferrer"><i class="bi bi-medium"></i> Medium</a>
               <a class="pill-link" href="https://youtu.be/TU8Uts9LfiU" target="_blank" rel="noreferrer"><i class="bi bi-youtube"></i> <span data-i18n="spk.talk">Chat as Code talk</span></a>
-              <a class="pill-link" href="../cv-lofi-dewanto-green-dark.html"><i class="bi bi-person-lines-fill"></i> <span data-i18n="spk.cv">Full career timeline</span></a>
+              <a class="pill-link" href="../../cv-lofi-dewanto-green-dark.html"><i class="bi bi-person-lines-fill"></i> <span data-i18n="spk.cv">Full career timeline</span></a>
             </div>
           </div>
         </div>
@@ -588,7 +597,7 @@
       <div class="container">
         <div class="section-heading reveal">
           <h2 class="display-5" data-i18n="cases.title">Built on Real Cases</h2>
-          <p class="lead" data-i18n="cases.lead">The examples are based on conversational-AI agents delivered for Indonesian businesses across industries.</p>
+          <p class="lead" data-i18n="cases.lead">The labs are based on conversational-AI agents delivered for Indonesian businesses across industries.</p>
         </div>
         <div class="grid grid-4">
           <article class="card reveal"><span class="icon-badge"><i class="bi bi-cup-hot"></i></span><h3 data-i18n="cases.1">Restaurant &amp; Food</h3><p>MakanChat</p></article>
@@ -608,31 +617,27 @@
         <div class="faq reveal">
           <details>
             <summary data-i18n="faq.1.q">What do I need to prepare?</summary>
-            <p data-i18n="faq.1.a">Your own laptop with an AI agent installed &mdash; <strong>OpenCode or Claude Code</strong>. This is a prerequisite for the hands-on sessions. Wi-Fi is provided at the venue. You will receive a step-by-step setup guide after registering, and mentors help with any remaining setup from 09:30.</p>
+            <p data-i18n="faq.1.a">Your own laptop with an AI agent installed &mdash; <strong>OpenCode or Claude Code</strong>. This is a prerequisite for taking part. For Session 5 you also need JDK 21, Maven, Git and an IDE. Wi-Fi is provided at the venue. You will receive the setup guide after registering.</p>
           </details>
           <details>
-            <summary data-i18n="faq.2.q">Do I need technical or programming knowledge?</summary>
-            <p data-i18n="faq.2.a">No. The workshop is built for leaders and managers. You work with agents in plain language; the Spring AI agent is shown as a live demo, not built by you.</p>
+            <summary data-i18n="faq.2.q">Do I need to know Java?</summary>
+            <p data-i18n="faq.2.a">Only for Session 5. Sessions 1&ndash;4 and 6 need no programming &mdash; and in Session 3 the agent does the coding. For Session 5, any object-oriented language background is enough, and a checkpoint branch lets you catch up.</p>
           </details>
           <details>
             <summary data-i18n="faq.3.q">Do I need an API key or a paid AI subscription?</summary>
-            <p data-i18n="faq.3.a">No. Everything runs over the internet with free models: OpenCode brings its own free models (OpenCode Zen), and NVIDIA offers free models at build.nvidia.com &mdash; you only need a free account. If you have Claude Code, you can use Claude models such as Opus.</p>
+            <p data-i18n="faq.3.a">No. Everything runs over the internet with free models: OpenCode brings its own free models (OpenCode Zen), and NVIDIA offers free models at build.nvidia.com &mdash; you only need a free account. The Spring AI lab uses the free NVIDIA models. If you have Claude Code, you can use Claude models such as Opus.</p>
           </details>
           <details>
             <summary data-i18n="faq.4.q">Which language is the workshop in?</summary>
             <p data-i18n="faq.4.a">The workshop is held entirely in Bahasa Indonesia. This website is available in both languages.</p>
           </details>
           <details>
-            <summary data-i18n="faq.5.q">Why only 30 seats?</summary>
-            <p data-i18n="faq.5.a">So that every participant gets personal attention and room to discuss their own organisation. With the speaker and three mentors, the ratio is about one mentor per ten participants.</p>
+            <summary data-i18n="faq.5.q">Why only 50 seats?</summary>
+            <p data-i18n="faq.5.a">So that every participant gets personal help. With the speaker and five mentors, the ratio is about one mentor per ten participants.</p>
           </details>
           <details>
-            <summary data-i18n="faq.6.q">Can my company pay, and can we book several seats?</summary>
-            <p data-i18n="faq.6.a">Yes. Register each participant via the form and mention your company &mdash; payment instructions and an invoice follow by WhatsApp or email. For several seats from one company, chat with Mova on WhatsApp.</p>
-          </details>
-          <details>
-            <summary data-i18n="faq.7.q">I have another question &mdash; who can I ask?</summary>
-            <p data-i18n="faq.7.a">Chat with Mova on WhatsApp: <a href="https://wa.me/6285121336927?text=Halo%20Mova%2C%20saya%20punya%20pertanyaan%20tentang%20Workshop%20AI%20or%20DIE%20Executive%20Jakarta%20%28November%202026%29%3A%20" target="_blank" rel="noreferrer">+62 851-2133-6927</a> (Monday&ndash;Friday, 09:00&ndash;18:00 WIB).</p>
+            <summary data-i18n="faq.6.q">I have another question &mdash; who can I ask?</summary>
+            <p data-i18n="faq.6.a">Chat with Mova on WhatsApp: <a href="https://wa.me/6285121336927?text=Halo%20Mova%2C%20saya%20punya%20pertanyaan%20tentang%20Workshop%20AI%20or%20DIE%20Jakarta%20%28November%202026%29%3A%20" target="_blank" rel="noreferrer">+62 851-2133-6927</a> (Monday&ndash;Friday, 09:00&ndash;18:00 WIB).</p>
           </details>
         </div>
       </div>
@@ -642,10 +647,10 @@
     <section class="section" id="register">
       <div class="container">
         <div class="cta-banner reveal">
-          <h2 class="display-5" data-i18n="cta.title">AI or DIE. Your Decision.</h2>
-          <p class="lead" data-i18n="cta.lead">Spend five hours deciding the future of your organisation instead of reading about it. Seats are limited to 30 &mdash; reserve yours now.</p>
-          <a class="btn-brand" href="https://forms.gle/ojSTAxPxdameJVgaA" target="_blank" rel="noreferrer" data-i18n="cta.btn">Register &mdash; IDR 1.500.000</a>
-          <p class="cta-note"><a href="https://wa.me/6285121336927?text=Halo%20Mova%2C%20saya%20punya%20pertanyaan%20tentang%20Workshop%20AI%20or%20DIE%20Executive%20Jakarta%20%28November%202026%29%3A%20" target="_blank" rel="noreferrer"><i class="bi bi-whatsapp"></i> <span data-i18n="cta.wa">Questions? Chat with Mova on WhatsApp</span></a></p>
+          <h2 class="display-5" data-i18n="cta.title">AI or DIE. Your Choice.</h2>
+          <p class="lead" data-i18n="cta.lead">Spend one day building the future instead of reading about it. Seats are limited to 50 &mdash; reserve yours now.</p>
+          <a class="btn-brand" href="https://forms.gle/gsvDgE4x2zncKwJ77" target="_blank" rel="noreferrer" data-i18n="cta.btn">Register &mdash; IDR 500.000</a>
+          <p class="cta-note"><a href="https://wa.me/6285121336927?text=Halo%20Mova%2C%20saya%20punya%20pertanyaan%20tentang%20Workshop%20AI%20or%20DIE%20Jakarta%20%28November%202026%29%3A%20" target="_blank" rel="noreferrer"><i class="bi bi-whatsapp"></i> <span data-i18n="cta.wa">Questions? Chat with Mova on WhatsApp</span></a></p>
         </div>
       </div>
     </section>
@@ -656,27 +661,26 @@
       <div class="footer-grid">
         <div>
           <p class="brand" style="margin-bottom:0.75rem">AI <span>or</span> DIE</p>
-          <p data-i18n="foot.tag">5-hour executive workshop &middot; Jakarta &middot; November 2026</p>
+          <p data-i18n="foot.tag">One-day workshop &middot; Jakarta &middot; November 2026</p>
         </div>
         <div>
           <h2>Workshop</h2>
-          <a href="#outcomes" data-i18n="nav.outcomes">What you take home</a>
+          <a href="#outcomes" data-i18n="nav.outcomes">What you build</a>
           <a href="#agenda" data-i18n="nav.agenda">Agenda</a>
           <a href="#pricing" data-i18n="nav.pricing">Ticket</a>
           <a href="../workshops-jakarta-2026-11/" data-i18n="nav.formats">All formats</a>
-          <a href="../workshop-jakarta-2026-11/" data-i18n="foot.full">Full-day workshop</a>
         </div>
         <div>
           <h2 data-i18n="nav.speaker">Speaker</h2>
           <a href="#speaker">Dr. Lofi Dewanto</a>
-          <a href="../cv-lofi-dewanto-green-dark.html" data-i18n="foot.cv">Career timeline</a>
+          <a href="../../cv-lofi-dewanto-green-dark.html" data-i18n="foot.cv">Career timeline</a>
           <a href="https://sessionize.com/dewanto/" target="_blank" rel="noreferrer">Sessionize</a>
         </div>
         <div>
           <h2 data-i18n="foot.more">More</h2>
           <a href="#faq" data-i18n="nav.faq">FAQ</a>
           <a href="https://www.youtube.com/channel/UCznmOzSBnlKYeFBt8w1XvpQ" target="_blank" rel="noreferrer">YouTube</a>
-          <a href="https://wa.me/6285121336927?text=Halo%20Mova%2C%20saya%20punya%20pertanyaan%20tentang%20Workshop%20AI%20or%20DIE%20Executive%20Jakarta%20%28November%202026%29%3A%20" target="_blank" rel="noreferrer">WhatsApp Mova</a>
+          <a href="https://wa.me/6285121336927?text=Halo%20Mova%2C%20saya%20punya%20pertanyaan%20tentang%20Workshop%20AI%20or%20DIE%20Jakarta%20%28November%202026%29%3A%20" target="_blank" rel="noreferrer">WhatsApp Mova</a>
           <a href="https://mova-intelligence.com" target="_blank" rel="noreferrer">Mova Intelligence</a>
         </div>
       </div>
@@ -687,13 +691,13 @@
   <script>
     /* Indonesian strings; English is taken from the page itself. */
     const I18N_ID = {
-      "meta.title": "Workshop AI or DIE Executive",
-      "meta.description": "Workshop eksekutif 5 jam di Jakarta, November 2026: AI or DIE &mdash; agen AI untuk pemimpin dan manajer, praktik untuk pekerjaan manajerial, tata kelola dan risiko, serta roadmap AI untuk organisasi Anda. IDR 1.500.000, terbatas 30 kursi.",
+      "meta.title": "Workshop AI or DIE Jakarta",
+      "meta.description": "Workshop satu hari di Jakarta, November 2026: AI or DIE &mdash; AI, LLM dan agen, bekerja dengan OpenCode dan Claude Code, keamanan agen, serta membangun agen sendiri dengan Spring Boot dan Spring AI. IDR 500.000, terbatas 50 kursi.",
       "theme.light": "Terang",
       "theme.dark": "Gelap",
 
       "nav.why": "Mengapa",
-      "nav.outcomes": "Yang Anda bawa pulang",
+      "nav.outcomes": "Yang Anda bangun",
       "nav.agenda": "Agenda",
       "nav.pricing": "Tiket",
       "nav.speaker": "Pembicara",
@@ -701,83 +705,86 @@
       "nav.formats": "Semua format",
       "nav.register": "Daftar",
 
-      "hero.eyebrow": "AI or DIE Executive &middot; Jakarta &middot; November 2026",
-      "hero.title": "AI or DIE. Lima Jam.<br><span class=\"text-gradient\">Keputusan Anda.</span>",
-      "hero.lead": "Untuk pemimpin dan manajer: pahami apa yang benar-benar bisa dilakukan agen AI, gunakan langsung untuk pekerjaan manajerial &mdash; dan pulang dengan roadmap untuk organisasi Anda.",
-      "hero.cta": "Pesan kursi &mdash; IDR 1.500.000",
+      "hero.eyebrow": "Workshop AI or DIE &middot; Jakarta &middot; November 2026",
+      "hero.title": "AI or DIE. Satu Hari.<br><span class=\"text-gradient\">Pilihan Anda.</span>",
+      "hero.lead": "Pahami AI, LLM dan agen, bekerja dengan OpenCode dan Claude Code &mdash; dan bangun agen Anda sendiri dengan Spring Boot dan Spring AI.",
+      "hero.cta": "Pesan kursi &mdash; IDR 500.000",
       "hero.link": "Lihat agenda",
       "chip.date": "19, 20 atau 21 Nov 2026 (menyusul)",
       "chip.venue": "Jakarta (lokasi menyusul)",
-      "chip.seats": "Maks. 30 peserta",
+      "chip.seats": "Maks. 50 peserta",
       "chip.lang": "Berbahasa Indonesia",
       "chip.wifi": "WiFi tersedia",
 
-      "why.title": "AI bukan sekadar fitur tambahan.<br>AI mengubah cara organisasi bekerja.<br><span class=\"text-gradient\">Dan mengubah hidup kita secara keseluruhan.</span>",
-      "why.lead": "Dari desktop ke web. Dari monolit ke cloud. Kini: dari aplikasi ke agen. Organisasi yang beradaptasi akan berkembang &mdash; organisasi yang mengabaikannya akan tertinggal. Itulah pesan <em>AI or DIE</em>.",
-      "why.text": "Edisi eksekutif ini mengubah keynote menjadi keputusan: apa arti agen AI bagi strategi, tim dan risiko Anda &mdash; dan bagaimana Anda sendiri menggunakannya dalam pekerjaan manajemen sehari-hari.",
-      "metric.1": "jam, wawasan &amp; praktik",
-      "metric.2": "sesi, dari alasan hingga roadmap",
+      "why.title": "AI bukan sekadar fitur tambahan.<br>AI mengubah cara software dibangun.<br><span class=\"text-gradient\">Dan mengubah hidup kita secara keseluruhan.</span>",
+      "why.lead": "Dari desktop ke web. Dari monolit ke cloud. Kini: dari aplikasi ke agen. Tim yang beradaptasi akan berkembang &mdash; tim yang mengabaikannya akan tertinggal. Itulah pesan <em>AI or DIE</em>.",
+      "why.text": "Workshop ini mengubah keynote menjadi praktik: dari alasan, melalui teori, hingga agen yang Anda gunakan setiap hari &mdash; dan satu agen yang Anda bangun sendiri dengan Java.",
+      "metric.1": "hari, teori &amp; praktik",
+      "metric.2": "sesi, dari alasan hingga praktik",
       "metric.3": "kursi &middot; 1 mentor per 10",
-      "metric.4": "roadmap AI untuk organisasi Anda",
+      "metric.4": "agen milik sendiri &mdash; buatan Anda",
 
-      "out.title": "Yang Anda Bawa Pulang",
-      "out.lead": "Enam sesi, satu tujuan: memutuskan dengan yakin di mana agen AI memberi nilai bagi organisasi Anda, bagaimana mengendalikan risikonya &mdash; dan menggunakannya sendiri mulai besok.",
-      "out.1.t": "AI or DIE &mdash; sudut pandang eksekutif",
-      "out.1.p": "Disrupted, irrelevant, extinct &mdash; atau AI-native. Posisi organisasi Anda pada model kematangan dari digitalisasi hingga agentic AI.",
-      "out.2.t": "Agen AI tanpa jargon",
-      "out.2.p": "Apa sebenarnya LLM dan agen, mana yang hype dan mana yang nyata saat ini, serta apa yang menentukan biaya, kualitas dan kecepatan.",
-      "out.3.t": "Agen untuk pekerjaan manajerial",
-      "out.3.p": "Praktik: presentasi direksi, analisis pasar dan kompetitor, riset saham, laporan dan memo keputusan &mdash; disiapkan oleh agen, diputuskan oleh Anda.",
-      "out.4.t": "Tata kelola, risiko &amp; keamanan",
-      "out.4.p": "Agen dapat melakukan semua yang diizinkan baginya. Kebijakan AI, hak akses, perlindungan data (UU PDP) dan human in the loop.",
-      "out.5.t": "Use case, build vs. buy &amp; ROI",
-      "out.5.p": "Temukan proses yang tepat, pilih antara low-code dan agen custom, serta perkirakan upaya dan hasilnya &mdash; dengan contoh nyata &ldquo;Warung Digital&rdquo;.",
-      "out.6.t": "Memimpin tim AI-native",
-      "out.6.p": "Peran &ldquo;product builder&rdquo;, micro-team dan pola pikir baru &mdash; serta cara membawa tim Anda ikut serta.",
+      "out.title": "Yang Akan Anda Pelajari",
+      "out.lead": "Enam sesi, satu tujuan: memahami cara kerja agen AI, menggunakannya dengan aman dalam pekerjaan sehari-hari &mdash; dan membangun agen Anda sendiri dengan Java.",
+      "out.1.t": "AI or DIE &mdash; mengapa sekarang",
+      "out.1.p": "Disrupted, irrelevant, extinct &mdash; atau AI-native. Teknologi, organisasi dan lingkungan, serta perjalanan dari digitalisasi menuju agentic AI.",
+      "out.2.t": "AI, LLM &amp; agen",
+      "out.2.p": "Bagaimana LLM dibuat, mengapa ia seperti &ldquo;burung beo yang pintar&rdquo;, dan apa yang menjadikannya agen: memori, RAG, tools dan MCP.",
+      "out.3.t": "Bekerja dengan agen AI",
+      "out.3.p": "OpenCode dan Claude Code untuk spec-driven development &mdash; dan jauh melampaui kode: presentasi, analisis saham, riset.",
+      "out.4.t": "Keamanan &amp; agen",
+      "out.4.p": "Agen dapat melakukan semua yang boleh Anda lakukan. Hak akses, sandbox, secret dan prompt injection &mdash; cara tetap memegang kendali.",
+      "out.5.t": "Agen Anda sendiri dengan Spring AI",
+      "out.5.p": "Contoh konkret, &ldquo;Warung Digital&rdquo;: asisten restoran yang dibangun dengan Spring Boot, Spring AI, model NVIDIA, RAG dan tools.",
+      "out.6.t": "Masa depan pekerjaan software",
+      "out.6.p": "Dari developer menjadi &ldquo;product builder&rdquo;, micro-team dan pola pikir baru: tentukan tujuannya, biarkan agen mengurus caranya.",
 
       "ag.title": "Sekilas Satu Hari",
-      "ag.lead": "19, 20 atau 21 November 2026 (tanggal menyusul) &middot; 09:30 &ndash; 14:30 WIB",
+      "ag.lead": "19, 20 atau 21 November 2026 (tanggal menyusul) &middot; 09:30 &ndash; 17:00 WIB",
       "ag.0.t": "Registrasi, kopi &amp; cek instalasi",
-      "ag.0.p": "Terhubung ke WiFi dan pastikan OpenCode atau Claude Code berjalan di laptop Anda. Mentor siap membantu jika ada yang kurang.",
-      "ag.1.t": "Pembukaan: AI or DIE &mdash; sudut pandang eksekutif",
-      "ag.1.p": "Disrupted. Irrelevant. Extinct. &mdash; atau AI-native? Pelajaran dari enam bulan membangun software dengan agen AI, kerangka TOE (teknologi, organisasi, lingkungan), dan model kematangan dari digitalisasi hingga agentic AI: di mana posisi organisasi Anda?",
-      "ag.2.t": "AI, LLM dan agen untuk pengambil keputusan",
-      "ag.2.p": "Apa itu LLM dan apa yang bukan, apa yang menjadikannya agen (memori, RAG, tools, MCP), aplikasi vs. layanan vs. agen &mdash; serta lanskap saat ini: Claude, OpenCode, Copilot, ChatGPT, Gemini dan lainnya. Hype vs. kenyataan, biaya dan vendor lock-in.",
-      "ag.3.t": "Praktik: agen untuk pekerjaan manajerial",
-      "ag.3.p": "Pilih tantangan Anda: membuat presentasi direksi dari brief singkat, menganalisis pasar dan kompetitor, meriset saham dari data publik, mengubah spreadsheet menjadi laporan manajemen atau menyusun memo keputusan. Analisis saham hanya untuk pembelajaran &mdash; bukan saran investasi.",
+      "ag.0.p": "Terhubung ke WiFi dan pastikan OpenCode atau Claude Code berjalan di laptop Anda. Asisten siap membantu jika ada yang kurang.",
+      "ag.1.t": "Pembukaan: AI or DIE",
+      "ag.1.p": "Disrupted. Irrelevant. Extinct. &mdash; atau AI-native? Pelajaran dari enam bulan membangun software dengan agen AI, kerangka TOE (teknologi, organisasi, lingkungan), model kematangan dari digitalisasi hingga agentic AI, dan evolusi pengembangan software: RAD &rarr; MDA &rarr; low-code &rarr; agen AI.",
+      "ag.2.t": "Teori: AI, LLM dan agen",
+      "ag.2.p": "Apa itu LLM dan bagaimana ia dilatih, jalan menuju AGI, anatomi sebuah agen (LLM sebagai otak, memori, RAG, tools, MCP), aplikasi vs. layanan vs. agen, agentic AI dengan otonomi dan perencanaan multi-langkah &mdash; serta lanskap agen saat ini: Claude, OpenCode, Copilot, ChatGPT, Gemini, OpenClaw dan lainnya.",
+      "ag.3.t": "Pengembangan software dengan agen AI",
+      "ag.3.p": "OpenCode dan Claude Code beraksi. Spec-driven development: specify &rarr; plan &rarr; tasks &rarr; implement. Demo langsung: dari GitHub issue menjadi fitur Spring Boot yang selesai, dibangun secara otonom. Kerja berbasis IDE vs. berbasis percakapan.",
       "ag.lunch": "Makan siang, networking &amp; istirahat Dzuhur",
-      "ag.4.t": "Tata kelola, risiko dan keamanan",
-      "ag.4.p": "Agen dapat melakukan semua yang diizinkan baginya &mdash; menghapus data, mengirim pesan, mengubah sistem. Least privilege, sandbox, secret, prompt injection, human in the loop, kebijakan AI untuk perusahaan Anda dan perlindungan data (UU PDP).",
-      "ag.5.t": "Dari use case ke roadmap",
-      "ag.5.p": "Demo langsung &ldquo;Warung Digital&rdquo;: asisten restoran yang dibangun dengan Spring Boot dan Spring AI &mdash; apa yang dibutuhkan dan berapa biayanya. Low-code vs. &ldquo;love-code&rdquo;, build vs. buy, ROI. Praktik: petakan proses Anda sendiri pada AI roadmap canvas dan pilih use case pertama Anda.",
-      "ag.6.t": "Memimpin tim AI-native &amp; penutupan",
-      "ag.6.p": "Peran &ldquo;product builder&rdquo; dan micro-team, dari berpikir imperatif ke deskriptif &mdash; &ldquo;Don&rsquo;t DIE, or at least DIE Hard.&rdquo; Tanya jawab, sertifikat dan foto bersama.",
+      "ag.4.t": "Lebih dari kode: agen untuk pekerjaan sehari-hari",
+      "ag.4.p": "Praktik: minta agen membuat presentasi, menganalisis pasar saham dari data publik, meriset sebuah topik atau mengotomatiskan dokumen. Pilih tantangan Anda dan temukan kemungkinan lainnya. Analisis saham hanya untuk pembelajaran &mdash; bukan saran investasi.",
+      "ag.5.t": "Keamanan dan agen: apa yang penting",
+      "ag.5.p": "Agent server vs. agent client: agen dapat melakukan semua yang boleh Anda lakukan &mdash; menghapus data, menginstal software, mengubah sistem. Least privilege, sandbox (Docker, NVIDIA OpenShell), secret dan token, prompt injection, human in the loop, serta perlindungan data (UU PDP).",
+      "ag.ashar": "Rehat kopi &amp; istirahat Ashar",
+      "ag.6.t": "Bangun agen Anda sendiri dengan Spring Boot &amp; Spring AI",
+      "ag.6.p": "Contoh konkret &ldquo;Warung Digital&rdquo;: asisten restoran yang mengenal menu, menerima pesanan dan memesan meja. <code>ChatClient</code>, memori percakapan, RAG untuk menu dan FAQ, method <code>@Tool</code> dan MCP &mdash; menggunakan model NVIDIA dari build.nvidia.com (atau Claude). Low-code vs. &ldquo;love-code&rdquo;.",
+      "ag.7.t": "Masa depan &amp; penutupan",
+      "ag.7.p": "Peran &ldquo;product builder&rdquo; dan micro-team, dari berpikir imperatif ke deskriptif &mdash; &ldquo;Don&rsquo;t DIE, or at least DIE Hard.&rdquo; Tanya jawab, sertifikat dan foto bersama.",
 
-      "aud.title": "Eksklusif. Kecil. Menentukan.",
-      "aud.lead": "Tiga puluh kursi untuk orang-orang yang menentukan arah organisasinya.",
+      "aud.title": "Eksklusif. Kecil. Berkomitmen.",
+      "aud.lead": "Kursi berbayar menyaring orang-orang yang benar-benar ingin membangun.",
       "aud.yes": "Workshop ini untuk Anda jika Anda&hellip;",
-      "aud.yes.1": "CEO, direktur atau anggota direksi",
-      "aud.yes.2": "Kepala IT, digital, operasional, HR atau keuangan",
-      "aud.yes.3": "Manajer atau team lead yang harus memutuskan investasi AI",
-      "aud.yes.4": "Pemilik UMKM atau founder yang ingin tahu apa yang benar-benar mungkin",
+      "aud.yes.1": "Software developer &mdash; diutamakan Java, bahasa OOP lain juga bisa",
+      "aud.yes.2": "Tech lead atau arsitek yang sedang mengevaluasi agen AI untuk perusahaan",
+      "aud.yes.3": "Mahasiswa tingkat akhir Informatika atau Sistem Informasi",
+      "aud.yes.4": "Founder UMKM atau product person &mdash; berpasangan dengan developer saat lab",
       "aud.no": "Mungkin bukan untuk Anda jika&hellip;",
-      "aud.no.1": "Anda ingin menulis kode dan membangun agen sendiri &mdash; ikuti workshop sehari penuh",
+      "aud.no.1": "Anda belum pernah memprogram dan ingin membangun agen Spring AI sendirian",
       "aud.no.2": "Anda mencari seminar yang hanya berisi ceramah",
       "aud.no.3": "Anda tidak dapat membawa laptop sendiri dengan OpenCode atau Claude Code terinstal",
 
       "price.title": "Satu Tiket. Semua Termasuk.",
-      "price.lead": "Investasi lima jam &mdash; dengan roadmap sebagai hasilnya.",
-      "price.tag": "Workshop eksekutif 5 jam",
+      "price.lead": "Cukup terjangkau untuk semua. Cukup bernilai untuk berkomitmen.",
+      "price.tag": "Workshop sehari penuh",
       "price.per": "/ orang",
       "price.pre": "<strong>Prasyarat:</strong> laptop sendiri dengan OpenCode (model gratis OpenCode atau NVIDIA) atau Claude Code (model Claude seperti Opus) terinstal.",
-      "price.1": "Lima jam wawasan dan praktik bersama pembicara dan 3 mentor",
-      "price.2": "Makan siang dan rehat kopi (halal, ada pilihan vegetarian)",
-      "price.3": "AI roadmap canvas dan checklist use case untuk organisasi Anda",
-      "price.4": "Slide, prompt dan template untuk pekerjaan manajerial",
+      "price.1": "Sehari penuh lab praktik bersama pembicara dan 5 mentor",
+      "price.2": "Makan siang dan dua kali rehat kopi (halal, ada pilihan vegetarian)",
+      "price.3": "Repository workshop dengan semua lab dan solusi",
+      "price.4": "Slide, prompt dan template spesifikasi",
       "price.5": "Sertifikat keikutsertaan",
-      "price.6": "Grup alumni eksekutif untuk pertanyaan lanjutan",
+      "price.6": "Grup alumni untuk pertanyaan lanjutan",
       "price.cta": "Pesan kursi Anda",
-      "price.pay": "Daftar via Google Form &middot; instruksi pembayaran (QRIS / transfer bank) dikirim via WhatsApp atau email &middot; hanya 30 kursi",
+      "price.pay": "Daftar via Google Form &middot; instruksi pembayaran (QRIS / transfer bank) dikirim via WhatsApp atau email &middot; hanya 50 kursi",
 
       "spk.roles": "Pionir Java &amp; Open Source &middot; Enterprise Architect &middot; Advokat AI &amp; Agentic Systems",
       "spk.eyebrow": "Trainer Anda",
@@ -791,34 +798,31 @@
       "spk.cv": "Perjalanan karier lengkap",
 
       "cases.title": "Berdasarkan Kasus Nyata",
-      "cases.lead": "Contoh-contoh disusun berdasarkan agen AI percakapan yang telah diterapkan untuk bisnis di Indonesia dari berbagai industri.",
+      "cases.lead": "Lab disusun berdasarkan agen AI percakapan yang telah diterapkan untuk bisnis di Indonesia dari berbagai industri.",
       "cases.1": "Restoran &amp; Kuliner",
       "cases.2": "Kesehatan",
       "cases.4": "Travel &amp; Pariwisata",
 
       "faq.title": "Pertanyaan",
       "faq.1.q": "Apa yang perlu saya siapkan?",
-      "faq.1.a": "Laptop sendiri dengan agen AI terinstal &mdash; <strong>OpenCode atau Claude Code</strong>. Ini adalah prasyarat untuk sesi praktik. WiFi tersedia di lokasi. Panduan instalasi langkah demi langkah dikirim setelah Anda mendaftar, dan mentor membantu sisa instalasi mulai pukul 09:30.",
-      "faq.2.q": "Apakah saya perlu pengetahuan teknis atau pemrograman?",
-      "faq.2.a": "Tidak. Workshop ini dirancang untuk pemimpin dan manajer. Anda bekerja dengan agen dalam bahasa sehari-hari; agen Spring AI ditampilkan sebagai demo langsung, bukan Anda yang membangunnya.",
+      "faq.1.a": "Laptop sendiri dengan agen AI terinstal &mdash; <strong>OpenCode atau Claude Code</strong>. Ini adalah prasyarat untuk mengikuti workshop. Untuk Sesi 5 Anda juga memerlukan JDK 21, Maven, Git dan sebuah IDE. WiFi tersedia di lokasi. Panduan instalasi dikirim setelah Anda mendaftar.",
+      "faq.2.q": "Apakah saya harus menguasai Java?",
+      "faq.2.a": "Hanya untuk Sesi 5. Sesi 1&ndash;4 dan 6 tidak memerlukan pemrograman &mdash; dan di Sesi 3 agenlah yang menulis kode. Untuk Sesi 5, latar belakang bahasa berorientasi objek apa pun sudah cukup, dan checkpoint branch membantu Anda menyusul.",
       "faq.3.q": "Apakah saya perlu API key atau langganan AI berbayar?",
-      "faq.3.a": "Tidak. Semua berjalan melalui internet dengan model gratis: OpenCode punya model gratis sendiri (OpenCode Zen), dan NVIDIA menyediakan model gratis di build.nvidia.com &mdash; cukup dengan akun gratis. Jika Anda punya Claude Code, Anda dapat menggunakan model Claude seperti Opus.",
+      "faq.3.a": "Tidak. Semua berjalan melalui internet dengan model gratis: OpenCode punya model gratis sendiri (OpenCode Zen), dan NVIDIA menyediakan model gratis di build.nvidia.com &mdash; cukup dengan akun gratis. Lab Spring AI menggunakan model gratis NVIDIA. Jika Anda punya Claude Code, Anda dapat menggunakan model Claude seperti Opus.",
       "faq.4.q": "Workshop menggunakan bahasa apa?",
       "faq.4.a": "Workshop sepenuhnya dalam Bahasa Indonesia. Website ini tersedia dalam dua bahasa.",
-      "faq.5.q": "Mengapa hanya 30 kursi?",
-      "faq.5.a": "Agar setiap peserta mendapat perhatian personal dan ruang untuk mendiskusikan organisasinya sendiri. Dengan pembicara dan tiga mentor, rasionya sekitar satu mentor untuk sepuluh peserta.",
-      "faq.6.q": "Bisakah perusahaan saya yang membayar, dan bisakah kami memesan beberapa kursi?",
-      "faq.6.a": "Bisa. Daftarkan setiap peserta melalui formulir dan sebutkan perusahaan Anda &mdash; instruksi pembayaran dan invoice dikirim via WhatsApp atau email. Untuk beberapa kursi dari satu perusahaan, silakan chat WhatsApp Mova.",
-      "faq.7.q": "Saya punya pertanyaan lain &mdash; ke mana saya bertanya?",
-      "faq.7.a": "Chat WhatsApp Mova: <a href=\"https://wa.me/6285121336927?text=Halo%20Mova%2C%20saya%20punya%20pertanyaan%20tentang%20Workshop%20AI%20or%20DIE%20Executive%20Jakarta%20%28November%202026%29%3A%20\" target=\"_blank\" rel=\"noreferrer\">+62 851-2133-6927</a> (Senin&ndash;Jumat, 09:00&ndash;18:00 WIB).",
+      "faq.5.q": "Mengapa hanya 50 kursi?",
+      "faq.5.a": "Agar setiap peserta mendapat bantuan personal. Dengan pembicara dan lima mentor, rasionya sekitar satu mentor untuk sepuluh peserta.",
+      "faq.6.q": "Saya punya pertanyaan lain &mdash; ke mana saya bertanya?",
+      "faq.6.a": "Chat WhatsApp Mova: <a href=\"https://wa.me/6285121336927?text=Halo%20Mova%2C%20saya%20punya%20pertanyaan%20tentang%20Workshop%20AI%20or%20DIE%20Jakarta%20%28November%202026%29%3A%20\" target=\"_blank\" rel=\"noreferrer\">+62 851-2133-6927</a> (Senin&ndash;Jumat, 09:00&ndash;18:00 WIB).",
 
-      "cta.title": "AI or DIE. Keputusan Anda.",
-      "cta.lead": "Luangkan lima jam untuk menentukan masa depan organisasi Anda, bukan hanya membacanya. Kursi terbatas 30 &mdash; pesan sekarang.",
-      "cta.btn": "Daftar &mdash; IDR 1.500.000",
+      "cta.title": "AI or DIE. Pilihan Anda.",
+      "cta.lead": "Luangkan satu hari untuk membangun masa depan, bukan hanya membacanya. Kursi terbatas 50 &mdash; pesan sekarang.",
+      "cta.btn": "Daftar &mdash; IDR 500.000",
       "cta.wa": "Ada pertanyaan? Chat WhatsApp Mova",
 
-      "foot.tag": "Workshop eksekutif 5 jam &middot; Jakarta &middot; November 2026",
-      "foot.full": "Workshop sehari penuh",
+      "foot.tag": "Workshop satu hari &middot; Jakarta &middot; November 2026",
       "foot.cv": "Perjalanan karier",
       "foot.more": "Lainnya"
     };
