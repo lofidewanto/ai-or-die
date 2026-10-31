@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Leveraging Open Source Technologies for e-Business in Hospitality Services</title>
+  <meta name="description" content="Leveraging Open Source Technologies for e-Business in Hospitality Services. Dr. Blasius Lofi Dewanto">
+  <meta name="theme-color" content="#d70015">
+  <link rel="icon" href="assets/img/favicon.png">
+  <link rel="preload" href="assets/fonts/inter-deck.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="assets/css/deck.css">
+  <link rel="stylesheet" href="assets/css/theme.css">
+  <link rel="stylesheet" href="assets/css/talk.css">
+  <script src="assets/js/deck.js" defer></script>
+</head>
+<body>
+<!-- Icons: Lucide (https://lucide.dev), ISC License – see THIRD_PARTY_NOTICES.md -->
+<svg class="sprite" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+    <defs>
+      <marker id="security-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 L10 5 L0 10 z" style="fill: var(--red-1)"/></marker>
+      <marker id="arrowhead" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0 0 L10 5 L0 10 z" style="fill: var(--red-1)"/></marker>
+      <marker id="arrowhead-macro" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="2.6" markerHeight="2.6" orient="auto"><path d="M0 0 L10 5 L0 10 z" style="fill: var(--brand-300)"/></marker>
+      <marker id="arrowhead-gold" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="2.6" markerHeight="2.6" orient="auto"><path d="M0 0 L10 5 L0 10 z" style="fill: var(--orange-strong)"/></marker>
+      <marker id="arrowhead-ink" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0 0 L10 5 L0 10 z" style="fill: var(--muted)"/></marker>
+      <marker id="arrowhead-ink-start" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" style="fill: var(--muted)"/></marker>
+    </defs>
+    <symbol id="i-bot" viewBox="0 0 24 24"><path d="M12 8V4H8" /><rect width="16" height="12" x="4" y="8" rx="2" /><path d="M2 14h2" /><path d="M20 14h2" /><path d="M15 13v2" /><path d="M9 13v2" /></symbol>
+    <symbol id="i-brain" viewBox="0 0 24 24"><path d="M12 18V5" /><path d="M15 13a4.17 4.17 0 01-3-4 4.17 4.17 0 01-3 4" /><path d="M17.707 6.294A3 3 0 1012 5a3 3 0 10-5.707 1.294" /><path d="M17.996 5.125a4 4 0 012.526 5.77" /><path d="M18 18a4 4 0 002-7.465" /><path d="M19.967 17.482a4 4 0 11-7.967.517 4 4 0 11-7.967-.517" /><path d="M6 18a4 4 0 01-2-7.465" /><path d="M6.004 5.125a4 4 0 00-2.526 5.77" /></symbol>
+    <symbol id="i-brain-circuit" viewBox="0 0 24 24"><path d="M12 13h4" /><path d="M12 18h6a2 2 0 012 2v1" /><path d="M12 8h8" /><path d="M12 9a4.17 4.17 0 01-3 4" /><path d="M16 8V5a2 2 0 012-2" /><path d="M6 18a4 4 0 01-2-7.465" /><path d="M6.004 5.125a4 4 0 00-2.526 5.77" /><path d="M6.294 6.294A3 3 0 1112 5v13a4 4 0 11-7.967-.518" /><circle cx="16" cy="13" r="0.5" fill="currentColor" /><circle cx="18" cy="3" r="0.5" fill="currentColor" /><circle cx="20" cy="21" r="0.5" fill="currentColor" /><circle cx="20" cy="8" r="0.5" fill="currentColor" /></symbol>
+    <symbol id="i-chevron-left" viewBox="0 0 24 24"><path d="m15 18-6-6 6-6" /></symbol>
+    <symbol id="i-chevron-right" viewBox="0 0 24 24"><path d="m9 18 6-6-6-6" /></symbol>
+    <symbol id="i-circle-help" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><path d="M12 17h.01"/></symbol>
+    <symbol id="i-code-xml" viewBox="0 0 24 24"><path d="m18 16 4-4-4-4" /><path d="m6 8-4 4 4 4" /><path d="m14.5 4-5 16" /></symbol>
+    <symbol id="i-cpu" viewBox="0 0 24 24"><path d="M12 20v2" /><path d="M12 2v2" /><path d="M17 20v2" /><path d="M17 2v2" /><path d="M2 12h2" /><path d="M2 17h2" /><path d="M2 7h2" /><path d="M20 12h2" /><path d="M20 17h2" /><path d="M20 7h2" /><path d="M7 20v2" /><path d="M7 2v2" /><rect x="4" y="4" width="16" height="16" rx="2" /><rect x="8" y="8" width="8" height="8" rx="1" /></symbol>
+    <symbol id="i-database" viewBox="0 0 24 24"><ellipse cx="12" cy="5" rx="9" ry="3" /><path d="M3 5V19A9 3 0 0 0 21 19V5" /><path d="M3 12A9 3 0 0 0 21 12" /></symbol>
+    <symbol id="i-globe" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></symbol>
+    <symbol id="i-graduation-cap" viewBox="0 0 24 24"><path d="M21.42 10.922a1 1 0 0 0-.019-1.838L12.83 5.18a2 2 0 0 0-1.66 0L2.6 9.08a1 1 0 0 0 0 1.832l8.57 3.908a2 2 0 0 0 1.66 0z"/><path d="M22 10v6"/><path d="M6 12.5V16a6 3 0 0 0 12 0v-3.5"/></symbol>
+    <symbol id="i-headset" viewBox="0 0 24 24"><path d="M3 11h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-5Zm0 0a9 9 0 1 1 18 0m0 0v5a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3Z"/><path d="M21 16v2a4 4 0 0 1-4 4h-5"/></symbol>
+    <symbol id="i-history" viewBox="0 0 24 24"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/><path d="M12 7v5l4 2"/></symbol>
+    <symbol id="i-laptop" viewBox="0 0 24 24"><path d="M18 5a2 2 0 0 1 2 2v8.526a2 2 0 0 0 .212.897l1.068 2.127a1 1 0 0 1-.9 1.45H3.62a1 1 0 0 1-.9-1.45l1.068-2.127A2 2 0 0 0 4 15.526V7a2 2 0 0 1 2-2z" /><path d="M20.054 15.987H3.946" /></symbol>
+    <symbol id="i-layout-grid" viewBox="0 0 24 24"><rect width="7" height="7" x="3" y="3" rx="1" /><rect width="7" height="7" x="14" y="3" rx="1" /><rect width="7" height="7" x="14" y="14" rx="1" /><rect width="7" height="7" x="3" y="14" rx="1" /></symbol>
+    <symbol id="i-link" viewBox="0 0 24 24"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></symbol>
+    <symbol id="i-lock-keyhole" viewBox="0 0 24 24"><circle cx="12" cy="16" r="1" /><rect x="3" y="10" width="18" height="12" rx="2" /><path d="M7 10V7a5 5 0 0 1 10 0v3" /></symbol>
+    <symbol id="i-maximize" viewBox="0 0 24 24"><path d="M8 3H5a2 2 0 0 0-2 2v3" /><path d="M21 8V5a2 2 0 0 0-2-2h-3" /><path d="M3 16v3a2 2 0 0 0 2 2h3" /><path d="M16 21h3a2 2 0 0 0 2-2v-3" /></symbol>
+    <symbol id="i-message-circle" viewBox="0 0 24 24"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></symbol>
+    <symbol id="i-minimize" viewBox="0 0 24 24"><path d="M8 3v3a2 2 0 0 1-2 2H3" /><path d="M21 8h-3a2 2 0 0 1-2-2V3" /><path d="M3 16h3a2 2 0 0 1 2 2v3" /><path d="M16 21v-3a2 2 0 0 1 2-2h3" /></symbol>
+    <symbol id="i-monitor" viewBox="0 0 24 24"><rect width="20" height="14" x="2" y="3" rx="2"/><line x1="8" x2="16" y1="21" y2="21"/><line x1="12" x2="12" y1="17" y2="21"/></symbol>
+    <symbol id="i-package" viewBox="0 0 24 24"><path d="M11 21.73a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73z" /><path d="M12 22V12" /><polyline points="3.29 7 12 12 20.71 7" /><path d="m7.5 4.27 9 5.15" /></symbol>
+    <symbol id="i-package-plus" viewBox="0 0 24 24"><path d="M12 22V12" /><path d="M16 17h6" /><path d="M19 14v6" /><path d="M21 10.535V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.729l7 4a2 2 0 0 0 2 .001l1.675-.955" /><path d="M3.29 7 12 12l8.71-5" /><path d="m7.5 4.27 8.997 5.148" /></symbol>
+    <symbol id="i-repeat" viewBox="0 0 24 24"><path d="m17 2 4 4-4 4"/><path d="M3 11v-1a4 4 0 0 1 4-4h14"/><path d="m7 22-4-4 4-4"/><path d="M21 13v1a4 4 0 0 1-4 4H3"/></symbol>
+    <symbol id="i-rocket" viewBox="0 0 24 24"><path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5" /><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09" /><path d="M9 12a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.4 22.4 0 0 1-4 2z" /><path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 .05 5 .05" /></symbol>
+    <symbol id="i-search" viewBox="0 0 24 24"><path d="m21 21-4.34-4.34" /><circle cx="11" cy="11" r="8" /></symbol>
+    <symbol id="i-shield-check" viewBox="0 0 24 24"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></symbol>
+    <symbol id="i-shopping-cart" viewBox="0 0 24 24"><circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/></symbol>
+    <symbol id="i-sparkles" viewBox="0 0 24 24"><path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z"/></symbol>
+    <symbol id="i-stethoscope" viewBox="0 0 24 24"><path d="M11 2v2"/><path d="M5 2v2"/><path d="M5 3H4a2 2 0 0 0-2 2v4a6 6 0 0 0 12 0V5a2 2 0 0 0-2-2h-1"/><path d="M8 15a6 6 0 0 0 12 0v-3"/><circle cx="20" cy="10" r="2"/></symbol>
+    <symbol id="i-target" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></symbol>
+    <symbol id="i-triangle-alert" viewBox="0 0 24 24"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3" /><path d="M12 9v4" /><path d="M12 17h.01" /></symbol>
+    <symbol id="i-user-cog" viewBox="0 0 24 24"><path d="M10 15H6a4 4 0 0 0-4 4v2" /><path d="m14.305 16.53.923-.382" /><path d="m15.228 13.852-.923-.383" /><path d="m16.852 12.228-.383-.923" /><path d="m16.852 17.772-.383.924" /><path d="m19.148 12.228.383-.923" /><path d="m19.53 18.696-.382-.924" /><path d="m20.772 13.852.924-.383" /><path d="m20.772 16.148.924.383" /><circle cx="18" cy="15" r="3" /><circle cx="9" cy="7" r="4" /></symbol>
+    <symbol id="i-utensils" viewBox="0 0 24 24"><path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 0 0 2-2V2"/><path d="M7 2v20"/><path d="M21 15V2a5 5 0 0 0-5 5v6c0 1.1.9 2 2 2h3Zm0 0v7"/></symbol>
+    <symbol id="i-workflow" viewBox="0 0 24 24"><rect width="8" height="8" x="3" y="3" rx="2" /><path d="M7 11v4a2 2 0 0 0 2 2h4" /><rect width="8" height="8" x="13" y="13" rx="2" /></symbol>
+    <symbol id="i-wrench" viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></symbol>
+</svg>
+
+<div class="viewport">
+  <main class="stage" aria-label="Presentation: Leveraging Open Source Technologies for e-Business in Hospitality Services">
+
+    <!-- 1 -->
+    <section class="slide slide--full no-footer" data-title="Leveraging Open Source Technologies for e-Business in Hospitality Services">
+      <img src="assets/img/slides/title.jpg" alt="Leveraging Open Source Technologies for e-Business in Hospitality Services. Dr. Blasius Lofi Dewanto. Cologne Cathedral and the Hohenzollern Bridge at night, Köln Germany 2025." width="1920" height="1080">
+    </section>
+
+    <!-- 2 -->
+    <section class="slide slide--photo-bg" data-title="Who am I?">
+      <img class="slide__bgphoto" src="assets/img/slides/bg-karneval.jpg" alt="" width="1920" height="863">
+      <header class="slide__header"><h2 class="slide__title">Who am I?</h2></header>
+      <div class="person">
+        <img class="person__photo" src="assets/img/portrait.webp" alt="Portrait of Dr. Blasius Lofi Dewanto" width="400" height="400">
+        <div class="person__text">
+          <h3 class="person__name">Dr. Blasius Lofi Dewanto</h3>
+          <p class="person__role">Software Expert</p>
+          <p class="person__bio">Java open-source software experts, author, trainer and speaker with over 30 years of professional experience in software development, consultant, engineering manager, technology advisor</p>
+        </div>
+      </div>
+      <p class="photo-credit">Köln Germany Karneval 2024</p>
+    </section>
+
+    <!-- 3 -->
+    <section class="slide" data-title="Agenda">
+      <header class="slide__header"><h2 class="slide__title">Agenda</h2></header>
+      <ol class="agenda"><li><a class="agenda__item" href="#/4"><span class="agenda__icon"><svg class="icon"><use href="#i-globe"/></svg></span><span class="agenda__num">01</span><span class="agenda__label">Hospitality Service: Context</span></a></li><li><a class="agenda__item" href="#/15"><span class="agenda__icon"><svg class="icon"><use href="#i-package"/></svg></span><span class="agenda__num">02</span><span class="agenda__label">Open Source Software</span></a></li><li><a class="agenda__item" href="#/27"><span class="agenda__icon"><svg class="icon"><use href="#i-rocket"/></svg></span><span class="agenda__num">03</span><span class="agenda__label">AI or DIE - Hospitality Service: Impact and Future</span></a></li></ol>
+    </section>
+
+    <!-- 4 -->
+    <section class="slide slide--section slide--section-photo no-footer" data-section-title="Context" data-title="Hospitality Service: Context">
+      <img class="section__photo" src="assets/img/slides/section-serignan.jpg" alt="" width="1920" height="1440">
+      <div class="section__content"><span class="section__num">01</span><h2 class="section__title">Hospitality Service: Context</h2></div>
+      <p class="section__credit">Serignan France 2025</p>
+    </section>
+
+    <!-- 5 -->
+    <section class="slide" data-title="Context">
+      <header class="slide__header"><h2 class="slide__title">Context</h2></header>
+      <div class="statement"><span class="compare__icon statement__icon"><svg class="icon"><use href="#i-utensils"/></svg></span><p class="statement__text"><strong>Hospitality service</strong> refers to the provision of <em>accommodation</em>, <em>food</em>, <em>beverages</em>, and related services to guests, with a strong focus on <strong>customer satisfaction, comfort, and experience</strong>.</p></div>
+    </section>
+
+    <!-- 6 -->
+    <section class="slide slide--full no-footer" data-title="Hospitality Service">
+      <img src="assets/img/slides/hospitality-service.jpg" alt="Hospitality service: creating memorable experiences, delivering more than expected. Definition: the provision of accommodation, food, beverages and related services to guests, with a strong focus on customer satisfaction, comfort and experience. Key characteristics: intangible, customer-centric, simultaneous production and consumption, perishable. Categories: accommodation, food and beverage, travel and tourism, recreation and entertainment, event and conference services. Levels of service: self-service, assisted, full, personalized or luxury. Core elements: professional behavior, communication skills, attention to detail, responsiveness, empathy and friendliness. Example hotel stay: the room is the product, check-in experience and staff attitude are the service." width="1920" height="1080">
+    </section>
+
+    <!-- 7 -->
+    <section class="slide" data-title="Maturity Level in Digital Transformation">
+      <header class="slide__header"><h2 class="slide__title">Maturity Level in Digital Transformation</h2></header>
+      <ol class="maturity"><li class="maturity__step fragment"><div class="maturity__arrow"><span class="maturity__num">01</span><img class="maturity__img" src="assets/img/pdf/mat1.webp" alt="" width="282" height="168"></div><h3 class="maturity__title">Digitization</h3><p class="maturity__text">Moving from paper/manual to digital records</p></li><li class="maturity__step fragment"><div class="maturity__arrow"><span class="maturity__num">02</span><img class="maturity__img" src="assets/img/pdf/mat2.webp" alt="" width="254" height="194"></div><h3 class="maturity__title">Digitalization</h3><p class="maturity__text">Streamlining processes with digital tools</p></li><li class="maturity__step fragment"><div class="maturity__arrow"><span class="maturity__num">03</span><img class="maturity__img" src="assets/img/pdf/mat3.webp" alt="" width="314" height="158"></div><h3 class="maturity__title">Automation</h3><p class="maturity__text">RPA<span class="ref">*</span> and basic AI assistants for efficiency</p></li><li class="maturity__step fragment"><div class="maturity__arrow"><span class="maturity__num">04</span><img class="maturity__img" src="assets/img/pdf/mat4.webp" alt="" width="178" height="166"></div><h3 class="maturity__title">Augmented Intelligence</h3><p class="maturity__text">AI insights guiding decision-making</p></li><li class="maturity__step maturity__step--highlight fragment"><div class="maturity__arrow"><span class="maturity__num">05</span><img class="maturity__img" src="assets/img/pdf/mat5.webp" alt="" width="192" height="208"></div><h3 class="maturity__title">AI Chatbot, AI Agent and Agentic AI</h3><p class="maturity__text">Autonomous agents that plan, act, collaborate, and optimize outcomes</p></li></ol><p class="footnote fragment fade" data-step="3"><span class="ref">*</span> RPA: Robotic Process Automation</p>
+    </section>
+
+    <!-- 8 -->
+    <section class="slide slide--full no-footer" data-title="Digital Transformation Trends in Hospitality Service">
+      <img src="assets/img/slides/digital-trends.jpg" alt="Digital transformation trends in hospitality service around the guest journey (before, during and after the stay): AI and intelligent automation, hyper-personalization, contactless and mobile-first services, IoT and smart rooms, cloud and platform integration, data-driven decision making, robotics and service automation, voice and conversational interfaces, sustainability and green technology, experience economy and digital ecosystems, end-to-end guest journey digitization." width="1920" height="1080">
+    </section>
+
+    <!-- 9 -->
+    <section class="slide slide--full no-footer" data-title="Digital Hospitality Ecosystem">
+      <img src="assets/img/slides/digital-ecosystem.jpg" alt="Digital hospitality ecosystem: logos of apps, platforms and systems by category: online travel agencies, travel and experience platforms, direct booking platforms, property management, revenue management, channel managers, payment and financial solutions, guest communication, guest experience and concierge apps, restaurant management, review and reputation management, analytics, staff and operations, housekeeping and maintenance, social media and marketing, loyalty and CRM." width="1920" height="1080">
+    </section>
+
+    <!-- 10 -->
+    <section class="slide slide--full no-footer" data-title="Key Challenges in E-Business in Hospitality Service">
+      <img src="assets/img/slides/key-challenges.jpg" alt="Key challenges in e-business in hospitality service: fragmented system landscape, dependency on OTAs, high cost of proprietary software, integration and interoperability, data management and personalization, security and compliance, scalability and performance, customer experience expectations, lack of technical expertise, rapid technological change. The core challenge is managing complexity across systems, data and customer touchpoints while staying competitive in a platform-dominated market." width="1920" height="1080">
+    </section>
+
+    <!-- 11 -->
+    <section class="slide" data-title="Understand The Process!">
+      <div class="statement"><span class="compare__icon statement__icon"><svg class="icon"><use href="#i-workflow"/></svg></span><p class="statement__text">Understand The Process!</p></div>
+    </section>
+
+    <!-- 12 -->
+    <section class="slide" data-title="Business Basic: Process and Domain">
+      <header class="slide__header"><h2 class="slide__title">Business Basic: Process and Domain</h2></header>
+      <figure class="dg"><svg viewBox="0 0 1696 580" role="img" aria-label="Six processes run across five domain verticals"><g class="b b--soft"><rect x="200" y="0" width="340" height="90" rx="16"/><text x="370.0" y="54.1">Process 1</text></g><path class="l l--red" d="M540 45 H674"/><g class="b b--soft"><rect x="680" y="0" width="340" height="90" rx="16"/><text x="850.0" y="54.1">Process 2</text></g><path class="l l--red" d="M1020 45 H1154"/><g class="b b--soft"><rect x="1160" y="0" width="340" height="90" rx="16"/><text x="1330.0" y="54.1">Process 3</text></g><g class="b b--soft"><rect x="200" y="120" width="340" height="90" rx="16"/><text x="370.0" y="174.1">Process 4</text></g><path class="l l--red" d="M540 165 H674"/><g class="b b--soft"><rect x="680" y="120" width="340" height="90" rx="16"/><text x="850.0" y="174.1">Process 5</text></g><path class="l l--red" d="M1020 165 H1154"/><g class="b b--soft"><rect x="1160" y="120" width="340" height="90" rx="16"/><text x="1330.0" y="174.1">Process 6</text></g><text x="848" y="250" class="t-muted" style="font-size: 24px">Process: customer journey, warehouse management, measure-diagnostic-treatment,</text><text x="848" y="284" class="t-muted" style="font-size: 24px">talent matching &amp; candidate screening, software development…</text><g class="b b--grey"><rect x="120" y="320" width="260" height="190" rx="16"/><text x="250.0" y="408.5">Domain</text><text x="250.0" y="439.7">Vertical 1</text></g><g class="b b--grey"><rect x="420" y="320" width="260" height="190" rx="16"/><text x="550.0" y="408.5">Domain</text><text x="550.0" y="439.7">Vertical 2</text></g><g class="b b--grey"><rect x="720" y="320" width="260" height="190" rx="16"/><text x="850.0" y="408.5">Domain</text><text x="850.0" y="439.7">Vertical 3</text></g><g class="b b--grey"><rect x="1020" y="320" width="260" height="190" rx="16"/><text x="1150.0" y="408.5">Domain</text><text x="1150.0" y="439.7">Vertical 4</text></g><g class="b b--grey"><rect x="1320" y="320" width="260" height="190" rx="16"/><text x="1450.0" y="408.5">Domain</text><text x="1450.0" y="439.7">Vertical 5</text></g><text x="848" y="560" class="t-muted" style="font-size: 24px">Domain: healthcare, e-commerce, food &amp; restaurant, travel, IT consulting, software…</text></svg></figure>
+    </section>
+
+    <!-- 13 -->
+    <section class="slide slide--full no-footer" data-title="Business Process Management (BPM)">
+      <img src="assets/img/slides/bpm.jpg" alt="Business Process Management: design, model, execute, monitor, improve. Components: process identification, design and modeling, execution, monitoring, improvement. Goals: operational efficiency, lower costs and cycle time, quality, customer satisfaction, agility, strategic objectives. BPMN, the Business Process Model and Notation, with common elements and a simple example process. BPM is a journey, not a project." width="1920" height="1080">
+    </section>
+
+    <!-- 14 -->
+    <section class="slide slide--section slide--section-photo no-footer" data-title="Demo: AI Agent for BPMN">
+      <img class="section__photo" src="assets/img/slides/section-garda.jpg" alt="" width="1920" height="1440">
+      <div class="section__content"><h2 class="section__title">Demo: AI Agent for BPMN</h2><p class="section__subtitle">Gemini - Image Generation</p><a class="section__link" href="https://github.com/lofidewanto/java-ai-simple-demos/issues/7" target="_blank" rel="noopener">https://github.com/lofidewanto/java-ai-simple-demos/issues/7</a></div>
+      <p class="section__credit">Garda Italy 2025</p>
+    </section>
+
+    <!-- 15 -->
+    <section class="slide slide--section slide--section-photo no-footer" data-section-title="Open Source Software" data-title="Open Source Software (OSS)">
+      <img class="section__photo" src="assets/img/slides/section-oss.jpg" alt="" width="1920" height="1440">
+      <div class="section__content"><span class="section__num">02</span><h2 class="section__title">Open Source Software (OSS)</h2></div>
+      <p class="section__credit">Serignan France 2025</p>
+    </section>
+
+    <!-- 16 -->
+    <section class="slide" data-title="OSS">
+      <header class="slide__header"><h2 class="slide__title">OSS</h2></header>
+      <div class="statement"><span class="compare__icon statement__icon"><svg class="icon"><use href="#i-code-xml"/></svg></span><p class="statement__text"><strong>Open Source Software (OSS)</strong> is software whose <strong>source code</strong> is publicly available for anyone to <em>view</em>, <em>use</em>, <em>modify</em>, and <em>distribute</em>.</p></div>
+    </section>
+
+    <!-- 17 -->
+    <section class="slide slide--full no-footer" data-title="All Major Open Source Software Licenses">
+      <img src="assets/img/slides/oss-licenses.jpg" alt="All major open source software licenses. Permissive: MIT, BSD, Apache 2.0, ISC. Strong copyleft: GNU GPL v2, GNU GPL v3, AGPL v3. Weak copyleft: LGPL v2.1, LGPL v3, MPL 2.0. Public domain: CC0. Other: EPL 2.0, CDDL 1.1, Unlicense. Always read the full license text; when in doubt, consult a legal professional." width="1920" height="1080">
+    </section>
+
+    <!-- 18 -->
+    <section class="slide slide--full no-footer" data-title="Business Models for Open Source Software (OSS)">
+      <img src="assets/img/slides/oss-business-models.jpg" alt="Business models for open source software: support and services (Red Hat), open core (GitLab), SaaS or hosted version (Automattic), dual licensing (MySQL), subscription model (Red Hat), donations and sponsorships (GitHub Sponsors), consulting and custom development, marketplace and ecosystem (Shopify). Many OSS companies combine these models." width="1920" height="1080">
+    </section>
+
+    <!-- 19 -->
+    <section class="slide" data-title="Why OSS matters?">
+      <header class="slide__header"><h2 class="slide__title">Why OSS matters?</h2><p class="slide__subtitle">Benefits for Hospitality Businesses</p></header>
+      <ul class="feats feats--2"><li class="feat fragment"><span class="feat__icon"><svg class="icon"><use href="#i-shopping-cart"/></svg></span><span>Cost efficiency and reduced licensing fees</span></li><li class="feat fragment"><span class="feat__icon"><svg class="icon"><use href="#i-wrench"/></svg></span><span>Flexibility and customization</span></li><li class="feat fragment"><span class="feat__icon"><svg class="icon"><use href="#i-rocket"/></svg></span><span>Faster innovation and integration</span></li><li class="feat fragment"><span class="feat__icon"><svg class="icon"><use href="#i-lock-keyhole"/></svg></span><span>Avoiding vendor dependency</span></li></ul>
+    </section>
+
+    <!-- 20 -->
+    <section class="slide" data-title="Today…">
+      <header class="slide__header"><h2 class="slide__title">Today…</h2></header>
+      <div class="statement"><span class="compare__icon statement__icon"><svg class="icon"><use href="#i-bot"/></svg></span><p class="statement__text"><strong>AI Agent for Software Development very strong:</strong></p><p class="statement__sub">Ask yourself again: Buy/use OSS <strong>or</strong> build custom software?</p></div>
+    </section>
+
+    <!-- 21 -->
+    <section class="slide" data-title="Buy vs. Build - Standard Software vs. Individual Software">
+      <header class="slide__header slide__header--tight"><h2 class="slide__title">Buy vs. Build - Standard Software vs. Individual Software</h2></header>
+      <img class="pdf-figure" src="assets/img/slides/buy-vs-build.jpg" alt="Customized standard software on one side, AI-powered individual software on the other, with SDD, specification-driven development, in the centre. Standard software vs. individual software in the AI era." width="800" height="446">
+    </section>
+
+    <!-- 22 -->
+    <section class="slide" data-title="OSS: Are you still taking, or are you already giving?">
+      <header class="slide__header slide__header--tight"><h2 class="slide__title">OSS: Are you still taking, or are you already giving?</h2></header>
+      <img class="pdf-figure" src="assets/img/slides/taking-or-giving.jpg" alt="Title slide of a FrOSCon 2019 talk by Lofi Dewanto: Nimmst du noch oder gibst du schon?" width="1920" height="1073">
+      <p class="source">German: <a href="https://youtu.be/NJtYDjqzR0U?si=IG-6nISQ9SuWYBBB" target="_blank" rel="noopener">https://youtu.be/NJtYDjqzR0U?si=IG-6nISQ9SuWYBBB</a></p>
+    </section>
+
+    <!-- 23 -->
+    <section class="slide slide--full no-footer" data-title="Open Source Applications &amp; Systems for Hospitality Services">
+      <img src="assets/img/slides/oss-systems.jpg" alt="Open source applications and systems for hospitality services, by category with product logos: property management, channel manager and distribution, booking engine, CRM and guest management, point of sale, payment and billing, content management, e-commerce, analytics and business intelligence, communication and collaboration, infrastructure and DevOps, database and data management, search and logging, security, cross-cutting integration. Open source requires proper planning, technical expertise and ongoing maintenance." width="1920" height="1080">
+    </section>
+
+    <!-- 24 -->
+    <section class="slide" data-title="State of Java 2025 Azul Survey">
+      <header class="slide__header slide__header--tight"><h2 class="slide__title">State of Java 2025 Azul Survey</h2></header>
+      <img class="corner-logo" src="assets/img/pdf/java.webp" alt="Java" width="354" height="480"><div class="survey"><p class="survey__lead">Java is the language of choice for AI development: 50% of organizations use Java to code AI functionality — surpassing both Python and JavaScript.</p><p class="survey__q">Which programming languages does your organization use to code AI functionality? Select all that apply.</p><ol class="bars" role="list" aria-label="Share of organizations by language"><li title="Java: 50%" style="--v: 50"><b>50%</b><i></i><span>Java</span></li><li title="JavaScript: 44%" style="--v: 44"><b>44%</b><i></i><span>JavaScript</span></li><li title="Python: 41%" style="--v: 41"><b>41%</b><i></i><span>Python</span></li><li title="C/C++: 41%" style="--v: 41"><b>41%</b><i></i><span>C/C++</span></li><li title="C#: 32%" style="--v: 32"><b>32%</b><i></i><span>C#</span></li><li title="Scala: 17%" style="--v: 17"><b>17%</b><i></i><span>Scala</span></li><li title="OpenCL: 16%" style="--v: 16"><b>16%</b><i></i><span>OpenCL</span></li><li title="Julia: 14%" style="--v: 14"><b>14%</b><i></i><span>Julia</span></li><li title="Mojo: 13%" style="--v: 13"><b>13%</b><i></i><span>Mojo</span></li><li title="CUDA: 13%" style="--v: 13"><b>13%</b><i></i><span>CUDA</span></li><li title="Haskell: 11%" style="--v: 11"><b>11%</b><i></i><span>Haskell</span></li><li title="Lisp: 10%" style="--v: 10"><b>10%</b><i></i><span>Lisp</span></li><li title="R: 10%" style="--v: 10"><b>10%</b><i></i><span>R</span></li><li title="Other: 9%" style="--v: 9"><b>9%</b><i></i><span>Other</span></li></ol></div><p class="source" style="padding-top: 8px">Figure 21 – 50% of companies that build AI functionality internally build it with Java.</p>
+    </section>
+
+    <!-- 25 -->
+    <section class="slide" data-title="OSS Technology Stack: Java: Spring Boot + Spring AI">
+      <header class="slide__header slide__header--tight"><h2 class="slide__title">OSS Technology Stack: Java: Spring Boot + Spring AI</h2></header>
+      <div class="cols-2 fill" style="grid-template-columns: 3fr 2fr"><article class="card training__card" style="--accent: var(--brand)"><h3 class="training__head">Spring AI</h3><div class="card-body"><ul class="bullets"><li>Seamless AI integration into existing Spring Boot applications.</li><li>Connects enterprise APIs and data with AI models.</li><li>Uses proven principles of the Spring ecosystem.</li><li>Core concept: <strong>ChatClient</strong> (similar to RestClient, JdbcClient, …)</li></ul></div></article><article class="card training__card" style="--accent: var(--bg-inverse)"><h3 class="training__head">ChatClient</h3><div class="card-body card-body--center"><ul class="chips"><li class="chip">ChatModel</li><li class="chip">ChatMemory</li><li class="chip">RAG with Advisors (AOP)</li><li class="chip">Tools</li></ul></div></article></div><div style="margin-top: 24px"><ul class="tiles tiles--row"><li class="tile"><img src="assets/img/pdf/spring-boot.webp" alt="Spring Boot" width="237" height="213"></li><li class="tile"><img src="assets/img/pdf/spring-ai.webp" alt="Spring AI" width="429" height="375"></li><li class="tile"><img src="assets/img/agent-anatomy-blue.webp" alt="AI agent" width="1392" height="1392"></li></ul></div>
+    </section>
+
+    <!-- 26 -->
+    <section class="slide" data-title="Tech Stack">
+      <header class="slide__header slide__header--tight"><h2 class="slide__title">Tech Stack</h2></header>
+      <div class="stack-split stack-split--logos"><div class="stack-col"><div class="stack-group"><ul class="tiles"><li class="tile"><img src="assets/img/stack/java.webp" alt="Java" width="125" height="240"></li><li class="tile"><img src="assets/img/stack/spring-boot.webp" alt="Spring Boot" width="264" height="240"></li><li class="tile"><img src="assets/img/stack/quarkus.webp" alt="Quarkus" width="240" height="240"></li></ul><p class="stack-group__label">Development Platforms</p></div><div class="stack-group"><ul class="tiles"><li class="tile"><img src="assets/img/stack/ollama.webp" alt="Ollama" width="185" height="240"></li><li class="tile"><img src="assets/img/stack/azure.webp" alt="Azure" width="254" height="240"></li><li class="tile"><img src="assets/img/stack/brain-circuit.webp" alt="Brain circuit icon" width="229" height="240"></li><li class="tile"><img src="assets/img/stack/openai.webp" alt="OpenAI" width="480" height="132"></li><li class="tile"><img src="assets/img/stack/groq.webp" alt="Groq" width="200" height="70"></li><li class="tile"><img src="assets/img/stack/openrouter.webp" alt="OpenRouter" width="286" height="240"></li></ul><p class="stack-group__label">Brain: LLMs</p></div><div class="stack-group"><ul class="tiles"><li class="tile"><img src="assets/img/stack/spring-ai.webp" alt="Spring AI" width="275" height="240"></li><li class="tile"><img src="assets/img/stack/langchain4j.webp" alt="LangChain4j" width="247" height="240"></li><li class="tile"><img src="assets/img/stack/embabel.webp" alt="Embabel" width="105" height="200"></li></ul><p class="stack-group__label">Agent and Agentic Frameworks</p></div><p class="stack-col__title">Backend</p></div><div class="stack-col"><div class="stack-group"><ul class="tiles"><li class="tile"><img src="assets/img/stack/vue.webp" alt="Vue" width="222" height="191"></li><li class="tile"><img src="assets/img/stack/react.webp" alt="React" width="177" height="177"></li><li class="tile"><img src="assets/img/stack/gwt.webp" alt="GWT" width="228" height="240"></li><li class="tile"><img src="assets/img/stack/vaadin.webp" alt="Vaadin" width="228" height="228"></li><li class="tile"><img src="assets/img/stack/chat.webp" alt="" width="242" height="240"><span>Chat in browser</span></li></ul><p class="stack-group__label">Web UI</p></div><div class="stack-group"><ul class="tiles"><li class="tile"><img src="assets/img/stack/open-webui.webp" alt="Open WebUI" width="300" height="223"></li><li class="tile"><img src="assets/img/stack/goose.webp" alt="Goose" width="240" height="240"></li><li class="tile"><img src="assets/img/stack/claude.webp" alt="Claude" width="240" height="240"></li><li class="tile"><img src="assets/img/stack/mcp.webp" alt="MCP" width="221" height="240"><span>MCP Clients</span></li><li class="tile"><img src="assets/img/stack/chatgpt.webp" alt="ChatGPT" width="223" height="240"></li></ul><p class="stack-group__label">MCP Clients</p></div><div class="stack-group"><ul class="tiles"><li class="tile"><img src="assets/img/stack/teams.webp" alt="Microsoft Teams" width="121" height="110"></li><li class="tile"><img src="assets/img/stack/whatsapp.webp" alt="WhatsApp" width="240" height="240"></li><li class="tile"><img src="assets/img/stack/telegram.webp" alt="Telegram" width="240" height="240"></li><li class="tile"><img src="assets/img/stack/instagram.webp" alt="Instagram" width="225" height="225"></li><li class="tile"><img src="assets/img/stack/tiktok.webp" alt="TikTok" width="135" height="135"></li></ul><p class="stack-group__label">Messengers / Community</p></div><p class="stack-col__title">Frontend / UI</p></div></div>
+    </section>
+
+    <!-- 27 -->
+    <section class="slide slide--section no-footer" data-section-title="Impact and Future" data-title="AI or DIE - Hospitality Service: Impact and Future">
+      <div class="section__content"><span class="section__num">03</span><h2 class="section__title section__title--md">AI or DIE - Hospitality Service: Impact and Future</h2></div>
+    </section>
+
+    <!-- 28 -->
+    <section class="slide slide--full no-footer" data-title="AI or DIE - Hospitality Service: Impact and Future">
+      <img src="assets/img/slides/die-hospitality.jpg" alt="AI or DIE, hospitality service: impact and future. Adopt AI: personalized, efficient, profitable, with dynamic pricing, robotic concierge and data analytics. DIE: disrupted, irrelevant and extinct. Disrupted: manual processes and service breakdown, slow operations, high costs, operational chaos. Irrelevant: outdated guest experience, unmet expectations, poor reviews, market share loss. Extinct: business closure, complete market obsolescence, irreversible decline, the end. Disclaimer: visual representation for strategic discussion." width="1920" height="1080">
+    </section>
+
+    <!-- 29 -->
+    <section class="slide" data-title="AI Agent">
+      <header class="slide__header"><h2 class="slide__title">AI Agent</h2></header>
+      <div class="cols-2 fill"><div class="statement" style="align-items: flex-start; text-align: left"><p class="statement__sub" style="margin: 0; font-size: 44px">An AI agent is a system that can <strong>perceive</strong> its environment, <strong>make decisions</strong>, and <strong>take actions</strong> to achieve a specific goal.</p><p class="statement__sub" style="font-size: 44px">It operates based on defined <strong>rules</strong>, <strong>models</strong>, or <strong>objectives</strong>.</p></div><figure class="dg"><svg viewBox="0 0 900 560" role="img" aria-label="Cycle: perceive, make decisions, take actions, with the brain in the centre"><g class="b b--soft"><rect x="40" y="420" width="240" height="110" rx="16"/><text x="160.0" y="484.1">Take actions</text></g><g class="b b--soft"><rect x="620" y="420" width="240" height="110" rx="16"/><text x="740.0" y="484.1">Make decisions</text></g><g class="b b--soft"><rect x="330" y="20" width="240" height="110" rx="16"/><text x="450.0" y="84.1">Perceive</text></g><circle class="torso" cx="450" cy="320" r="110"/><use class="ic " href="#i-brain" x="385" y="255" width="130" height="130"/><path class="l l--red" d="M580 130 C680 180 750 280 760 412"/><path class="l l--red" d="M612 480 H288"/><path class="l l--red" d="M140 412 C150 280 220 180 320 110"/></svg></figure></div>
+    </section>
+
+    <!-- 30 -->
+    <section class="slide" data-title="Mental Model: AI Agents">
+      <header class="slide__header"><h2 class="slide__title"><strong>Mental Model:</strong> AI Agents</h2></header>
+      <div class="cols-2"><article class="card training__card mental fragment" style="--accent: var(--brand)"><h3 class="training__head">IRON MAN &amp; IRONHEART</h3><div class="mental__media"><img src="assets/img/mental-ironman.webp" alt="Scenes from Iron Man and Ironheart" width="496" height="156"></div><ul class="icon-list"><li><svg class="icon"><use href="#i-user-cog"/></svg>Jarvis</li><li><svg class="icon"><use href="#i-brain-circuit"/></svg>Natalie</li></ul></article><article class="card training__card mental fragment" style="--accent: var(--bg-inverse)"><h3 class="training__head">STAR TREK</h3><div class="mental__media mental__media--pair"><img src="assets/img/mental-emh.webp" alt="The Emergency Medical Hologram from Star Trek" width="240" height="154"><img src="assets/img/mental-data.webp" alt="Data from Star Trek" width="224" height="154"></div><ul class="icon-list"><li><svg class="icon"><use href="#i-laptop"/></svg>Computer</li><li><svg class="icon"><use href="#i-cpu"/></svg>Emergency Medical Hologram (EMH)</li><li><svg class="icon"><use href="#i-database"/></svg>Data</li></ul></article></div>
+    </section>
+
+    <!-- 31 -->
+    <section class="slide slide--image no-footer" data-title="AI Agent: Your Buddy → Your Colleague">
+      <header class="slide__header slide__header--tight"><h2 class="slide__title">AI Agent: Your Buddy → Your Colleague</h2></header>
+      <img src="assets/img/agent-anatomy-blue.webp" alt="Anatomy of an AI agent: a human figure with LLM brain, system, user and AI messages, chat memory, knowledge and RAG, context, harness and control, tools, security, inside a sandbox" width="1392" height="1392">
+    </section>
+
+    <!-- 32 -->
+    <section class="slide" data-title="Core Components of an AI Agent (1)">
+      <header class="slide__header"><h2 class="slide__title">Core Components of an AI Agent (1)</h2></header>
+      <div class="cols-2 fill"><ul class="feats feats--sm"><li class="feat"><span class="feat__icon"><svg class="icon"><use href="#i-brain"/></svg></span><span>Brain: <strong>LLM</strong></span></li><li class="feat"><span class="feat__icon"><svg class="icon"><use href="#i-user-cog"/></svg></span><span>Persona: <strong>System Message</strong> / System Prompt</span></li><li class="feat"><span class="feat__icon"><svg class="icon"><use href="#i-history"/></svg></span><span><strong>Chat Memory:</strong> the stored conversation history that an agent uses as context for future responses</span></li><li class="feat"><span class="feat__icon"><svg class="icon"><use href="#i-target"/></svg></span><span><strong>Context:</strong> relevant information available to the agent at decision time</span></li></ul><article class="card training__card" style="--accent: var(--brand)"><h3 class="training__head">Knowledge Retriever: RAG</h3><div class="card-body card-body--sm"><p style="margin-bottom: 18px">Retrieval-Augmented Generation</p><ul class="feats feats--sm"><li class="feat"><span class="feat__icon"><svg class="icon"><use href="#i-search"/></svg></span><span><strong>Retrieval</strong> → Relevant information is fetched from an external knowledge source (e.g., vector database, documents, APIs).</span></li><li class="feat"><span class="feat__icon"><svg class="icon"><use href="#i-package-plus"/></svg></span><span><strong>Augmented</strong> → The retrieved information is added to the prompt.</span></li><li class="feat"><span class="feat__icon"><svg class="icon"><use href="#i-sparkles"/></svg></span><span><strong>Generation</strong> → The language model generates a response based on this enriched context.</span></li></ul></div></article></div>
+    </section>
+
+    <!-- 33 -->
+    <section class="slide" data-title="Core Components of an AI Agent (2)">
+      <header class="slide__header"><h2 class="slide__title">Core Components of an AI Agent (2)</h2></header>
+      <div class="cols-2 fill"><article class="card training__card" style="--accent: var(--brand)"><h3 class="training__head">Tools</h3><span class="compare__icon training__icon"><svg class="icon"><use href="#i-wrench"/></svg></span><div class="card-body card-body--center">External functions or systems the agent can call to interact with the real world</div></article><article class="card training__card" style="--accent: var(--bg-inverse)"><h3 class="training__head">Security</h3><span class="compare__icon training__icon"><svg class="icon"><use href="#i-shield-check"/></svg></span><div class="card-body card-body--center">AI agent security is the set of mechanisms that prevent the agent from being manipulated, leaking data, or performing harmful actions.</div></article></div>
+    </section>
+
+    <!-- 34 -->
+    <section class="slide" data-title="Training of an AI Agent">
+      <header class="slide__header"><h2 class="slide__title">Training of an AI Agent</h2></header>
+      <div class="cols-3 training"><article class="card training__card fragment" style="--accent: var(--brand)"><h3 class="training__head">Tools</h3><img class="training__icon training__img" src="assets/img/pdf/bolt.webp" alt="" width="93" height="123"><span class="training__meter" style="--pos: 90%" aria-hidden="true"></span><div class="card-body" style="padding-top: 0; text-align: center">For data that instantly/always needs to be actual: very short-lived, updated every second</div></article><article class="card training__card fragment" style="--accent: var(--red-3)"><h3 class="training__head">RAG</h3><img class="training__icon training__img" src="assets/img/pdf/refresh.webp" alt="" width="121" height="120"><span class="training__meter" style="--pos: 55%" aria-hidden="true"></span><div class="card-body" style="padding-top: 0; text-align: center">For data as the foundation of the LLM’s brain, updated regularly: short-term changes, e.g. weekly</div></article><article class="card training__card fragment" style="--accent: var(--bg-inverse)"><h3 class="training__head">Fine-tuning LLM</h3><img class="training__icon training__img" src="assets/img/pdf/books.webp" alt="" width="121" height="118"><span class="training__meter" style="--pos: 20%" aria-hidden="true"></span><div class="card-body" style="padding-top: 0; text-align: center">For data as the stable foundation of the brain, basically unchanging/facts: mid-term changes, e.g. monthly</div></article></div><p class="source"><a href="https://www.linkedin.com/posts/dr-lofi-dewanto_tinker-tinker-python-activity-7379782886352121856-LEeK" target="_blank" rel="noopener">https://www.linkedin.com/posts/dr-lofi-dewanto_tinker-tinker-python-activity-7379782886352121856-LEeK</a></p>
+    </section>
+
+    <!-- 35 -->
+    <section class="slide" data-title="What are the differences between apps, services, and AI agents?">
+      <div class="statement"><span class="compare__icon statement__icon"><svg class="icon"><use href="#i-circle-help"/></svg></span><p class="statement__text">What are the differences between apps, services, and AI agents?</p></div>
+    </section>
+
+    <!-- 36 -->
+    <section class="slide" data-title="Apps (Applications)">
+      <header class="slide__header slide__header--tight"><h2 class="slide__title">Apps (Applications)</h2><p class="slide__subtitle">Software that users directly interact with to accomplish specific tasks</p></header>
+      <div class="cols-2 fill"><article class="card training__card" style="--accent: var(--brand)"><h3 class="training__head">Key characteristics</h3><div class="card-body"><ul class="bullets"><li>User-driven (you click, type, navigate)</li><li>UI-centric (mobile app, web app, desktop app)</li><li>Reactive (waits for user input)</li><li>Usually task-scoped</li></ul></div></article><article class="card training__card" style="--accent: var(--bg-inverse)"><h3 class="training__head">Examples</h3><div class="card-body"><ul class="bullets"><li>Banking app</li><li>Jira</li><li>Instagram</li><li>A Vaadin-based enterprise UI</li></ul></div></article></div><p class="callout"><strong>Mental model:</strong> an app is a tool you operate manually.</p>
+    </section>
+
+    <!-- 37 -->
+    <section class="slide" data-title="Services (Backend)">
+      <header class="slide__header slide__header--tight"><h2 class="slide__title">Services (Backend)</h2><p class="slide__subtitle">Backend systems that provide functionality via APIs to other software</p></header>
+      <div class="cols-2 fill"><article class="card training__card" style="--accent: var(--brand)"><h3 class="training__head">Key characteristics</h3><div class="card-body"><ul class="bullets"><li>No direct user interaction (usually)</li><li>API-driven</li><li>Stateless or semi-stateful</li><li>Designed for programmatic access</li><li>Often part of microservice architectures</li></ul></div></article><article class="card training__card" style="--accent: var(--bg-inverse)"><h3 class="training__head">Examples</h3><div class="card-body"><ul class="bullets"><li>Payment processing API</li><li>Authentication server (OAuth2 API)</li><li>Recommendation engine API</li></ul></div></article></div><p class="callout"><strong>Mental model:</strong> a service is a capability exposed over a network.</p>
+    </section>
+
+    <!-- 38 -->
+    <section class="slide" data-title="AI Agents (1)">
+      <header class="slide__header"><h2 class="slide__title">AI Agents (1)</h2><p class="slide__subtitle">Autonomous (or semi-autonomous) systems that: perceive context, make decisions, plan actions, execute tasks, adapt over time</p></header>
+      <ul class="feats feats--2"><li class="feat"><span class="feat__icon"><svg class="icon"><use href="#i-target"/></svg></span><span>Goal-driven, not just request-driven</span></li><li class="feat"><span class="feat__icon"><svg class="icon"><use href="#i-rocket"/></svg></span><span>Can take initiative</span></li><li class="feat"><span class="feat__icon"><svg class="icon"><use href="#i-history"/></svg></span><span>Maintain memory/state</span></li><li class="feat"><span class="feat__icon"><svg class="icon"><use href="#i-wrench"/></svg></span><span>Can use tools (APIs/services)</span></li><li class="feat"><span class="feat__icon"><svg class="icon"><use href="#i-workflow"/></svg></span><span>Can chain actions</span></li><li class="feat"><span class="feat__icon"><svg class="icon"><use href="#i-repeat"/></svg></span><span>Often operate asynchronously</span></li><li class="feat"><span class="feat__icon"><svg class="icon"><use href="#i-message-circle"/></svg></span><span>Can talk with users with natural languages</span></li></ul>
+    </section>
+
+    <!-- 39 -->
+    <section class="slide" data-title="AI Agents (2)">
+      <header class="slide__header"><h2 class="slide__title">AI Agents (2)</h2><p class="slide__subtitle">Examples</p></header>
+      <ul class="feats feats--sm"><li class="feat"><span class="feat__icon"><svg class="icon"><use href="#i-globe"/></svg></span><span>An AI that books travel end-to-end</span></li><li class="feat"><span class="feat__icon"><svg class="icon"><use href="#i-shield-check"/></svg></span><span>An agent that monitors security alerts and patches systems</span></li><li class="feat"><span class="feat__icon"><svg class="icon"><use href="#i-code-xml"/></svg></span><span>A coding agent that writes, tests, and deploys code</span></li><li class="feat"><span class="feat__icon"><svg class="icon"><use href="#i-graduation-cap"/></svg></span><span>An AI academic advisor guiding students autonomously</span></li><li class="feat"><span class="feat__icon"><svg class="icon"><use href="#i-utensils"/></svg></span><span>A food and restaurant assistant that can order and deliver food and book a table</span></li></ul><p class="callout"><strong>Mental model:</strong> an AI agent is a software worker with autonomy.</p>
+    </section>
+
+    <!-- 40 -->
+    <section class="slide slide--section slide--section-photo no-footer" data-title="Demo: Building Customer Service AI Agent with Java and Spring Boot / Spring AI">
+      <img class="section__photo" src="assets/img/slides/section-rimini.jpg" alt="" width="1600" height="719">
+      <div class="section__content"><h2 class="section__title section__title--md">Demo: Building Customer Service AI Agent with Java and Spring Boot / Spring AI</h2><a class="section__link" href="https://github.com/lofidewanto/java-ai-simple-demos/tree/main/demo-spring-ai" target="_blank" rel="noopener">https://github.com/lofidewanto/java-ai-simple-demos/tree/main/demo-spring-ai</a></div>
+      <p class="section__credit">Rimini Italy 2025</p>
+    </section>
+
+    <!-- 41 -->
+    <section class="slide slide--full no-footer" data-title="Conversational UI">
+      <img src="assets/img/pdf/conversational-ui.webp" alt="A voice assistant connected to Mail, Calendar, News, Clock, Weather and Health as MCP cloud apps. Conversational UI. Apps as MCP backends. No UI-heavy development. Traditional UI and app development is crossed out." width="1920" height="1080">
+    </section>
+
+    <!-- 42 -->
+    <section class="slide" data-title="Personal Impact: One Person Enterprise">
+      <header class="slide__header slide__header--tight"><h2 class="slide__title">Personal Impact: One Person Enterprise</h2></header>
+      <div class="enterprise"><div class="enterprise__group"><p class="enterprise__label">AI offices</p><ul class="tiles"><li class="tile"><img src="assets/img/pdf/m365.webp" alt="Microsoft 365 Copilot" width="256" height="167"></li><li class="tile"><img src="assets/img/pdf/google-workplace.webp" alt="Google Workplace" width="242" height="118"><span>Google Workplace</span></li></ul></div><img class="enterprise__photo" src="assets/img/pdf/one-person-enterprise.webp" alt="A woman at a desk with a holographic display and robot assistants: one-person enterprise, powered by agentic AI" width="1024" height="1024"><div class="enterprise__group"><p class="enterprise__label">AI agents</p><ul class="tiles"><li class="tile"><img src="assets/img/pdf/chatgpt.webp" alt="" width="223" height="225"><span>ChatGPT</span></li><li class="tile"><img src="assets/img/pdf/grok.webp" alt="Grok" width="366" height="133"></li><li class="tile"><img src="assets/img/pdf/gemini.webp" alt="Gemini" width="370" height="133"></li><li class="tile"><img src="assets/img/pdf/ollama.webp" alt="Ollama" width="364" height="124"></li><li class="tile"><img src="assets/img/pdf/openclaw.webp" alt="OpenClaw" width="480" height="286"></li></ul></div><div class="enterprise__group"><p class="enterprise__label">AI dev copilots</p><ul class="tiles"><li class="tile"><img src="assets/img/pdf/copilot-round.webp" alt="GitHub Copilot" width="150" height="122"></li><li class="tile"><img src="assets/img/pdf/cursor-alt.webp" alt="Cursor" width="215" height="51"></li><li class="tile"><img src="assets/img/pdf/openai-codex.webp" alt="OpenAI Codex" width="480" height="331"></li><li class="tile"><img src="assets/img/pdf/claude.webp" alt="Claude" width="480" height="104"></li><li class="tile"><img src="assets/img/pdf/opencode-alt.webp" alt="OpenCode" width="480" height="270"></li></ul></div><div class="enterprise__group"><p class="enterprise__label">AI browsers</p><ul class="tiles"><li class="tile"><img src="assets/img/pdf/atlas.webp" alt="" width="225" height="225"><span>Atlas</span></li><li class="tile"><img src="assets/img/pdf/comet.webp" alt="Comet" width="211" height="212"></li></ul></div></div>
+    </section>
+
+    <!-- 43 -->
+    <section class="slide" data-title="Every business process that involves human–machine communication will be disrupted.">
+      <div class="statement"><span class="compare__icon statement__icon"><svg class="icon"><use href="#i-triangle-alert"/></svg></span><p class="statement__text">Every business process that involves human–machine communication will be disrupted.</p><p class="statement__sub">The <strong>customer journey</strong> is the most obvious case.</p></div>
+    </section>
+
+    <!-- 44 -->
+    <section class="slide slide--full no-footer" data-title="Demo: FeedSnap">
+      <img src="assets/img/pdf/demo-feedsnap.webp" alt="Demo: FeedSnap. https://feedsnap.ai. The FeedSnap website on a laptop, “Discover Best Cafes with FeedSnap AI”, next to a phone showing a Telegram chat that recommends places serving porridge near Jakarta Cathedral." width="1365" height="768">
+      <a class="slide-link" href="https://feedsnap.ai" target="_blank" rel="noopener" aria-label="Open feedsnap.ai" style="left:36.6%;top:19.8%;width:23.4%;height:6.6%"></a>
+    </section>
+
+    <!-- 45 -->
+    <section class="slide slide--full no-footer" data-title="Demo: Restaurant Justus">
+      <img src="assets/img/slides/demo-justus.jpg" alt="Demo: Restaurant Justus. The Justus Group website with special offers next to a phone showing a chat that recommends dishes." width="1920" height="1080">
+    </section>
+
+    <!-- 46 -->
+    <section class="slide slide--full no-footer" data-title="Demo: Traveling Golden Rama">
+      <img src="assets/img/slides/demo-golden-rama.jpg" alt="Demo: Traveling Golden Rama. The Golden Rama website, start planning your next journey, next to a phone showing a chat about tour packages." width="1920" height="1080">
+    </section>
+
+    <!-- 47 -->
+    <section class="slide" data-title="All Demos available at…">
+      <header class="slide__header"><h2 class="slide__title">All Demos available at…</h2></header>
+      <a class="big-link" href="https://mova-intelligence.com/solutions" target="_blank" rel="noopener">https://mova-intelligence.com/solutions</a><ul class="solutions"><li class="card solution"><span class="feat__icon"><svg class="icon"><use href="#i-utensils"/></svg></span><div><strong>Restaurant &amp; Food</strong><span>FeedSnap</span></div></li><li class="card solution"><span class="feat__icon"><svg class="icon"><use href="#i-headset"/></svg></span><div><strong>Healthcare Customer Service</strong><span>Mandaya Hospital</span></div></li><li class="card solution"><span class="feat__icon"><svg class="icon"><use href="#i-stethoscope"/></svg></span><div><strong>Healthcare SOAP</strong><span>Mandaya Hospital</span></div></li><li class="card solution"><span class="feat__icon"><svg class="icon"><use href="#i-monitor"/></svg></span><div><strong>eCommerce Computers</strong><span>Galva Technologies</span></div></li><li class="card solution"><span class="feat__icon"><svg class="icon"><use href="#i-globe"/></svg></span><div><strong>Traveling</strong><span>Goldenrama</span></div></li><li class="card solution"><span class="feat__icon"><svg class="icon"><use href="#i-shopping-cart"/></svg></span><div><strong>eCommerce &amp; Fruit</strong><span>Fantasia Raja Naga</span></div></li></ul>
+    </section>
+
+    <!-- 48 -->
+    <section class="slide" data-title="Academic Perspective">
+      <div class="statement"><span class="compare__icon statement__icon"><svg class="icon"><use href="#i-graduation-cap"/></svg></span><p class="statement__text"><strong>Academic Perspective:</strong> Computer Science? Computer Programming? Natural Language Processing? Large Language Models? Agentic AI? Physical AI? World AI?</p></div>
+    </section>
+
+    <!-- 49 -->
+    <section class="slide" data-title="AI Scales Beyond LLMs">
+      <header class="slide__header slide__header--tight"><h2 class="slide__title">AI Scales Beyond LLMs</h2><p class="slide__subtitle">“Everything Everywhere All at Once”</p></header>
+      <ul class="beyond"><li class="card fragment"><img class="beyond__img" src="assets/img/pdf/beyond1.webp" alt="" width="315" height="263">Compute is data</li><li class="card fragment"><img class="beyond__img" src="assets/img/pdf/beyond2.webp" alt="" width="236" height="278">AI becomes agentic</li><li class="card fragment"><img class="beyond__img" src="assets/img/pdf/beyond3.webp" alt="" width="262" height="215">Physical AI takes leap</li><li class="card fragment"><img class="beyond__img" src="assets/img/pdf/beyond4.webp" alt="" width="315" height="186">AI learns laws of nature</li><li class="card fragment"><img class="beyond__img" src="assets/img/pdf/beyond5.webp" alt="" width="210" height="236">Open models reach frontier</li></ul><p class="source"><a href="https://s201.q4cdn.com/141608511/files/doc_downloads/2026/01/05/JHH-CES-2026-FINAL.pdf" target="_blank" rel="noopener">https://s201.q4cdn.com/141608511/files/doc_downloads/2026/01/05/JHH-CES-2026-FINAL.pdf</a></p>
+    </section>
+
+    <!-- 50 -->
+    <section class="slide slide--section slide--section-photo no-footer" data-section-title="Summary" data-title="Summary">
+      <img class="section__photo" src="assets/img/slides/section-florence.jpg" alt="" width="1920" height="1440">
+      <div class="section__content"><h2 class="section__title">Summary</h2></div>
+      <p class="section__credit">Florence Italy 2025</p>
+    </section>
+
+    <!-- 51 -->
+    <section class="slide slide--full no-footer" data-title="The Future of Hospitality: 100% Agentic AI Operated">
+      <img src="assets/img/slides/future-hospitality.jpg" alt="The future of hospitality, 100% agentic AI operated: end-to-end service, zero human operations, maximum guest experience. Six steps from discover and plan to post-stay. An agentic AI orchestrator connects travel concierge, booking, communication, payment, operations, personalization, experience and analytics agents, backed by security, sustainability, revenue, HR, compliance and innovation agents. Humans in hospitality, where it matters most: bartenders, chefs, personal trainers, guest relations specialists, local guides. AI runs the hotel, humans create the magic." width="1920" height="1080">
+    </section>
+
+    <!-- 52 -->
+    <section class="slide" data-title="Today… Summary">
+      <header class="slide__header slide__header--tight"><h2 class="slide__title">Today…</h2></header>
+      <div class="cols-2 fill"><article class="card training__card" style="--accent: var(--brand)"><h3 class="training__head">AI in software development == Integration of LLMs → everywhere</h3><div class="card-body"><ul class="bullets"><li><strong>Software development process</strong> → Spec-Driven Development</li><li><strong>Integration in applications</strong> → Access to LLMs from every applications</li></ul></div></article><article class="card training__card" style="--accent: var(--bg-inverse)"><h3 class="training__head">AI agents and Agentic AI: “colleagues” and “companies”</h3><div class="card-body"><ul class="bullets"><li>Instead of teams / departments / divisions → AI agents</li><li>Together / collaboration / autonomy → agentic AI</li><li>The entire hospitality process is driven by agentic AI.</li></ul></div></article></div><p class="callout"><strong>The tech stack for Agentic AI is already production-ready today!</strong> Buy vs. Build</p>
+    </section>
+
+    <!-- 53 -->
+    <section class="slide" data-title="Social and People Impact">
+      <header class="slide__header slide__header--tight"><h2 class="slide__title">Social and People Impact</h2></header>
+      <img class="pdf-figure" src="assets/img/slides/question-mark.webp" alt="A large question mark" width="512" height="512">
+    </section>
+
+    <!-- 54 -->
+    <section class="slide slide--photo-bg" data-title="Contact">
+      <img class="slide__bgphoto" src="assets/img/slides/bg-villefranche.jpg" alt="" width="1920" height="1440">
+      <header class="slide__header"><h2 class="slide__title">Contact</h2></header>
+      <div class="person"><img class="person__photo" src="assets/img/portrait.webp" alt="Portrait of Dr. Blasius Lofi Dewanto" width="400" height="400"><div class="person__text"><h3 class="person__name">Dr. Blasius Lofi Dewanto</h3><ul class="person__links"><li><a href="https://bit.ly/XingDewanto" target="_blank" rel="noopener"><svg class="icon"><use href="#i-link"/></svg>XING</a></li><li><a href="https://bit.ly/LinkedInDewanto" target="_blank" rel="noopener"><svg class="icon"><use href="#i-link"/></svg>LinkedIn</a></li><li><a href="https://bit.ly/GitHubDewanto" target="_blank" rel="noopener"><svg class="icon"><use href="#i-link"/></svg>GitHub</a></li><li><a href="https://bit.ly/lofimedium" target="_blank" rel="noopener"><svg class="icon"><use href="#i-link"/></svg>Medium</a></li><li><a href="https://x.com/lofidewanto" target="_blank" rel="noopener"><svg class="icon"><use href="#i-link"/></svg>Twitter/X</a></li></ul></div></div>
+      <p class="photo-credit">Villefranche-sur-Mer, France 2025</p>
+    </section>
+
+  </main>
+</div>
+
+<div class="progress" aria-hidden="true"><div class="progress__bar"></div></div>
+
+<nav class="controls" aria-label="Slide controls">
+  <button type="button" data-action="prev" title="Back (←)" aria-label="Back"><svg class="icon"><use href="#i-chevron-left"/></svg></button>
+  <span class="controls__counter" data-counter>1 / 54</span>
+  <button type="button" data-action="next" title="Next (→ / Space)" aria-label="Next"><svg class="icon"><use href="#i-chevron-right"/></svg></button>
+  <button type="button" data-action="overview" title="Overview (O)" aria-label="Overview"><svg class="icon"><use href="#i-layout-grid"/></svg></button>
+  <button type="button" data-action="fullscreen" title="Fullscreen (F)" aria-label="Fullscreen"><svg class="icon"><use href="#i-maximize"/></svg></button>
+</nav>
+
+<div class="overview" role="dialog" aria-label="Slide overview" hidden>
+  <div class="overview__head">
+    <h2 class="overview__heading">Overview</h2>
+    <p class="overview__hint">Arrow keys select · Enter opens · Esc closes</p>
+    <button type="button" class="overview__close" data-action="close-overview">Close</button>
+  </div>
+  <ol class="overview__grid"></ol>
+</div>
+
+<p class="sr-only" aria-live="polite" data-status></p>
+</body>
+</html>
