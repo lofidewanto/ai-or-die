@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Software-Entwicklung unter Einsatz von KI</title>
+  <meta name="description" content="Software-Entwicklung unter Einsatz von KI: Vorteile, Implementierung und Erfahrungen. Dr. Blasius Lofi Dewanto">
+  <meta name="theme-color" content="#d70015">
+  <link rel="icon" href="assets/img/favicon.png">
+  <link rel="preload" href="assets/fonts/inter-deck.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="assets/css/deck.css">
+  <link rel="stylesheet" href="assets/css/theme.css">
+  <link rel="stylesheet" href="assets/css/talk.css">
+  <script src="assets/js/deck.js" defer></script>
+</head>
+<body>
+<!-- Icons: Lucide (https://lucide.dev), ISC License – see THIRD_PARTY_NOTICES.md -->
+<svg class="sprite" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+    <defs>
+      <marker id="security-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 L10 5 L0 10 z" style="fill: var(--red-1)"/></marker>
+      <marker id="arrowhead" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0 0 L10 5 L0 10 z" style="fill: var(--red-1)"/></marker>
+      <marker id="arrowhead-macro" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="2.6" markerHeight="2.6" orient="auto"><path d="M0 0 L10 5 L0 10 z" style="fill: var(--brand-300)"/></marker>
+      <marker id="arrowhead-gold" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="2.6" markerHeight="2.6" orient="auto"><path d="M0 0 L10 5 L0 10 z" style="fill: var(--orange-strong)"/></marker>
+      <marker id="arrowhead-ink" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0 0 L10 5 L0 10 z" style="fill: var(--muted)"/></marker>
+      <marker id="arrowhead-ink-start" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" style="fill: var(--muted)"/></marker>
+    </defs>
+    <symbol id="i-arrow-right" viewBox="0 0 24 24"><path d="M5 12h14" /><path d="m12 5 7 7-7 7" /></symbol>
+    <symbol id="i-bot" viewBox="0 0 24 24"><path d="M12 8V4H8" /><rect width="16" height="12" x="4" y="8" rx="2" /><path d="M2 14h2" /><path d="M20 14h2" /><path d="M15 13v2" /><path d="M9 13v2" /></symbol>
+    <symbol id="i-brain-circuit" viewBox="0 0 24 24"><path d="M12 13h4" /><path d="M12 18h6a2 2 0 012 2v1" /><path d="M12 8h8" /><path d="M12 9a4.17 4.17 0 01-3 4" /><path d="M16 8V5a2 2 0 012-2" /><path d="M6 18a4 4 0 01-2-7.465" /><path d="M6.004 5.125a4 4 0 00-2.526 5.77" /><path d="M6.294 6.294A3 3 0 1112 5v13a4 4 0 11-7.967-.518" /><circle cx="16" cy="13" r="0.5" fill="currentColor" /><circle cx="18" cy="3" r="0.5" fill="currentColor" /><circle cx="20" cy="21" r="0.5" fill="currentColor" /><circle cx="20" cy="8" r="0.5" fill="currentColor" /></symbol>
+    <symbol id="i-chart-column-big" viewBox="0 0 24 24"><path d="M3 3v16a2 2 0 0 0 2 2h16" /><rect x="15" y="5" width="4" height="12" rx="1" /><rect x="7" y="8" width="4" height="9" rx="1" /></symbol>
+    <symbol id="i-chevron-left" viewBox="0 0 24 24"><path d="m15 18-6-6 6-6" /></symbol>
+    <symbol id="i-chevron-right" viewBox="0 0 24 24"><path d="m9 18 6-6-6-6" /></symbol>
+    <symbol id="i-circle-play" viewBox="0 0 24 24"><path d="M9 9.003a1 1 0 0 1 1.517-.859l4.997 2.997a1 1 0 0 1 0 1.718l-4.997 2.997A1 1 0 0 1 9 14.996z" /><circle cx="12" cy="12" r="10" /></symbol>
+    <symbol id="i-code-xml" viewBox="0 0 24 24"><path d="m18 16 4-4-4-4" /><path d="m6 8-4 4 4 4" /><path d="m14.5 4-5 16" /></symbol>
+    <symbol id="i-cog" viewBox="0 0 24 24"><path d="M11 10.27 7 3.34" /><path d="m11 13.73-4 6.93" /><path d="M12 22v-2" /><path d="M12 2v2" /><path d="M14 12h8" /><path d="m17 20.66-1-1.73" /><path d="m17 3.34-1 1.73" /><path d="M2 12h2" /><path d="m20.66 17-1.73-1" /><path d="m20.66 7-1.73 1" /><path d="m3.34 17 1.73-1" /><path d="m3.34 7 1.73 1" /><circle cx="12" cy="12" r="2" /><circle cx="12" cy="12" r="8" /></symbol>
+    <symbol id="i-cpu" viewBox="0 0 24 24"><path d="M12 20v2" /><path d="M12 2v2" /><path d="M17 20v2" /><path d="M17 2v2" /><path d="M2 12h2" /><path d="M2 17h2" /><path d="M2 7h2" /><path d="M20 12h2" /><path d="M20 17h2" /><path d="M20 7h2" /><path d="M7 20v2" /><path d="M7 2v2" /><rect x="4" y="4" width="16" height="16" rx="2" /><rect x="8" y="8" width="8" height="8" rx="1" /></symbol>
+    <symbol id="i-database" viewBox="0 0 24 24"><ellipse cx="12" cy="5" rx="9" ry="3" /><path d="M3 5V19A9 3 0 0 0 21 19V5" /><path d="M3 12A9 3 0 0 0 21 12" /></symbol>
+    <symbol id="i-drafting-compass" viewBox="0 0 24 24"><path d="m12.99 6.74 1.93 3.44" /><path d="M19.136 12a10 10 0 0 1-14.271 0" /><path d="m21 21-2.16-3.84" /><path d="m3 21 8.02-14.26" /><circle cx="12" cy="5" r="2" /></symbol>
+    <symbol id="i-file-cog" viewBox="0 0 24 24"><path d="M15 8a1 1 0 0 1-1-1V2a2.4 2.4 0 0 1 1.704.706l3.588 3.588A2.4 2.4 0 0 1 20 8z" /><path d="M20 8v12a2 2 0 0 1-2 2h-4.182" /><path d="m3.305 19.53.923-.382" /><path d="M4 10.592V4a2 2 0 0 1 2-2h8" /><path d="m4.228 16.852-.924-.383" /><path d="m5.852 15.228-.383-.923" /><path d="m5.852 20.772-.383.924" /><path d="m8.148 15.228.383-.923" /><path d="m8.53 21.696-.382-.924" /><path d="m9.773 16.852.922-.383" /><path d="m9.773 19.148.922.383" /><circle cx="7" cy="18" r="3" /></symbol>
+    <symbol id="i-file-pen-line" viewBox="0 0 24 24"><path d="M14.364 13.634a2 2 0 0 0-.506.854l-.837 2.87a.5.5 0 0 0 .62.62l2.87-.837a2 2 0 0 0 .854-.506l4.013-4.009a1 1 0 0 0-3.004-3.004z" /><path d="M14.487 7.858A1 1 0 0 1 14 7V2" /><path d="M20 19.645V20a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h8a2.4 2.4 0 0 1 1.704.706l2.516 2.516" /><path d="M8 18h1" /></symbol>
+    <symbol id="i-flag" viewBox="0 0 24 24"><path d="M4 22V4a1 1 0 0 1 .4-.8A6 6 0 0 1 8 2c3 0 5 2 7.333 2q2 0 3.067-.8A1 1 0 0 1 20 4v10a1 1 0 0 1-.4.8A6 6 0 0 1 16 16c-3 0-5-2-8-2a6 6 0 0 0-4 1.528" /></symbol>
+    <symbol id="i-flask-conical" viewBox="0 0 24 24"><path d="M14 2v6a2 2 0 0 0 .245.96l5.51 10.08A2 2 0 0 1 18 22H6a2 2 0 0 1-1.755-2.96l5.51-10.08A2 2 0 0 0 10 8V2" /><path d="M6.453 15h11.094" /><path d="M8.5 2h7" /></symbol>
+    <symbol id="i-hard-drive-download" viewBox="0 0 24 24"><path d="M12 2v8" /><path d="m16 6-4 4-4-4" /><rect width="20" height="8" x="2" y="14" rx="2" /><path d="M6 18h.01" /><path d="M10 18h.01" /></symbol>
+    <symbol id="i-key-round" viewBox="0 0 24 24"><path d="M2.586 17.414A2 2 0 0 0 2 18.828V21a1 1 0 0 0 1 1h3a1 1 0 0 0 1-1v-1a1 1 0 0 1 1-1h1a1 1 0 0 0 1-1v-1a1 1 0 0 1 1-1h.172a2 2 0 0 0 1.414-.586l.814-.814a6.5 6.5 0 1 0-4-4z" /><circle cx="16.5" cy="7.5" r=".5" fill="currentColor" /></symbol>
+    <symbol id="i-laptop" viewBox="0 0 24 24"><path d="M18 5a2 2 0 0 1 2 2v8.526a2 2 0 0 0 .212.897l1.068 2.127a1 1 0 0 1-.9 1.45H3.62a1 1 0 0 1-.9-1.45l1.068-2.127A2 2 0 0 0 4 15.526V7a2 2 0 0 1 2-2z" /><path d="M20.054 15.987H3.946" /></symbol>
+    <symbol id="i-layout-grid" viewBox="0 0 24 24"><rect width="7" height="7" x="3" y="3" rx="1" /><rect width="7" height="7" x="14" y="3" rx="1" /><rect width="7" height="7" x="14" y="14" rx="1" /><rect width="7" height="7" x="3" y="14" rx="1" /></symbol>
+    <symbol id="i-link" viewBox="0 0 24 24"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></symbol>
+    <symbol id="i-list-checks" viewBox="0 0 24 24"><path d="M13 5h8" /><path d="M13 12h8" /><path d="M13 19h8" /><path d="m3 17 2 2 4-4" /><path d="m3 7 2 2 4-4" /></symbol>
+    <symbol id="i-maximize" viewBox="0 0 24 24"><path d="M8 3H5a2 2 0 0 0-2 2v3" /><path d="M21 8V5a2 2 0 0 0-2-2h-3" /><path d="M3 16v3a2 2 0 0 0 2 2h3" /><path d="M16 21h3a2 2 0 0 0 2-2v-3" /></symbol>
+    <symbol id="i-microscope" viewBox="0 0 24 24"><path d="M6 18h8" /><path d="M3 22h18" /><path d="M14 22a7 7 0 1 0 0-14h-1" /><path d="M9 14h2" /><path d="M9 12a2 2 0 0 1-2-2V6h6v4a2 2 0 0 1-2 2Z" /><path d="M12 6V3a1 1 0 0 0-1-1H9a1 1 0 0 0-1 1v3" /></symbol>
+    <symbol id="i-minimize" viewBox="0 0 24 24"><path d="M8 3v3a2 2 0 0 1-2 2H3" /><path d="M21 8h-3a2 2 0 0 1-2-2V3" /><path d="M3 16h3a2 2 0 0 1 2 2v3" /><path d="M16 21v-3a2 2 0 0 1 2-2h3" /></symbol>
+    <symbol id="i-package" viewBox="0 0 24 24"><path d="M11 21.73a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73z" /><path d="M12 22V12" /><polyline points="3.29 7 12 12 20.71 7" /><path d="m7.5 4.27 9 5.15" /></symbol>
+    <symbol id="i-rocket" viewBox="0 0 24 24"><path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5" /><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09" /><path d="M9 12a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.4 22.4 0 0 1-4 2z" /><path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 .05 5 .05" /></symbol>
+    <symbol id="i-scan-search" viewBox="0 0 24 24"><path d="M3 7V5a2 2 0 0 1 2-2h2" /><path d="M17 3h2a2 2 0 0 1 2 2v2" /><path d="M21 17v2a2 2 0 0 1-2 2h-2" /><path d="M7 21H5a2 2 0 0 1-2-2v-2" /><circle cx="12" cy="12" r="3" /><path d="m16 16-1.9-1.9" /></symbol>
+    <symbol id="i-search" viewBox="0 0 24 24"><path d="m21 21-4.34-4.34" /><circle cx="11" cy="11" r="8" /></symbol>
+    <symbol id="i-server" viewBox="0 0 24 24"><rect width="20" height="8" x="2" y="2" rx="2" ry="2" /><rect width="20" height="8" x="2" y="14" rx="2" ry="2" /><line x1="6" x2="6.01" y1="6" y2="6" /><line x1="6" x2="6.01" y1="18" y2="18" /></symbol>
+    <symbol id="i-user-cog" viewBox="0 0 24 24"><path d="M10 15H6a4 4 0 0 0-4 4v2" /><path d="m14.305 16.53.923-.382" /><path d="m15.228 13.852-.923-.383" /><path d="m16.852 12.228-.383-.923" /><path d="m16.852 17.772-.383.924" /><path d="m19.148 12.228.383-.923" /><path d="m19.53 18.696-.382-.924" /><path d="m20.772 13.852.924-.383" /><path d="m20.772 16.148.924.383" /><circle cx="18" cy="15" r="3" /><circle cx="9" cy="7" r="4" /></symbol>
+    <symbol id="i-workflow" viewBox="0 0 24 24"><rect width="8" height="8" x="3" y="3" rx="2" /><path d="M7 11v4a2 2 0 0 0 2 2h4" /><rect width="8" height="8" x="13" y="13" rx="2" /></symbol>
+</svg>
+
+<div class="viewport">
+  <main class="stage" aria-label="Präsentation: Software-Entwicklung unter Einsatz von KI">
+
+    <!-- 1 -->
+    <section class="slide slide--full no-footer" data-title="Software-Entwicklung unter Einsatz von KI">
+      <img src="assets/img/slides/title.jpg" alt="Software-Entwicklung unter Einsatz von KI: Vorteile, Implementierung und Erfahrungen. Dr. Blasius Lofi Dewanto. Hohenzollernbrücke bei Nacht mit einem Netz aus Lichtpunkten, oben links das DEVK-Logo." width="1024" height="576">
+    </section>
+
+    <!-- 2 -->
+    <section class="slide slide--full no-footer" data-title="9 Monate Erfahrungen">
+      <img src="assets/img/slides/neun-monate.jpg" alt="9 Monate Erfahrungen: der Kölner Dom und die Hohenzollernbrücke gehen in eine futuristische Stadt mit autonomen Fahrzeugen über, unten links das DEVK-Logo." width="1024" height="576">
+    </section>
+
+    <!-- 3 -->
+    <section class="slide no-footer" data-title="Agenda">
+      <img class="toe__photo" src="assets/img/slides/agenda-strand.jpg" alt="" width="1920" height="1440">
+      <header class="slide__header" style="position: relative"><h2 class="slide__title">Agenda</h2></header>
+      <svg class="toe__links" viewBox="0 0 1920 1080" aria-hidden="true">
+        <path d="M 290 497 C 400 400 700 420 1000 316"/>
+        <path d="M 1178 200 C 1290 250 1240 400 1150 560 C 1060 680 1090 770 1118 812"/>
+        <path d="M 1295 921 C 1200 1000 1000 980 870 860 C 720 720 620 640 470 605"/>
+      </svg>
+      <div class="toe__group" style="--tone: var(--orange-strong)">
+        <p class="toe__node" style="left: 122px; top: 497px">Umfeld<br>(Environment)</p>
+        <ul class="toe__chips" style="left: 47px; top: 757px"><li>Anforderungen</li><li>Kosten</li><li>Prozess</li></ul>
+      </div>
+      <div class="toe__group" style="--tone: var(--brand)">
+        <p class="toe__node" style="left: 838px; top: 92px">Technologie</p>
+        <ul class="toe__chips" style="left: 1295px; top: 94px"><li>LLM</li><li>KI-Agenten</li><li>Agentic AI</li><li>…</li></ul>
+      </div>
+      <div class="toe__group" style="--tone: var(--bg-inverse)">
+        <p class="toe__node" style="left: 1124px; top: 703px">Organisation</p>
+        <ul class="toe__chips" style="left: 1488px; top: 677px"><li>DevSecOps</li><li>Agile</li><li>Eine Person…</li><li>…</li></ul>
+      </div>
+      <p class="toe__credit">TOE Framework: Technology Organization Environment</p>
+    </section>
+
+    <!-- 4 -->
+    <section class="slide no-footer" data-section-title="Technologie" data-title="Agenda: Technologie">
+      <img class="toe__photo" src="assets/img/slides/agenda-strand.jpg" alt="" width="1920" height="1440">
+      <header class="slide__header" style="position: relative"><h2 class="slide__title">Agenda</h2></header>
+      <svg class="toe__links" viewBox="0 0 1920 1080" aria-hidden="true">
+        <path d="M 290 497 C 400 400 700 420 1000 316"/>
+        <path d="M 1178 200 C 1290 250 1240 400 1150 560 C 1060 680 1090 770 1118 812"/>
+        <path d="M 1295 921 C 1200 1000 1000 980 870 860 C 720 720 620 640 470 605"/>
+      </svg>
+      <div class="toe__group toe__group--dim" style="--tone: var(--orange-strong)">
+        <p class="toe__node" style="left: 122px; top: 497px">Umfeld<br>(Environment)</p>
+        <ul class="toe__chips" style="left: 47px; top: 757px"><li>Anforderungen</li><li>Kosten</li><li>Prozess</li></ul>
+      </div>
+      <div class="toe__group" style="--tone: var(--brand)">
+        <p class="toe__node" style="left: 838px; top: 92px">Technologie</p>
+        <ul class="toe__chips" style="left: 1295px; top: 94px"><li>LLM</li><li>KI-Agenten</li><li>Agentic AI</li><li>…</li></ul>
+      </div>
+      <div class="toe__group toe__group--dim" style="--tone: var(--bg-inverse)">
+        <p class="toe__node" style="left: 1124px; top: 703px">Organisation</p>
+        <ul class="toe__chips" style="left: 1488px; top: 677px"><li>DevSecOps</li><li>Agile</li><li>Eine Person…</li><li>…</li></ul>
+      </div>
+      <p class="toe__credit">TOE Framework: Technology Organization Environment</p>
+    </section>
+
+    <!-- 5 -->
+    <section class="slide" data-title="Reifegradmodell in der Digitalen Transformation">
+      <header class="slide__header"><h2 class="slide__title">Reifegradmodell in der Digitalen Transformation</h2></header>
+      <ol class="maturity"><li class="maturity__step fragment"><div class="maturity__arrow"><span class="maturity__num">01</span><img class="maturity__img" src="assets/img/pdf/mat1.webp" alt="" width="282" height="168"></div><h3 class="maturity__title">Digitalisierung</h3><p class="maturity__text">Übergang von Papier- oder manuellen Aufzeichnungen zu digitalen Daten</p></li><li class="maturity__step fragment"><div class="maturity__arrow"><span class="maturity__num">02</span><img class="maturity__img" src="assets/img/pdf/mat2.webp" alt="" width="254" height="194"></div><h3 class="maturity__title">Digitale Transformation</h3><p class="maturity__text">Straffung von Prozessen mit digitalen Werkzeugen</p></li><li class="maturity__step fragment"><div class="maturity__arrow"><span class="maturity__num">03</span><img class="maturity__img" src="assets/img/pdf/mat3.webp" alt="" width="314" height="158"></div><h3 class="maturity__title">Automatisierung</h3><p class="maturity__text">Prozessautomatisierung, RPA<span class="ref">*</span> und einfache KI-Werkzeuge zur Effizienzsteigerung</p></li><li class="maturity__step fragment"><div class="maturity__arrow"><span class="maturity__num">04</span><img class="maturity__img" src="assets/img/pdf/mat4.webp" alt="" width="178" height="166"></div><h3 class="maturity__title">Erweiterte Intelligenz</h3><p class="maturity__text">KI-gestützte Erkenntnisse zur Unterstützung der Entscheidungsfindung</p></li><li class="maturity__step maturity__step--highlight fragment"><div class="maturity__arrow"><span class="maturity__num">05</span><img class="maturity__img" src="assets/img/pdf/mat5.webp" alt="" width="192" height="208"></div><h3 class="maturity__title">KI-Agenten und Agentic AI</h3><p class="maturity__text">Autonome Agenten, die planen, handeln, zusammenarbeiten und Ergebnisse optimieren</p></li></ol><p class="footnote fragment fade" data-step="3"><span class="ref">*</span> RPA: Robotic Process Automation</p>
+    </section>
+
+    <!-- 6 -->
+    <section class="slide" data-title="Ein LLM ist ein schlauer Papagei">
+      <p class="lead">Ein Large Language Modell (LLM) ist ein <strong>Computerprogramm</strong>, das aus riesigen Mengen von <strong>Texten</strong> lernt, sodass es menschliche Sprache verstehen und <strong>menschenähnliche Texte</strong> erzeugen kann.</p>
+      <p class="lead"><strong>Ein schlauer Papagei zur Textvorhersage</strong>, der mit Unmengen an Texten trainiert wurde.</p>
+      <img class="pdf-figure" src="assets/img/slides/papagei.jpg" alt="Ein Papagei, verbunden mit einem Netz aus Lichtpunkten, nimmt Textströme auf und gibt ein Textdokument aus." width="2048" height="611">
+    </section>
+
+    <!-- 7 -->
+    <section class="slide" data-title="Der Heilige Gral: AGI">
+      <header class="slide__header slide__header--tight"><h2 class="slide__title">Der Heilige Gral der großen Sprachmodelle (LLMs) ist die <strong>AGI</strong> (Artificial General Intelligence)</h2></header>
+      <img class="pdf-figure" src="assets/img/slides/agi.jpg" alt="Links: AGI ist eine KI, die jede menschliche Denkaufgabe bewältigen kann. Rechts: Bilder, Audio und Sensorik neben Text. Benötigt AGI mehr als nur Text?" width="1925" height="669">
+    </section>
+
+    <!-- 8 -->
+    <section class="slide" data-title="Vor der Nutzung sollte man wissen, wie das LLM entsteht.">
+      <header class="slide__header"><h2 class="slide__title">Vor der Nutzung sollte man wissen, wie das LLM entsteht.</h2></header>
+      <div class="video-card card">
+        <p class="video-card__title"><em>“Deep Dive into LLMs”</em> – Andrey Karpathy</p>
+        <a class="video-card__button" href="https://youtu.be/7xTGNNLPyMI?si=lPrCfWlPBsH8lHa3" target="_blank" rel="noopener"><svg class="icon"><use href="#i-circle-play"/></svg><span>Video ansehen: <u>YouTube Link</u></span></a>
+        <p class="video-card__url">https://youtu.be/7xTGNNLPyMI?si=lPrCfWlPBsH8lHa3</p>
+      </div>
+    </section>
+
+    <!-- 9 -->
+    <section class="slide" data-title="Erstellung eines LLM">
+      <header class="slide__header slide__header--tight"><h2 class="slide__title">Erstellung eines LLM</h2><p class="slide__subtitle">Summary: how to train your ChatGPT</p></header>
+      <div class="cols-2 fill"><article class="card training__card fragment" style="--accent: var(--brand)"><h3 class="training__head">Stage 1: Pretraining · every ~year</h3><img class="card-media" src="assets/img/pdf/gpu-cluster.webp" alt="Wortwolke aus Text neben einem GPU-Rechenzentrum" width="390" height="209"><div class="card-body card-body--lists"><ol><li>Download ~10TB of text.</li><li>Get a cluster of ~6,000 GPUs.</li><li>Compress the text into a neural network, pay ~$2M, wait ~12 days.</li><li>Obtain <strong>base model</strong>.</li></ol></div></article><article class="card training__card fragment" style="--accent: var(--bg-inverse)"><h3 class="training__head">Stage 2: Finetuning · every ~week</h3><img class="card-media" src="assets/img/pdf/finetune-people.webp" alt="Eine Gruppe von Menschen über einer Beispielfrage mit Antwort" width="378" height="343"><div class="card-body card-body--lists"><ol><li>Write labeling instructions.</li><li>Hire people (or use scale.ai!), collect 100K high quality ideal Q&amp;A responses, and/or comparisons.</li><li>Finetune base model on this data, wait ~1 day.</li><li>Obtain <strong>assistant model</strong>.</li><li>Run a lot of evaluations.</li><li>Deploy.</li><li>Monitor, collect misbehaviors, go to step 1.</li></ol></div></article></div><p class="source"><a href="https://youtu.be/zjkBMFhNj_g?si=BdtssXPoaCeg_z5t" target="_blank" rel="noopener">https://youtu.be/zjkBMFhNj_g?si=BdtssXPoaCeg_z5t</a></p>
+    </section>
+
+    <!-- 10 -->
+    <section class="slide" data-title="Mental-Modell: KI-Agenten">
+      <header class="slide__header"><h2 class="slide__title"><strong>Mental-Modell:</strong> KI-Agenten</h2></header>
+      <div class="cols-2"><article class="card training__card mental fragment" style="--accent: var(--brand)"><h3 class="training__head">IRON MAN &amp; IRONHEART</h3><div class="mental__media"><img src="assets/img/mental-ironman.webp" alt="Szenen aus Iron Man und Ironheart" width="496" height="156"></div><ul class="icon-list"><li><svg class="icon"><use href="#i-user-cog"/></svg>Jarvis</li><li><svg class="icon"><use href="#i-brain-circuit"/></svg>Natalie</li></ul></article><article class="card training__card mental fragment" style="--accent: var(--bg-inverse)"><h3 class="training__head">STAR TREK AI</h3><div class="mental__media mental__media--pair"><img src="assets/img/mental-emh.webp" alt="Das Emergency Medical Hologram aus Star Trek" width="240" height="154"><img src="assets/img/mental-data.webp" alt="Data aus Star Trek" width="224" height="154"></div><ul class="icon-list"><li><svg class="icon"><use href="#i-laptop"/></svg>Computer</li><li><svg class="icon"><use href="#i-cpu"/></svg>Emergency Medical Hologram (EMH)</li><li><svg class="icon"><use href="#i-database"/></svg>Data</li></ul></article></div>
+    </section>
+
+    <!-- 11 -->
+    <section class="slide slide--image no-footer" data-title="KI-Agent: Buddy → Assistent → Copilot">
+      <header class="slide__header slide__header--tight"><h2 class="slide__title">KI-Agent: <em>Buddy</em> → Assistent → Copilot</h2></header>
+      <img src="assets/img/agent-anatomy-blue.webp" alt="Anatomie eines KI-Agenten: eine menschliche Figur mit LLM als Gehirn, System-, User- und AI-Messages, Chat Memory, Wissen und RAG, Context, Steuerung, Tools und Security in einer Sandbox" width="1392" height="1392">
+    </section>
+
+    <!-- 12 -->
+    <section class="slide slide--full no-footer" data-title="Eigentlich ist alles Text">
+      <img src="assets/img/slides/alles-text.jpg" alt="Was als Text vorhanden ist, kann man vom Agenten jederzeit bearbeiten lassen. Und … eigentlich ist alles Text, was wir machen. Daneben eine Kugel aus Text, die ein LLM-Kopf mit einem Stift bearbeitet." width="1024" height="576">
+    </section>
+
+    <!-- 13 -->
+    <section class="slide slide--full no-footer" data-title="Natürliche Sprache">
+      <img src="assets/img/slides/natuerliche-sprache.jpg" alt="Ich kann mit den Agenten in natürlicher Sprache kommunizieren! Ein Gesicht im Profil spricht zu einem Globus mit Sprechblase." width="1024" height="576">
+    </section>
+
+    <!-- 14 -->
+    <section class="slide" data-title="Training von KI-Agenten">
+      <header class="slide__header"><h2 class="slide__title">Training von KI-Agenten</h2></header>
+      <div class="cols-3 training"><article class="card training__card fragment" style="--accent: var(--brand)"><h3 class="training__head">Tools</h3><img class="training__icon training__img" src="assets/img/slides/training-tools.jpg" alt="" width="207" height="210" style="width: auto; height: 300px; border-radius: 18px"><span class="training__meter" style="--pos: 90%" aria-hidden="true"></span><div class="card-body" style="padding-top: 0; text-align: center">Sekündlich aktualisiert<br>Ständig aktuelle Daten</div></article><article class="card training__card fragment" style="--accent: var(--red-3)"><h3 class="training__head">RAG</h3><img class="training__icon training__img" src="assets/img/slides/training-rag.jpg" alt="" width="196" height="210" style="width: auto; height: 300px; border-radius: 18px"><span class="training__meter" style="--pos: 55%" aria-hidden="true"></span><div class="card-body" style="padding-top: 0; text-align: center">Wöchentliche Updates<br>Kontext &amp; Faktenprüfung</div></article><article class="card training__card fragment" style="--accent: var(--bg-inverse)"><h3 class="training__head">Fine-tuning LLM</h3><img class="training__icon training__img" src="assets/img/slides/training-finetuning.jpg" alt="" width="186" height="210" style="width: auto; height: 300px; border-radius: 18px"><span class="training__meter" style="--pos: 20%" aria-hidden="true"></span><div class="card-body" style="padding-top: 0; text-align: center">Monatliche Updates<br>Stabile Wissensgrundlage</div></article></div><p class="source"><a href="https://www.linkedin.com/posts/dr-lofi-dewanto_tinker-tinker-python-activity-7379782886352121856-LEeK" target="_blank" rel="noopener">https://www.linkedin.com/posts/dr-lofi-dewanto_tinker-tinker-python-activity-7379782886352121856-LEeK</a></p>
+    </section>
+
+    <!-- 15 -->
+    <section class="slide slide--full no-footer" data-title="Beispiele von KI-Agenten">
+      <img src="assets/img/slides/agenten-beispiele.jpg" alt="Beispiele von KI-Agenten: Anthropic Claude, OpenCode.ai, GitHub Copilot, ChatGPT, Manus AI, Gemini, OpenClaw, JavaClaw/ClawRunr, Paperclip, Hermes Agent und viele weitere." width="1408" height="792">
+    </section>
+
+    <!-- 16 -->
+    <section class="slide slide--full no-footer" data-title="Apps, Dienste und KI-Agenten">
+      <img src="assets/img/slides/apps-dienste-agenten.jpg" alt="Was sind die Unterschiede zwischen Apps, Diensten und KI-Agenten? Apps: nutzergesteuert, lokale Ausführung, Fokus auf Einzelaufgaben. Dienste: Backend-basiert, netzwerkgesteuert, dauerhafte Funktionen. KI-Agenten: autonom und proaktiv, lernfähig und kontextbewusst, KI-gesteuerte Entscheidungen." width="1024" height="576">
+    </section>
+
+    <!-- 17 -->
+    <section class="slide" data-title="Agentic AI: Autonomie, Multi-Schritte und Revision">
+      <header class="slide__header slide__header--tight"><h2 class="slide__title">Agentic AI: Autonomie, Multi-Schritte und Revision</h2></header>
+      <figure class="dg"><svg viewBox="0 0 1696 740" role="img" aria-label="Agentic AI als Unternehmen: KI-Agenten arbeiten über Domain X, Domain Y und Domain Z hinweg zusammen"><text x="848" y="40" class="t-bold" style="font-size: 36px">Agentic AI as Company</text><rect class="b" x="60" y="120" width="420" height="520" rx="28"/><g class="b b--brand"><rect x="170" y="94" width="200" height="52" rx="26"/><text x="270.0" y="129.1">Domain X</text></g><rect class="b" x="640" y="180" width="420" height="400" rx="28"/><g class="b b--brand"><rect x="750" y="154" width="200" height="52" rx="26"/><text x="850.0" y="189.1">Domain Y</text></g><rect class="b" x="1216" y="90" width="420" height="460" rx="28"/><g class="b b--brand"><rect x="1326" y="64" width="200" height="52" rx="26"/><text x="1426.0" y="99.1">Domain Z</text></g><path class="l l--red" d="M380 330 C520 330 540 340 690 360"/><path class="l l--red" d="M960 360 C1100 360 1120 300 1266 300"/><path class="l l--dash" d="M1320 460 C1100 680 480 720 320 560"/><g class="b b--dark"><rect x="120" y="200" width="96" height="96" rx="18"/></g><use class="ic ic--white" href="#i-bot" x="133.44" y="213.44" width="69.12" height="69.12"/><g class="b b--dark"><rect x="250" y="200" width="96" height="96" rx="18"/></g><use class="ic ic--white" href="#i-bot" x="263.44" y="213.44" width="69.12" height="69.12"/><g class="b b--dark"><rect x="120" y="330" width="96" height="96" rx="18"/></g><use class="ic ic--white" href="#i-bot" x="133.44" y="343.44" width="69.12" height="69.12"/><g class="b b--dark"><rect x="250" y="330" width="96" height="96" rx="18"/></g><use class="ic ic--white" href="#i-bot" x="263.44" y="343.44" width="69.12" height="69.12"/><g class="b b--dark"><rect x="120" y="460" width="96" height="96" rx="18"/></g><use class="ic ic--white" href="#i-bot" x="133.44" y="473.44" width="69.12" height="69.12"/><g class="b b--dark"><rect x="250" y="460" width="96" height="96" rx="18"/></g><use class="ic ic--white" href="#i-bot" x="263.44" y="473.44" width="69.12" height="69.12"/><g class="b b--dark"><rect x="700" y="280" width="96" height="96" rx="18"/></g><use class="ic ic--white" href="#i-bot" x="713.44" y="293.44" width="69.12" height="69.12"/><g class="b b--dark"><rect x="860" y="280" width="96" height="96" rx="18"/></g><use class="ic ic--white" href="#i-bot" x="873.44" y="293.44" width="69.12" height="69.12"/><g class="b b--dark"><rect x="780" y="420" width="96" height="96" rx="18"/></g><use class="ic ic--white" href="#i-bot" x="793.44" y="433.44" width="69.12" height="69.12"/><g class="b b--dark"><rect x="1280" y="200" width="96" height="96" rx="18"/></g><use class="ic ic--white" href="#i-bot" x="1293.44" y="213.44" width="69.12" height="69.12"/><g class="b b--dark"><rect x="1440" y="200" width="96" height="96" rx="18"/></g><use class="ic ic--white" href="#i-bot" x="1453.44" y="213.44" width="69.12" height="69.12"/><g class="b b--dark"><rect x="1360" y="340" width="96" height="96" rx="18"/></g><use class="ic ic--white" href="#i-bot" x="1373.44" y="353.44" width="69.12" height="69.12"/><g class="b b--dark"><rect x="740" y="660" width="60" height="60" rx="18"/></g><use class="ic ic--white" href="#i-bot" x="748.4" y="668.4" width="43.199999999999996" height="43.199999999999996"/><text x="880" y="700" class="t-bold" style="font-size: 28px">KI-Agent</text></svg></figure>
+    </section>
+
+    <!-- 18 -->
+    <section class="slide slide--full no-footer" data-title="Autonomous organizations">
+      <img src="assets/img/slides/andon-labs.jpg" alt="Screenshot der Website von Andon Labs: Autonomous organizations without humans in the loop. Safety from humans in the loop is a mirage." width="2048" height="1152">
+    </section>
+
+    <!-- 19 -->
+    <section class="slide slide--full no-footer" data-title="Softwareentwicklungsprozess">
+      <img src="assets/img/slides/prozess.jpg" alt="Softwareentwicklungsprozess: GitHub Copilot und OpenCode.AI CLI. Blaue Zeichnung eines alten Gebäudes mit den Stationen Planung, Entwicklung, Testing und Deployment." width="1376" height="774">
+    </section>
+
+    <!-- 20 -->
+    <section class="slide" data-title="Makro- und Mikroprozess">
+      <header class="slide__header slide__header--tight">
+        <h2 class="slide__title">Makro- und Mikroprozess</h2>
+      </header>
+      <div class="process">
+        <svg class="process__links" viewBox="0 0 1696 700" aria-hidden="true">
+          <path d="M 70 156 V 222 H 192"/>
+          <path d="M 250 266 V 332 H 332"/>
+          <path class="process__link--gold" d="M 392 376 V 462 H 562"/>
+        </svg>
+        <ol class="process__macro">
+          <li class="macro" style="--l: 20px; --t: 70px; --w: 400px"><svg class="icon"><use href="#i-scan-search"/></svg>Requirements</li>
+          <li class="macro" style="--l: 200px; --t: 180px; --w: 380px"><svg class="icon"><use href="#i-chart-column-big"/></svg>Analysis</li>
+          <li class="macro" style="--l: 340px; --t: 290px; --w: 370px"><svg class="icon"><use href="#i-drafting-compass"/></svg>Design</li>
+          <li class="macro macro--impl" style="--l: 570px; --t: 420px; --w: 780px">Implementation</li>
+          <li class="macro macro--late" style="--l: 710px; --t: 518px; --w: 780px"><svg class="icon"><use href="#i-microscope"/></svg>Test<svg class="icon"><use href="#i-flask-conical"/></svg></li>
+          <li class="macro macro--late" style="--l: 850px; --t: 614px; --w: 740px"><svg class="icon"><use href="#i-server"/></svg>Operation<svg class="icon"><use href="#i-database"/></svg></li>
+        </ol>
+        <div class="micro fragment">
+          <h3 class="micro__title">IMPLEMENTATION</h3>
+          <div class="micro__grid">
+            <span class="micro__cell" style="grid-area: 1 / 1">Check out</span>
+            <span class="micro__flow" style="grid-area: 1 / 2"><svg class="icon"><use href="#i-key-round"/></svg></span>
+            <span class="micro__cell" style="grid-area: 1 / 3">Install</span>
+            <span class="micro__flow" style="grid-area: 1 / 4" aria-hidden="true"></span>
+            <span class="micro__cell" style="grid-area: 1 / 5">Release</span>
+            <span class="micro__flow micro__flow--exit" style="grid-area: 1 / 6"><svg class="icon"><use href="#i-flag"/></svg></span>
+
+            <span class="micro__v micro__v--up" style="grid-area: 2 / 1"><svg class="icon"><use href="#i-code-xml"/></svg></span>
+            <span class="micro__v micro__v--down" style="grid-area: 2 / 3"><svg class="icon"><use href="#i-hard-drive-download"/></svg></span>
+            <span class="micro__v micro__v--up" style="grid-area: 2 / 5"><svg class="icon"><use href="#i-rocket"/></svg></span>
+
+            <span class="micro__cell" style="grid-area: 3 / 1">Code</span>
+            <span class="micro__cell" style="grid-area: 3 / 3">Package</span>
+            <span class="micro__flow micro__flow--left" style="grid-area: 3 / 4" aria-hidden="true"></span>
+            <span class="micro__cell" style="grid-area: 3 / 5">Deploy</span>
+
+            <span class="micro__v micro__v--up" style="grid-area: 4 / 1"><svg class="icon"><use href="#i-cog"/></svg></span>
+            <span class="micro__v micro__v--down" style="grid-area: 4 / 3"><svg class="icon"><use href="#i-package"/></svg></span>
+            <span class="micro__v micro__v--up" style="grid-area: 4 / 5"><svg class="icon"><use href="#i-file-pen-line"/></svg></span>
+
+            <span class="micro__cell" style="grid-area: 5 / 1">Compile</span>
+            <span class="micro__flow micro__flow--left" style="grid-area: 5 / 2" aria-hidden="true"></span>
+            <span class="micro__cell" style="grid-area: 5 / 3"><svg class="icon"><use href="#i-search"/></svg> Test</span>
+            <span class="micro__flow" style="grid-area: 5 / 4"><svg class="icon"><use href="#i-microscope"/></svg></span>
+            <span class="micro__cell" style="grid-area: 5 / 5">Documentation</span>
+          </div>
+        </div>
+        <ul class="process__legend">
+          <li><span class="swatch swatch--macro"></span>Macro Process</li>
+          <li><span class="swatch swatch--micro"></span>Micro Process</li>
+        </ul>
+      </div>
+      <p class="source"><a href="https://lofidewanto.medium.com/software-development-macro-and-micro-process-d90b10bd635a" target="_blank" rel="noopener">https://lofidewanto.medium.com/software-development-macro-and-micro-process-d90b10bd635a</a></p>
+    </section>
+
+    <!-- 21 -->
+    <section class="slide" data-title="Specification-Driven Development (SDD) mit KI">
+      <header class="slide__header"><h2 class="slide__title">Specification-Driven Development (SDD) <strong>mit KI</strong></h2></header>
+      <ol class="sdd"><li class="sdd__step fragment"><span class="sdd__icon"><svg class="icon"><use href="#i-file-cog"/></svg></span><p><strong>Specify:</strong> Anforderungen, Motivation, technische Rahmenbedingungen &amp; Constraints festlegen.</p></li><li class="sdd__step fragment"><span class="sdd__icon"><svg class="icon"><use href="#i-list-checks"/></svg></span><p><strong>Plan:</strong> Architektur und technische Strategie definieren: Welche Technologien, welche Schnittstellen, welche Patterns, wie integriert das Ganze?</p></li><li class="sdd__step fragment"><span class="sdd__icon"><svg class="icon"><use href="#i-workflow"/></svg></span><p><strong>Tasks:</strong> Den Plan in kleine, umsetzbare Arbeitspakete unterteilen – so dass jedes Teil isoliert getestet oder reviewt werden kann.</p></li><li class="sdd__step fragment"><span class="sdd__icon"><svg class="icon"><use href="#i-code-xml"/></svg></span><p><strong>Implement:</strong> Die KI-Agenten oder Entwickler beginnen mit der Umsetzung, wobei sie sich strikt an Spezifikationen und Tasks halten.</p></li></ol><p class="source" style="padding-top: 12px"><a href="https://github.blog/ai-and-ml/generative-ai/spec-driven-development-with-ai-get-started-with-a-new-open-source-toolkit" target="_blank" rel="noopener">https://github.blog/ai-and-ml/generative-ai/spec-driven-development-with-ai-get-started-with-a-new-open-source-toolkit</a> - <a href="https://github.com/github/spec-kit" target="_blank" rel="noopener">https://github.com/github/spec-kit</a></p>
+    </section>
+
+    <!-- 22 -->
+    <section class="slide slide--full no-footer" data-title="Moderne Softwarespezifikationen">
+      <img src="assets/img/slides/spezifikationen.jpg" alt="Moderne Softwarespezifikationen in der Entwicklung. Fachliche Spezifikation: Vision, Business Requirements, User Stories, Use Cases, Akzeptanzkriterien, Geschäftsregeln. Technische Spezifikation: Systemarchitektur, Komponenten, Datenmodell, APIs, Schnittstellen, Sicherheitskonzept. Darunter die Artefakte moderner agiler Projekte." width="2048" height="1152">
+    </section>
+
+    <!-- 23 -->
+    <section class="slide slide--full no-footer" data-title="SDD mit KI-Agenten: Einführung">
+      <img src="assets/img/slides/sdd-einfuehrung.jpg" alt="Spezifikationsgesteuerte Entwicklung mit KI-Agenten, eine Einführung für Anfänger in fünf Schritten: GitLab- oder GitHub-Ticket, Umsetzungsplan durch OpenCode.ai, iterative Überprüfung durch ein Reviewer-LLM, Generierung und Tests mit Chrome MCP, schließlich Commit und Push mit Verknüpfung zum Ticket." width="1408" height="792">
+    </section>
+
+    <!-- 24 -->
+    <section class="slide" data-title="IDE- vs. Konversationszentrierte Arbeit">
+      <header class="slide__header"><h2 class="slide__title">IDE- vs. Konversationszentrierte Arbeit</h2></header>
+      <div class="versus">
+        <p class="versus__tag tone-a">Imperativ</p><p class="versus__tag versus__vs fragment fade" data-step="1">vs.</p><p class="versus__tag tone-b fragment fade" data-step="1">Deskriptiv</p>
+        <figure class="card training__card versus__panel" style="--accent: var(--brand)"><figcaption class="training__head">IDE-zentrierte Arbeit</figcaption><div class="mock-wrap" style="margin-top: 0"><div class="window window--big"><div class="window__bar"><i></i><i></i><i></i><span>Service.java</span></div><pre><span class="k">for</span> (int i = 1; i &lt; lines.size(); i++) {
+  emails.add(lines.get(i)[index]);
+}
+<span class="k">return</span> String.join(<span class="s">";"</span>, emails);</pre></div></div></figure>
+        <span class="versus__arrow fragment fade" data-step="1" aria-hidden="true"><svg class="icon"><use href="#i-arrow-right"/></svg></span>
+        <figure class="card training__card versus__panel fragment" data-step="1" style="--accent: var(--bg-inverse)"><figcaption class="training__head">Chat-/Konversationszentrierte Arbeit</figcaption><div class="mock-wrap" style="margin-top: 0"><div class="window window--light window--big"><div class="window__bar"><i></i><i></i><i></i><span>Konversation</span></div><div class="window__chat"><div class="bubble bubble--me">Verkette alle E-Mail-Adressen in einer Zeile.</div><div class="bubble bubble--ai">Erledigt. Die Tests sind grün.</div></div></div></div></figure>
+      </div>
+    </section>
+
+    <!-- 25 -->
+    <section class="slide" data-title="GitHub Copilot und OpenCode.ai CLI">
+      <header class="slide__header slide__header--tight"><h2 class="slide__title">GitHub Copilot und OpenCode.ai CLI</h2></header>
+      <div class="cols-2 fill"><article class="card training__card duo" style="--accent: var(--brand)"><h3 class="training__head duo__head"><span class="duo__logo duo__logo--pdf"><img src="assets/img/pdf/github.webp" alt="" width="92" height="92"></span>GitHub Copilot</h3><div class="mock-wrap"><div class="window"><div class="window__bar"><i></i><i></i><i></i><span>Agent.java – IDE</span></div><div class="window__chat"><div class="bubble bubble--me">Why doesn’t this compile?</div><div class="bubble bubble--ai">Missing import. Shall I fix it?</div></div></div></div><div class="card-body"><ul class="bullets"><li>AI pair programmer</li><li>Suggests code and functions</li><li>Supports multiple languages</li><li>Integrated into IDEs</li></ul></div></article><article class="card training__card duo" style="--accent: var(--bg-inverse)"><h3 class="training__head duo__head"><span class="duo__logo duo__logo--pdf"><img src="assets/img/pdf/terminal.webp" alt="" width="97" height="84"></span>OpenCode.ai CLI</h3><div class="mock-wrap"><div class="window"><div class="window__bar"><i></i><i></i><i></i><span>Terminal</span></div><pre><span class="k">$</span> opencode
+<span class="c">&gt; Upgrade the Spring Boot version</span>
+<span class="s">✓</span> plan  <span class="s">✓</span> edit  <span class="s">✓</span> test</pre></div></div><div class="card-body"><ul class="bullets"><li>Command-line interface</li><li>AI-driven automation</li><li>Scripting and workflows</li><li>Terminal integration</li></ul></div></article></div>
+    </section>
+
+    <!-- 26 -->
+    <section class="slide slide--full no-footer" data-title="KI-Agenten: OpenCode und GitHub Copilot CLI">
+      <img src="assets/img/slides/cli-architektur.jpg" alt="Architektur: DevSecOps arbeitet mit den KI-Agenten OpenCode und GitHub Copilot CLI. Tools und Skills sowie MCP-Server binden System-APIs an, als Gehirn dient ein LLM über GitHub Copilot oder AWS Bedrock, zum Beispiel Claude, GPT, Mistral, Gemma, Qwen, MiniMax, Kimi oder Nemotron." width="2048" height="1152">
+    </section>
+
+    <!-- 27 -->
+    <section class="slide slide--full no-footer" data-title="Arbeiten mit Hilfe von KI-Agenten">
+      <img src="assets/img/slides/arbeiten-mit-agenten.jpg" alt="Arbeiten mit Hilfe von KI-Agenten: DevSecOps steuert KI-Agenten aus LLM, Chat Memory, Security, Tools und Funktionen sowie Context und RAG, die auf die Systeme A bis D zugreifen." width="2048" height="1152">
+    </section>
+
+    <!-- 28 -->
+    <section class="slide slide--full no-footer" data-title="KI Agent Server vs. KI Agent Client">
+      <img src="assets/img/slides/agent-server-client.jpg" alt="KI Agent Server gegen KI Agent Client. Server: sicher, aber eingeschränkt, Multi-User, kein Zugriff auf die lokale Umgebung. Client: allmächtig, muss kontrolliert werden, Single-User, zum Beispiel OpenCode, GitHub Copilot und Claude Code CLI. Der größte Unterschied ist das persönliche Umfeld. Empfehlung: clientseitige KI-Agenten." width="2048" height="1152">
+    </section>
+
+    <!-- 29 -->
+    <section class="slide slide--full no-footer" data-title="Das Umfeld von KI-Agenten beachten">
+      <img src="assets/img/slides/umfeld.jpg" alt="Achtung, das Umfeld von KI-Agenten beachten: Rechte-Befugnis, Festplatten-Manipulation, Software-Verwaltung und allumfassende Aktionen. Wenn das nicht gewünscht ist, müssen ihre Rechte entsprechend eingeschränkt werden." width="1024" height="576">
+    </section>
+
+    <!-- 30 -->
+    <section class="slide slide--full no-footer" data-title="KI-Agent Cakes Layer">
+      <img src="assets/img/slides/cake-layer.jpg" alt="KI-Agent Cakes Layer: oben KI-Agenten wie OpenCode und ClaudeCode, darunter eine Sandbox wie Docker Sbx, NVIDIA OpenShell und nono.sh, unten ein sicheres Notebook wie MacBook, daneben Editoren, Tools und Git." width="1024" height="576">
+    </section>
+
+    <!-- 31 -->
+    <section class="slide slide--full no-footer" data-title="Beispiele">
+      <img src="assets/img/slides/beispiele.jpg" alt="Beispiele: https://github.com/lofidewanto/demo-ai-or-die-softwareentwicklung, vor einem Blick durch einen Vorhang auf den Strand." width="1024" height="576">
+      <a class="hit" href="https://github.com/lofidewanto/demo-ai-or-die-softwareentwicklung" target="_blank" rel="noopener" style="left: 7%; top: 57%; width: 86%; height: 7%" aria-label="Demo-Repository auf GitHub öffnen"></a>
+    </section>
+
+    <!-- 32 -->
+    <section class="slide slide--full no-footer" data-title="Prompt: User Story autonom implementieren">
+      <img src="assets/img/slides/user-story-prompt.jpg" alt="Prompt: Implementiere die folgende User Story vollständig und autonom. Vorgehen: User Story analysieren, Implementierungsplan in docs/user-stories-planung erstellen, ohne Unterbrechung umsetzen, alle Entscheidungen selbst treffen. Rahmenbedingungen: nur als Demo, Best Practices für Spring Boot, kein Overengineering, produktionsnaher Code, konsistente Projektstruktur, GITHUB_PAT für Kommentare im Issue." width="2048" height="1152">
+      <a class="hit" href="https://github.com/lofidewanto/demo-ai-or-die-softwareentwicklung/issues/1" target="_blank" rel="noopener" style="left: 14%; top: 12%; width: 60%; height: 6%" aria-label="User Story auf GitHub öffnen"></a>
+    </section>
+
+    <!-- 33 -->
+    <section class="slide slide--full no-footer" data-title="Dokumentierte Erfahrungen mit SDD">
+      <img src="assets/img/slides/sdd-erfahrungen.jpg" alt="Dokumentierte Erfahrungen mit SDD, KI-gestützte Softwareentwicklung: ein Entwickler arbeitet an mehreren Monitoren mit Spring-Boot-Migration, BiPRO-Schnittstellen-Mapping, einem KFZ-Aktions-Tool und ESLint-Setup, unten rechts das DEVK-Logo." width="2048" height="1152">
+    </section>
+
+    <!-- 34 -->
+    <section class="slide no-footer" data-section-title="Organisation" data-title="Agenda: Organisation">
+      <img class="toe__photo" src="assets/img/slides/agenda-strand.jpg" alt="" width="1920" height="1440">
+      <header class="slide__header" style="position: relative"><h2 class="slide__title">Agenda</h2></header>
+      <svg class="toe__links" viewBox="0 0 1920 1080" aria-hidden="true">
+        <path d="M 290 497 C 400 400 700 420 1000 316"/>
+        <path d="M 1178 200 C 1290 250 1240 400 1150 560 C 1060 680 1090 770 1118 812"/>
+        <path d="M 1295 921 C 1200 1000 1000 980 870 860 C 720 720 620 640 470 605"/>
+      </svg>
+      <div class="toe__group toe__group--dim" style="--tone: var(--orange-strong)">
+        <p class="toe__node" style="left: 122px; top: 497px">Umfeld<br>(Environment)</p>
+        <ul class="toe__chips" style="left: 47px; top: 757px"><li>Anforderungen</li><li>Kosten</li><li>Prozess</li></ul>
+      </div>
+      <div class="toe__group toe__group--dim" style="--tone: var(--brand)">
+        <p class="toe__node" style="left: 838px; top: 92px">Technologie</p>
+        <ul class="toe__chips" style="left: 1295px; top: 94px"><li>LLM</li><li>KI-Agenten</li><li>Agentic AI</li><li>…</li></ul>
+      </div>
+      <div class="toe__group" style="--tone: var(--bg-inverse)">
+        <p class="toe__node" style="left: 1124px; top: 703px">Organisation</p>
+        <ul class="toe__chips" style="left: 1488px; top: 677px"><li>DevSecOps</li><li>Agile</li><li>Eine Person…</li><li>…</li></ul>
+      </div>
+      <p class="toe__credit">TOE Framework: Technology Organization Environment</p>
+    </section>
+
+    <!-- 35 -->
+    <section class="slide slide--full no-footer" data-title="KI-Agenten für Softwareentwicklung">
+      <img src="assets/img/slides/devsecops-idp-agile.jpg" alt="KI-Agenten für Softwareentwicklung: DevSecOps, Internal Developer Platforms und Agilität bleiben unverändert. Menschen und Roboter arbeiten gemeinsam an den drei Bereichen DevSecOps, Internal Developer Platform und Agile." width="2048" height="1152">
+    </section>
+
+    <!-- 36 -->
+    <section class="slide slide--full no-footer" data-title="Eine Rolle: Product Builder">
+      <img src="assets/img/slides/product-builder.jpg" alt="Eine Rolle, Product Builder, für alles (Business Analyst, DevSecOps, Tester)? Microteams, drei Personen pro Team: Analyse und Anforderungen, Entwicklung sowie Testen arbeiten am gemeinsamen Produkt." width="2048" height="1152">
+    </section>
+
+    <!-- 37 -->
+    <section class="slide slide--full no-footer" data-title="DevRel und Forward Deployed Engineer">
+      <img src="assets/img/slides/devrel-fde.jpg" alt="DevRel und Forward Deployed Engineer: Die Nutzung von KI-Agenten in der Softwareentwicklung passiert nicht automatisch. DevRel trägt Wissen als Enabler in andere Teams, mit Community, Workshops und Best Practices. Der Forward Deployed Engineer versteht das konkrete Problem beim Kunden und baut die Lösung direkt bei ihm." width="1024" height="576">
+    </section>
+
+    <!-- 38 -->
+    <section class="slide no-footer" data-section-title="Umfeld" data-title="Agenda: Umfeld">
+      <img class="toe__photo" src="assets/img/slides/agenda-strand.jpg" alt="" width="1920" height="1440">
+      <header class="slide__header" style="position: relative"><h2 class="slide__title">Agenda</h2></header>
+      <svg class="toe__links" viewBox="0 0 1920 1080" aria-hidden="true">
+        <path d="M 290 497 C 400 400 700 420 1000 316"/>
+        <path d="M 1178 200 C 1290 250 1240 400 1150 560 C 1060 680 1090 770 1118 812"/>
+        <path d="M 1295 921 C 1200 1000 1000 980 870 860 C 720 720 620 640 470 605"/>
+      </svg>
+      <div class="toe__group" style="--tone: var(--orange-strong)">
+        <p class="toe__node" style="left: 122px; top: 497px">Umfeld<br>(Environment)</p>
+        <ul class="toe__chips" style="left: 47px; top: 757px"><li>Anforderungen</li><li>Kosten</li><li>Prozess</li></ul>
+      </div>
+      <div class="toe__group toe__group--dim" style="--tone: var(--brand)">
+        <p class="toe__node" style="left: 838px; top: 92px">Technologie</p>
+        <ul class="toe__chips" style="left: 1295px; top: 94px"><li>LLM</li><li>KI-Agenten</li><li>Agentic AI</li><li>…</li></ul>
+      </div>
+      <div class="toe__group toe__group--dim" style="--tone: var(--bg-inverse)">
+        <p class="toe__node" style="left: 1124px; top: 703px">Organisation</p>
+        <ul class="toe__chips" style="left: 1488px; top: 677px"><li>DevSecOps</li><li>Agile</li><li>Eine Person…</li><li>…</li></ul>
+      </div>
+      <p class="toe__credit">TOE Framework: Technology Organization Environment</p>
+    </section>
+
+    <!-- 39 -->
+    <section class="slide slide--full no-footer" data-title="Historie der Softwareentwicklung">
+      <img src="assets/img/slides/historie-1.jpg" alt="Historie der Softwareentwicklung im Kontext von KI-Agenten: RAD, MDA/MDSD, Low-Code/No-Code und heute KI-Agenten. Ziele: Anforderungen richtig interpretieren, Kosten minimieren, Qualität maximieren." width="2048" height="1152">
+    </section>
+
+    <!-- 40 -->
+    <section class="slide slide--full no-footer" data-title="Historie der Softwareentwicklung: paralleler Pfad">
+      <img src="assets/img/slides/historie-2.jpg" alt="Historie der Softwareentwicklung im Kontext von KI-Agenten, zusätzlich mit dem parallelen Pfad der code-basierten Entwicklung: manuelles Codieren, manuelles Testen, manuelle Integration und komplexe Wartung." width="2048" height="1152">
+    </section>
+
+    <!-- 41 -->
+    <section class="slide slide--full no-footer" data-title="Bedenken und Fragen">
+      <img src="assets/img/slides/bedenken.jpg" alt="Ein Entwickler sieht nachdenklich auf eine Figur aus Licht mit der Aufschrift KI-Agenten. Fragen: Große Bedenken? Angst vor Änderungen? Meine Rolle? Was mache ich, wenn ich nicht entwickeln kann?" width="2048" height="1152">
+    </section>
+
+    <!-- 42 -->
+    <section class="slide slide--full no-footer" data-title="Harte Umstellung">
+      <img src="assets/img/slides/harte-umstellung.jpg" alt="Softwareentwicklung mit KI-Agenten, harte Umstellung: vom imperativen Klein-Klein-Denken in der IDE zum deskriptiven Groß-Denken mit Konversationen und SDD. Der Wechsel der Denkweise ist die Herausforderung." width="2048" height="1152">
+    </section>
+
+    <!-- 43 -->
+    <section class="slide slide--full no-footer" data-title="Kosten: Fragen und Überlegungen">
+      <img src="assets/img/slides/kosten.jpg" alt="Kosten, Fragen und Überlegungen: Tokens müssen bezahlt werden, also Kostenkontrolle. Kommerzielle LLMs und Open-Weight-LLMs im Vergleich. Budget pro Entwickler oder pro Team?" width="1024" height="576">
+    </section>
+
+    <!-- 44 -->
+    <section class="slide slide--full no-footer" data-section-title="Zusammenfassung" data-title="Zusammenfassung">
+      <img src="assets/img/slides/zusammenfassung.jpg" alt="Zusammenfassung. Ein goldener japanischer Tempel am Teich." width="1024" height="576">
+    </section>
+
+    <!-- 45 -->
+    <section class="slide slide--full no-footer" data-title="Der ganzheitliche Erfolg">
+      <img src="assets/img/slides/ganzheitlicher-erfolg.jpg" alt="Der ganzheitliche Erfolg: Technologie allein wird uns nicht weiterbringen, es braucht Struktur, Menschen und das richtige Mindset. Ein Baum verbindet Architektur und Sicherheit, Kommunikation und Anforderungen, SDD und Prozess-Struktur, Organisation und Kultur sowie Technologie mit dem Jevons-Paradoxon." width="1024" height="576">
+    </section>
+
+    <!-- 46 -->
+    <section class="slide slide--full no-footer" data-title="Das erste Gesetz">
+      <img src="assets/img/slides/erstes-gesetz.jpg" alt="Das erste Gesetz der agentischen KI-Softwareentwicklung: Sprich immer mit deinem Agenten. Mache niemals etwas an ihm vorbei. Alles muss mit dem Agenten kommuniziert werden." width="1024" height="576">
+    </section>
+
+    <!-- 47 -->
+    <section class="slide slide--photo-bg" data-title="Kontakt">
+      <img class="slide__bgphoto" src="assets/img/slides/bg-villefranche.jpg" alt="" width="1920" height="1440">
+      <header class="slide__header"><h2 class="slide__title">Kontakt</h2></header>
+      <div class="person"><img class="person__photo" src="assets/img/portrait.webp" alt="Porträt von Dr. Blasius Lofi Dewanto" width="400" height="400"><div class="person__text"><h3 class="person__name">Dr. Blasius Lofi Dewanto</h3><ul class="person__links"><li><a href="https://bit.ly/XingDewanto" target="_blank" rel="noopener"><svg class="icon"><use href="#i-link"/></svg>XING</a></li><li><a href="https://bit.ly/LinkedInDewanto" target="_blank" rel="noopener"><svg class="icon"><use href="#i-link"/></svg>LinkedIn</a></li><li><a href="https://bit.ly/GitHubDewanto" target="_blank" rel="noopener"><svg class="icon"><use href="#i-link"/></svg>GitHub</a></li><li><a href="https://bit.ly/lofimedium" target="_blank" rel="noopener"><svg class="icon"><use href="#i-link"/></svg>Medium</a></li><li><a href="https://x.com/lofidewanto" target="_blank" rel="noopener"><svg class="icon"><use href="#i-link"/></svg>Twitter/X</a></li></ul></div></div>
+      <p class="photo-credit">Villefranche-sur-Mer, France 2025</p>
+    </section>
+
+  </main>
+</div>
+
+<div class="progress" aria-hidden="true"><div class="progress__bar"></div></div>
+
+<nav class="controls" aria-label="Folien-Steuerung">
+  <button type="button" data-action="prev" title="Zurück (←)" aria-label="Zurück"><svg class="icon"><use href="#i-chevron-left"/></svg></button>
+  <span class="controls__counter" data-counter>1 / 47</span>
+  <button type="button" data-action="next" title="Weiter (→ / Leertaste)" aria-label="Weiter"><svg class="icon"><use href="#i-chevron-right"/></svg></button>
+  <button type="button" data-action="overview" title="Übersicht (O)" aria-label="Übersicht"><svg class="icon"><use href="#i-layout-grid"/></svg></button>
+  <button type="button" data-action="fullscreen" title="Vollbild (F)" aria-label="Vollbild"><svg class="icon"><use href="#i-maximize"/></svg></button>
+</nav>
+
+<div class="overview" role="dialog" aria-label="Folienübersicht" hidden>
+  <div class="overview__head">
+    <h2 class="overview__heading">Übersicht</h2>
+    <p class="overview__hint">Pfeiltasten wählen · Enter öffnet · Esc schließt</p>
+    <button type="button" class="overview__close" data-action="close-overview">Schließen</button>
+  </div>
+  <ol class="overview__grid"></ol>
+</div>
+
+<p class="sr-only" aria-live="polite" data-status></p>
+</body>
+</html>
