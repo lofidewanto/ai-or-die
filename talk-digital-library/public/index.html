@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AI or DIE: Digital Library</title>
+  <meta name="description" content="AI or DIE: Digital Library. Dr. Blasius Lofi Dewanto">
+  <meta name="theme-color" content="#d70015">
+  <link rel="icon" href="assets/img/favicon.png">
+  <link rel="preload" href="assets/fonts/inter-deck.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="assets/css/deck.css">
+  <link rel="stylesheet" href="assets/css/theme.css">
+  <link rel="stylesheet" href="assets/css/talk.css">
+  <script src="assets/js/deck.js" defer></script>
+</head>
+<body>
+<!-- Icons: Lucide (https://lucide.dev), ISC License – see THIRD_PARTY_NOTICES.md -->
+<svg class="sprite" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+    <defs>
+      <marker id="security-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 L10 5 L0 10 z" style="fill: var(--red-1)"/></marker>
+      <marker id="arrowhead" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0 0 L10 5 L0 10 z" style="fill: var(--red-1)"/></marker>
+      <marker id="arrowhead-macro" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="2.6" markerHeight="2.6" orient="auto"><path d="M0 0 L10 5 L0 10 z" style="fill: var(--brand-300)"/></marker>
+      <marker id="arrowhead-gold" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="2.6" markerHeight="2.6" orient="auto"><path d="M0 0 L10 5 L0 10 z" style="fill: var(--orange-strong)"/></marker>
+      <marker id="arrowhead-ink" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0 0 L10 5 L0 10 z" style="fill: var(--muted)"/></marker>
+      <marker id="arrowhead-ink-start" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" style="fill: var(--muted)"/></marker>
+    </defs>
+    <symbol id="i-arrow-right" viewBox="0 0 24 24"><path d="M5 12h14" /><path d="m12 5 7 7-7 7" /></symbol>
+    <symbol id="i-bot" viewBox="0 0 24 24"><path d="M12 8V4H8" /><rect width="16" height="12" x="4" y="8" rx="2" /><path d="M2 14h2" /><path d="M20 14h2" /><path d="M15 13v2" /><path d="M9 13v2" /></symbol>
+    <symbol id="i-brain" viewBox="0 0 24 24"><path d="M12 18V5" /><path d="M15 13a4.17 4.17 0 01-3-4 4.17 4.17 0 01-3 4" /><path d="M17.707 6.294A3 3 0 1012 5a3 3 0 10-5.707 1.294" /><path d="M17.996 5.125a4 4 0 012.526 5.77" /><path d="M18 18a4 4 0 002-7.465" /><path d="M19.967 17.482a4 4 0 11-7.967.517 4 4 0 11-7.967-.517" /><path d="M6 18a4 4 0 01-2-7.465" /><path d="M6.004 5.125a4 4 0 00-2.526 5.77" /></symbol>
+    <symbol id="i-brain-circuit" viewBox="0 0 24 24"><path d="M12 13h4" /><path d="M12 18h6a2 2 0 012 2v1" /><path d="M12 8h8" /><path d="M12 9a4.17 4.17 0 01-3 4" /><path d="M16 8V5a2 2 0 012-2" /><path d="M6 18a4 4 0 01-2-7.465" /><path d="M6.004 5.125a4 4 0 00-2.526 5.77" /><path d="M6.294 6.294A3 3 0 1112 5v13a4 4 0 11-7.967-.518" /><circle cx="16" cy="13" r="0.5" fill="currentColor" /><circle cx="18" cy="3" r="0.5" fill="currentColor" /><circle cx="20" cy="21" r="0.5" fill="currentColor" /><circle cx="20" cy="8" r="0.5" fill="currentColor" /></symbol>
+    <symbol id="i-chevron-left" viewBox="0 0 24 24"><path d="m15 18-6-6 6-6" /></symbol>
+    <symbol id="i-chevron-right" viewBox="0 0 24 24"><path d="m9 18 6-6-6-6" /></symbol>
+    <symbol id="i-circle-help" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><path d="M12 17h.01"/></symbol>
+    <symbol id="i-circle-play" viewBox="0 0 24 24"><path d="M9 9.003a1 1 0 0 1 1.517-.859l4.997 2.997a1 1 0 0 1 0 1.718l-4.997 2.997A1 1 0 0 1 9 14.996z" /><circle cx="12" cy="12" r="10" /></symbol>
+    <symbol id="i-cpu" viewBox="0 0 24 24"><path d="M12 20v2" /><path d="M12 2v2" /><path d="M17 20v2" /><path d="M17 2v2" /><path d="M2 12h2" /><path d="M2 17h2" /><path d="M2 7h2" /><path d="M20 12h2" /><path d="M20 17h2" /><path d="M20 7h2" /><path d="M7 20v2" /><path d="M7 2v2" /><rect x="4" y="4" width="16" height="16" rx="2" /><rect x="8" y="8" width="8" height="8" rx="1" /></symbol>
+    <symbol id="i-database" viewBox="0 0 24 24"><ellipse cx="12" cy="5" rx="9" ry="3" /><path d="M3 5V19A9 3 0 0 0 21 19V5" /><path d="M3 12A9 3 0 0 0 21 12" /></symbol>
+    <symbol id="i-file-text" viewBox="0 0 24 24"><path d="M6 22a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h8a2.4 2.4 0 0 1 1.704.706l3.588 3.588A2.4 2.4 0 0 1 20 8v12a2 2 0 0 1-2 2z"/><path d="M14 2v5a1 1 0 0 0 1 1h5"/><path d="M10 9H8"/><path d="M16 13H8"/><path d="M16 17H8"/></symbol>
+    <symbol id="i-globe" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></symbol>
+    <symbol id="i-headset" viewBox="0 0 24 24"><path d="M3 11h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-5Zm0 0a9 9 0 1 1 18 0m0 0v5a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3Z"/><path d="M21 16v2a4 4 0 0 1-4 4h-5"/></symbol>
+    <symbol id="i-image" viewBox="0 0 24 24"><rect width="18" height="18" x="3" y="3" rx="2" ry="2"/><circle cx="9" cy="9" r="2"/><path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21"/></symbol>
+    <symbol id="i-laptop" viewBox="0 0 24 24"><path d="M18 5a2 2 0 0 1 2 2v8.526a2 2 0 0 0 .212.897l1.068 2.127a1 1 0 0 1-.9 1.45H3.62a1 1 0 0 1-.9-1.45l1.068-2.127A2 2 0 0 0 4 15.526V7a2 2 0 0 1 2-2z" /><path d="M20.054 15.987H3.946" /></symbol>
+    <symbol id="i-layout-grid" viewBox="0 0 24 24"><rect width="7" height="7" x="3" y="3" rx="1" /><rect width="7" height="7" x="14" y="3" rx="1" /><rect width="7" height="7" x="14" y="14" rx="1" /><rect width="7" height="7" x="3" y="14" rx="1" /></symbol>
+    <symbol id="i-library-big" viewBox="0 0 24 24"><rect width="8" height="18" x="3" y="3" rx="1" /><path d="M7 3v18" /><path d="M20.4 18.9c.2.5-.1 1.1-.6 1.3l-1.9.7c-.5.2-1.1-.1-1.3-.6L11.1 5.1c-.2-.5.1-1.1.6-1.3l1.9-.7c.5-.2 1.1.1 1.3.6Z" /></symbol>
+    <symbol id="i-lightbulb" viewBox="0 0 24 24"><path d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .2 2.2 1.5 3.5.7.7 1.3 1.5 1.5 2.5" /><path d="M9 18h6" /><path d="M10 22h4" /></symbol>
+    <symbol id="i-link" viewBox="0 0 24 24"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></symbol>
+    <symbol id="i-maximize" viewBox="0 0 24 24"><path d="M8 3H5a2 2 0 0 0-2 2v3" /><path d="M21 8V5a2 2 0 0 0-2-2h-3" /><path d="M3 16v3a2 2 0 0 0 2 2h3" /><path d="M16 21h3a2 2 0 0 0 2-2v-3" /></symbol>
+    <symbol id="i-message-circle" viewBox="0 0 24 24"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></symbol>
+    <symbol id="i-mic" viewBox="0 0 24 24"><path d="M12 19v3"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><rect x="9" y="2" width="6" height="13" rx="3"/></symbol>
+    <symbol id="i-minimize" viewBox="0 0 24 24"><path d="M8 3v3a2 2 0 0 1-2 2H3" /><path d="M21 8h-3a2 2 0 0 1-2-2V3" /><path d="M3 16h3a2 2 0 0 1 2 2v3" /><path d="M16 21v-3a2 2 0 0 1 2-2h3" /></symbol>
+    <symbol id="i-monitor" viewBox="0 0 24 24"><rect width="20" height="14" x="2" y="3" rx="2"/><line x1="8" x2="16" y1="21" y2="21"/><line x1="12" x2="12" y1="17" y2="21"/></symbol>
+    <symbol id="i-network" viewBox="0 0 24 24"><rect x="16" y="16" width="6" height="6" rx="1" /><rect x="2" y="16" width="6" height="6" rx="1" /><rect x="9" y="2" width="6" height="6" rx="1" /><path d="M5 16v-3a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v3" /><path d="M12 12V8" /></symbol>
+    <symbol id="i-rocket" viewBox="0 0 24 24"><path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5" /><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09" /><path d="M9 12a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.4 22.4 0 0 1-4 2z" /><path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 .05 5 .05" /></symbol>
+    <symbol id="i-shopping-cart" viewBox="0 0 24 24"><circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/></symbol>
+    <symbol id="i-sparkles" viewBox="0 0 24 24"><path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z"/></symbol>
+    <symbol id="i-stethoscope" viewBox="0 0 24 24"><path d="M11 2v2"/><path d="M5 2v2"/><path d="M5 3H4a2 2 0 0 0-2 2v4a6 6 0 0 0 12 0V5a2 2 0 0 0-2-2h-1"/><path d="M8 15a6 6 0 0 0 12 0v-3"/><circle cx="20" cy="10" r="2"/></symbol>
+    <symbol id="i-target" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></symbol>
+    <symbol id="i-user-cog" viewBox="0 0 24 24"><path d="M10 15H6a4 4 0 0 0-4 4v2" /><path d="m14.305 16.53.923-.382" /><path d="m15.228 13.852-.923-.383" /><path d="m16.852 12.228-.383-.923" /><path d="m16.852 17.772-.383.924" /><path d="m19.148 12.228.383-.923" /><path d="m19.53 18.696-.382-.924" /><path d="m20.772 13.852.924-.383" /><path d="m20.772 16.148.924.383" /><circle cx="18" cy="15" r="3" /><circle cx="9" cy="7" r="4" /></symbol>
+    <symbol id="i-utensils" viewBox="0 0 24 24"><path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 0 0 2-2V2"/><path d="M7 2v20"/><path d="M21 15V2a5 5 0 0 0-5 5v6c0 1.1.9 2 2 2h3Zm0 0v7"/></symbol>
+    <symbol id="i-video" viewBox="0 0 24 24"><path d="m16 13 5.223 3.482a.5.5 0 0 0 .777-.416V7.87a.5.5 0 0 0-.752-.432L16 10.5"/><rect x="2" y="6" width="14" height="12" rx="2"/></symbol>
+    <symbol id="i-workflow" viewBox="0 0 24 24"><rect width="8" height="8" x="3" y="3" rx="2" /><path d="M7 11v4a2 2 0 0 0 2 2h4" /><rect width="8" height="8" x="13" y="13" rx="2" /></symbol>
+</svg>
+
+<div class="viewport">
+  <main class="stage" aria-label="Presentation: AI or DIE: Digital Library">
+
+    <!-- 1 -->
+    <section class="slide slide--full no-footer" data-title="AI or DIE: Digital Library">
+      <img src="assets/img/slides/title.jpg" alt="AI or DIE: Digital Library. Dr. Blasius Lofi Dewanto. Cologne Cathedral and the Hohenzollern Bridge at night, with an open book." width="1024" height="562">
+    </section>
+
+    <!-- 2 -->
+    <section class="slide" data-title="Who am I?">
+      <header class="slide__header"><h2 class="slide__title">Who am I?</h2></header>
+      <div class="person">
+        <img class="person__photo" src="assets/img/portrait.webp" alt="Portrait of Dr. Blasius Lofi Dewanto" width="400" height="400">
+        <div class="person__text">
+          <h3 class="person__name">Dr. Blasius Lofi Dewanto</h3>
+          <p class="person__role">Software Expert</p>
+          <p class="person__bio">Java open-source software experts, author, trainer and speaker with over 30 years of professional experience in software development, consultant, engineering manager, technology advisor</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3 -->
+    <section class="slide" data-title="DIE: Disrupted, Irrelevant and Extinct">
+      <div class="statement">
+        <p class="die__word"><span class="text-gradient">DIE</span></p>
+        <p class="die__line"><b>D</b>isrupted <b>I</b>rrelevant and <b>E</b>xtinct</p>
+      </div>
+    </section>
+
+    <!-- 4 -->
+    <section class="slide" data-title="Agenda">
+      <header class="slide__header"><h2 class="slide__title">Agenda</h2></header>
+      <ol class="agenda"><li><a class="agenda__item" href="#/5"><span class="agenda__icon"><svg class="icon"><use href="#i-brain"/></svg></span><span class="agenda__num">01</span><span class="agenda__label">AI Agent Foundation</span></a></li><li><a class="agenda__item" href="#/35"><span class="agenda__icon"><svg class="icon"><use href="#i-library-big"/></svg></span><span class="agenda__num">02</span><span class="agenda__label">Digital Library Challenges</span></a></li><li><a class="agenda__item" href="#/42"><span class="agenda__icon"><svg class="icon"><use href="#i-rocket"/></svg></span><span class="agenda__num">03</span><span class="agenda__label">AI or DIE: Impact and Future in Digital Library</span></a></li></ol>
+    </section>
+
+    <!-- 5 -->
+    <section class="slide slide--section slide--section-photo no-footer" data-section-title="AI Agent Foundation" data-title="AI Agent Foundation">
+      <img class="section__photo" src="assets/img/slides/section-serignan.jpg" alt="" width="2048" height="1536">
+      <div class="section__content"><span class="section__num">01</span><h2 class="section__title">AI Agent Foundation</h2></div>
+      <p class="section__credit">Serignan France 2025</p>
+    </section>
+
+    <!-- 6 -->
+    <section class="slide" data-title="Maturity Level in Digital Transformation">
+      <header class="slide__header"><h2 class="slide__title">Maturity Level in Digital Transformation</h2></header>
+      <ol class="maturity"><li class="maturity__step fragment"><div class="maturity__arrow"><span class="maturity__num">01</span><img class="maturity__img" src="assets/img/pdf/mat1.webp" alt="" width="282" height="168"></div><h3 class="maturity__title">Digitization</h3><p class="maturity__text">Moving from paper/manual to digital records</p></li><li class="maturity__step fragment"><div class="maturity__arrow"><span class="maturity__num">02</span><img class="maturity__img" src="assets/img/pdf/mat2.webp" alt="" width="254" height="194"></div><h3 class="maturity__title">Digitalization</h3><p class="maturity__text">Streamlining processes with digital tools</p></li><li class="maturity__step fragment"><div class="maturity__arrow"><span class="maturity__num">03</span><img class="maturity__img" src="assets/img/pdf/mat3.webp" alt="" width="314" height="158"></div><h3 class="maturity__title">Automation</h3><p class="maturity__text">RPA<span class="ref">*</span> and basic AI assistants for efficiency</p></li><li class="maturity__step fragment"><div class="maturity__arrow"><span class="maturity__num">04</span><img class="maturity__img" src="assets/img/pdf/mat4.webp" alt="" width="178" height="166"></div><h3 class="maturity__title">Augmented Intelligence</h3><p class="maturity__text">AI insights guiding decision-making</p></li><li class="maturity__step maturity__step--highlight fragment"><div class="maturity__arrow"><span class="maturity__num">05</span><img class="maturity__img" src="assets/img/pdf/mat5.webp" alt="" width="192" height="208"></div><h3 class="maturity__title">AI Chatbot, AI Agent and Agentic AI</h3><p class="maturity__text">Autonomous agents that plan, act, collaborate, and optimize outcomes</p></li></ol><p class="footnote fragment fade" data-step="3"><span class="ref">*</span> RPA: Robotic Process Automation</p>
+    </section>
+
+    <!-- 7 -->
+    <section class="slide" data-title="AI agents and agentic AI need an LLM">
+      <header class="slide__header slide__header--tight"><h2 class="slide__title">AI agents and agentic AI</h2></header>
+      <div class="llm-loop">
+        <svg class="llm-loop__arrows fragment fade" data-step="1" viewBox="0 0 1696 740" aria-hidden="true">
+          <path d="M 616 40 C 400 30 275 70 270 186"/>
+          <path d="M 1080 40 C 1296 30 1421 70 1426 186"/>
+          <path d="M 726 622 C 420 642 275 612 270 536"/>
+          <path d="M 970 622 C 1276 642 1421 612 1426 536"/>
+          <path class="llm-loop__inner" d="M 452 360 H 650"/>
+          <path class="llm-loop__inner" d="M 1244 360 H 1046"/>
+        </svg>
+        <p class="llm-loop__top fragment fade" data-step="1">need an LLM</p>
+        <div class="llm-hub__node llm-loop__node fragment fade" data-step="1" style="left: 100px"><span class="llm-hub__icon"><svg class="icon"><use href="#i-bot"/></svg></span><span class="llm-hub__label">AI Agents</span></div>
+        <div class="llm-loop__core"><svg class="icon"><use href="#i-brain"/></svg></div>
+        <div class="llm-hub__node llm-loop__node fragment fade" data-step="1" style="left: 1256px"><span class="llm-hub__icon"><svg class="icon"><use href="#i-network"/></svg></span><span class="llm-hub__label">Agentic AI</span></div>
+        <p class="llm-loop__bottom"><strong>LLM</strong><span>(Large Language Model)</span></p>
+      </div>
+    </section>
+
+    <!-- 8 -->
+    <section class="slide" data-title="An LLM is a computer program that learns from huge amounts of text so it can understand and generate human-like language.">
+      <div class="statement"><span class="compare__icon statement__icon"><svg class="icon"><use href="#i-brain"/></svg></span><p class="statement__text">An LLM is a computer program that learns from huge amounts of text so it can <em>understand</em> and <em>generate</em> human-like language.</p></div>
+    </section>
+
+    <!-- 9 -->
+    <section class="slide" data-title="LLM = a smart text-predicting parrot">
+      <div class="statement">
+        <p class="statement__text">LLM = a smart text-predicting parrot trained on tons of information.</p>
+        <div class="flow">
+          <figure><span class="compare__icon"><svg class="icon"><use href="#i-library-big"/></svg></span><figcaption>Tons of information</figcaption></figure>
+          <span class="flow__arrow"><svg class="icon"><use href="#i-arrow-right"/></svg></span>
+          <figure><img class="flow__img" src="assets/img/pdf/parrot-photo.webp" alt="" width="193" height="262"><figcaption>Parrot</figcaption></figure>
+          <span class="flow__arrow"><svg class="icon"><use href="#i-arrow-right"/></svg></span>
+          <figure><img class="flow__img" src="assets/img/pdf/text-doc.webp" alt="" width="123" height="171"><figcaption>Predicted text</figcaption></figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- 10 -->
+    <section class="slide" data-title="Next token prediction">
+      <header class="slide__header"><h2 class="slide__title">Next token prediction</h2></header>
+      <ol class="tokens"><li class="tokens__row fragment"><div class="tokens__in"><small>Input</small>What is the capital of Indonesia?</div><span class="tokens__arrow"><svg class="icon"><use href="#i-arrow-right"/></svg></span><div class="tokens__out"><small>Output</small>the</div></li><li class="tokens__row fragment"><div class="tokens__in"><small>Input</small>What is the capital of Indonesia? <b>the</b></div><span class="tokens__arrow"><svg class="icon"><use href="#i-arrow-right"/></svg></span><div class="tokens__out"><small>Output</small>capital</div></li><li class="tokens__row fragment"><div class="tokens__in"><small>Input</small>What is the capital of Indonesia? <b>the capital</b></div><span class="tokens__arrow"><svg class="icon"><use href="#i-arrow-right"/></svg></span><div class="tokens__out"><small>Output</small>of Indonesia</div></li><li class="tokens__row fragment"><div class="tokens__in"><small>Input</small>What is the capital of Indonesia? <b>the capital of Indonesia</b></div><span class="tokens__arrow"><svg class="icon"><use href="#i-arrow-right"/></svg></span><div class="tokens__out"><small>Output</small>is Jakarta</div></li></ol>
+    </section>
+
+    <!-- 11 -->
+    <section class="slide" data-title="An LLM is a specific kind of generative AI">
+      <div class="statement"><p class="statement__text">An LLM is a specific kind of <em>generative</em> AI that creates text (image, voice, video).</p><ul class="basis__icons" aria-hidden="true"><li><svg class="icon"><use href="#i-file-text"/></svg></li><li><svg class="icon"><use href="#i-image"/></svg></li><li><svg class="icon"><use href="#i-mic"/></svg></li><li><svg class="icon"><use href="#i-video"/></svg></li></ul></div>
+    </section>
+
+    <!-- 12 -->
+    <section class="slide" data-title="Holy grail of LLMs is AGI (Artificial General Intelligence)">
+      <div class="statement"><span class="compare__icon statement__icon"><svg class="icon"><use href="#i-sparkles"/></svg></span><p class="statement__text">Holy grail of LLMs is <strong>AGI</strong> (Artificial General Intelligence)</p><p class="statement__sub">AGI represents the idea of an AI system that can understand, learn, and perform any intellectual task a human can.<br><br><strong>AGI may require more than just text?</strong></p></div>
+    </section>
+
+    <!-- 13 -->
+    <section class="slide" data-title="Creating LLM vs. Using LLM">
+      <div class="statement"><p class="statement__text">Creating LLM <em>vs.</em> Using LLM</p></div>
+    </section>
+
+    <!-- 14 -->
+    <section class="slide" data-title="Before using it, one should know how the LLM is created.">
+      <header class="slide__header"><h2 class="slide__title">Before using it, one should know how the LLM is created.</h2></header>
+      <div class="video-card card">
+        <p class="video-card__title"><em>“Deep Dive into LLMs”</em> – Andrey Karpathy</p>
+        <a class="video-card__button" href="https://youtu.be/7xTGNNLPyMI?si=lPrCfWlPBsH8lHa3" target="_blank" rel="noopener"><svg class="icon"><use href="#i-circle-play"/></svg><span>Watch the video: <u>YouTube link</u></span></a>
+        <p class="video-card__url">https://youtu.be/7xTGNNLPyMI?si=lPrCfWlPBsH8lHa3</p>
+      </div>
+    </section>
+
+    <!-- 15 -->
+    <section class="slide" data-title="Creating LLMs is another story.">
+      <div class="statement statement--rule">
+        <p class="statement__text">Creating LLMs is another story.</p>
+        <p class="statement__text">This session is about using LLMs.</p>
+      </div>
+    </section>
+
+    <!-- 16 -->
+    <section class="slide" data-title="Create LLM">
+      <header class="slide__header slide__header--tight"><h2 class="slide__title">Create LLM</h2><p class="slide__subtitle">Summary: how to train your ChatGPT</p></header>
+      <div class="cols-2 fill"><article class="card training__card fragment" style="--accent: var(--brand)"><h3 class="training__head">Stage 1: Pretraining · every ~year</h3><img class="card-media" src="assets/img/pdf/gpu-cluster.webp" alt="Word cloud of text next to a GPU data centre" width="390" height="209"><div class="card-body card-body--lists"><ol><li>Download ~10TB of text.</li><li>Get a cluster of ~6,000 GPUs.</li><li>Compress the text into a neural network, pay ~$2M, wait ~12 days.</li><li>Obtain <strong>base model</strong>.</li></ol></div></article><article class="card training__card fragment" style="--accent: var(--bg-inverse)"><h3 class="training__head">Stage 2: Finetuning · every ~week</h3><img class="card-media" src="assets/img/pdf/finetune-people.webp" alt="A crowd of people above a sample question and answer" width="378" height="343"><div class="card-body card-body--lists"><ol><li>Write labeling instructions.</li><li>Hire people (or use scale.ai!), collect 100K high quality ideal Q&amp;A responses, and/or comparisons.</li><li>Finetune base model on this data, wait ~1 day.</li><li>Obtain <strong>assistant model</strong>.</li><li>Run a lot of evaluations.</li><li>Deploy.</li><li>Monitor, collect misbehaviors, go to step 1.</li></ol></div></article></div><p class="source"><a href="https://youtu.be/zjkBMFhNj_g?si=BdtssXPoaCeg_z5t" target="_blank" rel="noopener">https://youtu.be/zjkBMFhNj_g?si=BdtssXPoaCeg_z5t</a></p>
+    </section>
+
+    <!-- 17 -->
+    <section class="slide" data-title="AI Agent">
+      <header class="slide__header"><h2 class="slide__title">AI Agent</h2></header>
+      <div class="cols-2 fill"><div class="statement" style="align-items: flex-start; text-align: left"><p class="statement__sub" style="margin: 0; font-size: 44px">An AI agent is a system that can <strong>perceive</strong> its environment, <strong>make decisions</strong>, and <strong>take actions</strong> to achieve a specific goal.</p><p class="statement__sub" style="font-size: 44px">It operates based on defined <strong>rules</strong>, <strong>models</strong>, or <strong>objectives</strong>.</p></div><figure class="dg"><svg viewBox="0 0 900 560" role="img" aria-label="Cycle: perceive, make decisions, take actions, with the brain in the centre"><g class="b b--soft"><rect x="40" y="420" width="240" height="110" rx="16"/><text x="160.0" y="484.1">Take actions</text></g><g class="b b--soft"><rect x="620" y="420" width="240" height="110" rx="16"/><text x="740.0" y="484.1">Make decisions</text></g><g class="b b--soft"><rect x="330" y="20" width="240" height="110" rx="16"/><text x="450.0" y="84.1">Perceive</text></g><circle class="torso" cx="450" cy="320" r="110"/><use class="ic " href="#i-brain" x="385" y="255" width="130" height="130"/><path class="l l--red" d="M580 130 C680 180 750 280 760 412"/><path class="l l--red" d="M612 480 H288"/><path class="l l--red" d="M140 412 C150 280 220 180 320 110"/></svg></figure></div>
+    </section>
+
+    <!-- 18 -->
+    <section class="slide" data-title="Mental Model: AI Agents">
+      <header class="slide__header"><h2 class="slide__title"><strong>Mental Model:</strong> AI Agents</h2></header>
+      <div class="cols-2"><article class="card training__card mental fragment" style="--accent: var(--brand)"><h3 class="training__head">IRON MAN &amp; IRONHEART</h3><div class="mental__media"><img src="assets/img/mental-ironman.webp" alt="Scenes from Iron Man and Ironheart" width="496" height="156"></div><ul class="icon-list"><li><svg class="icon"><use href="#i-user-cog"/></svg>Jarvis</li><li><svg class="icon"><use href="#i-brain-circuit"/></svg>Natalie</li></ul></article><article class="card training__card mental fragment" style="--accent: var(--bg-inverse)"><h3 class="training__head">STAR TREK</h3><div class="mental__media mental__media--pair"><img src="assets/img/mental-emh.webp" alt="The Emergency Medical Hologram from Star Trek" width="240" height="154"><img src="assets/img/mental-data.webp" alt="Data from Star Trek" width="224" height="154"></div><ul class="icon-list"><li><svg class="icon"><use href="#i-laptop"/></svg>Computer</li><li><svg class="icon"><use href="#i-cpu"/></svg>Emergency Medical Hologram (EMH)</li><li><svg class="icon"><use href="#i-database"/></svg>Data</li></ul></article></div>
+    </section>
+
+    <!-- 19 -->
+    <section class="slide slide--image no-footer" data-title="AI Agent: Your Buddy → Your Colleague">
+      <header class="slide__header slide__header--tight"><h2 class="slide__title">AI Agent: Your Buddy → Your Colleague</h2></header>
+      <img src="assets/img/agent-anatomy-blue.webp" alt="Anatomy of an AI agent: a human figure with LLM brain, system, user and AI messages, chat memory, knowledge and RAG, context, harness and control, tools, security, inside a sandbox" width="1392" height="1392">
+    </section>
+
+    <!-- 20 -->
+    <section class="slide" data-title="Training of an AI Agent">
+      <header class="slide__header"><h2 class="slide__title">Training of an AI Agent</h2></header>
+      <div class="cols-3 training"><article class="card training__card fragment" style="--accent: var(--brand)"><h3 class="training__head">Tools</h3><img class="training__icon training__img" src="assets/img/pdf/bolt.webp" alt="" width="93" height="123"><span class="training__meter" style="--pos: 90%" aria-hidden="true"></span><div class="card-body" style="padding-top: 0; text-align: center">For data that instantly/always needs to be actual: very short-lived, updated every second</div></article><article class="card training__card fragment" style="--accent: var(--red-3)"><h3 class="training__head">RAG</h3><img class="training__icon training__img" src="assets/img/pdf/refresh.webp" alt="" width="121" height="120"><span class="training__meter" style="--pos: 55%" aria-hidden="true"></span><div class="card-body" style="padding-top: 0; text-align: center">For data as the foundation of the LLM’s brain, updated regularly: short-term changes, e.g. weekly</div></article><article class="card training__card fragment" style="--accent: var(--bg-inverse)"><h3 class="training__head">Fine-tuning LLM</h3><img class="training__icon training__img" src="assets/img/pdf/books.webp" alt="" width="121" height="118"><span class="training__meter" style="--pos: 20%" aria-hidden="true"></span><div class="card-body" style="padding-top: 0; text-align: center">For data as the stable foundation of the brain, basically unchanging/facts: mid-term changes, e.g. monthly</div></article></div><p class="source"><a href="https://www.linkedin.com/posts/dr-lofi-dewanto_tinker-tinker-python-activity-7379782886352121856-LEeK" target="_blank" rel="noopener">https://www.linkedin.com/posts/dr-lofi-dewanto_tinker-tinker-python-activity-7379782886352121856-LEeK</a></p>
+    </section>
+
+    <!-- 21 -->
+    <section class="slide" data-title="Agentic AI">
+      <header class="slide__header"><h2 class="slide__title">Agentic AI</h2><p class="slide__subtitle">Beyond automation, towards autonomous problem-solving.</p></header>
+      <div class="grid-3-arrows"><article class="card training__card fragment" data-step="1" style="--accent: var(--brand)"><h3 class="training__head">1. High Autonomy &amp; Initiative</h3><span class="compare__icon training__icon"><svg class="icon"><use href="#i-bot"/></svg></span><div class="card-body card-body--center">Acts with a high degree of autonomy, initiative, and self-management.</div></article><span class="compare__arrow fragment fade" data-step="2" aria-hidden="true"><svg class="icon"><use href="#i-arrow-right"/></svg></span><article class="card training__card fragment" data-step="2" style="--accent: var(--red-3)"><h3 class="training__head">2. Problem Decomposition &amp; Planning</h3><span class="compare__icon training__icon"><svg class="icon"><use href="#i-workflow"/></svg></span><div class="card-body card-body--center">Breaks down complex problems into subtasks, plans multi-step solutions.</div></article><span class="compare__arrow fragment fade" data-step="3" aria-hidden="true"><svg class="icon"><use href="#i-arrow-right"/></svg></span><article class="card training__card fragment" data-step="3" style="--accent: var(--bg-inverse)"><h3 class="training__head">3. Dynamic Goal Adjustment</h3><span class="compare__icon training__icon"><svg class="icon"><use href="#i-target"/></svg></span><div class="card-body card-body--center">Adjusts or revises goals and plans as needed based on feedback and evolving circumstances.</div></article></div>
+    </section>
+
+    <!-- 22 -->
+    <section class="slide" data-title="Agentic AI: Autonomy, Multi-Step and Revision">
+      <header class="slide__header slide__header--tight"><h2 class="slide__title">Agentic AI: Autonomy, Multi-Step and Revision</h2></header>
+      <figure class="dg"><svg viewBox="0 0 1696 740" role="img" aria-label="Agentic AI as a company: AI agents work together across Domain X, Domain Y and Domain Z"><text x="848" y="40" class="t-bold" style="font-size: 36px">Agentic AI as Company</text><rect class="b" x="60" y="120" width="420" height="520" rx="28"/><g class="b b--brand"><rect x="170" y="94" width="200" height="52" rx="26"/><text x="270.0" y="129.1">Domain X</text></g><rect class="b" x="640" y="180" width="420" height="400" rx="28"/><g class="b b--brand"><rect x="750" y="154" width="200" height="52" rx="26"/><text x="850.0" y="189.1">Domain Y</text></g><rect class="b" x="1216" y="90" width="420" height="460" rx="28"/><g class="b b--brand"><rect x="1326" y="64" width="200" height="52" rx="26"/><text x="1426.0" y="99.1">Domain Z</text></g><path class="l l--red" d="M380 330 C520 330 540 340 690 360"/><path class="l l--red" d="M960 360 C1100 360 1120 300 1266 300"/><path class="l l--dash" d="M1320 460 C1100 680 480 720 320 560"/><g class="b b--dark"><rect x="120" y="200" width="96" height="96" rx="18"/></g><use class="ic ic--white" href="#i-bot" x="133.44" y="213.44" width="69.12" height="69.12"/><g class="b b--dark"><rect x="250" y="200" width="96" height="96" rx="18"/></g><use class="ic ic--white" href="#i-bot" x="263.44" y="213.44" width="69.12" height="69.12"/><g class="b b--dark"><rect x="120" y="330" width="96" height="96" rx="18"/></g><use class="ic ic--white" href="#i-bot" x="133.44" y="343.44" width="69.12" height="69.12"/><g class="b b--dark"><rect x="250" y="330" width="96" height="96" rx="18"/></g><use class="ic ic--white" href="#i-bot" x="263.44" y="343.44" width="69.12" height="69.12"/><g class="b b--dark"><rect x="120" y="460" width="96" height="96" rx="18"/></g><use class="ic ic--white" href="#i-bot" x="133.44" y="473.44" width="69.12" height="69.12"/><g class="b b--dark"><rect x="250" y="460" width="96" height="96" rx="18"/></g><use class="ic ic--white" href="#i-bot" x="263.44" y="473.44" width="69.12" height="69.12"/><g class="b b--dark"><rect x="700" y="280" width="96" height="96" rx="18"/></g><use class="ic ic--white" href="#i-bot" x="713.44" y="293.44" width="69.12" height="69.12"/><g class="b b--dark"><rect x="860" y="280" width="96" height="96" rx="18"/></g><use class="ic ic--white" href="#i-bot" x="873.44" y="293.44" width="69.12" height="69.12"/><g class="b b--dark"><rect x="780" y="420" width="96" height="96" rx="18"/></g><use class="ic ic--white" href="#i-bot" x="793.44" y="433.44" width="69.12" height="69.12"/><g class="b b--dark"><rect x="1280" y="200" width="96" height="96" rx="18"/></g><use class="ic ic--white" href="#i-bot" x="1293.44" y="213.44" width="69.12" height="69.12"/><g class="b b--dark"><rect x="1440" y="200" width="96" height="96" rx="18"/></g><use class="ic ic--white" href="#i-bot" x="1453.44" y="213.44" width="69.12" height="69.12"/><g class="b b--dark"><rect x="1360" y="340" width="96" height="96" rx="18"/></g><use class="ic ic--white" href="#i-bot" x="1373.44" y="353.44" width="69.12" height="69.12"/><g class="b b--dark"><rect x="740" y="660" width="60" height="60" rx="18"/></g><use class="ic ic--white" href="#i-bot" x="748.4" y="668.4" width="43.199999999999996" height="43.199999999999996"/><text x="880" y="700" class="t-bold" style="font-size: 28px">AI Agent</text></svg></figure>
+    </section>
+
+    <!-- 23 -->
+    <section class="slide slide--full no-footer" data-title="What are the differences between Apps, Services, and AI Agents?">
+      <img src="assets/img/slides/apps-services-agents.jpg" alt="What are the differences between Apps, Services, and AI Agents? Apps: user-controlled, local execution, focus on individual tasks. Services: backend-based, network-controlled, persistent functions. AI Agents: autonomous and proactive, capable of learning and context-aware, AI-driven decisions." width="1024" height="572">
+    </section>
+
+    <!-- 24 -->
+    <section class="slide slide--section slide--section-photo no-footer" data-title="Your Basic AI Agent Tools">
+      <img class="section__photo" src="assets/img/slides/section-koeln.jpg" alt="" width="1024" height="768">
+      <div class="section__content"><h2 class="section__title">Your Basic AI Agent Tools</h2></div>
+      <p class="section__credit">Köln Germany 2025</p>
+    </section>
+
+    <!-- 25 -->
+    <section class="slide" data-title="IDE- vs. Conversation-Centric Work">
+      <header class="slide__header"><h2 class="slide__title">IDE- vs. Conversation-Centric Work</h2></header>
+      <div class="versus">
+        <p class="versus__tag tone-a">Imperative</p><p class="versus__tag versus__vs fragment fade" data-step="1">vs.</p><p class="versus__tag tone-b fragment fade" data-step="1">Descriptive</p>
+        <figure class="card training__card versus__panel" style="--accent: var(--brand)"><figcaption class="training__head">IDE-Centric Work</figcaption><div class="mock-wrap" style="margin-top: 0"><div class="window window--big"><div class="window__bar"><i></i><i></i><i></i><span>Service.java</span></div><pre><span class="k">for</span> (int i = 1; i &lt; lines.size(); i++) {
+  emails.add(lines.get(i)[index]);
+}
+<span class="k">return</span> String.join(<span class="s">";"</span>, emails);</pre></div></div></figure>
+        <span class="versus__arrow fragment fade" data-step="1" aria-hidden="true"><svg class="icon"><use href="#i-arrow-right"/></svg></span>
+        <figure class="card training__card versus__panel fragment" data-step="1" style="--accent: var(--bg-inverse)"><figcaption class="training__head">Chat-/Conversation-Centric Work</figcaption><div class="mock-wrap" style="margin-top: 0"><div class="window window--light window--big"><div class="window__bar"><i></i><i></i><i></i><span>Conversation</span></div><div class="window__chat"><div class="bubble bubble--me">Concatenate all email addresses in one line.</div><div class="bubble bubble--ai">Done. Tests are green.</div></div></div></div></figure>
+      </div>
+    </section>
+
+    <!-- 26 -->
+    <section class="slide" data-title="GitHub Copilot and OpenCode.ai CLI">
+      <header class="slide__header slide__header--tight"><h2 class="slide__title">GitHub Copilot and OpenCode.ai CLI</h2></header>
+      <div class="cols-2 fill"><article class="card training__card duo" style="--accent: var(--brand)"><h3 class="training__head duo__head"><span class="duo__logo duo__logo--pdf"><img src="assets/img/pdf/github.webp" alt="" width="92" height="92"></span>GitHub Copilot</h3><div class="mock-wrap"><div class="window"><div class="window__bar"><i></i><i></i><i></i><span>Agent.java – IDE</span></div><div class="window__chat"><div class="bubble bubble--me">Why doesn’t this compile?</div><div class="bubble bubble--ai">Missing import. Shall I fix it?</div></div></div></div><div class="card-body"><ul class="bullets"><li>AI pair programmer</li><li>Suggests code and functions</li><li>Supports multiple languages</li><li>Integrated into IDEs</li></ul></div></article><article class="card training__card duo" style="--accent: var(--bg-inverse)"><h3 class="training__head duo__head"><span class="duo__logo duo__logo--pdf"><img src="assets/img/pdf/terminal.webp" alt="" width="97" height="84"></span>OpenCode.ai CLI</h3><div class="mock-wrap"><div class="window"><div class="window__bar"><i></i><i></i><i></i><span>Terminal</span></div><pre><span class="k">$</span> opencode
+<span class="c">&gt; Upgrade the Spring Boot version</span>
+<span class="s">✓</span> plan  <span class="s">✓</span> edit  <span class="s">✓</span> test</pre></div></div><div class="card-body"><ul class="bullets"><li>Command-line interface</li><li>AI-driven automation</li><li>Scripting and workflows</li><li>Terminal integration</li></ul></div></article></div>
+    </section>
+
+    <!-- 27 -->
+    <section class="slide slide--full no-footer" data-title="Architecture: Me and My Jarvis">
+      <img src="assets/img/slides/architecture-jarvis.jpg" alt="Architecture: Me and My Jarvis. A user works with Jarvis, the personal AI agent, which connects to System A, System B, System C and System D." width="1024" height="570">
+    </section>
+
+    <!-- 28 -->
+    <section class="slide slide--full no-footer" data-title="Attention: consider the environment of AI agents!">
+      <img src="assets/img/slides/attention-environment.jpg" alt="Attention: consider the environment of AI agents! Access rights: AI agents can do everything we are authorized to do, logical. Hard drive manipulation: delete data, modify systems. Software management: download, install applications. System-wide actions: perform practically all system operations. If this is not desired, their rights must be restricted accordingly." width="1024" height="570">
+    </section>
+
+    <!-- 29 -->
+    <section class="slide" data-title="Personal Assistant “Jarvis”: OpenClaw and Moltbook">
+      <header class="slide__header slide__header--tight"><h2 class="slide__title">Personal Assistant “Jarvis”: OpenClaw and Moltbook</h2></header>
+      <div class="cols-2 fill"><article class="card training__card hype" style="--accent: var(--brand)"><h3 class="training__head">Clawd Bot alias OpenClaw</h3><div class="card-body--center" style="display:flex"><img style="width:220px;height:220px" src="assets/img/logos/openclaw.svg" alt="OpenClaw logo" width="96" height="96"></div><p class="hype__claim">→ Jarvis for us</p><a class="hype__link" href="https://openclaw.ai" target="_blank" rel="noopener">https://openclaw.ai</a></article><article class="card training__card hype" style="--accent: var(--bg-inverse)"><h3 class="training__head">Moltbook</h3><div class="dg" style="align-self: stretch; padding: 20px 48px 0"><svg viewBox="0 0 640 370" role="img" aria-label="A network of AI agents"><path class="l l--plain" d="M320 190 L320 60"/><path class="l l--plain" d="M320 190 L120 110"/><path class="l l--plain" d="M320 190 L520 110"/><path class="l l--plain" d="M320 190 L70 240"/><path class="l l--plain" d="M320 190 L570 240"/><path class="l l--plain" d="M320 190 L170 320"/><path class="l l--plain" d="M320 190 L470 320"/><path class="l l--plain l--dash" d="M120 110 L320 60 L520 110 L570 240 L470 320 L170 320 L70 240 Z"/><circle class="dot" cx="320" cy="60" r="32"/><use class="ic " href="#i-bot" x="302" y="42" width="36" height="36"/><circle class="dot" cx="120" cy="110" r="32"/><use class="ic " href="#i-bot" x="102" y="92" width="36" height="36"/><circle class="dot" cx="520" cy="110" r="32"/><use class="ic " href="#i-bot" x="502" y="92" width="36" height="36"/><circle class="dot" cx="70" cy="240" r="32"/><use class="ic " href="#i-bot" x="52" y="222" width="36" height="36"/><circle class="dot" cx="570" cy="240" r="32"/><use class="ic " href="#i-bot" x="552" y="222" width="36" height="36"/><circle class="dot" cx="170" cy="320" r="32"/><use class="ic " href="#i-bot" x="152" y="302" width="36" height="36"/><circle class="dot" cx="470" cy="320" r="32"/><use class="ic " href="#i-bot" x="452" y="302" width="36" height="36"/><circle class="torso" cx="320" cy="190" r="60"/><use class="ic " href="#i-network" x="284" y="154" width="72" height="72"/></svg></div><p class="hype__claim">Facebook / Reddit for AI agents</p><a class="hype__link" href="https://www.moltbook.com" target="_blank" rel="noopener">https://www.moltbook.com</a></article></div>
+    </section>
+
+    <!-- 30 -->
+    <section class="slide slide--full no-footer" data-title="Autonomous organizations without humans in the loop">
+      <img src="assets/img/slides/andon-labs.jpg" alt="Screenshot of the Andon Labs website. Autonomous organizations without humans in the loop. Safety from humans in the loop is a mirage. We prepare for the future where organizations are run autonomously by AI by benchmarking and deploying frontier AI in the real world." width="2048" height="1152">
+    </section>
+
+    <!-- 31 -->
+    <section class="slide slide--full no-footer" data-title="Examples of AI Agents">
+      <img src="assets/img/slides/agent-examples.jpg" alt="Examples of AI agents: Anthropic Claude, OpenCode.ai, GitHub Copilot, ChatGPT, Manus AI, Gemini, OpenClaw, JavaClaw/ClawRunr, Paperclip, Hermes Agent, and many more." width="1024" height="570">
+    </section>
+
+    <!-- 32 -->
+    <section class="slide" data-title="Q: Who has tried to install OpenClaw?">
+      <div class="statement"><span class="compare__icon statement__icon"><svg class="icon"><use href="#i-circle-help"/></svg></span><p class="statement__text">Q: Who has tried to install OpenClaw?</p></div>
+    </section>
+
+    <!-- 33 -->
+    <section class="slide slide--full no-footer" data-title="Demo">
+      <img src="assets/img/slides/demo.jpg" alt="Demo: a beach scene shown on a futuristic screen." width="1376" height="768">
+    </section>
+
+    <!-- 34 -->
+    <section class="slide" data-title="Demo prompt: Bung Karno">
+      <div class="statement"><div class="window window--light window--big prompt"><div class="window__bar"><i></i><i></i><i></i><span>Prompt</span></div><div class="window__chat"><div class="bubble bubble--me prompt__text" lang="id">Cari seluruh data dan buku2 dari Bung Karno (Soekarno) Presiden pertama Indonesia secara detail dan lengkap. Hasilnya mesti dibuat secara ringkasan yang bagus dengan menggunakan HTML file yang design nya modern dan bagus. Hasilnya mesti di tuliskan dalam bahasa Indonesia dan bahasa Jawa. Setelah HTML file selesai dibuat mesti dibuka HTML filenya di Chrome MCP. Jangan lupa menaruhkan prompt ini diatas HTML file supaya saya bisa tahu apa prompt yang saya tulis.</div></div></div></div>
+    </section>
+
+    <!-- 35 -->
+    <section class="slide slide--section slide--section-photo no-footer" data-section-title="Digital Library Challenges" data-title="Digital Library Challenges">
+      <img class="section__photo" src="assets/img/slides/section-garda.jpg" alt="" width="2048" height="1536">
+      <div class="section__content"><span class="section__num">02</span><h2 class="section__title">Digital Library Challenges</h2></div>
+      <p class="section__credit">Garda Italy 2025</p>
+    </section>
+
+    <!-- 36 -->
+    <section class="slide" data-title="Context">
+      <header class="slide__header"><h2 class="slide__title">Context</h2></header>
+      <div class="statement"><span class="compare__icon statement__icon"><svg class="icon"><use href="#i-library-big"/></svg></span><p class="statement__text">A <strong>digital library</strong> is an online collection of digital information resources such as books, articles, images, and videos that <strong>can be accessed electronically</strong>.</p></div>
+    </section>
+
+    <!-- 37 -->
+    <section class="slide slide--full no-footer" data-title="Comprehensive Digital Library Ecosystem &amp; Services">
+      <img src="assets/img/slides/library-ecosystem.jpg" alt="Comprehensive digital library ecosystem and services around a virtual, connected platform. User-facing services and experience: 24/7 anywhere access, personalized dashboard and profiles, advanced search and discovery, interactive reading tools, accessibility features. Diverse digital collections: e-books and audiobooks, academic journals and research papers, multimedia, archives and special collections, 3D models and datasets. Administration and content management: content ingest and processing, metadata and cataloging, licensing and DRM security, user support and help desk, reports and analytics. Technology and preservation: digital archiving and preservation, interoperability standards, scalable cloud storage, data integrity and backup, continuous innovation." width="1024" height="559">
+    </section>
+
+    <!-- 38 -->
+    <section class="slide slide--full no-footer" data-title="AI &amp; Digital Services in the library">
+      <img src="assets/img/slides/library-office.jpg" alt="Library staff at an AI and digital services desk with old computers and a legacy system error. Signs read: Technical debt, upgrade in progress; budget constraints affecting services; phantom citations, books do not exist. A chart shows AI computational energy consumption rising against sustainability goals." width="1024" height="559">
+    </section>
+
+    <!-- 39 -->
+    <section class="slide slide--full no-footer" data-title="Challenges of Digital Libraries Today">
+      <img src="assets/img/slides/library-challenges.jpg" alt="Challenges of digital libraries today. 1 Technical debt: struggle to integrate new AI tools with aging legacy systems and rigid database architectures. 2 Budget constraints: limited funding for staffing, resource acquisition, and essential infrastructure upgrades. 3 Information integrity: managing phantom citations and inaccuracies from algorithmic hallucinations. 4 Environmental sustainability: conflict between computationally intensive AI systems and institutional energy goals. 5 Copyright and licensing: uncertainty on AI training, publisher restrictions, licensing digitized works. 6 Digital preservation: ensuring long-term access despite file format obsolescence, platform dependency, link rot, and vendor lock-in. 7 Data privacy: AI-enhanced systems collect reading behavior and user profiling, creating tension with library ethics and GDPR. 8 Misinformation and authenticity: distinguishing authentic material from AI-generated content, deepfakes, and synthetic records. 9 Skills gap: difficulty recruiting data scientists, AI engineers, and digital preservation specialists against private-sector salaries." width="1024" height="559">
+    </section>
+
+    <!-- 40 -->
+    <section class="slide slide--full no-footer" data-title="Biggest Threat: LLM Vendors">
+      <img src="assets/img/slides/biggest-threat.jpg" alt="Biggest threat: LLM vendors. All books and articles are embedded in LLMs. Books and tablets are pulled into a glowing funnel with a brain." width="1024" height="570">
+      <a class="slide-link" href="https://www.theregister.com/software/2026/01/09/boffins-probe-commercial-ai-models-find-harry-potter/4626115" target="_blank" rel="noopener" aria-label="Article on The Register" style="left: 105px; top: 1026px; width: 1710px; height: 42px"></a>
+    </section>
+
+    <!-- 41 -->
+    <section class="slide slide--full no-footer" data-title="The End of Books?">
+      <img src="assets/img/slides/end-of-books.jpg" alt="The end of books? Reading books is the old way, asking AI is the new way. Instead of reading books, Gen Z simply goes to AI agents like ChatGPT and asks there." width="1024" height="559">
+    </section>
+
+    <!-- 42 -->
+    <section class="slide slide--section slide--section-photo no-footer" data-section-title="Impact and Future" data-title="AI or DIE: Impact and Future in Digital Library">
+      <img class="section__photo" src="assets/img/slides/section-florence.jpg" alt="" width="2048" height="1536">
+      <div class="section__content"><span class="section__num">03</span><h2 class="section__title">AI or DIE: Impact and Future in Digital Library</h2></div>
+      <p class="section__credit">Florence Italy 2025</p>
+    </section>
+
+    <!-- 43 -->
+    <section class="slide" data-title="Revolution in User Interface and User Experience">
+      <div class="statement"><span class="compare__icon statement__icon"><svg class="icon"><use href="#i-message-circle"/></svg></span><p class="statement__text">Revolution in <strong>User Interface</strong> and <strong>User Experience</strong></p></div>
+    </section>
+
+    <!-- 44 -->
+    <section class="slide slide--full no-footer" data-title="Conversational UI">
+      <img src="assets/img/pdf/conversational-ui.webp" alt="A voice assistant connected to Mail, Calendar, News, Clock, Weather and Health as MCP cloud apps. Conversational UI. Apps as MCP backends. No UI-heavy development. Traditional UI and app development is crossed out." width="1920" height="1080">
+    </section>
+
+    <!-- 45 -->
+    <section class="slide" data-title="Personal Impact: One Person Enterprise">
+      <header class="slide__header slide__header--tight"><h2 class="slide__title">Personal Impact: One Person Enterprise</h2></header>
+      <div class="enterprise"><div class="enterprise__group"><p class="enterprise__label">AI offices</p><ul class="tiles"><li class="tile"><img src="assets/img/pdf/m365.webp" alt="Microsoft 365 Copilot" width="256" height="167"></li><li class="tile"><img src="assets/img/pdf/google-workplace.webp" alt="Google Workplace" width="242" height="118"><span>Google Workplace</span></li></ul></div><img class="enterprise__photo" src="assets/img/pdf/one-person-enterprise.webp" alt="A woman at a desk with a holographic display and robot assistants: one-person enterprise, powered by agentic AI" width="1024" height="1024"><div class="enterprise__group"><p class="enterprise__label">AI agents</p><ul class="tiles"><li class="tile"><img src="assets/img/pdf/chatgpt.webp" alt="" width="223" height="225"><span>ChatGPT</span></li><li class="tile"><img src="assets/img/pdf/grok.webp" alt="Grok" width="366" height="133"></li><li class="tile"><img src="assets/img/pdf/gemini.webp" alt="Gemini" width="370" height="133"></li><li class="tile"><img src="assets/img/pdf/ollama.webp" alt="Ollama" width="364" height="124"></li><li class="tile"><img src="assets/img/pdf/openclaw.webp" alt="OpenClaw" width="480" height="286"></li></ul></div><div class="enterprise__group"><p class="enterprise__label">AI dev copilots</p><ul class="tiles"><li class="tile"><img src="assets/img/pdf/copilot-round.webp" alt="GitHub Copilot" width="150" height="122"></li><li class="tile"><img src="assets/img/pdf/cursor-alt.webp" alt="Cursor" width="215" height="51"></li><li class="tile"><img src="assets/img/pdf/openai-codex.webp" alt="OpenAI Codex" width="480" height="331"></li><li class="tile"><img src="assets/img/pdf/claude.webp" alt="Claude" width="480" height="104"></li><li class="tile"><img src="assets/img/pdf/opencode-alt.webp" alt="OpenCode" width="480" height="270"></li></ul></div><div class="enterprise__group"><p class="enterprise__label">AI browsers</p><ul class="tiles"><li class="tile"><img src="assets/img/pdf/atlas.webp" alt="" width="225" height="225"><span>Atlas</span></li><li class="tile"><img src="assets/img/pdf/comet.webp" alt="Comet" width="211" height="212"></li></ul></div></div>
+    </section>
+
+    <!-- 46 -->
+    <section class="slide" data-title="Business Basic: Process and Domain">
+      <header class="slide__header"><h2 class="slide__title">Business Basic: Process and Domain</h2></header>
+      <figure class="dg"><svg viewBox="0 0 1696 580" role="img" aria-label="Six processes run across five domain verticals"><g class="b b--soft"><rect x="200" y="0" width="340" height="90" rx="16"/><text x="370.0" y="54.1">Process 1</text></g><path class="l l--red" d="M540 45 H674"/><g class="b b--soft"><rect x="680" y="0" width="340" height="90" rx="16"/><text x="850.0" y="54.1">Process 2</text></g><path class="l l--red" d="M1020 45 H1154"/><g class="b b--soft"><rect x="1160" y="0" width="340" height="90" rx="16"/><text x="1330.0" y="54.1">Process 3</text></g><g class="b b--soft"><rect x="200" y="120" width="340" height="90" rx="16"/><text x="370.0" y="174.1">Process 4</text></g><path class="l l--red" d="M540 165 H674"/><g class="b b--soft"><rect x="680" y="120" width="340" height="90" rx="16"/><text x="850.0" y="174.1">Process 5</text></g><path class="l l--red" d="M1020 165 H1154"/><g class="b b--soft"><rect x="1160" y="120" width="340" height="90" rx="16"/><text x="1330.0" y="174.1">Process 6</text></g><text x="848" y="250" class="t-muted" style="font-size: 24px">Process: customer journey, warehouse management, measure-diagnostic-treatment,</text><text x="848" y="284" class="t-muted" style="font-size: 24px">talent matching &amp; candidate screening, software development…</text><g class="b b--grey"><rect x="120" y="320" width="260" height="190" rx="16"/><text x="250.0" y="408.5">Domain</text><text x="250.0" y="439.7">Vertical 1</text></g><g class="b b--grey"><rect x="420" y="320" width="260" height="190" rx="16"/><text x="550.0" y="408.5">Domain</text><text x="550.0" y="439.7">Vertical 2</text></g><g class="b b--grey"><rect x="720" y="320" width="260" height="190" rx="16"/><text x="850.0" y="408.5">Domain</text><text x="850.0" y="439.7">Vertical 3</text></g><g class="b b--grey"><rect x="1020" y="320" width="260" height="190" rx="16"/><text x="1150.0" y="408.5">Domain</text><text x="1150.0" y="439.7">Vertical 4</text></g><g class="b b--grey"><rect x="1320" y="320" width="260" height="190" rx="16"/><text x="1450.0" y="408.5">Domain</text><text x="1450.0" y="439.7">Vertical 5</text></g><text x="848" y="560" class="t-muted" style="font-size: 24px">Domain: digital library, healthcare, e-commerce, food &amp; restaurant, travel, IT consulting, software…</text></svg></figure>
+    </section>
+
+    <!-- 47 -->
+    <section class="slide slide--full no-footer" data-title="Strategic Solutions for Digital Libraries in the AI Era">
+      <img src="assets/img/slides/strategic-solutions.jpg" alt="Strategic solutions for digital libraries in the AI era. Trusted AI-ready knowledge infrastructure: API-first architecture, semantic metadata, optimized for AI agents, RAG backend. Reduce vendor dependence: adopt open models, sovereign AI infrastructure, private inference, institutional control. User-centered AI services: AI research assistants, multilingual discovery, personalized knowledge navigation, citation verification. Governance, ethics and provenance: AI ethics policies, human-centered standards, hallucination mitigation, copyright governance. Modern interoperability architectures: linked data and knowledge graphs, open metadata standards, vector indexing, API integration. Preservation of AI-generated knowledge: archive AI research, synthetic media, prompt histories and interactions, provenance chains." width="1024" height="559">
+    </section>
+
+    <!-- 48 -->
+    <section class="slide" data-title="Low-hanging fruit…">
+      <div class="statement"><span class="compare__icon statement__icon"><svg class="icon"><use href="#i-lightbulb"/></svg></span><p class="statement__text">Low-hanging fruit…</p></div>
+    </section>
+
+    <!-- 49 -->
+    <section class="slide slide--full no-footer" data-title="API, MCP, and AI Agents First For Digital Library">
+      <img src="assets/img/slides/api-mcp-first.jpg" alt="API, MCP, and AI agents first for digital library: programmatic access, interoperability, AI agent orchestration, scalability, modular architecture, third-party integration." width="1024" height="559">
+    </section>
+
+    <!-- 50 -->
+    <section class="slide slide--full no-footer" data-title="Build Your Own LLM">
+      <img src="assets/img/slides/build-llm.jpg" alt="Build your own LLM based on OSS LLMs and open models, with open-weights foundation, community models and fine-tuning dials." width="1024" height="559">
+    </section>
+
+    <!-- 51 -->
+    <section class="slide slide--full no-footer" data-title="Build Your Own Chatbots / AI Agents">
+      <img src="assets/img/slides/build-chatbots.jpg" alt="Build your own chatbots and AI agents: a drag-and-drop agent toolkit with knowledge base, natural language processing, sentiment analysis, API integrations, response templates, user personalization, context management and conversation flows, next to a live preview." width="1024" height="559">
+    </section>
+
+    <!-- 52 -->
+    <section class="slide" data-title="Most Obvious: Library User Journey Impact">
+      <header class="slide__header"><h2 class="slide__title">Most Obvious: <strong>Library User Journey</strong> Impact</h2></header>
+      <figure class="dg"><svg viewBox="0 0 1696 560" role="img" aria-label="Library user journey: an AI agent is the single point of contact for the library user, with the librarian as human in the loop"><g class="b b--grey"><rect x="150" y="0" width="380" height="110" rx="16"/><text x="340.0" y="49.0" style="font-size: 24px">Information Needs &amp;</text><text x="340.0" y="77.8" style="font-size: 24px">Material Search</text></g><g class="b b--grey"><rect x="658" y="0" width="380" height="110" rx="16"/><text x="848.0" y="49.0" style="font-size: 24px">Item Access &amp;</text><text x="848.0" y="77.8" style="font-size: 24px">Selection Decision</text></g><g class="b b--grey"><rect x="1166" y="0" width="380" height="110" rx="16"/><text x="1356.0" y="49.0" style="font-size: 24px">Reference Help,</text><text x="1356.0" y="77.8" style="font-size: 24px">Research &amp; Retention</text></g><path class="l l--red" d="M530 55 H652"/><path class="l l--red" d="M1038 55 H1160"/><text x="848" y="180" class="t-brand" style="font-size: 32px">Single Point of Contact</text><image href="assets/img/pdf/robot.webp" x="748" y="220" width="200" height="200"/><text x="848" y="465" class="t-bold" style="font-size: 30px">AI Agent</text><image href="assets/img/pdf/human.webp" x="225" y="245" width="150" height="150"/><text x="300" y="430" class="t-bold" style="font-size: 30px">Librarian</text><text x="300" y="466" class="t-bold" style="font-size: 30px">(Human in the Loop)</text><image style="mix-blend-mode: multiply" href="assets/img/slides/library-user.jpg" x="1300" y="220" width="200" height="200"/><text x="1400" y="465" class="t-bold" style="font-size: 30px">Library User</text><path class="l l--red l--dash" d="M376 320 H742"/><path class="l l--both" d="M960 320 H1290"/><text x="848" y="540" class="t-muted" style="font-size: 26px">AI agent with Chatbot, eMail - Domains: digital library, academic research, public lending…</text></svg></figure>
+    </section>
+
+    <!-- 53 -->
+    <section class="slide slide--full no-footer" data-title="Bung Karno Chat">
+      <img src="assets/img/slides/bung-karno-chat.jpg" alt="Bung Karno Chat at https://soekarno.chat, shown on desktop and phone, with a QR code to scan." width="1024" height="570">
+      <a class="slide-link" href="https://soekarno.chat" target="_blank" rel="noopener" aria-label="Open Bung Karno Chat" style="left: 750px; top: 144px; width: 435px; height: 51px"></a>
+    </section>
+
+    <!-- 54 -->
+    <section class="slide slide--full no-footer" data-title="Makan Chat">
+      <img src="assets/img/slides/makan-chat.jpg" alt="Makan Chat at https://makan.chat: MakanChat for customers, discover unique dining experiences; for restaurants, accelerate your growth. A phone shows a chat analyzing a photo of a dish, with a QR code to scan." width="1024" height="572">
+      <a class="slide-link" href="https://makan.chat" target="_blank" rel="noopener" aria-label="Open Makan Chat" style="left: 500px; top: 115px; width: 568px; height: 80px"></a>
+    </section>
+
+    <!-- 55 -->
+    <section class="slide" data-title="All Demos available at…">
+      <header class="slide__header"><h2 class="slide__title">All Demos available at…</h2></header>
+      <a class="big-link" href="https://mova-intelligence.com/solutions" target="_blank" rel="noopener">https://mova-intelligence.com/solutions</a><ul class="solutions"><li class="card solution"><span class="feat__icon"><svg class="icon"><use href="#i-utensils"/></svg></span><div><strong>Restaurant &amp; Food</strong><span>MakanChat</span></div></li><li class="card solution"><span class="feat__icon"><svg class="icon"><use href="#i-headset"/></svg></span><div><strong>Healthcare Customer Service</strong><span>Mandaya Hospital</span></div></li><li class="card solution"><span class="feat__icon"><svg class="icon"><use href="#i-stethoscope"/></svg></span><div><strong>Healthcare SOAP</strong><span>Mandaya Hospital</span></div></li><li class="card solution"><span class="feat__icon"><svg class="icon"><use href="#i-monitor"/></svg></span><div><strong>eCommerce Computers</strong><span>Galva Technologies</span></div></li><li class="card solution"><span class="feat__icon"><svg class="icon"><use href="#i-globe"/></svg></span><div><strong>Traveling</strong><span>Goldenrama</span></div></li><li class="card solution"><span class="feat__icon"><svg class="icon"><use href="#i-shopping-cart"/></svg></span><div><strong>eCommerce &amp; Fruit</strong><span>Fantasia Raja Naga</span></div></li></ul>
+    </section>
+
+    <!-- 56 -->
+    <section class="slide slide--full no-footer" data-title="Librarian will vanish">
+      <img src="assets/img/slides/librarian-vanish.jpg" alt="Librarian will vanish, just like translators, secretaries, travel agents, and consultants of every kind. Only product builders and one man digital library will survive." width="1024" height="574">
+    </section>
+
+    <!-- 57 -->
+    <section class="slide" data-title="Don’t DIE or at least… DIE Hard!">
+      <div class="die-hard"><p class="statement__text">Don’t DIE or at least… <span class="text-gradient">DIE Hard!</span></p><img src="assets/img/die-hard.webp" alt="Left: Bryan Johnson. Right: Bruce Willis on a Die Hard motif." width="1413" height="432"><div class="die-hard__names"><span class="chip">Bryan Johnson</span><span class="chip">Bruce Willis</span></div></div>
+    </section>
+
+    <!-- 58 -->
+    <section class="slide" data-title="Contact">
+      <header class="slide__header"><h2 class="slide__title">Contact</h2></header>
+      <div class="person"><img class="person__photo" src="assets/img/portrait.webp" alt="Portrait of Dr. Blasius Lofi Dewanto" width="400" height="400"><div class="person__text"><h3 class="person__name">Dr. Blasius Lofi Dewanto</h3><ul class="person__links"><li><a href="https://bit.ly/XingDewanto" target="_blank" rel="noopener"><svg class="icon"><use href="#i-link"/></svg>XING</a></li><li><a href="https://bit.ly/LinkedInDewanto" target="_blank" rel="noopener"><svg class="icon"><use href="#i-link"/></svg>LinkedIn</a></li><li><a href="https://bit.ly/GitHubDewanto" target="_blank" rel="noopener"><svg class="icon"><use href="#i-link"/></svg>GitHub</a></li><li><a href="https://bit.ly/lofimedium" target="_blank" rel="noopener"><svg class="icon"><use href="#i-link"/></svg>Medium</a></li><li><a href="https://x.com/lofidewanto" target="_blank" rel="noopener"><svg class="icon"><use href="#i-link"/></svg>Twitter/X</a></li></ul></div></div>
+    </section>
+
+
+  </main>
+</div>
+
+<div class="progress" aria-hidden="true"><div class="progress__bar"></div></div>
+
+<nav class="controls" aria-label="Slide controls">
+  <button type="button" data-action="prev" title="Back (←)" aria-label="Back"><svg class="icon"><use href="#i-chevron-left"/></svg></button>
+  <span class="controls__counter" data-counter>1 / 58</span>
+  <button type="button" data-action="next" title="Next (→ / Space)" aria-label="Next"><svg class="icon"><use href="#i-chevron-right"/></svg></button>
+  <button type="button" data-action="overview" title="Overview (O)" aria-label="Overview"><svg class="icon"><use href="#i-layout-grid"/></svg></button>
+  <button type="button" data-action="fullscreen" title="Fullscreen (F)" aria-label="Fullscreen"><svg class="icon"><use href="#i-maximize"/></svg></button>
+</nav>
+
+<div class="overview" role="dialog" aria-label="Slide overview" hidden>
+  <div class="overview__head">
+    <h2 class="overview__heading">Overview</h2>
+    <p class="overview__hint">Arrow keys select · Enter opens · Esc closes</p>
+    <button type="button" class="overview__close" data-action="close-overview">Close</button>
+  </div>
+  <ol class="overview__grid"></ol>
+</div>
+
+<p class="sr-only" aria-live="polite" data-status></p>
+</body>
+</html>
