@@ -61,9 +61,9 @@ SOFTWARE.
 
 ## Slide images
 
-The DEVK logo on slides 1, 2 and 33 and the other product names and logos in the slide images are trademarks of their respective owners.
+The DEVK logo on slides 1, 2 and 34 and the other product names and logos in the slide images are trademarks of their respective owners.
 
 `mental-ironman.webp`, `mental-emh.webp` and `mental-data.webp` contain third-party material (film stills) and are used
 for presentation purposes. `portrait.webp` and everything in `public/assets/img/slides/` are taken from the original
-presentation PDF. `agent-anatomy-blue.webp` was provided by the slide creator. Everything else on the slides is drawn with
+presentation PDF. `agent-antomy.webp` was provided by the slide creator. Everything else on the slides is drawn with
 HTML, CSS and inline SVG, using Lucide icons where the PDF has no icon of its own.

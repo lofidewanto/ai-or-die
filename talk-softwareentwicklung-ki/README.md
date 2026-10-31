@@ -2,7 +2,7 @@
 
 Web-Version des Vortrags *„Software-Entwicklung unter Einsatz von KI: Vorteile, Implementierung und Erfahrungen“* (Dr. Blasius Lofi Dewanto). Die Folien sind auf Deutsch.
 Folien-Engine und Design stammen aus [`talk-ai-or-die`](../talk-ai-or-die); Folien mit ähnlichem Inhalt sind von dort kopiert und tragen den deutschen Text des PDFs.
-Die Foliennummern entsprechen den Seitenzahlen des Original-PDFs.
+Die Folien 11 und 12 stammen aus [`ki-softwareentwicklung`](../ki-softwareentwicklung). Bis Folie 11 entsprechen die Foliennummern den Seitenzahlen des Original-PDFs, ab Folie 13 ist die Seitenzahl um eins kleiner.
 
 ## Bedienung
 

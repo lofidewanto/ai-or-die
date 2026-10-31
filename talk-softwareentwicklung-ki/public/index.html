@@ -161,54 +161,102 @@
     </section>
 
     <!-- 11 -->
-    <section class="slide slide--image no-footer" data-title="KI-Agent: Buddy → Assistent → Copilot">
-      <header class="slide__header slide__header--tight"><h2 class="slide__title">KI-Agent: <em>Buddy</em> → Assistent → Copilot</h2></header>
-      <img src="assets/img/agent-anatomy-blue.webp" alt="Anatomie eines KI-Agenten: eine menschliche Figur mit LLM als Gehirn, System-, User- und AI-Messages, Chat Memory, Wissen und RAG, Context, Steuerung, Tools und Security in einer Sandbox" width="1392" height="1392">
+    <section class="slide" data-title="KI-Agent: Buddy → Assistent → Copilot">
+      <header class="slide__header">
+        <h2 class="slide__title">KI-Agent: <em>Buddy</em> → Assistent → Copilot</h2>
+      </header>
+      <figure class="figure">
+        <img src="assets/img/agent-antomy.webp" alt="Illustration eines KI-Agenten als menschliche Figur: LLM als Gehirn, Harness als Körper und Nervensystem sowie System Message, User Message, AI Message, Chat Memory, Knowledge (RAG), Context, Tools und Security / Guardrails" width="1024" height="1024">
+      </figure>
     </section>
 
     <!-- 12 -->
+    <section class="slide" data-title="Die Bausteine eines KI-Agenten – kurz erklärt">
+      <header class="slide__header">
+        <h2 class="slide__title">Die Bausteine eines KI-Agenten – kurz erklärt</h2>
+      </header>
+      <div class="cols-3 training">
+        <article class="card training__card" style="--accent: var(--brand)">
+          <h3 class="training__head">Modell &amp; Steuerung</h3>
+          <dl class="agent-glossary">
+            <dt>LLM (Brain)</dt>
+            <dd>Großes Sprachmodell: verarbeitet Eingaben und erzeugt Antworten.</dd>
+            <dt>Harness (Body / Nervous System)</dt>
+            <dd>Software-Rahmen: verbindet Modell, Speicher und Tools und steuert den Ablauf.</dd>
+            <dt>Security / Guardrails</dt>
+            <dd>Rechte, Prüfungen und Grenzen für Datenzugriffe und Aktionen.</dd>
+          </dl>
+        </article>
+        <article class="card training__card" style="--accent: var(--red-3)">
+          <h3 class="training__head">Nachrichten</h3>
+          <dl class="agent-glossary">
+            <dt>System Message</dt>
+            <dd>Übergeordnete Vorgaben zu Rolle, Verhalten und Regeln.</dd>
+            <dt>User Message</dt>
+            <dd>Die Frage oder der Arbeitsauftrag des Menschen.</dd>
+            <dt>AI Message</dt>
+            <dd>Die Ausgabe des Modells: eine Antwort oder ein Tool-Aufruf.</dd>
+          </dl>
+        </article>
+        <article class="card training__card" style="--accent: var(--bg-inverse)">
+          <h3 class="training__head">Wissen &amp; Werkzeuge</h3>
+          <dl class="agent-glossary">
+            <dt>Chat Memory</dt>
+            <dd>Gesprächsverlauf für spätere Anfragen.</dd>
+            <dt>Knowledge (RAG)</dt>
+            <dd>Externes Wissen suchen und als Kontext mitgeben.</dd>
+            <dt>Context</dt>
+            <dd>Alle Eingaben für den aktuellen Modellaufruf.</dd>
+            <dt>Tools</dt>
+            <dd>Funktionen wie Suche, APIs oder Code-Ausführung.</dd>
+          </dl>
+        </article>
+      </div>
+    </section>
+
+    <!-- 13 -->
     <section class="slide slide--full no-footer" data-title="Eigentlich ist alles Text">
       <img src="assets/img/slides/alles-text.jpg" alt="Was als Text vorhanden ist, kann man vom Agenten jederzeit bearbeiten lassen. Und … eigentlich ist alles Text, was wir machen. Daneben eine Kugel aus Text, die ein LLM-Kopf mit einem Stift bearbeitet." width="1024" height="576">
     </section>
 
-    <!-- 13 -->
+    <!-- 14 -->
     <section class="slide slide--full no-footer" data-title="Natürliche Sprache">
       <img src="assets/img/slides/natuerliche-sprache.jpg" alt="Ich kann mit den Agenten in natürlicher Sprache kommunizieren! Ein Gesicht im Profil spricht zu einem Globus mit Sprechblase." width="1024" height="576">
     </section>
 
-    <!-- 14 -->
+    <!-- 15 -->
     <section class="slide" data-title="Training von KI-Agenten">
       <header class="slide__header"><h2 class="slide__title">Training von KI-Agenten</h2></header>
       <div class="cols-3 training"><article class="card training__card fragment" style="--accent: var(--brand)"><h3 class="training__head">Tools</h3><img class="training__icon training__img" src="assets/img/slides/training-tools.jpg" alt="" width="207" height="210" style="width: auto; height: 300px; border-radius: 18px"><span class="training__meter" style="--pos: 90%" aria-hidden="true"></span><div class="card-body" style="padding-top: 0; text-align: center">Sekündlich aktualisiert<br>Ständig aktuelle Daten</div></article><article class="card training__card fragment" style="--accent: var(--red-3)"><h3 class="training__head">RAG</h3><img class="training__icon training__img" src="assets/img/slides/training-rag.jpg" alt="" width="196" height="210" style="width: auto; height: 300px; border-radius: 18px"><span class="training__meter" style="--pos: 55%" aria-hidden="true"></span><div class="card-body" style="padding-top: 0; text-align: center">Wöchentliche Updates<br>Kontext &amp; Faktenprüfung</div></article><article class="card training__card fragment" style="--accent: var(--bg-inverse)"><h3 class="training__head">Fine-tuning LLM</h3><img class="training__icon training__img" src="assets/img/slides/training-finetuning.jpg" alt="" width="186" height="210" style="width: auto; height: 300px; border-radius: 18px"><span class="training__meter" style="--pos: 20%" aria-hidden="true"></span><div class="card-body" style="padding-top: 0; text-align: center">Monatliche Updates<br>Stabile Wissensgrundlage</div></article></div><p class="source"><a href="https://www.linkedin.com/posts/dr-lofi-dewanto_tinker-tinker-python-activity-7379782886352121856-LEeK" target="_blank" rel="noopener">https://www.linkedin.com/posts/dr-lofi-dewanto_tinker-tinker-python-activity-7379782886352121856-LEeK</a></p>
     </section>
 
-    <!-- 15 -->
+    <!-- 16 -->
     <section class="slide slide--full no-footer" data-title="Beispiele von KI-Agenten">
       <img src="assets/img/slides/agenten-beispiele.jpg" alt="Beispiele von KI-Agenten: Anthropic Claude, OpenCode.ai, GitHub Copilot, ChatGPT, Manus AI, Gemini, OpenClaw, JavaClaw/ClawRunr, Paperclip, Hermes Agent und viele weitere." width="1408" height="792">
     </section>
 
-    <!-- 16 -->
+    <!-- 17 -->
     <section class="slide slide--full no-footer" data-title="Apps, Dienste und KI-Agenten">
       <img src="assets/img/slides/apps-dienste-agenten.jpg" alt="Was sind die Unterschiede zwischen Apps, Diensten und KI-Agenten? Apps: nutzergesteuert, lokale Ausführung, Fokus auf Einzelaufgaben. Dienste: Backend-basiert, netzwerkgesteuert, dauerhafte Funktionen. KI-Agenten: autonom und proaktiv, lernfähig und kontextbewusst, KI-gesteuerte Entscheidungen." width="1024" height="576">
     </section>
 
-    <!-- 17 -->
+    <!-- 18 -->
     <section class="slide" data-title="Agentic AI: Autonomie, Multi-Schritte und Revision">
       <header class="slide__header slide__header--tight"><h2 class="slide__title">Agentic AI: Autonomie, Multi-Schritte und Revision</h2></header>
       <figure class="dg"><svg viewBox="0 0 1696 740" role="img" aria-label="Agentic AI als Unternehmen: KI-Agenten arbeiten über Domain X, Domain Y und Domain Z hinweg zusammen"><text x="848" y="40" class="t-bold" style="font-size: 36px">Agentic AI as Company</text><rect class="b" x="60" y="120" width="420" height="520" rx="28"/><g class="b b--brand"><rect x="170" y="94" width="200" height="52" rx="26"/><text x="270.0" y="129.1">Domain X</text></g><rect class="b" x="640" y="180" width="420" height="400" rx="28"/><g class="b b--brand"><rect x="750" y="154" width="200" height="52" rx="26"/><text x="850.0" y="189.1">Domain Y</text></g><rect class="b" x="1216" y="90" width="420" height="460" rx="28"/><g class="b b--brand"><rect x="1326" y="64" width="200" height="52" rx="26"/><text x="1426.0" y="99.1">Domain Z</text></g><path class="l l--red" d="M380 330 C520 330 540 340 690 360"/><path class="l l--red" d="M960 360 C1100 360 1120 300 1266 300"/><path class="l l--dash" d="M1320 460 C1100 680 480 720 320 560"/><g class="b b--dark"><rect x="120" y="200" width="96" height="96" rx="18"/></g><use class="ic ic--white" href="#i-bot" x="133.44" y="213.44" width="69.12" height="69.12"/><g class="b b--dark"><rect x="250" y="200" width="96" height="96" rx="18"/></g><use class="ic ic--white" href="#i-bot" x="263.44" y="213.44" width="69.12" height="69.12"/><g class="b b--dark"><rect x="120" y="330" width="96" height="96" rx="18"/></g><use class="ic ic--white" href="#i-bot" x="133.44" y="343.44" width="69.12" height="69.12"/><g class="b b--dark"><rect x="250" y="330" width="96" height="96" rx="18"/></g><use class="ic ic--white" href="#i-bot" x="263.44" y="343.44" width="69.12" height="69.12"/><g class="b b--dark"><rect x="120" y="460" width="96" height="96" rx="18"/></g><use class="ic ic--white" href="#i-bot" x="133.44" y="473.44" width="69.12" height="69.12"/><g class="b b--dark"><rect x="250" y="460" width="96" height="96" rx="18"/></g><use class="ic ic--white" href="#i-bot" x="263.44" y="473.44" width="69.12" height="69.12"/><g class="b b--dark"><rect x="700" y="280" width="96" height="96" rx="18"/></g><use class="ic ic--white" href="#i-bot" x="713.44" y="293.44" width="69.12" height="69.12"/><g class="b b--dark"><rect x="860" y="280" width="96" height="96" rx="18"/></g><use class="ic ic--white" href="#i-bot" x="873.44" y="293.44" width="69.12" height="69.12"/><g class="b b--dark"><rect x="780" y="420" width="96" height="96" rx="18"/></g><use class="ic ic--white" href="#i-bot" x="793.44" y="433.44" width="69.12" height="69.12"/><g class="b b--dark"><rect x="1280" y="200" width="96" height="96" rx="18"/></g><use class="ic ic--white" href="#i-bot" x="1293.44" y="213.44" width="69.12" height="69.12"/><g class="b b--dark"><rect x="1440" y="200" width="96" height="96" rx="18"/></g><use class="ic ic--white" href="#i-bot" x="1453.44" y="213.44" width="69.12" height="69.12"/><g class="b b--dark"><rect x="1360" y="340" width="96" height="96" rx="18"/></g><use class="ic ic--white" href="#i-bot" x="1373.44" y="353.44" width="69.12" height="69.12"/><g class="b b--dark"><rect x="740" y="660" width="60" height="60" rx="18"/></g><use class="ic ic--white" href="#i-bot" x="748.4" y="668.4" width="43.199999999999996" height="43.199999999999996"/><text x="880" y="700" class="t-bold" style="font-size: 28px">KI-Agent</text></svg></figure>
     </section>
 
-    <!-- 18 -->
+    <!-- 19 -->
     <section class="slide slide--full no-footer" data-title="Autonomous organizations">
       <img src="assets/img/slides/andon-labs.jpg" alt="Screenshot der Website von Andon Labs: Autonomous organizations without humans in the loop. Safety from humans in the loop is a mirage." width="2048" height="1152">
     </section>
 
-    <!-- 19 -->
+    <!-- 20 -->
     <section class="slide slide--full no-footer" data-title="Softwareentwicklungsprozess">
       <img src="assets/img/slides/prozess.jpg" alt="Softwareentwicklungsprozess: GitHub Copilot und OpenCode.AI CLI. Blaue Zeichnung eines alten Gebäudes mit den Stationen Planung, Entwicklung, Testing und Deployment." width="1376" height="774">
     </section>
 
-    <!-- 20 -->
+    <!-- 21 -->
     <section class="slide" data-title="Makro- und Mikroprozess">
       <header class="slide__header slide__header--tight">
         <h2 class="slide__title">Makro- und Mikroprozess</h2>
@@ -265,23 +313,23 @@
       <p class="source"><a href="https://lofidewanto.medium.com/software-development-macro-and-micro-process-d90b10bd635a" target="_blank" rel="noopener">https://lofidewanto.medium.com/software-development-macro-and-micro-process-d90b10bd635a</a></p>
     </section>
 
-    <!-- 21 -->
+    <!-- 22 -->
     <section class="slide" data-title="Specification-Driven Development (SDD) mit KI">
       <header class="slide__header"><h2 class="slide__title">Specification-Driven Development (SDD) <strong>mit KI</strong></h2></header>
       <ol class="sdd"><li class="sdd__step fragment"><span class="sdd__icon"><svg class="icon"><use href="#i-file-cog"/></svg></span><p><strong>Specify:</strong> Anforderungen, Motivation, technische Rahmenbedingungen &amp; Constraints festlegen.</p></li><li class="sdd__step fragment"><span class="sdd__icon"><svg class="icon"><use href="#i-list-checks"/></svg></span><p><strong>Plan:</strong> Architektur und technische Strategie definieren: Welche Technologien, welche Schnittstellen, welche Patterns, wie integriert das Ganze?</p></li><li class="sdd__step fragment"><span class="sdd__icon"><svg class="icon"><use href="#i-workflow"/></svg></span><p><strong>Tasks:</strong> Den Plan in kleine, umsetzbare Arbeitspakete unterteilen – so dass jedes Teil isoliert getestet oder reviewt werden kann.</p></li><li class="sdd__step fragment"><span class="sdd__icon"><svg class="icon"><use href="#i-code-xml"/></svg></span><p><strong>Implement:</strong> Die KI-Agenten oder Entwickler beginnen mit der Umsetzung, wobei sie sich strikt an Spezifikationen und Tasks halten.</p></li></ol><p class="source" style="padding-top: 12px"><a href="https://github.blog/ai-and-ml/generative-ai/spec-driven-development-with-ai-get-started-with-a-new-open-source-toolkit" target="_blank" rel="noopener">https://github.blog/ai-and-ml/generative-ai/spec-driven-development-with-ai-get-started-with-a-new-open-source-toolkit</a> - <a href="https://github.com/github/spec-kit" target="_blank" rel="noopener">https://github.com/github/spec-kit</a></p>
     </section>
 
-    <!-- 22 -->
+    <!-- 23 -->
     <section class="slide slide--full no-footer" data-title="Moderne Softwarespezifikationen">
       <img src="assets/img/slides/spezifikationen.jpg" alt="Moderne Softwarespezifikationen in der Entwicklung. Fachliche Spezifikation: Vision, Business Requirements, User Stories, Use Cases, Akzeptanzkriterien, Geschäftsregeln. Technische Spezifikation: Systemarchitektur, Komponenten, Datenmodell, APIs, Schnittstellen, Sicherheitskonzept. Darunter die Artefakte moderner agiler Projekte." width="2048" height="1152">
     </section>
 
-    <!-- 23 -->
+    <!-- 24 -->
     <section class="slide slide--full no-footer" data-title="SDD mit KI-Agenten: Einführung">
       <img src="assets/img/slides/sdd-einfuehrung.jpg" alt="Spezifikationsgesteuerte Entwicklung mit KI-Agenten, eine Einführung für Anfänger in fünf Schritten: GitLab- oder GitHub-Ticket, Umsetzungsplan durch OpenCode.ai, iterative Überprüfung durch ein Reviewer-LLM, Generierung und Tests mit Chrome MCP, schließlich Commit und Push mit Verknüpfung zum Ticket." width="1408" height="792">
     </section>
 
-    <!-- 24 -->
+    <!-- 25 -->
     <section class="slide" data-title="IDE- vs. Konversationszentrierte Arbeit">
       <header class="slide__header"><h2 class="slide__title">IDE- vs. Konversationszentrierte Arbeit</h2></header>
       <div class="versus">
@@ -295,7 +343,7 @@
       </div>
     </section>
 
-    <!-- 25 -->
+    <!-- 26 -->
     <section class="slide" data-title="GitHub Copilot und OpenCode.ai CLI">
       <header class="slide__header slide__header--tight"><h2 class="slide__title">GitHub Copilot und OpenCode.ai CLI</h2></header>
       <div class="cols-2 fill"><article class="card training__card duo" style="--accent: var(--brand)"><h3 class="training__head duo__head"><span class="duo__logo duo__logo--pdf"><img src="assets/img/pdf/github.webp" alt="" width="92" height="92"></span>GitHub Copilot</h3><div class="mock-wrap"><div class="window"><div class="window__bar"><i></i><i></i><i></i><span>Agent.java – IDE</span></div><div class="window__chat"><div class="bubble bubble--me">Why doesn’t this compile?</div><div class="bubble bubble--ai">Missing import. Shall I fix it?</div></div></div></div><div class="card-body"><ul class="bullets"><li>AI pair programmer</li><li>Suggests code and functions</li><li>Supports multiple languages</li><li>Integrated into IDEs</li></ul></div></article><article class="card training__card duo" style="--accent: var(--bg-inverse)"><h3 class="training__head duo__head"><span class="duo__logo duo__logo--pdf"><img src="assets/img/pdf/terminal.webp" alt="" width="97" height="84"></span>OpenCode.ai CLI</h3><div class="mock-wrap"><div class="window"><div class="window__bar"><i></i><i></i><i></i><span>Terminal</span></div><pre><span class="k">$</span> opencode
@@ -303,49 +351,49 @@
 <span class="s">✓</span> plan  <span class="s">✓</span> edit  <span class="s">✓</span> test</pre></div></div><div class="card-body"><ul class="bullets"><li>Command-line interface</li><li>AI-driven automation</li><li>Scripting and workflows</li><li>Terminal integration</li></ul></div></article></div>
     </section>
 
-    <!-- 26 -->
+    <!-- 27 -->
     <section class="slide slide--full no-footer" data-title="KI-Agenten: OpenCode und GitHub Copilot CLI">
       <img src="assets/img/slides/cli-architektur.jpg" alt="Architektur: DevSecOps arbeitet mit den KI-Agenten OpenCode und GitHub Copilot CLI. Tools und Skills sowie MCP-Server binden System-APIs an, als Gehirn dient ein LLM über GitHub Copilot oder AWS Bedrock, zum Beispiel Claude, GPT, Mistral, Gemma, Qwen, MiniMax, Kimi oder Nemotron." width="2048" height="1152">
     </section>
 
-    <!-- 27 -->
+    <!-- 28 -->
     <section class="slide slide--full no-footer" data-title="Arbeiten mit Hilfe von KI-Agenten">
       <img src="assets/img/slides/arbeiten-mit-agenten.jpg" alt="Arbeiten mit Hilfe von KI-Agenten: DevSecOps steuert KI-Agenten aus LLM, Chat Memory, Security, Tools und Funktionen sowie Context und RAG, die auf die Systeme A bis D zugreifen." width="2048" height="1152">
     </section>
 
-    <!-- 28 -->
+    <!-- 29 -->
     <section class="slide slide--full no-footer" data-title="KI Agent Server vs. KI Agent Client">
       <img src="assets/img/slides/agent-server-client.jpg" alt="KI Agent Server gegen KI Agent Client. Server: sicher, aber eingeschränkt, Multi-User, kein Zugriff auf die lokale Umgebung. Client: allmächtig, muss kontrolliert werden, Single-User, zum Beispiel OpenCode, GitHub Copilot und Claude Code CLI. Der größte Unterschied ist das persönliche Umfeld. Empfehlung: clientseitige KI-Agenten." width="2048" height="1152">
     </section>
 
-    <!-- 29 -->
+    <!-- 30 -->
     <section class="slide slide--full no-footer" data-title="Das Umfeld von KI-Agenten beachten">
       <img src="assets/img/slides/umfeld.jpg" alt="Achtung, das Umfeld von KI-Agenten beachten: Rechte-Befugnis, Festplatten-Manipulation, Software-Verwaltung und allumfassende Aktionen. Wenn das nicht gewünscht ist, müssen ihre Rechte entsprechend eingeschränkt werden." width="1024" height="576">
     </section>
 
-    <!-- 30 -->
+    <!-- 31 -->
     <section class="slide slide--full no-footer" data-title="KI-Agent Cakes Layer">
       <img src="assets/img/slides/cake-layer.jpg" alt="KI-Agent Cakes Layer: oben KI-Agenten wie OpenCode und ClaudeCode, darunter eine Sandbox wie Docker Sbx, NVIDIA OpenShell und nono.sh, unten ein sicheres Notebook wie MacBook, daneben Editoren, Tools und Git." width="1024" height="576">
     </section>
 
-    <!-- 31 -->
+    <!-- 32 -->
     <section class="slide slide--full no-footer" data-title="Beispiele">
       <img src="assets/img/slides/beispiele.jpg" alt="Beispiele: https://github.com/lofidewanto/demo-ai-or-die-softwareentwicklung, vor einem Blick durch einen Vorhang auf den Strand." width="1024" height="576">
       <a class="hit" href="https://github.com/lofidewanto/demo-ai-or-die-softwareentwicklung" target="_blank" rel="noopener" style="left: 7%; top: 57%; width: 86%; height: 7%" aria-label="Demo-Repository auf GitHub öffnen"></a>
     </section>
 
-    <!-- 32 -->
+    <!-- 33 -->
     <section class="slide slide--full no-footer" data-title="Prompt: User Story autonom implementieren">
       <img src="assets/img/slides/user-story-prompt.jpg" alt="Prompt: Implementiere die folgende User Story vollständig und autonom. Vorgehen: User Story analysieren, Implementierungsplan in docs/user-stories-planung erstellen, ohne Unterbrechung umsetzen, alle Entscheidungen selbst treffen. Rahmenbedingungen: nur als Demo, Best Practices für Spring Boot, kein Overengineering, produktionsnaher Code, konsistente Projektstruktur, GITHUB_PAT für Kommentare im Issue." width="2048" height="1152">
       <a class="hit" href="https://github.com/lofidewanto/demo-ai-or-die-softwareentwicklung/issues/1" target="_blank" rel="noopener" style="left: 14%; top: 12%; width: 60%; height: 6%" aria-label="User Story auf GitHub öffnen"></a>
     </section>
 
-    <!-- 33 -->
+    <!-- 34 -->
     <section class="slide slide--full no-footer" data-title="Dokumentierte Erfahrungen mit SDD">
       <img src="assets/img/slides/sdd-erfahrungen.jpg" alt="Dokumentierte Erfahrungen mit SDD, KI-gestützte Softwareentwicklung: ein Entwickler arbeitet an mehreren Monitoren mit Spring-Boot-Migration, BiPRO-Schnittstellen-Mapping, einem KFZ-Aktions-Tool und ESLint-Setup, unten rechts das DEVK-Logo." width="2048" height="1152">
     </section>
 
-    <!-- 34 -->
+    <!-- 35 -->
     <section class="slide no-footer" data-section-title="Organisation" data-title="Agenda: Organisation">
       <img class="toe__photo" src="assets/img/slides/agenda-strand.jpg" alt="" width="1920" height="1440">
       <header class="slide__header" style="position: relative"><h2 class="slide__title">Agenda</h2></header>
@@ -369,22 +417,22 @@
       <p class="toe__credit">TOE Framework: Technology Organization Environment</p>
     </section>
 
-    <!-- 35 -->
+    <!-- 36 -->
     <section class="slide slide--full no-footer" data-title="KI-Agenten für Softwareentwicklung">
       <img src="assets/img/slides/devsecops-idp-agile.jpg" alt="KI-Agenten für Softwareentwicklung: DevSecOps, Internal Developer Platforms und Agilität bleiben unverändert. Menschen und Roboter arbeiten gemeinsam an den drei Bereichen DevSecOps, Internal Developer Platform und Agile." width="2048" height="1152">
     </section>
 
-    <!-- 36 -->
+    <!-- 37 -->
     <section class="slide slide--full no-footer" data-title="Eine Rolle: Product Builder">
       <img src="assets/img/slides/product-builder.jpg" alt="Eine Rolle, Product Builder, für alles (Business Analyst, DevSecOps, Tester)? Microteams, drei Personen pro Team: Analyse und Anforderungen, Entwicklung sowie Testen arbeiten am gemeinsamen Produkt." width="2048" height="1152">
     </section>
 
-    <!-- 37 -->
+    <!-- 38 -->
     <section class="slide slide--full no-footer" data-title="DevRel und Forward Deployed Engineer">
       <img src="assets/img/slides/devrel-fde.jpg" alt="DevRel und Forward Deployed Engineer: Die Nutzung von KI-Agenten in der Softwareentwicklung passiert nicht automatisch. DevRel trägt Wissen als Enabler in andere Teams, mit Community, Workshops und Best Practices. Der Forward Deployed Engineer versteht das konkrete Problem beim Kunden und baut die Lösung direkt bei ihm." width="1024" height="576">
     </section>
 
-    <!-- 38 -->
+    <!-- 39 -->
     <section class="slide no-footer" data-section-title="Umfeld" data-title="Agenda: Umfeld">
       <img class="toe__photo" src="assets/img/slides/agenda-strand.jpg" alt="" width="1920" height="1440">
       <header class="slide__header" style="position: relative"><h2 class="slide__title">Agenda</h2></header>
@@ -408,47 +456,47 @@
       <p class="toe__credit">TOE Framework: Technology Organization Environment</p>
     </section>
 
-    <!-- 39 -->
+    <!-- 40 -->
     <section class="slide slide--full no-footer" data-title="Historie der Softwareentwicklung">
       <img src="assets/img/slides/historie-1.jpg" alt="Historie der Softwareentwicklung im Kontext von KI-Agenten: RAD, MDA/MDSD, Low-Code/No-Code und heute KI-Agenten. Ziele: Anforderungen richtig interpretieren, Kosten minimieren, Qualität maximieren." width="2048" height="1152">
     </section>
 
-    <!-- 40 -->
+    <!-- 41 -->
     <section class="slide slide--full no-footer" data-title="Historie der Softwareentwicklung: paralleler Pfad">
       <img src="assets/img/slides/historie-2.jpg" alt="Historie der Softwareentwicklung im Kontext von KI-Agenten, zusätzlich mit dem parallelen Pfad der code-basierten Entwicklung: manuelles Codieren, manuelles Testen, manuelle Integration und komplexe Wartung." width="2048" height="1152">
     </section>
 
-    <!-- 41 -->
+    <!-- 42 -->
     <section class="slide slide--full no-footer" data-title="Bedenken und Fragen">
       <img src="assets/img/slides/bedenken.jpg" alt="Ein Entwickler sieht nachdenklich auf eine Figur aus Licht mit der Aufschrift KI-Agenten. Fragen: Große Bedenken? Angst vor Änderungen? Meine Rolle? Was mache ich, wenn ich nicht entwickeln kann?" width="2048" height="1152">
     </section>
 
-    <!-- 42 -->
+    <!-- 43 -->
     <section class="slide slide--full no-footer" data-title="Harte Umstellung">
       <img src="assets/img/slides/harte-umstellung.jpg" alt="Softwareentwicklung mit KI-Agenten, harte Umstellung: vom imperativen Klein-Klein-Denken in der IDE zum deskriptiven Groß-Denken mit Konversationen und SDD. Der Wechsel der Denkweise ist die Herausforderung." width="2048" height="1152">
     </section>
 
-    <!-- 43 -->
+    <!-- 44 -->
     <section class="slide slide--full no-footer" data-title="Kosten: Fragen und Überlegungen">
       <img src="assets/img/slides/kosten.jpg" alt="Kosten, Fragen und Überlegungen: Tokens müssen bezahlt werden, also Kostenkontrolle. Kommerzielle LLMs und Open-Weight-LLMs im Vergleich. Budget pro Entwickler oder pro Team?" width="1024" height="576">
     </section>
 
-    <!-- 44 -->
+    <!-- 45 -->
     <section class="slide slide--full no-footer" data-section-title="Zusammenfassung" data-title="Zusammenfassung">
       <img src="assets/img/slides/zusammenfassung.jpg" alt="Zusammenfassung. Ein goldener japanischer Tempel am Teich." width="1024" height="576">
     </section>
 
-    <!-- 45 -->
+    <!-- 46 -->
     <section class="slide slide--full no-footer" data-title="Der ganzheitliche Erfolg">
       <img src="assets/img/slides/ganzheitlicher-erfolg.jpg" alt="Der ganzheitliche Erfolg: Technologie allein wird uns nicht weiterbringen, es braucht Struktur, Menschen und das richtige Mindset. Ein Baum verbindet Architektur und Sicherheit, Kommunikation und Anforderungen, SDD und Prozess-Struktur, Organisation und Kultur sowie Technologie mit dem Jevons-Paradoxon." width="1024" height="576">
     </section>
 
-    <!-- 46 -->
+    <!-- 47 -->
     <section class="slide slide--full no-footer" data-title="Das erste Gesetz">
       <img src="assets/img/slides/erstes-gesetz.jpg" alt="Das erste Gesetz der agentischen KI-Softwareentwicklung: Sprich immer mit deinem Agenten. Mache niemals etwas an ihm vorbei. Alles muss mit dem Agenten kommuniziert werden." width="1024" height="576">
     </section>
 
-    <!-- 47 -->
+    <!-- 48 -->
     <section class="slide slide--photo-bg" data-title="Kontakt">
       <img class="slide__bgphoto" src="assets/img/slides/bg-villefranche.jpg" alt="" width="1920" height="1440">
       <header class="slide__header"><h2 class="slide__title">Kontakt</h2></header>
@@ -463,7 +511,7 @@
 
 <nav class="controls" aria-label="Folien-Steuerung">
   <button type="button" data-action="prev" title="Zurück (←)" aria-label="Zurück"><svg class="icon"><use href="#i-chevron-left"/></svg></button>
-  <span class="controls__counter" data-counter>1 / 47</span>
+  <span class="controls__counter" data-counter>1 / 48</span>
   <button type="button" data-action="next" title="Weiter (→ / Leertaste)" aria-label="Weiter"><svg class="icon"><use href="#i-chevron-right"/></svg></button>
   <button type="button" data-action="overview" title="Übersicht (O)" aria-label="Übersicht"><svg class="icon"><use href="#i-layout-grid"/></svg></button>
   <button type="button" data-action="fullscreen" title="Vollbild (F)" aria-label="Vollbild"><svg class="icon"><use href="#i-maximize"/></svg></button>
