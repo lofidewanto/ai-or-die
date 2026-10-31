@@ -17,6 +17,7 @@ Published with GitHub Pages: <https://lofidewanto.github.io/ai-or-die/>
 | [Career timeline](https://lofidewanto.github.io/ai-or-die/cv-lofi-dewanto.html) | Dr. Lofi Dewanto, 1995–2026 |
 | [Career timeline — green dark](https://lofidewanto.github.io/ai-or-die/cv-lofi-dewanto-green-dark.html) | Same content in a dark design with green accents |
 | [Talk: AI or DIE](https://lofidewanto.github.io/ai-or-die/talk-ai-or-die/public/index.html) | Slides, the full talk from LLMs and agent anatomy to real conversational AI demos (English) |
+| [Talk: AI or DIE — Digital Library](https://lofidewanto.github.io/ai-or-die/talk-digital-library/public/index.html) | Slides, AI agent foundations, the challenges of digital libraries and their future in the AI era (English) |
 | [Talk: AI or DIE — Die Zukunft der Softwareentwicklung](https://lofidewanto.github.io/ai-or-die/talk-itcs-2026-cologne/public/index.html) | Slides, ITCS Cologne 2026 (German) |
 | [Workshop: KI in der Softwareentwicklung](https://lofidewanto.github.io/ai-or-die/ki-softwareentwicklung/public/index.html) | Slides, from GitHub Copilot to LLM-based applications (German) |
 | [Security: KI-Agenten für die Softwareentwicklung](https://lofidewanto.github.io/ai-or-die/ki-softwareentwicklung/public/security.html) | Slides, security requirements, zero trust and roadmap (German) |
