@@ -1,0 +1,189 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Flyer Singkat AI or DIE</title>
+  <meta name="description" content="Flyer singkat Workshop AI or DIE Jakarta, November 2026, bersama Dr. Lofi Dewanto.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcode-generator/1.4.4/qrcode.min.js"></script>
+  <style>
+    :root {
+      --brand: #0071e3;
+      --accent: #22d3ee;
+      --dark: #0b0b0f;
+      --on-dark: #f5f5f7;
+      --on-dark-muted: #a1a1a6;
+      --ink: #1d1d1f;
+      --page-bg: #e8e8ed;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root:not([data-theme="light"]) { --page-bg: #000000; }
+    }
+    :root[data-theme="dark"] { --page-bg: #000000; }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    body {
+      background: var(--page-bg);
+      font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      padding: 24px 16px;
+      display: flex;
+      justify-content: center;
+    }
+
+    /* 4:5 portrait card (1080 x 1350 at 2x = 540 x 675 CSS px) */
+    .card {
+      width: 540px;
+      height: 675px;
+      max-width: 100%;
+      color: var(--on-dark);
+      background:
+        radial-gradient(110% 70% at 100% 0%, rgba(34,211,238,0.30) 0%, rgba(34,211,238,0) 55%),
+        radial-gradient(90% 70% at 0% 100%, rgba(0,113,227,0.55) 0%, rgba(0,113,227,0) 60%),
+        var(--dark);
+      padding: 40px 40px 32px;
+      display: flex;
+      flex-direction: column;
+      box-shadow: 0 24px 60px rgba(0,0,0,0.25);
+      overflow: hidden;
+    }
+    .eyebrow {
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--accent);
+    }
+    h1 {
+      margin-top: 14px;
+      font-size: 60px;
+      line-height: 1;
+      font-weight: 800;
+      letter-spacing: -0.04em;
+    }
+    .grad {
+      background: linear-gradient(90deg, #2997ff, #22d3ee);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+    .lead {
+      margin-top: 18px;
+      font-size: 17px;
+      line-height: 1.45;
+      color: #d2d2d7;
+      max-width: 440px;
+    }
+    .speaker {
+      margin-top: 26px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+    .photo {
+      width: 92px; height: 92px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid rgba(255,255,255,0.9);
+      box-shadow: 0 0 0 6px rgba(41,151,255,0.4);
+      flex: none;
+    }
+    .name { font-size: 18px; font-weight: 700; }
+    .role { font-size: 13px; color: var(--on-dark-muted); margin-top: 3px; line-height: 1.4; }
+
+    .facts {
+      margin-top: auto;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+    }
+    .fact {
+      background: rgba(255,255,255,0.07);
+      border: 1px solid rgba(255,255,255,0.10);
+      border-radius: 14px;
+      padding: 12px 14px;
+    }
+    .fact .k { font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--on-dark-muted); font-weight: 600; }
+    .fact .v { font-size: 15px; font-weight: 700; margin-top: 4px; line-height: 1.2; }
+
+    .bottom {
+      margin-top: 14px;
+      background: var(--brand);
+      border-radius: 18px;
+      padding: 16px 16px 16px 20px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+    .bottom .info { flex: 1; min-width: 0; }
+    .price { font-size: 26px; font-weight: 800; letter-spacing: -0.02em; line-height: 1; white-space: nowrap; }
+    .price small { font-size: 13px; font-weight: 500; opacity: 0.85; letter-spacing: 0; }
+    .seats { font-size: 13px; margin-top: 6px; opacity: 0.92; }
+    .links { font-feature-settings: "calt" 0; font-size: 12.5px; margin-top: 8px; line-height: 1.5; }
+    .links b { font-weight: 700; }
+    .qr { background: #fff; border-radius: 10px; padding: 7px; flex: none; text-align: center; }
+    .qr-img { width: 84px; height: 84px; }
+    .qr-img svg { width: 100%; height: 100%; display: block; }
+    .qr-cap { font-size: 8.5px; font-weight: 800; color: var(--ink); margin-top: 4px; letter-spacing: 0.06em; }
+
+    @media screen and (max-width: 572px) {
+      body { padding: 16px; }
+      .card { height: auto; padding: 28px 20px 20px; }
+      h1 { font-size: 44px; }
+      .lead { font-size: 15px; }
+      .facts { margin-top: 24px; grid-template-columns: 1fr; }
+      .bottom { flex-wrap: wrap; }
+    }
+
+    @page { size: 540px 675px; margin: 0; }
+    @media print {
+      body { background: none; padding: 0; display: block; }
+      .card { box-shadow: none; }
+    }
+  </style>
+</head>
+<body>
+  <main class="card">
+    <p class="eyebrow">Workshop &middot; Jakarta &middot; Nov 2026</p>
+    <h1>AI or DIE.<br><span class="grad">Satu Hari.</span></h1>
+    <p class="lead">Pahami AI, LLM dan agen &mdash; dan bangun agen AI Anda sendiri dengan Spring AI.</p>
+
+    <div class="speaker">
+      <img class="photo" src="lofi-dewanto.jpg" alt="Foto Dr. Lofi Dewanto">
+      <div>
+        <p class="name">Dr. Lofi Dewanto</p>
+        <p class="role">Pionir Java &amp; Open Source &middot; Enterprise Architect</p>
+      </div>
+    </div>
+
+    <section class="facts" aria-label="Informasi acara">
+      <div class="fact"><p class="k">Tanggal</p><p class="v">19/20/21 Nov<br>(menyusul)</p></div>
+      <div class="fact"><p class="k">Waktu</p><p class="v">09:30 &ndash; 17:00<br>WIB</p></div>
+      <div class="fact"><p class="k">Lokasi</p><p class="v">Jakarta<br>(menyusul)</p></div>
+    </section>
+
+    <section class="bottom">
+      <div class="info">
+        <p class="price">IDR 500.000 <small>/ orang</small></p>
+        <p class="seats">Hanya 50 kursi &middot; bawa laptop sendiri</p>
+        <p class="links">Daftar: <b>forms.gle/gsvDgE4x2zncKwJ77</b><br>WA Mova: <b>+62 851-2133-6927</b></p>
+      </div>
+      <div class="qr">
+        <div class="qr-img" id="qr" role="img" aria-label="QR code pendaftaran"></div>
+        <p class="qr-cap">SCAN &amp; DAFTAR</p>
+      </div>
+    </section>
+  </main>
+  <script>
+    try {
+      const qr = qrcode(0, "M");
+      qr.addData("https://forms.gle/gsvDgE4x2zncKwJ77");
+      qr.make();
+      document.getElementById("qr").innerHTML = qr.createSvgTag({ cellSize: 4, margin: 0, scalable: true });
+    } catch (e) { console.log("QR failed", e); }
+  </script>
+</body>
+</html>

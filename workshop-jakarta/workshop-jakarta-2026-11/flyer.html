@@ -1,0 +1,359 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Flyer AI or DIE Jakarta</title>
+  <meta name="description" content="Flyer Workshop AI or DIE Jakarta, November 2026 — AI, LLM dan agen dalam satu hari bersama Dr. Lofi Dewanto.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcode-generator/1.4.4/qrcode.min.js"></script>
+  <style>
+    :root {
+      --brand: #0071e3;
+      --accent: #06b6d4;
+      --ink: #1d1d1f;
+      --muted: #515154;
+      --paper: #ffffff;
+      --soft: #f5f5f7;
+      --line: rgba(0, 0, 0, 0.08);
+      --dark: #0b0b0f;
+      --on-dark: #f5f5f7;
+      --on-dark-muted: #a1a1a6;
+      --page-bg: #e8e8ed;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root:not([data-theme="light"]) { --page-bg: #000000; }
+    }
+    :root[data-theme="dark"] { --page-bg: #000000; }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    body {
+      background: var(--page-bg);
+      font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--ink);
+      padding: 24px 16px;
+      display: flex;
+      justify-content: center;
+    }
+
+    /* A4 sheet */
+    .sheet {
+      width: 210mm;
+      height: 297mm;
+      max-width: 100%;
+      background: var(--paper);
+      box-shadow: 0 24px 60px rgba(0,0,0,0.18);
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      position: relative;
+    }
+
+    /* ---------- HERO ---------- */
+    .hero {
+      background:
+        radial-gradient(120% 90% at 100% 0%, rgba(6,182,212,0.35) 0%, rgba(6,182,212,0) 55%),
+        radial-gradient(90% 80% at 0% 100%, rgba(0,113,227,0.45) 0%, rgba(0,113,227,0) 60%),
+        var(--dark);
+      color: var(--on-dark);
+      padding: 10mm 14mm 8mm;
+      display: grid;
+      grid-template-columns: 1fr 52mm;
+      gap: 8mm;
+      align-items: center;
+    }
+    .eyebrow {
+      font-size: 9.5pt;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 4mm;
+    }
+    h1 {
+      font-size: 40pt;
+      line-height: 1.02;
+      font-weight: 800;
+      letter-spacing: -0.035em;
+    }
+    .grad {
+      background: linear-gradient(90deg, #2997ff, #22d3ee);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+    .lead {
+      margin-top: 5mm;
+      font-size: 11.5pt;
+      line-height: 1.45;
+      color: #d2d2d7;
+      max-width: 112mm;
+    }
+    .photo-wrap { text-align: center; }
+    .photo {
+      width: 50mm;
+      height: 50mm;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 1.2mm solid rgba(255,255,255,0.9);
+      box-shadow: 0 0 0 2.2mm rgba(41,151,255,0.45), 0 10px 30px rgba(0,0,0,0.5);
+      display: block;
+      margin: 0 auto;
+    }
+    .photo-name {
+      margin-top: 4mm;
+      font-weight: 700;
+      font-size: 11.5pt;
+    }
+    .photo-role {
+      font-size: 8.5pt;
+      color: var(--on-dark-muted);
+      line-height: 1.35;
+      margin-top: 1mm;
+    }
+
+    /* ---------- FACT BAR ---------- */
+    .facts {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      background: var(--brand);
+      color: #fff;
+    }
+    .fact {
+      padding: 4.2mm 4mm;
+      border-right: 1px solid rgba(255,255,255,0.22);
+    }
+    .fact:last-child { border-right: 0; }
+    .fact .k {
+      font-size: 7.5pt;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      opacity: 0.8;
+      font-weight: 600;
+    }
+    .fact .v {
+      font-size: 10.5pt;
+      font-weight: 700;
+      margin-top: 1mm;
+      line-height: 1.25;
+    }
+    .fact .s { font-size: 8pt; opacity: 0.85; margin-top: 0.5mm; }
+
+    /* ---------- BODY ---------- */
+    .body {
+      padding: 7mm 14mm 0;
+      display: grid;
+      grid-template-columns: 1fr 66mm;
+      gap: 8mm;
+    }
+    h2 {
+      font-size: 13pt;
+      font-weight: 800;
+      letter-spacing: -0.01em;
+      margin-bottom: 3.5mm;
+    }
+    .sessions { list-style: none; display: grid; gap: 2.6mm; }
+    .sessions li {
+      display: grid;
+      grid-template-columns: 8mm 1fr;
+      gap: 3mm;
+      align-items: start;
+    }
+    .num {
+      width: 8mm; height: 8mm;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--brand), var(--accent));
+      color: #fff;
+      font-weight: 700;
+      font-size: 9.5pt;
+      display: grid;
+      place-items: center;
+    }
+    .sessions b { font-size: 10pt; display: block; line-height: 1.25; }
+    .sessions span { font-size: 8.6pt; color: var(--muted); line-height: 1.38; display: block; margin-top: 0.4mm; }
+
+    .side { display: flex; flex-direction: column; gap: 4mm; }
+    .box {
+      background: var(--soft);
+      border-radius: 4mm;
+      padding: 4.5mm 5mm;
+    }
+    .box ul { list-style: none; display: grid; gap: 1.6mm; }
+    .box li {
+      font-size: 8.8pt;
+      line-height: 1.35;
+      padding-left: 4.5mm;
+      position: relative;
+    }
+    .box li::before {
+      content: "";
+      position: absolute;
+      left: 0; top: 1.6mm;
+      width: 2mm; height: 2mm;
+      border-radius: 50%;
+      background: var(--brand);
+    }
+    .price {
+      font-size: 19pt;
+      font-weight: 800;
+      white-space: nowrap;
+      letter-spacing: -0.02em;
+      color: var(--brand);
+      line-height: 1;
+    }
+    .price small { font-size: 9pt; color: var(--muted); font-weight: 500; letter-spacing: 0; }
+    .price-note { font-size: 8.2pt; color: var(--muted); margin: 1.5mm 0 3.5mm; }
+    .story {
+      margin-top: 5mm;
+      font-size: 8.8pt;
+      line-height: 1.45;
+      color: var(--muted);
+      border-left: 1mm solid var(--accent);
+      padding-left: 3.5mm;
+    }
+    .story strong { color: var(--ink); }
+
+    /* ---------- FOOTER / CTA ---------- */
+    .sheet > .body { flex: 1; align-content: start; }
+    .cta {
+      margin-top: 6mm;
+      background: var(--dark);
+      color: var(--on-dark);
+      padding: 6mm 14mm;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 8mm;
+      align-items: center;
+    }
+    .cta-title { font-size: 19pt; font-weight: 800; letter-spacing: -0.02em; line-height: 1.1; }
+    .cta-sub { font-size: 9.5pt; color: #d2d2d7; margin-top: 2mm; line-height: 1.5; }
+    .cta-sub b { color: #fff; }
+    .cta-links { font-feature-settings: "calt" 0; margin-top: 3mm; font-size: 8.8pt; line-height: 1.6; color: var(--on-dark-muted); }
+    .cta-links b { color: var(--accent); font-weight: 600; }
+    .qr {
+      background: #fff;
+      border-radius: 3mm;
+      padding: 2.5mm;
+      text-align: center;
+    }
+    .qr-img { width: 30mm; height: 30mm; display: block; }
+    .qr-img svg, .qr-img img { width: 100%; height: 100%; display: block; }
+    .qr-cap { font-size: 7.5pt; font-weight: 700; color: var(--ink); margin-top: 1.2mm; letter-spacing: 0.04em; }
+
+    /* ---------- Phone width: let the sheet flow ---------- */
+    @media screen and (max-width: 820px) {
+      body { padding: 16px; }
+      .sheet { height: auto; width: 100%; }
+      .hero { grid-template-columns: 1fr; padding: 28px 20px; text-align: left; }
+      .photo-wrap { order: -1; text-align: left; display: flex; gap: 14px; align-items: center; }
+      .photo { width: 96px; height: 96px; margin: 0; }
+      .photo-name { margin-top: 0; }
+      h1 { font-size: 34px; }
+      .facts { grid-template-columns: 1fr 1fr; }
+      .fact { border-bottom: 1px solid rgba(255,255,255,0.22); }
+      .body { grid-template-columns: 1fr; padding: 24px 20px 0; }
+      .cta { grid-template-columns: 1fr; padding: 24px 20px; }
+      .qr { justify-self: start; }
+    }
+
+    @page { size: A4; margin: 0; }
+    @media print {
+      body { background: #fff; padding: 0; display: block; }
+      .sheet { box-shadow: none; width: 210mm; height: 297mm; }
+    }
+  </style>
+</head>
+<body>
+  <main class="sheet">
+
+    <header class="hero">
+      <div>
+        <p class="eyebrow">Workshop &middot; Jakarta &middot; November 2026</p>
+        <h1>AI or DIE.<br>Satu Hari.<br><span class="grad">Pilihan Anda.</span></h1>
+        <p class="lead">Pahami AI, LLM dan agen, bekerja dengan OpenCode dan Claude Code &mdash; dan bangun agen AI Anda sendiri dengan Spring Boot dan Spring AI.</p>
+      </div>
+      <div class="photo-wrap">
+        <img class="photo" src="lofi-dewanto.jpg" alt="Foto Dr. Lofi Dewanto">
+        <div>
+          <p class="photo-name">Dr. Lofi Dewanto</p>
+          <p class="photo-role">Pionir Java &amp; Open Source<br>Enterprise Architect<br>Advisor Mova Intelligence</p>
+        </div>
+      </div>
+    </header>
+
+    <section class="facts" aria-label="Informasi acara">
+      <div class="fact"><p class="k">Tanggal</p><p class="v">19 / 20 / 21 Nov 2026</p><p class="s">tanggal pasti menyusul</p></div>
+      <div class="fact"><p class="k">Waktu</p><p class="v">09:30 &ndash; 17:00 WIB</p><p class="s">sehari penuh</p></div>
+      <div class="fact"><p class="k">Lokasi</p><p class="v">Jakarta</p><p class="s">tempat menyusul &middot; WiFi tersedia</p></div>
+      <div class="fact"><p class="k">Kursi</p><p class="v">Maks. 50 peserta</p><p class="s">5 mentor &middot; 1 : 10</p></div>
+    </section>
+
+    <section class="body">
+      <div>
+        <h2>Enam sesi, dari alasan hingga praktik</h2>
+        <ol class="sessions">
+          <li><div class="num">1</div><div><b>Pembukaan: AI or DIE</b><span>Disrupted, irrelevant, extinct &mdash; atau AI-native? Dari digitalisasi menuju agentic AI.</span></div></li>
+          <li><div class="num">2</div><div><b>Teori: AI, LLM dan agen</b><span>Bagaimana LLM dibuat, anatomi agen: memori, RAG, tools dan MCP.</span></div></li>
+          <li><div class="num">3</div><div><b>Bekerja dengan agen AI</b><span>Spec-driven development dengan OpenCode &amp; Claude Code &mdash; dan lebih dari kode: presentasi, analisis saham, riset.</span></div></li>
+          <li><div class="num">4</div><div><b>Keamanan dan agen</b><span>Least privilege, sandbox, secret, prompt injection, human in the loop, UU PDP.</span></div></li>
+          <li><div class="num">5</div><div><b>Bangun agen sendiri dengan Spring AI</b><span>&ldquo;Warung Digital&rdquo;: asisten restoran dengan model NVIDIA, memori, RAG, <code>@Tool</code> dan MCP.</span></div></li>
+          <li><div class="num">6</div><div><b>Masa depan &amp; penutupan</b><span>Dari developer menjadi &ldquo;product builder&rdquo;. Tanya jawab, sertifikat, foto bersama.</span></div></li>
+        </ol>
+        <p class="story">Workshop pertama Lofi di Jakarta: <em>MDA and Java</em>, INIXINDO 2006. Dua puluh tahun kemudian: <strong>AI dan Java</strong>.</p>
+
+      </div>
+
+      <aside class="side">
+        <div class="box">
+          <p class="price">IDR 500.000 <small>/ orang</small></p>
+          <p class="price-note">Harga tetap &middot; semua termasuk</p>
+          <ul>
+            <li>Lab praktik bersama pembicara &amp; 5 mentor</li>
+            <li>Makan siang &amp; 2&times; rehat kopi (halal)</li>
+            <li>Repository, slide, prompt &amp; template</li>
+            <li>Sertifikat keikutsertaan</li>
+            <li>Grup alumni untuk tanya jawab lanjutan</li>
+          </ul>
+        </div>
+        <div class="box">
+          <h2 style="font-size:10.5pt;margin-bottom:2.5mm">Untuk siapa?</h2>
+          <ul>
+            <li>Software developer (diutamakan Java)</li>
+            <li>Tech lead &amp; arsitek</li>
+            <li>Mahasiswa tingkat akhir Informatika / SI</li>
+            <li>Founder UMKM &amp; product person</li>
+          </ul>
+        </div>
+      </aside>
+    </section>
+
+    <footer class="cta">
+      <div>
+        <p class="cta-title">Daftar sekarang &mdash; hanya 50 kursi.</p>
+        <p class="cta-sub"><b>Prasyarat:</b> laptop sendiri dengan OpenCode (model gratis) atau Claude Code terinstal. Workshop dalam Bahasa Indonesia.</p>
+        <p class="cta-links">
+          Daftar: <b>forms.gle/gsvDgE4x2zncKwJ77</b><br>
+          Info: <b>lofidewanto.github.io/ai-or-die</b><br>
+          WhatsApp Mova: <b>+62 851-2133-6927</b>
+        </p>
+      </div>
+      <div class="qr">
+        <div class="qr-img" id="qr" role="img" aria-label="QR code pendaftaran"></div>
+        <p class="qr-cap">SCAN &amp; DAFTAR</p>
+      </div>
+    </footer>
+
+  </main>
+  <script>
+    try {
+      const qr = qrcode(0, "M");
+      qr.addData("https://forms.gle/gsvDgE4x2zncKwJ77");
+      qr.make();
+      document.getElementById("qr").innerHTML = qr.createSvgTag({ cellSize: 4, margin: 0, scalable: true });
+    } catch (e) { console.log("QR failed", e); }
+  </script>
+</body>
+</html>
