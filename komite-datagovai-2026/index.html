@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AI or DIE: Dari Java dan Open Source ke Agen AI — Dr. Lofi Dewanto</title>
+  <meta name="description" content="Profil Dr. Lofi Dewanto: kegiatan, seri AI or DIE dan pelatihan agen AI. Proceeding Komite.id, Post DataGovAI 2026 Edition.">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="AI or DIE: Dari Java dan Open Source ke Agen AI">
+  <meta property="og:description" content="Profil Dr. Lofi Dewanto — Proceeding Komite.id, Post DataGovAI 2026 Edition.">
+  <meta property="og:url" content="https://lofidewanto.github.io/ai-or-die/komite-datagovai-2026/">
+  <meta property="og:image" content="https://lofidewanto.github.io/ai-or-die/favicon.png">
+  <link rel="icon" href="../favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+  <script>
+    (() => {
+      let theme = null;
+      try { theme = localStorage.getItem("aiordie-theme"); } catch (e) {}
+      if (!theme) theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+      document.documentElement.setAttribute("data-theme", theme);
+      document.documentElement.classList.add("js");
+    })();
+  </script>
+  <style>
+    /* ── Design tokens (same as the AI or DIE homepage, red edition) ── */
+    :root {
+      --brand: #d70015;
+      --brand-strong: #e3001b;
+      --brand-soft: rgba(215, 0, 21, 0.08);
+      --accent: #ff8a00;
+      --success: #29a745;
+      --bg: #fbfbfd;
+      --bg-secondary: #f5f5f7;
+      --bg-elevated-strong: #ffffff;
+      --bg-inverse: #1d1d1f;
+      --text: #1d1d1f;
+      --text-on-inverse: #f5f5f7;
+      --muted: #6e6e73;
+      --muted-strong: #515154;
+      --border: rgba(0, 0, 0, 0.08);
+      --border-soft: rgba(0, 0, 0, 0.06);
+      --shadow: 0 1px 2px rgba(0,0,0,0.04), 0 4px 14px rgba(0,0,0,0.05);
+      --shadow-lg: 0 6px 24px rgba(0,0,0,0.06), 0 24px 60px rgba(0,0,0,0.08);
+      --nav-bg: rgba(251, 251, 253, 0.72);
+      --radius-lg: 22px;
+      --radius-xl: 28px;
+      --radius-pill: 980px;
+      color-scheme: light;
+    }
+    :root[data-theme="dark"] {
+      --brand: #ff453a;
+      --brand-strong: #ff6961;
+      --brand-soft: rgba(255, 69, 58, 0.14);
+      --accent: #ff9f0a;
+      --success: #34c759;
+      --bg: #000000;
+      --bg-secondary: #1d1d1f;
+      --bg-elevated-strong: #1d1d1f;
+      --bg-inverse: #1d1d1f;
+      --text: #f5f5f7;
+      --muted: #a1a1a6;
+      --muted-strong: #c7c7cc;
+      --border: rgba(255, 255, 255, 0.10);
+      --border-soft: rgba(255, 255, 255, 0.06);
+      --shadow: 0 1px 2px rgba(0,0,0,0.4), 0 8px 24px rgba(0,0,0,0.5);
+      --shadow-lg: 0 12px 36px rgba(0,0,0,0.55), 0 30px 80px rgba(0,0,0,0.6);
+      --nav-bg: rgba(0, 0, 0, 0.72);
+      color-scheme: dark;
+    }
+
+    /* ── Base ── */
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+    body {
+      margin: 0;
+      font-family: "SF Pro Text", -apple-system, BlinkMacSystemFont, "Inter", "Helvetica Neue", Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      font-size: 17px;
+      line-height: 1.5;
+      letter-spacing: -0.003em;
+      -webkit-font-smoothing: antialiased;
+      transition: background 0.3s ease, color 0.3s ease;
+    }
+    h1, h2, h3 {
+      font-family: "SF Pro Display", -apple-system, BlinkMacSystemFont, "Inter", "Helvetica Neue", Arial, sans-serif;
+      font-weight: 600;
+      letter-spacing: -0.022em;
+      line-height: 1.08;
+      margin: 0;
+      color: var(--text);
+    }
+    p { margin: 0; line-height: 1.55; }
+    a { color: var(--brand); text-decoration: none; }
+    a:hover { color: var(--brand-strong); text-decoration: underline; text-underline-offset: 3px; }
+    :target { scroll-margin-top: 64px; }
+    ::selection { background: rgba(215, 0, 21, 0.22); }
+
+    .container { width: 100%; max-width: 1140px; margin: 0 auto; padding: 0 16px; }
+    @media (min-width: 576px) { .container { padding: 0 24px; } }
+    .text-gradient {
+      background: linear-gradient(135deg, var(--brand), var(--accent));
+      -webkit-background-clip: text; background-clip: text; color: transparent;
+    }
+
+    /* ── Nav ── */
+    header { position: sticky; top: 0; z-index: 100; }
+    .navbar {
+      -webkit-backdrop-filter: saturate(180%) blur(20px);
+      backdrop-filter: saturate(180%) blur(20px);
+      background: var(--nav-bg);
+      border-bottom: 1px solid var(--border-soft);
+    }
+    .nav-inner { display: flex; align-items: center; justify-content: space-between; gap: 1rem; min-height: 52px; }
+    .brand { font-weight: 700; font-size: 1rem; letter-spacing: -0.02em; color: var(--text); }
+    .brand:hover { color: var(--text); text-decoration: none; }
+    .brand span { color: var(--brand); }
+    .nav-links { display: flex; align-items: center; gap: 0.25rem; list-style: none; margin: 0; padding: 0; }
+    .nav-links a { color: var(--muted-strong); font-size: 0.82rem; padding: 0.4rem 0.75rem; }
+    .nav-links a:hover { color: var(--text); text-decoration: none; }
+    .nav-actions { display: flex; align-items: center; gap: 0.5rem; }
+    .theme-toggle, .print-btn {
+      display: inline-flex; align-items: center; gap: 0.4rem;
+      height: 2rem; padding: 0 0.7rem;
+      border: 1px solid var(--border); border-radius: var(--radius-pill);
+      background: transparent; color: var(--muted-strong);
+      font: 500 0.78rem/1 inherit; cursor: pointer;
+    }
+    .theme-toggle:hover, .print-btn:hover { color: var(--text); }
+    @media (max-width: 860px) { .nav-links { display: none; } }
+    @media (max-width: 480px) { .theme-toggle [data-theme-label], .print-btn span { display: none; } }
+
+    /* ── Hero ── */
+    .hero {
+      padding: 5rem 0 3.5rem;
+      text-align: center;
+      background: radial-gradient(ellipse 60% 60% at 50% 0%, rgba(215, 0, 21, 0.07), transparent 70%), var(--bg);
+    }
+    :root[data-theme="dark"] .hero {
+      background: radial-gradient(ellipse 70% 60% at 50% 0%, rgba(255, 69, 58, 0.13), transparent 70%), var(--bg);
+    }
+    .hero-stage { max-width: 52rem; margin: 0 auto; }
+    .news-pill {
+      display: inline-flex; align-items: center; gap: 0.6rem; max-width: 100%;
+      padding: 0.35rem 1rem 0.35rem 0.4rem; margin-bottom: 2rem;
+      border: 1px solid var(--border); border-radius: var(--radius-pill);
+      background: var(--bg-elevated-strong); box-shadow: var(--shadow);
+      color: var(--text); font-size: 0.9375rem; text-align: left;
+    }
+    .news-pill-label {
+      flex-shrink: 0; padding: 0.2rem 0.65rem;
+      border-radius: var(--radius-pill); background: var(--brand); color: #fff;
+      font-size: 0.75rem; font-weight: 600;
+    }
+    .hero-eyebrow { color: var(--brand); font-size: clamp(1.0625rem, 1.6vw, 1.25rem); font-weight: 500; margin-bottom: 1rem; }
+    .display-2 { font-size: clamp(2.3rem, 5.5vw, 4.25rem); letter-spacing: -0.045em; line-height: 1.04; margin-bottom: 1.5rem; }
+    .hero-lead { font-size: clamp(1.125rem, 1.75vw, 1.4rem); line-height: 1.4; color: var(--muted-strong); max-width: 42rem; margin: 0 auto; }
+    .chips { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.5rem; margin-top: 2.25rem; }
+    .chip {
+      display: inline-flex; align-items: center; gap: 0.4rem;
+      padding: 0.45rem 0.9rem; border-radius: var(--radius-pill);
+      background: var(--bg-secondary); border: 1px solid var(--border-soft);
+      color: var(--muted-strong); font-size: 0.875rem;
+    }
+    .chip .bi { color: var(--brand); }
+
+    /* ── Article layout ── */
+    .layout { display: grid; gap: 2.5rem; padding: 1rem 0 5rem; }
+    @media (min-width: 1000px) { .layout { grid-template-columns: minmax(0, 1fr) 18rem; gap: 4rem; } }
+    article { max-width: 44rem; }
+    article .intro {
+      font-size: clamp(1.15rem, 1.6vw, 1.3rem); line-height: 1.5; color: var(--text);
+      padding-bottom: 2rem; margin-bottom: 0.5rem; border-bottom: 1px solid var(--border);
+    }
+    article h2 {
+      font-size: clamp(1.5rem, 2.6vw, 2rem); letter-spacing: -0.03em; line-height: 1.12;
+      margin: 3rem 0 1rem;
+    }
+    article h2 .num { display: block; color: var(--brand); font-size: 0.8125rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 0.5rem; }
+    article p { color: var(--muted-strong); margin-bottom: 1.1rem; line-height: 1.65; }
+    article strong { color: var(--text); font-weight: 600; }
+    article em { font-style: italic; }
+
+    .check-list { list-style: none; padding: 0; margin: 0 0 1.25rem; }
+    .check-list li { display: flex; gap: 0.75rem; margin-bottom: 0.8rem; color: var(--muted-strong); line-height: 1.5; }
+    .check-list li .bi { color: var(--brand); margin-top: 0.2rem; flex-shrink: 0; }
+
+    /* Workshop formats */
+    .formats { display: grid; gap: 1rem; margin: 1.5rem 0; }
+    @media (min-width: 640px) { .formats { grid-template-columns: repeat(3, 1fr); } }
+    .format {
+      padding: 1.5rem; border-radius: var(--radius-lg);
+      background: var(--bg-secondary); border: 1px solid var(--border-soft);
+    }
+    .format .tag-chip {
+      display: inline-flex; padding: 0.3rem 0.75rem; border-radius: var(--radius-pill);
+      background: var(--brand-soft); color: var(--brand); font-size: 0.75rem; font-weight: 500;
+    }
+    .format h3 { font-size: 1.1rem; margin: 0.9rem 0 0.4rem; }
+    .format p { font-size: 0.92rem; color: var(--muted); margin: 0; line-height: 1.5; }
+
+    /* Evolution strip */
+    .evolution { display: flex; flex-wrap: wrap; align-items: center; gap: 0.5rem; margin: 0.25rem 0 1.25rem; }
+    .evolution span {
+      padding: 0.35rem 0.85rem; border-radius: var(--radius-pill);
+      border: 1px solid var(--border); font-size: 0.875rem; font-weight: 500; color: var(--muted-strong);
+    }
+    .evolution span.now { background: var(--brand); border-color: var(--brand); color: #fff; }
+    .evolution .bi { color: var(--muted); font-size: 0.8rem; }
+
+    /* Pull quote */
+    .quote {
+      margin: 2rem 0; padding: 1.75rem 2rem;
+      border-left: 4px solid var(--brand); border-radius: 0 var(--radius-lg) var(--radius-lg) 0;
+      background: var(--brand-soft);
+    }
+    .quote p { margin: 0; font-family: "SF Pro Display", -apple-system, "Inter", sans-serif; font-size: clamp(1.15rem, 2vw, 1.4rem); line-height: 1.4; font-weight: 500; letter-spacing: -0.015em; color: var(--text); }
+
+    /* Closing banner */
+    .closing {
+      margin-top: 3rem; padding: 3rem 2rem; text-align: center;
+      background: var(--bg-inverse); color: var(--text-on-inverse);
+      border: 1px solid var(--border-soft); border-radius: var(--radius-xl);
+    }
+    .closing h2 { color: var(--text-on-inverse); margin: 0 0 1rem; }
+    .closing h2 .num { color: #ff6961; }
+    .closing p { color: rgba(245, 245, 247, 0.8); max-width: 36rem; margin: 0 auto; }
+
+    /* ── Sidebar ── */
+    aside { display: grid; gap: 1.25rem; align-content: start; }
+    @media (min-width: 1000px) { aside { position: sticky; top: 76px; } }
+    .side-card {
+      padding: 1.5rem; border-radius: var(--radius-xl);
+      background: var(--bg-secondary); border: 1px solid var(--border-soft);
+    }
+    .speaker-tile {
+      aspect-ratio: 4 / 3; border-radius: var(--radius-xl);
+      background: linear-gradient(135deg, var(--brand), var(--accent));
+      display: flex; flex-direction: column; justify-content: flex-end; padding: 1.5rem; color: #fff;
+    }
+    .speaker-tile .initials { font-family: "SF Pro Display", -apple-system, "Inter", sans-serif; font-size: 4.5rem; font-weight: 600; letter-spacing: -0.05em; line-height: 1; }
+    .speaker-tile p { opacity: 0.92; margin-top: 0.5rem; font-size: 0.92rem; line-height: 1.4; }
+    .side-card h3 { font-size: 0.8125rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); margin-bottom: 1rem; }
+    .facts { list-style: none; margin: 0; padding: 0; }
+    .facts li { display: flex; gap: 0.7rem; padding: 0.55rem 0; border-top: 1px solid var(--border-soft); font-size: 0.9rem; color: var(--muted-strong); line-height: 1.4; }
+    .facts li:first-child { border-top: 0; padding-top: 0; }
+    .facts .bi { color: var(--brand); flex-shrink: 0; margin-top: 0.1rem; }
+    .pill-links { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+    .pill-link {
+      display: inline-flex; align-items: center; gap: 0.35rem;
+      padding: 0.35rem 0.85rem; border-radius: var(--radius-pill);
+      border: 1px solid var(--border); color: var(--text);
+      font-size: 0.8125rem; font-weight: 500;
+    }
+    .pill-link:hover { border-color: var(--brand); background: var(--brand); color: #fff; text-decoration: none; }
+
+    /* ── Footer ── */
+    footer { padding: 3rem 0 2rem; border-top: 1px solid var(--border-soft); background: var(--bg-secondary); font-size: 0.8125rem; color: var(--muted); }
+    .footer-grid { display: grid; gap: 1.5rem; }
+    @media (min-width: 760px) { .footer-grid { grid-template-columns: 2fr 1fr 1fr 1fr; } }
+    footer h2 { font-size: 0.875rem; margin-bottom: 0.75rem; }
+    footer a { display: block; color: var(--muted); line-height: 1.9; }
+    footer a:hover { color: var(--text); }
+
+    /* ── Reveal ── */
+    .js .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1), transform 0.7s cubic-bezier(0.22, 1, 0.36, 1); }
+    .js .reveal.visible { opacity: 1; transform: none; }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after { transition: none !important; }
+      .js .reveal { opacity: 1; transform: none; }
+    }
+
+    /* ── Print (for the magazine proof) ── */
+    @media print {
+      @page { size: A4; margin: 18mm 16mm; }
+      :root, :root[data-theme="dark"] {
+        --bg: #fff; --bg-secondary: #f5f5f7; --text: #1d1d1f; --muted: #555; --muted-strong: #333;
+        --brand: #d70015; --brand-soft: rgba(215, 0, 21, 0.07); --border: rgba(0,0,0,0.12); --border-soft: rgba(0,0,0,0.08);
+        --bg-inverse: #f5f5f7; --text-on-inverse: #1d1d1f;
+      }
+      body { font-size: 11pt; }
+      header, footer, .chips, .news-pill { display: none !important; }
+      .js .reveal { opacity: 1 !important; transform: none !important; }
+      .hero { padding: 0 0 1.5rem; background: none !important; }
+      .display-2 { font-size: 26pt; }
+      .layout { display: block; padding: 0; }
+      article { max-width: none; }
+      article h2 { break-after: avoid; margin-top: 1.75rem; }
+      .formats, .quote, .closing, .side-card { break-inside: avoid; }
+      .closing { color: #1d1d1f; }
+      .closing p { color: #333; }
+      .closing h2 .num { color: #d70015; }
+      aside { position: static; margin-top: 2rem; grid-template-columns: 1fr 1fr; }
+      .speaker-tile { display: none; }
+      a { color: inherit; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav class="navbar" aria-label="Navigasi utama">
+      <div class="container nav-inner">
+        <a class="brand" href="../">AI <span>or</span> DIE</a>
+        <ul class="nav-links">
+          <li><a href="#profil">Profil</a></li>
+          <li><a href="#ai-or-die">AI or DIE</a></li>
+          <li><a href="#pelatihan">Pelatihan</a></li>
+          <li><a href="#tata-kelola">Tata kelola</a></li>
+        </ul>
+        <div class="nav-actions">
+          <button type="button" class="print-btn" onclick="window.print()" aria-label="Cetak atau simpan sebagai PDF">
+            <i class="bi bi-printer"></i><span>PDF</span>
+          </button>
+          <button type="button" class="theme-toggle" data-theme-toggle aria-label="Ganti tema">
+            <i class="bi bi-sun-fill" data-theme-icon></i><span data-theme-label>Terang</span>
+          </button>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main id="top">
+    <!-- Hero -->
+    <section class="hero">
+      <div class="container">
+        <div class="hero-stage">
+          <div class="reveal">
+            <span class="news-pill">
+              <span class="news-pill-label">Proceeding</span>
+              <span>Komite.id &middot; Post DataGovAI 2026 Edition</span>
+            </span>
+          </div>
+          <p class="hero-eyebrow reveal">Profil &middot; Dr. Lofi Dewanto</p>
+          <h1 class="display-2 reveal">AI or DIE:<br><span class="text-gradient">Dari Java dan Open Source ke Agen AI</span></h1>
+          <p class="hero-lead reveal">Tiga dekade di garis depan software enterprise, dari Münster dan Köln hingga Jakarta, dan sebuah pesan untuk era agen AI.</p>
+          <div class="chips reveal">
+            <span class="chip"><i class="bi bi-cup-hot"></i> Java &amp; open source</span>
+            <span class="chip"><i class="bi bi-diagram-3"></i> Enterprise architect</span>
+            <span class="chip"><i class="bi bi-robot"></i> Agen AI</span>
+            <span class="chip"><i class="bi bi-mortarboard"></i> Pelatih &amp; pembicara</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="container">
+      <div class="layout">
+        <article>
+          <p class="intro reveal">Kecerdasan buatan tidak sekadar menambah fitur baru. AI mengubah cara software dibangun, cara organisasi bekerja, dan pada akhirnya cara kita hidup. Pesan ini dibawa Dr. Lofi Dewanto dalam seri <em>AI or DIE</em>, rangkaian keynote, talk dan workshop yang ia bawakan dari Köln hingga Jakarta.</p>
+
+          <section id="profil" class="reveal">
+            <h2><span class="num">01 &middot; Profil</span>Tiga dekade di garis depan software enterprise</h2>
+            <p>Lofi Dewanto memulai perjalanannya di University of Münster, Jerman, di jurusan Sistem Informasi (Wirtschaftsinformatik). Skripsinya tentang sistem pembelajaran berbasis internet pada 1998 menjadi cikal bakal <strong>OpenUSS</strong>, salah satu platform e-learning open source pertama di Jerman yang dibangun di atas Java 2 Enterprise Edition. Ia memimpin proyek itu sebagai peneliti di universitas yang sama, lalu meraih gelar doktor (Dr. rer. pol.) dengan spesialisasi <em>Model Driven Architecture</em> (MDA) dan rekayasa software. Ia juga menulis buku tentang MDA.</p>
+            <p>Pada awal 2000-an ia aktif di komunitas Java dan open source. Ia menulis untuk JavaMagazin Jerman dan menjadi pembicara di JAX, FOSDEM (Brussel), ObjectWeb (Paris), CONSOL (Mexico City) dan simposium e-learning di Lima. Sejak saat itu pula hubungannya dengan Indonesia terjalin: ia berbicara di konferensi e-learning di Jakarta pada 2001–2002, dan pada 2006 mengisi workshop <em>MDA and Java</em> di INIXINDO Jakarta.</p>
+            <p>Setelah dari kampus, Lofi Dewanto pindah ke industri. Di Deutsche Post Com dan Deutsche Post Renten Service ia memigrasikan sistem mainframe COBOL ke Java. Di Interseroh ia membangun kompetensi Java untuk portal ekonomi sirkular dan integrasi ERP. Sejak 2018 ia memimpin <em>Sales Applications Group — Java Competence Center</em> di DEVK Versicherungen, Köln. Di sana ia memodernisasi sistem asuransi berskala besar menjadi microservices dan arsitektur cloud di AWS. Pengalaman ini ia bagikan di JCON, IT-Tage dan JDConf.</p>
+            <p>Selain itu ia menjadi penasihat <strong>Mova Tech / Mova Intelligence</strong>, yang membangun agen <em>conversational AI</em> untuk bisnis Indonesia di WhatsApp, Telegram dan web, antara lain untuk MakanChat (restoran), Mandaya Hospital (kesehatan), Galva dan Kaze Rice (e-commerce) serta Goldenrama (travel). Pendekatan yang ia dorong disebut <em>Chat as Code</em>: agen AI dibangun dengan Java, Spring AI dan LangChain4j, jadi bisa diuji, di-versioning dan dioperasikan seperti software enterprise lainnya.</p>
+          </section>
+
+          <section id="ai-or-die" class="reveal">
+            <h2><span class="num">02 &middot; Kegiatan</span>AI or DIE: Disrupted, Irrelevant, Extinct, atau AI-native</h2>
+            <p>Seri <em>AI or DIE</em> berangkat dari pengalaman lebih dari setengah tahun membangun software sehari-hari bersama agen AI. Menurut Lofi Dewanto, organisasi hanya punya dua pilihan. Yang tidak beradaptasi akan <em>Disrupted</em>, <em>Irrelevant</em>, lalu <em>Extinct</em>. Yang beradaptasi menjadi <em>AI-native</em>.</p>
+            <p>Sepanjang 2026 pesan ini ia bawakan di banyak forum: keynote di viadee Round Table "KI in der Softwareentwicklung" (Köln, Juni 2026), tech talk di ITCS Köln (September 2026), talk undangan di rhenag Rheinische Energie AG, dan webinar <em>AI or DIE: The Digital Library</em> untuk ulang tahun ke-46 Perpustakaan Nasional RI (Mei 2026).</p>
+            <p>Ia menganalisis adopsi AI dengan kerangka <strong>TOE</strong> (Technology, Organisation, Environment). Teknologi saja tidak cukup. Struktur organisasi, peran manusia dan regulasi ikut menentukan apakah AI benar-benar memberi nilai. Ia juga melihat agen AI sebagai kelanjutan dari evolusi yang panjang:</p>
+            <div class="evolution" aria-label="Evolusi abstraksi software">
+              <span>RAD</span><i class="bi bi-chevron-right"></i>
+              <span>MDA</span><i class="bi bi-chevron-right"></i>
+              <span>Low-code</span><i class="bi bi-chevron-right"></i>
+              <span class="now">Agen AI</span>
+            </div>
+            <p>Bedanya, abstraksi sekarang ditulis dalam bahasa manusia.</p>
+          </section>
+
+          <section id="pelatihan" class="reveal">
+            <h2><span class="num">03 &middot; Pelatihan</span>Dari "MDA and Java" ke "AI and Java"</h2>
+            <p>Pelatihan adalah benang merah karier Lofi Dewanto. Ia rutin mengajar Java, Maven, Spring Boot dan GWT/J2CL dalam bahasa Jerman, Inggris dan Indonesia. Pada November 2025 ia mengisi workshop tiga jam di Jakarta, <em>AI Agent Workshop: How Generative AI Transforms Businesses in Indonesia</em>, untuk sekitar 20 peserta dari bidang travel, perkebunan padi, perpustakaan, e-commerce, konstruksi dan manufaktur.</p>
+            <p>Pada November 2026 ia membawa <em>Workshop AI or DIE</em> ke Jakarta dalam Bahasa Indonesia. Dua puluh tahun setelah <em>MDA and Java</em>, temanya kini <em>AI and Java</em>. Ada tiga format:</p>
+            <div class="formats">
+              <div class="format">
+                <span class="tag-chip">3 jam</span>
+                <h3>Academia</h3>
+                <p>Untuk mahasiswa, dosen dan peneliti: teori lebih dulu, lalu contoh praktik.</p>
+              </div>
+              <div class="format">
+                <span class="tag-chip">Sehari penuh</span>
+                <h3>Workshop</h3>
+                <p>Untuk developer dan tech lead: peserta membangun agen sendiri dengan Spring Boot dan Spring AI.</p>
+              </div>
+              <div class="format">
+                <span class="tag-chip">5 jam</span>
+                <h3>Executive</h3>
+                <p>Untuk pemimpin dan manajer: kerja manajerial langsung dan penyusunan <em>roadmap</em> AI.</p>
+              </div>
+            </div>
+            <p>Materinya mencakup cara LLM dibuat, anatomi agen (memori, RAG, <em>tools</em>, MCP), <em>spec-driven development</em> dengan OpenCode atau Claude Code, dari GitHub issue sampai fitur selesai, hingga pemakaian agen di luar coding: presentasi, riset, dokumen dan analisis saham (sebagai bahan belajar, bukan saran investasi).</p>
+          </section>
+
+          <section id="tata-kelola" class="reveal">
+            <h2><span class="num">04 &middot; Tata kelola</span>Tata kelola dan keamanan: AI yang bertanggung jawab</h2>
+            <p>Satu sesi selalu ia khususkan untuk keamanan, dan bagian ini paling dekat dengan semangat DataGovAI. Agen AI bisa membaca file, menjalankan perintah dan memanggil layanan eksternal. Karena itu tata kelola data harus dirancang sejak awal. Ia membahas:</p>
+            <ul class="check-list">
+              <li><i class="bi bi-shield-check"></i><span>pembedaan antara agen di server dan agen di klien, beserta hak aksesnya;</span></li>
+              <li><i class="bi bi-box"></i><span><em>sandbox</em> (misalnya Docker dan NVIDIA OpenShell) serta pengelolaan <em>secrets</em>;</span></li>
+              <li><i class="bi bi-exclamation-triangle"></i><span>risiko <em>prompt injection</em>;</span></li>
+              <li><i class="bi bi-person-check"></i><span>prinsip <em>human in the loop</em>, di mana keputusan penting tetap di tangan manusia;</span></li>
+              <li><i class="bi bi-file-earmark-lock"></i><span>kepatuhan terhadap <strong>UU Pelindungan Data Pribadi (UU PDP)</strong>.</span></li>
+            </ul>
+            <blockquote class="quote">
+              <p>Kecepatan tanpa tata kelola akan berujung pada risiko, sedangkan tata kelola tanpa keberanian bereksperimen akan berujung pada ketertinggalan.</p>
+            </blockquote>
+          </section>
+
+          <section class="closing reveal">
+            <h2><span class="num">05 &middot; Penutup</span>"Don't DIE, or at least DIE Hard"</h2>
+            <p>Lofi Dewanto melihat masa depan pengembangan software ada pada <em>product builder</em> dan tim-tim kecil yang dibantu agen AI. Syaratnya adalah perubahan pola pikir, bukan sekadar membeli alat baru. Ia berharap Indonesia tidak hanya menjadi pengguna AI, tetapi juga pembangun, dengan talenta yang paham teori, mahir praktik dan sadar tata kelola.</p>
+          </section>
+        </article>
+
+        <aside>
+          <div class="speaker-tile reveal">
+            <span class="initials">LD</span>
+            <p><strong>Dr. Lofi Dewanto</strong><br>Java &amp; open-source pioneer &middot; Enterprise architect &middot; Advisor Mova Intelligence</p>
+          </div>
+          <div class="side-card reveal">
+            <h3>Sekilas</h3>
+            <ul class="facts">
+              <li><i class="bi bi-mortarboard"></i><span>Dr. rer. pol., Sistem Informasi, University of Münster</span></li>
+              <li><i class="bi bi-building"></i><span>Head of Sales Applications Group, DEVK Versicherungen, Köln (sejak 2018)</span></li>
+              <li><i class="bi bi-chat-dots"></i><span>Advisor Mova Tech / Mova Intelligence</span></li>
+              <li><i class="bi bi-code-slash"></i><span>Pendiri OpenUSS, kontributor GWT / J2CL</span></li>
+              <li><i class="bi bi-mic"></i><span>Pembicara sejak 2001: JAX, FOSDEM, JCON, FrOSCon, ITCS</span></li>
+              <li><i class="bi bi-translate"></i><span>Mengajar dalam bahasa Jerman, Inggris dan Indonesia</span></li>
+            </ul>
+          </div>
+          <div class="side-card reveal">
+            <h3>Kontak</h3>
+            <div class="pill-links">
+              <a class="pill-link" href="https://www.linkedin.com/in/dr-lofi-dewanto-5812a012/" target="_blank" rel="noreferrer"><i class="bi bi-linkedin"></i> LinkedIn</a>
+              <a class="pill-link" href="https://github.com/lofidewanto" target="_blank" rel="noreferrer"><i class="bi bi-github"></i> GitHub</a>
+              <a class="pill-link" href="https://lofidewanto.medium.com/" target="_blank" rel="noreferrer"><i class="bi bi-medium"></i> Medium</a>
+              <a class="pill-link" href="../"><i class="bi bi-globe2"></i> AI or DIE</a>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <p class="brand" style="margin-bottom:0.75rem">AI <span>or</span> DIE</p>
+          <p>Talk, workshop dan materi oleh Dr. Lofi Dewanto</p>
+        </div>
+        <div>
+          <h2>Seri</h2>
+          <a href="../">Beranda</a>
+          <a href="../workshop-jakarta/workshops-jakarta-2026-11/?lang=id">Workshop Jakarta</a>
+        </div>
+        <div>
+          <h2>Pembicara</h2>
+          <a href="../cv-lofi-dewanto.html">Perjalanan karier</a>
+          <a href="https://sessionize.com/dewanto/" target="_blank" rel="noreferrer">Sessionize</a>
+        </div>
+        <div>
+          <h2>Lainnya</h2>
+          <a href="https://github.com/lofidewanto/ai-or-die" target="_blank" rel="noreferrer">GitHub repository</a>
+          <a href="https://mova-intelligence.com" target="_blank" rel="noreferrer">Mova Intelligence</a>
+        </div>
+      </div>
+      <p style="margin-top:2rem">Copyright &copy; 2026 Dr. Lofi Dewanto &middot; AI or DIE Series &middot; Proceeding Komite.id, Post DataGovAI 2026 Edition</p>
+    </div>
+  </footer>
+
+  <script>
+    (() => {
+      const root = document.documentElement;
+
+      /* ── Theme ── */
+      const icon = document.querySelector("[data-theme-icon]");
+      const label = document.querySelector("[data-theme-label]");
+      const renderTheme = () => {
+        const dark = root.getAttribute("data-theme") === "dark";
+        icon.className = dark ? "bi bi-moon-stars-fill" : "bi bi-sun-fill";
+        label.textContent = dark ? "Gelap" : "Terang";
+      };
+      document.querySelector("[data-theme-toggle]").addEventListener("click", () => {
+        const next = root.getAttribute("data-theme") === "dark" ? "light" : "dark";
+        root.setAttribute("data-theme", next);
+        try { localStorage.setItem("aiordie-theme", next); } catch (e) {}
+        renderTheme();
+      });
+      renderTheme();
+
+      /* ── Reveal ── */
+      const items = document.querySelectorAll(".reveal");
+      if (!("IntersectionObserver" in window)) {
+        items.forEach((el) => el.classList.add("visible"));
+        return;
+      }
+      const io = new IntersectionObserver((entries) => {
+        entries.forEach((e) => {
+          if (e.isIntersecting) { e.target.classList.add("visible"); io.unobserve(e.target); }
+        });
+      }, { threshold: 0.08 });
+      items.forEach((el) => io.observe(el));
+      window.addEventListener("beforeprint", () => items.forEach((el) => el.classList.add("visible")));
+    })();
+  </script>
+</body>
+</html>
